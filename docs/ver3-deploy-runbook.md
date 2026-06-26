@@ -115,7 +115,7 @@
 
 | 方式 | 必要なもの | 現状 |
 |------|------------|------|
-| **CF Pages** | GitHub 連携 or `wrangler pages deploy` · `apps/web` ビルド | `wrangler.toml` **なし** · runbook は TBD |
+| **CF Pages** | GitHub 連携 · `apps/web` · `@cloudflare/next-on-pages` | Build output **`.vercel/output/static`** · `npm run pages:build` |
 | **CF API hook** | `IHL_API_URL=https://api.it-hercules.uk` · VPS に `api` のみ deploy | runbook 確定 · **秘密注入は人間ゲート** |
 | **GitHub Actions** | 新 repo `.github/workflows/` — pytest · Playwright · deploy | civ-os 側に **テストのみ** 3 本 |
 | **VPS** | `docker compose -f docker-compose.prod.yml` · nginx · pm2 Express 停止 | [vps-api-deploy.md](./vps-api-deploy.md) · `deploy/nginx/ihl-api.conf` |
@@ -150,6 +150,7 @@
 | 変数 | 例 / 説明 |
 |------|-----------|
 | `IHL_API_URL` | `https://api.it-hercules.uk`（Pages rewrite 先） |
+| `NODE_VERSION` | `20`（Pages ビルド Node） |
 | `IHL_WEB_AUTH_BYPASS` | **未設定**（本番では middleware 認証 ON） |
 
 ### ローカル開発（ver2 互換 · 変更なし）
@@ -215,13 +216,24 @@ docker compose build api
 
 環境変数は **`.env.platform` をコミットせず**、VPS env / CF Dashboard に注入（**本 runbook に秘密を書かない**）。
 
-### 3. Web（Pages）デプロイ（案）
+### 3. Web（Pages）デプロイ
+
+**Cloudflare Dashboard（推奨）**
+
+| 設定 | 値 |
+|------|-----|
+| Root directory | `apps/web` |
+| Build command | `npm ci && npm run pages:build` |
+| Build output directory | **`.vercel/output/static`** |
+| Production env | `IHL_API_URL=https://api.it-hercules.uk` · `NODE_VERSION=20` |
+
+**ローカル検証**
 
 ```powershell
 cd apps\web
 npm ci
-npm run build
-# npx wrangler pages deploy .next/standalone — TBD
+npm run pages:build
+# 出力: .vercel/output/static （25 MiB 超ファイルが無いこと）
 ```
 
 `next.config.ts` の `/api/*` rewrite が `IHL_API_URL` を指すことを確認。

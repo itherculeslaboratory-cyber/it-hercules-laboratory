@@ -220,9 +220,12 @@ curl.exe -sS "https://api.it-hercules.uk/health"
 | **リポジトリ** | `it-hercules-laboratory` |
 | **Production branch** | `main` または `master`（repo の既定に合わせる） |
 | **Root directory** | `apps/web` |
-| **Build command** | `npm ci && npm run build` |
-| **Build output** | Next.js standalone の場合は開発者が `wrangler` / Pages 向け出力を確定（**未確定なら開発者ゲート**） |
-| **環境変数（Production）** | **`IHL_API_URL`** = `https://api.it-hercules.uk` |
+| **Framework preset** | **Next.js**（または Custom — 下表どおり） |
+| **Build command** | `npm ci && npm run pages:build` |
+| **Build output directory** | **`.vercel/output/static`**（**必須** — `.next` や空欄にすると 25 MiB 超の webpack cache で失敗） |
+| **環境変数（Production）** | **`IHL_API_URL`** = `https://api.it-hercules.uk` · **`NODE_VERSION`** = `20` |
+
+> **よくある失敗**: Build output を `.next` にすると `.next/cache/webpack/.../0.pack`（100 MiB 超）がアップロード対象になり `Pages only supports files up to 25 MiB` で落ちる。next-on-pages の正しい出力は **`.vercel/output/static`** のみ。
 
 `IHL_API_URL` が無いと、画面は `/api/*` を **間違った先**に転送する。
 

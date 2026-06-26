@@ -86,7 +86,7 @@ git push -u origin main
 
 ## push 後
 
-1. Cloudflare Pages — リポジトリ `it-hercules-laboratory` · root `apps/web`
+1. Cloudflare Pages — リポジトリ `it-hercules-laboratory` · root `apps/web` · output **`.vercel/output/static`** · build **`npm ci && npm run pages:build`**
 2. VPS — `git clone` 先を新 repo に切替（[vps-api-deploy.md](./vps-api-deploy.md)）
 3. civ-os CI（`ihl-*.yml`）は移行完了まで併存可 · 将来 IHL repo 内 `.github/workflows/` へ
 

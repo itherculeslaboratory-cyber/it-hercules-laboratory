@@ -1,0 +1,66 @@
+---
+description: IHL ver4 インフラ — Workers 主 API + VPS 薄 SMTP/magic-link（VPS-only / Workers-only 禁止）
+globs:
+  - apps/**
+  - deploy/**
+  - docs/**
+  - 02-設計/**
+alwaysApply: false
+---
+
+# IHL ver4 ハイブリッドインフラ（Workers × VPS）
+
+**正本**: [`docs/ver4-infra-agreement.md`](../docs/ver4-infra-agreement.md)  
+**ADR**: [`02-設計/_横断/adr/ADR-H-33-ver4-Workers-VPS-役割分離-v1.md`](../02-設計/_横断/adr/ADR-H-33-ver4-Workers-VPS-役割分離-v1.md)
+
+> **ver4 インフラは未完了**。本ルールは **設計コミットメント**と **実装時の禁止**を固定する。
+
+---
+
+## 禁止（ver4 出荷後）
+
+| ID | 禁止内容 |
+|----|----------|
+| **F1** | **全 API を VPS のみ**に載せる構成（post-ver4）— FastAPI/uvicorn が主 REST を独占 |
+| **F2** | **Workers-only** — VPS 常駐なしで SMTP magic link 実送信まで完結 |
+| **F3** | **重い ML**（DINOv2 本番バッチ等）を VPS または Workers のリクエストパスに載せる |
+| **F4** | **SwitchBot server-side poll** を VPS または Workers に載せる（ADR-H-30） |
+
+---
+
+## 必須の役割分担（ver4 ターゲット）
+
+| ホスト | MUST |
+|--------|------|
+| **Workers** | 主 API · スケール · R2 bindings · セッション検証 |
+| **VPS（薄）** | SMTP · magic-link 送信 kick · 最小常駐のみ |
+| **どちらでもない** | 重い ML · SwitchBot server poll |
+
+---
+
+## ver3 例外（暫定 · 有効中）
+
+ver4 インフラ移行が **未完了**の間は次を **許容**:
+
+- **FastAPI 全量 on Sakura VPS 512MB**（[`docs/ver3-deploy-runbook.md`](../docs/ver3-deploy-runbook.md)）
+- CF Pages + `api.it-hercules.uk` rewrite → VPS
+
+**MUST NOT**: ver3 暫定を「最終アーキテクチャ」と doc・runbook に記載する。
+
+---
+
+## エージェント向けチェック
+
+```
+[ ] 新規デプロイ案が F1（VPS-only API）または F2（Workers-only）になっていないか
+[ ] 重い ML / SwitchBot poll をサーバに載せる提案をしていないか（F3/F4）
+[ ] ver3 作業なら ver3-deploy-runbook を正とし、ver4 完了を主張していないか
+[ ] 詳細は ver4-infra-agreement.md §6 チェックリストを参照したか
+```
+
+---
+
+## 参照
+
+- [`docs/ver3-deploy-runbook.md`](../docs/ver3-deploy-runbook.md) — ver3 暫定
+- [`02-設計/_横断/IHL-段階リリース計画-ver1-4+.md`](../02-設計/_横断/IHL-段階リリース計画-ver1-4+.md) — ver3/ver4+ 機能計画

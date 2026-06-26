@@ -1,5 +1,7 @@
 /** SwitchBot sync / ingest snapshot → structured row value (OBS-RX · ADR-H-35). */
 
+import { normalizeStructuredRowMethod, type StructuredRowData } from "@/lib/observation-draft";
+
 export interface DeviceSyncResponse {
   status?: string;
   device_id?: string;
@@ -33,18 +35,10 @@ export function resolvePhotoConditionMethodChoices(item: string): PhotoCondition
 }
 
 /** 旧 draft / テンプレ由来の不正 method を手入力へ矯正 */
-export function sanitizePhotoConditionRow<T extends { item: string; method: string; deviceId?: string }>(
-  row: T,
-): T {
+export function sanitizePhotoConditionRow(row: StructuredRowData): StructuredRowData {
   const item = row.item.trim();
   const allowed = resolvePhotoConditionMethodChoices(item);
-  let method = row.method;
-  if (method === "iot") {
-    method = "iot_switchbot";
-  }
-  if (method === "ingest_snapshot" || method === "registry_poll" || method === "device_fetch") {
-    method = "manual_entry";
-  }
+  let method = normalizeStructuredRowMethod(row.method);
   if (!allowed.includes(method as PhotoConditionMethod)) {
     method = "manual_entry";
   }

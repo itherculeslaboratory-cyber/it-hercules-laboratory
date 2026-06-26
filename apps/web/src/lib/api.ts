@@ -1,8 +1,5 @@
 import { AUTH_SESSION_COOKIE, getCookie } from "@/lib/auth-session";
-import { resolvePublicApiBase, resolveServerApiBase } from "@/lib/api-base";
-
-const API_BASE =
-  typeof window === "undefined" ? resolveServerApiBase() : resolvePublicApiBase();
+import { resolveApiBase, resolveApiPath } from "@/lib/api-base";
 
 function sessionHeaders(): Record<string, string> {
   const token = getCookie(AUTH_SESSION_COOKIE);
@@ -23,7 +20,7 @@ export class ApiError extends Error {
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const url = `${API_BASE}${path}`;
+  const url = resolveApiPath(path);
   const isFormData = typeof FormData !== "undefined" && init?.body instanceof FormData;
   const res = await fetch(url, {
     ...init,

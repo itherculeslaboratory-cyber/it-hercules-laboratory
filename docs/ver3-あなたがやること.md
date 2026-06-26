@@ -245,7 +245,7 @@ curl.exe -sS "https://api.it-hercules.uk/health"
 
 | 症状 | 原因 | 対処 |
 |------|------|------|
-| 全 API が **403** · Network が `it-hercules.uk/api/...` | Pages が外部 VPS へ proxy できない | 本リポジトリ最新を再デプロイ · `IHL_API_URL=https://api.it-hercules.uk` · VPS に `IHL_CORS_ORIGINS=https://it-hercules.uk` |
+| 全 API が **403** · Network が `it-hercules.uk/api/...` | Pages が外部 VPS へ proxy できない | **最新 main を再デプロイ**（`it-hercules.uk` ランタイムフォールバック込み）· 推奨: `IHL_API_URL=https://api.it-hercules.uk` · VPS に `IHL_CORS_ORIGINS=https://it-hercules.uk` |
 | `api.it-hercules.uk` は 200 だが画面だけ死ぬ | 上記 | Network で Host が **`api.it-hercules.uk`** になっていることを確認 |
 
 旧手順（Vite 用）の考え方: [cloudflare-pages-it-hercules-copypaste-ja.md](../../../docs/runbooks/cloudflare-pages-it-hercules-copypaste-ja.md) — **Root は `frontend` ではなく `apps/web`** に読み替える。

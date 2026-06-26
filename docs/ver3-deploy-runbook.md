@@ -154,7 +154,7 @@
 | `NODE_VERSION` | `20`（Pages ビルド Node） |
 | `IHL_WEB_AUTH_BYPASS` | **未設定**（本番では middleware 認証 ON） |
 
-> **403 / CF Error 1003（`/api/*`）**: Cloudflare Pages は **外部 VPS への transparent proxy rewrite をサポートしない**。ブラウザが `it-hercules.uk/api/...` を叩くと **403（Direct IP access not allowed）** になる。**対策**: 本ビルド以降は `IHL_API_URL=https://api.it-hercules.uk` でブラウザが `api.it-hercules.uk` を直叩き。VPS 側 `IHL_CORS_ORIGINS=https://it-hercules.uk` 必須。
+> **403 / CF Error 1003（`/api/*`）**: Cloudflare Pages は **外部 VPS への transparent proxy rewrite をサポートしない**（`_routes.json` でも外部 proxy は不可）。ブラウザが `it-hercules.uk/api/...` を叩くと **403** になる。**対策（二重）**: (1) Pages Production に `IHL_API_URL=https://api.it-hercules.uk` を設定して再デプロイ（ビルド時 `NEXT_PUBLIC_IHL_API_URL` へ焼き込み）。(2) **2026-06-26 以降のコード**は env 未設定でも `it-hercules.uk` ホストから **`api.it-hercules.uk` 直叩き**にランタイムフォールバック。VPS 側 `IHL_CORS_ORIGINS=https://it-hercules.uk` 必須。
 
 ### ローカル開発（ver2 互換 · 変更なし）
 

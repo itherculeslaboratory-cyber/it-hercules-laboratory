@@ -9,6 +9,7 @@ import { StatePanel } from "@/components/ui/state-panel";
 import { PageColumn, Stack } from "@/components/layout/page-column";
 import { ContextPicker } from "@/components/observation/context-picker";
 import { useObservationSearch } from "@/hooks/useObservationSearch";
+import { resolveApiPath } from "@/lib/api-base";
 import { photoAbsentMessage } from "@/lib/observation-photo";
 
 function formatObservedAt(value?: string) {
@@ -101,7 +102,7 @@ export default function ObservationSearchPage() {
                     {item.image_url ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
-                        src={item.image_url}
+                        src={resolveApiPath(item.image_url)}
                         alt=""
                         className="h-full w-full object-contain"
                         data-testid="obs-grid-thumbnail"

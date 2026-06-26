@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
+import { resolveApiPath } from "@/lib/api-base";
 import { photoAbsentMessage, type PhotoAbsentReason } from "@/lib/observation-photo";
 import { formatValueOriginLabel, valueOriginTone } from "@/lib/value-origin";
 
@@ -85,7 +86,7 @@ function SimilarThumbnail({ hit }: { hit: SimilarHitRow }) {
       <div className="h-14 w-[4.5rem] shrink-0 overflow-hidden rounded-button border border-civ-border bg-civ-section">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={hit.image_url}
+          src={resolveApiPath(hit.image_url)}
           alt=""
           className="h-full w-full object-cover"
         />
@@ -162,7 +163,7 @@ export function ObservationDetailSections({
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={imageUrl}
+                  src={resolveApiPath(imageUrl)}
                   alt={`観測写真 ${captureId}`}
                   className="h-full w-full object-contain"
                 />
@@ -308,7 +309,7 @@ export function ObservationDetailSections({
 
           <div className="flex flex-wrap gap-2">
             <Link
-              href={`/api/v1/observation/${captureId}/reanalysis-manifest`}
+              href={resolveApiPath(`/api/v1/observation/${captureId}/reanalysis-manifest`)}
               className="inline-flex rounded-button border border-civ-border px-3 py-2 text-xs no-underline text-civ-fg hover:border-civ-info"
               data-testid="obs-detail-manifest-link"
               target="_blank"

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
+import { AuthenticatedImage } from "@/components/observation/AuthenticatedImage";
 import { resolveApiPath } from "@/lib/api-base";
 import { photoAbsentMessage, type PhotoAbsentReason } from "@/lib/observation-photo";
 import { formatValueOriginLabel, valueOriginTone } from "@/lib/value-origin";
@@ -84,9 +85,8 @@ function SimilarThumbnail({ hit }: { hit: SimilarHitRow }) {
   if (hit.image_url) {
     return (
       <div className="h-14 w-[4.5rem] shrink-0 overflow-hidden rounded-button border border-civ-border bg-civ-section">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={resolveApiPath(hit.image_url)}
+        <AuthenticatedImage
+          src={hit.image_url}
           alt=""
           className="h-full w-full object-cover"
         />
@@ -161,11 +161,11 @@ export function ObservationDetailSections({
                 className="aspect-[4/3] bg-civ-section border-b border-civ-border"
                 data-testid="obs-detail-photo"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={resolveApiPath(imageUrl)}
+                <AuthenticatedImage
+                  src={imageUrl}
                   alt={`観測写真 ${captureId}`}
                   className="h-full w-full object-contain"
+                  data-testid="obs-detail-photo-img"
                 />
               </div>
             ) : (

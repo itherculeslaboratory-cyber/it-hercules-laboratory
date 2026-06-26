@@ -19,20 +19,23 @@ export class ApiError extends Error {
   }
 }
 
-async function request<T>(path: string, init?: RequestInit): Promise<T> {
+async function authedFetch(path: string, init?: RequestInit): Promise<Response> {
   const url = resolveApiPath(path);
   const isFormData = typeof FormData !== "undefined" && init?.body instanceof FormData;
-  const res = await fetch(url, {
+  const hasJsonBody = init?.body != null && !isFormData;
+  return fetch(url, {
     ...init,
-    headers: isFormData
-      ? { ...sessionHeaders(), ...init?.headers }
-      : {
-          "Content-Type": "application/json",
-          ...sessionHeaders(),
-          ...init?.headers,
-        },
+    headers: {
+      ...(hasJsonBody ? { "Content-Type": "application/json" } : {}),
+      ...sessionHeaders(),
+      ...init?.headers,
+    },
     cache: "no-store",
   });
+}
+
+async function request<T>(path: string, init?: RequestInit): Promise<T> {
+  const res = await authedFetch(path, init);
   if (!res.ok) {
     let detail = res.statusText;
     try {
@@ -46,6 +49,22 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   return res.json() as Promise<T>;
 }
 
+async function fetchBlob(path: string): Promise<string> {
+  const res = await authedFetch(path);
+  if (!res.ok) {
+    let detail = res.statusText;
+    try {
+      const body = await res.json();
+      detail = body.detail ?? body.message ?? detail;
+    } catch {
+      /* ignore */
+    }
+    throw new ApiError(String(detail), res.status);
+  }
+  const blob = await res.blob();
+  return URL.createObjectURL(blob);
+}
+
 export const api = {
   get: <T>(path: string) => request<T>(path),
   post: <T>(path: string, body: unknown) =>
@@ -54,4 +73,5 @@ export const api = {
     request<T>(path, { method: "PUT", body: JSON.stringify(body) }),
   postForm: <T>(path: string, formData: FormData) =>
     request<T>(path, { method: "POST", body: formData }),
+  fetchBlob,
 };

@@ -99,6 +99,8 @@ curl -sS http://127.0.0.1:8000/health
 
 **観測 commit と CORS**: `POST /api/solid-observation/commit` は `photo_data_url`（base64）を含むため JSON が **1MB 超**になりやすい。nginx 既定 `client_max_body_size 1m` のままだと **413** が FastAPI を経由せず返り、ブラウザは **CORS エラー**（`No Access-Control-Allow-Origin`）に見える。テンプレ保存（`/api/v1/observation/templates`）は小さい JSON のため同症状が出にくい。
 
+**観測写真表示（`IHL_AUTH_REQUIRED=1`）**: 詳細 JSON は `fetch` + `X-IHL-Session` で取得できるが、`<img src="https://api.it-hercules.uk/.../image">` は **カスタムヘッダーを送れない**ため **401 → 壊れた画像アイコン**。フロントは `AuthenticatedImage`（blob fetch）を使う。未認証 curl で image が 401 になるのは正常。
+
 [`deploy/nginx/ihl-api.conf`](../deploy/nginx/ihl-api.conf) は **`client_max_body_size 25m`** と nginx 生成エラー向け CORS を含む。更新後:
 
 ```bash

@@ -239,3 +239,42 @@ def test_it_01_13_observation_auth_bypass_in_dev(client: TestClient) -> None:
     """ver3: 既定（auth OFF）では観測 search が通る。"""
     res = client.post("/api/v1/observation/search", json={"limit": 5})
     assert res.status_code == 200
+
+
+def test_it_01_14_observation_image_requires_session_when_auth_on(
+    client: TestClient, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Cross-origin img cannot send X-IHL-Session — browser must fetch blob with header."""
+    monkeypatch.setenv("IHL_AUTH_REQUIRED", "1")
+    monkeypatch.setenv("IHL_R2_LOCAL_ROOT", str(tmp_path / "r2"))
+    reset_stores_for_tests()
+    tiny_png = (
+        "data:image/png;base64,"
+        "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+    )
+    monkeypatch.setenv("IHL_DEV_EXPOSE_MAGIC_TOKEN", "1")
+    token = client.post(
+        "/api/v1/auth/magic-link", json={"email": "photo@example.com"}
+    ).json()["dev_token"]
+    session_token = client.post("/api/v1/auth/verify", json={"token": token}).json()["session_token"]
+    headers = {"X-IHL-Session": session_token}
+
+    commit = client.post(
+        "/api/solid-observation/commit",
+        json={
+            "species": "Dynastes hercules hercules",
+            "has_photo": True,
+            "photo_data_url": tiny_png,
+            "rows": [{"item": "体長", "value": "70", "unit": "mm", "method": "manual_entry"}],
+        },
+        headers=headers,
+    )
+    assert commit.status_code == 201
+    capture_id = commit.json()["captureId"]
+
+    unauth = client.get(f"/api/v1/observation/{capture_id}/image")
+    assert unauth.status_code == 401
+
+    authed = client.get(f"/api/v1/observation/{capture_id}/image", headers=headers)
+    assert authed.status_code == 200
+    assert authed.headers["content-type"].startswith("image/")

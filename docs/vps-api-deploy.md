@@ -97,6 +97,24 @@ curl -sS http://127.0.0.1:8000/health
 
 ## 4. nginx（3001 → 8000）
 
+**観測 commit と CORS**: `POST /api/solid-observation/commit` は `photo_data_url`（base64）を含むため JSON が **1MB 超**になりやすい。nginx 既定 `client_max_body_size 1m` のままだと **413** が FastAPI を経由せず返り、ブラウザは **CORS エラー**（`No Access-Control-Allow-Origin`）に見える。テンプレ保存（`/api/v1/observation/templates`）は小さい JSON のため同症状が出にくい。
+
+[`deploy/nginx/ihl-api.conf`](../deploy/nginx/ihl-api.conf) は **`client_max_body_size 25m`** と nginx 生成エラー向け CORS を含む。更新後:
+
+```bash
+sudo cp deploy/nginx/ihl-api.conf /etc/nginx/conf.d/ihl-api.conf
+sudo nginx -t && sudo systemctl reload nginx
+```
+
+検証（1.5MB 超の POST が 413 ではなく FastAPI 422/401 になること · CORS ヘッダー付き）:
+
+```bash
+curl -sS -D - -o /dev/null -X POST "https://api.it-hercules.uk/api/solid-observation/commit" \
+  -H "Origin: https://it-hercules.uk" -H "Content-Type: application/json" \
+  --data-binary @<(python3 -c "import json; print(json.dumps({'species':'x','rows':[{'item':'a','value':'1'}],'photo_data_url':'data:image/png;base64,'+'A'*1500000}))")
+# 期待: 401 または 422 + access-control-allow-origin: https://it-hercules.uk（413 ではない）
+```
+
 既存 `civ-api.conf` 等がある場合は `proxy_pass` のみ変更:
 
 ```diff

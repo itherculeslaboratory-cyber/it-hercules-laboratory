@@ -71,10 +71,18 @@ app.include_router(gmo_router)
 app.include_router(individuals_router)
 
 def _cors_origins() -> list[str]:
-    origins = ["http://localhost:3000", "http://127.0.0.1:3000"]
+    origins = [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "https://it-hercules.uk",
+        "https://www.it-hercules.uk",
+    ]
     extra = os.environ.get("IHL_CORS_ORIGINS", "").strip()
     if extra:
-        origins.extend(part.strip() for part in extra.split(",") if part.strip())
+        for part in extra.split(","):
+            part = part.strip()
+            if part and part not in origins:
+                origins.append(part)
     return origins
 
 

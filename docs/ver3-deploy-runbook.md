@@ -149,9 +149,12 @@
 
 | 変数 | 例 / 説明 |
 |------|-----------|
-| `IHL_API_URL` | `https://api.it-hercules.uk`（Pages rewrite 先） |
+| `IHL_API_URL` | `https://api.it-hercules.uk`（SSR rewrite 先 · **https ならビルド時に `NEXT_PUBLIC_IHL_API_URL` へも反映**） |
+| `NEXT_PUBLIC_IHL_API_URL` | 省略可（`IHL_API_URL` が `https://` のとき自動）。ブラウザは **同一オリジン `/api` ではなく API 直叩き**（CORS） |
 | `NODE_VERSION` | `20`（Pages ビルド Node） |
 | `IHL_WEB_AUTH_BYPASS` | **未設定**（本番では middleware 認証 ON） |
+
+> **403 / CF Error 1003（`/api/*`）**: Cloudflare Pages は **外部 VPS への transparent proxy rewrite をサポートしない**。ブラウザが `it-hercules.uk/api/...` を叩くと **403（Direct IP access not allowed）** になる。**対策**: 本ビルド以降は `IHL_API_URL=https://api.it-hercules.uk` でブラウザが `api.it-hercules.uk` を直叩き。VPS 側 `IHL_CORS_ORIGINS=https://it-hercules.uk` 必須。
 
 ### ローカル開発（ver2 互換 · 変更なし）
 
@@ -266,7 +269,7 @@ npm run pages:build
 
 | # | 確認 |
 |---|------|
-| 1 | `https://api.it-hercules.uk/health` → 200 · Pages 経由 `/api/*` も 200 |
+| 1 | `https://api.it-hercules.uk/health` → 200 · ブラウザ Network で API が **`api.it-hercules.uk`**（同一オリジン `/api` ではない） |
 | 2 | `/login` → magic link（本番はメール受信） |
 | 3 | `/observation` 検索 · 詳細 · 画像 |
 | 4 | 観測 commit → 本番 R2 に blob 存在 |

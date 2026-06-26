@@ -241,7 +241,12 @@ curl.exe -sS "https://api.it-hercules.uk/health"
 
 > **よくある失敗**: Build output を `.next` にすると `.next/cache/webpack/client-production/0.pack`（30〜100 MiB 超）がアップロード対象になり `Pages only supports files up to 25 MiB` で **Validating asset output directory** 段階で落ちる。next-on-pages の正しい出力は **`.vercel/output/static`** のみ。`apps/web/wrangler.toml` でも同じパスを固定している。
 
-`IHL_API_URL` が無いと、画面は `/api/*` を **間違った先**に転送する。
+`IHL_API_URL` が無いと、SSR の rewrite 先が `localhost:8000` になる。**ブラウザは同一オリジン `/api` を叩かない**（2026-06-26 修正）— `IHL_API_URL=https://api.it-hercules.uk` をビルドに渡すと **`api.it-hercules.uk` 直叩き（CORS）**。Pages の `/api` proxy は CF **403 / Error 1003** になるため使わない。
+
+| 症状 | 原因 | 対処 |
+|------|------|------|
+| 全 API が **403** · Network が `it-hercules.uk/api/...` | Pages が外部 VPS へ proxy できない | 本リポジトリ最新を再デプロイ · `IHL_API_URL=https://api.it-hercules.uk` · VPS に `IHL_CORS_ORIGINS=https://it-hercules.uk` |
+| `api.it-hercules.uk` は 200 だが画面だけ死ぬ | 上記 | Network で Host が **`api.it-hercules.uk`** になっていることを確認 |
 
 旧手順（Vite 用）の考え方: [cloudflare-pages-it-hercules-copypaste-ja.md](../../../docs/runbooks/cloudflare-pages-it-hercules-copypaste-ja.md) — **Root は `frontend` ではなく `apps/web`** に読み替える。
 
@@ -268,7 +273,7 @@ curl.exe -sI "https://it-hercules.uk/" | findstr HTTP
 curl.exe -sS "https://api.it-hercules.uk/health"
 ```
 
-ブラウザで `https://it-hercules.uk` を開き、開発者ツールの **Network** で API が **`api.it-hercules.uk`** に飛んでいるか見る。
+ブラウザで `https://it-hercules.uk` を開き、開発者ツールの **Network** で API が **`api.it-hercules.uk`** に飛んでいるか見る（`it-hercules.uk/api/...` のままなら再デプロイ未反映）。
 
 ---
 

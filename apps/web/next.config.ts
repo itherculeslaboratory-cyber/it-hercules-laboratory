@@ -1,14 +1,11 @@
 import type { NextConfig } from "next";
-
-const normalizeApiBase = (raw: string): string => {
-  const trimmed = raw.trim().replace(/\/+$/, "");
-  if (trimmed.endsWith("/api")) {
-    return trimmed.slice(0, -4);
-  }
-  return trimmed;
-};
+import { normalizeApiBase, resolvePublicApiBase } from "./src/lib/api-base";
 
 const nextConfig: NextConfig = {
+  env: {
+    // Bake public API origin at build time (CF Pages cannot proxy /api to external VPS).
+    NEXT_PUBLIC_IHL_API_URL: resolvePublicApiBase(),
+  },
   async rewrites() {
     const apiBase = normalizeApiBase(process.env.IHL_API_URL ?? "http://localhost:8000");
     return [

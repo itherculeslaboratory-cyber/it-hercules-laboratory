@@ -1,17 +1,8 @@
 import { AUTH_SESSION_COOKIE, getCookie } from "@/lib/auth-session";
-
-const normalizeApiBase = (raw: string): string => {
-  const trimmed = raw.trim().replace(/\/+$/, "");
-  if (trimmed.endsWith("/api")) {
-    return trimmed.slice(0, -4);
-  }
-  return trimmed;
-};
+import { resolvePublicApiBase, resolveServerApiBase } from "@/lib/api-base";
 
 const API_BASE =
-  typeof window === "undefined"
-    ? normalizeApiBase(process.env.IHL_API_URL ?? "http://localhost:8000")
-    : "";
+  typeof window === "undefined" ? resolveServerApiBase() : resolvePublicApiBase();
 
 function sessionHeaders(): Record<string, string> {
   const token = getCookie(AUTH_SESSION_COOKIE);

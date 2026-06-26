@@ -13,7 +13,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 WORKDIR /app
 
 # Phase 1 pyproject deps only (no torch/opencv — optional profile later)
-COPY pyproject.toml README.md ./
+COPY pyproject.toml README.md IMPLEMENTATION.md ./
 COPY libs/ libs/
 COPY components/ components/
 COPY apps/search/ apps/search/

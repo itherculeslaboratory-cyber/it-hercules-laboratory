@@ -15,6 +15,7 @@ build/
 schemas/
 *.md
 !README.md
+!IMPLEMENTATION.md
 Dockerfile
 docker-compose.yml
 Makefile

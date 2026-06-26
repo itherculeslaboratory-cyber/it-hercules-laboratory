@@ -9,7 +9,6 @@ const normalizeApiBase = (raw: string): string => {
 };
 
 const nextConfig: NextConfig = {
-  output: "standalone",
   async rewrites() {
     const apiBase = normalizeApiBase(process.env.IHL_API_URL ?? "http://localhost:8000");
     return [

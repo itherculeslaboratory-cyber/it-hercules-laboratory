@@ -3,6 +3,8 @@ import { AppShell } from "@/components/layout/app-shell";
 import { BRAND_ASSETS } from "@/lib/brand-assets";
 import "./globals.css";
 
+export const runtime = 'edge';
+
 export const metadata: Metadata = {
   title: "IT Hercules Laboratory",
   description: "研究観測・血統・マーケット統合プラットフォーム",

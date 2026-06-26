@@ -90,15 +90,11 @@ export function StructuredRow({
   const rowLocked = locked || Boolean(row.locked);
   const prefix = `${testIdPrefix}-${group}-${index}`;
 
-  const envMethodChoices =
-    group === "env_snapshot"
-      ? (["manual_entry", "device_fetch"] as const)
-      : methodChoices;
-  const rawMethod =
+  const envMethodChoices: StructuredRowMethod[] =
+    group === "env_snapshot" ? ["manual_entry", "device_fetch"] : methodChoices;
+  const rawMethod: StructuredRowMethod =
     row.method === "ingest_snapshot" || row.method === "registry_poll" ? "device_fetch" : row.method;
-  const effectiveMethod = envMethodChoices.includes(rawMethod as StructuredRowMethod)
-    ? rawMethod
-    : envMethodChoices[0];
+  const effectiveMethod = envMethodChoices.includes(rawMethod) ? rawMethod : envMethodChoices[0];
   const showEnvSourceBadge = envSnapshotShowsSourceBadge(group, sourceTag, rowLocked);
 
   return (

@@ -1,0 +1,33 @@
+# cross.schema.yaml — Cross 初期事実 Truth · ADR-H-11 / ADR-cross-status-event
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: cross
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Cross
+type: object
+required:
+  - cross_id
+  - cross_name
+  - planned_at
+  - actor_id
+  - created_at
+  - schema_version
+properties:
+  cross_id:
+    type: string
+  cross_name:
+    type: string
+  planned_at:
+    type: string
+    format: date-time
+  actor_id:
+    type: string
+  note:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

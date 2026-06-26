@@ -1,0 +1,74 @@
+# capture.schema.yaml — 観測キャプチャ Truth · schema-pack v1
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: capture
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: IHL Capture
+type: object
+required:
+  - capture_id
+  - individual_id
+  - image_id
+  - image_path
+  - capture_timestamp
+  - schema_version
+  - run_id
+  - created_at
+properties:
+  capture_id:
+    type: string
+  individual_id:
+    type: string
+  image_id:
+    type: string
+  image_path:
+    type: string
+    description: R2 key under raw/ or normalized/
+  capture_timestamp:
+    type: string
+    format: date-time
+  year:
+    type: integer
+  species:
+    type: string
+  sex:
+    type: string
+    enum_ref: dictionaries/sex.yaml
+  alive_status:
+    type: string
+    enum_ref: dictionaries/alive_status.yaml
+  stage_name:
+    type: string
+    enum_ref: dictionaries/stage_name.yaml
+  stage_subtype:
+    type: string
+    enum_ref: dictionaries/larva_subtype.yaml
+  view_type:
+    type: string
+    enum_ref: dictionaries/view_type.yaml
+  source_type:
+    type: string
+    enum_ref: dictionaries/source_type.yaml
+  observation_target_domain:
+    type: string
+    enum_ref: dictionaries/observation_target_domain.yaml
+  raw_source_ref:
+    type: string
+  missing_reason:
+    type: string
+  observation_context:
+    type: object
+    description: ADR-H-15 propagated context
+  record_version:
+    type: integer
+  schema_version:
+    type: integer
+    minimum: 1
+  run_id:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+  provenance:
+    $ref: ../common/provenance.schema.yaml
+additionalProperties: false

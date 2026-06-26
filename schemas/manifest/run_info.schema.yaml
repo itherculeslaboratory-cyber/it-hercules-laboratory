@@ -1,0 +1,67 @@
+# run_info.schema.yaml — pipeline run 監査 Truth · Phase 1
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: run_info
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Run Info
+type: object
+required:
+  - run_id
+  - component_name
+  - component_version
+  - pipeline_name
+  - pipeline_version
+  - input_manifest
+  - output_path
+  - output_manifest
+  - errors_path
+  - created_at
+  - finished_at
+  - status
+  - schema_version
+properties:
+  run_id:
+    type: string
+  component_name:
+    type: string
+  component_version:
+    type: string
+  pipeline_name:
+    type: string
+  pipeline_version:
+    type: string
+  input_manifest:
+    type: string
+  output_path:
+    type: string
+  output_manifest:
+    type: string
+  errors_path:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+  finished_at:
+    type: string
+    format: date-time
+  status:
+    type: string
+    enum: [queued, running, succeeded, failed, cancelled]
+  git_commit:
+    type: string
+  docker_image:
+    type: string
+  parameters:
+    type: object
+  input_count:
+    type: integer
+  output_count:
+    type: integer
+  error_count:
+    type: integer
+  warning_count:
+    type: integer
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

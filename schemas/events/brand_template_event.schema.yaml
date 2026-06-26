@@ -1,0 +1,53 @@
+# brand_template_event.schema.yaml — ブランドテンプレイベント Truth · #28
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: brand_template_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Brand Template Event
+type: object
+required:
+  - event_id
+  - owner_user_id
+  - template_id
+  - event_type
+  - pattern
+  - series
+  - occurred_at
+  - schema_version
+properties:
+  event_id:
+    type: string
+  owner_user_id:
+    type: string
+  template_id:
+    type: string
+  event_type:
+    type: string
+    enum: [template_created, template_updated, template_deactivated]
+  template_name:
+    type: string
+  pattern:
+    type: string
+  series:
+    type: string
+  seq_scope:
+    type: string
+    enum: [owner_user_id_series_year]
+    description: Q2=C 固定
+  active:
+    type: boolean
+  changed_fields:
+    type: array
+    items:
+      type: string
+  reason:
+    type: string
+  actor_id:
+    type: string
+  occurred_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

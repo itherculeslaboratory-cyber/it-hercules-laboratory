@@ -1,0 +1,131 @@
+# searchable_capture_set.schema.yaml — 検索投影 Snapshot · Phase 1
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: searchable_capture_set
+x_ihl_schema_version: 1
+x_ihl_layer: snapshot
+title: Searchable Capture Set Row
+type: object
+required:
+  - capture_id
+  - individual_id
+  - snapshot_id
+  - species
+  - capture_timestamp
+  - schema_version
+  - run_id
+  - created_at
+properties:
+  capture_id:
+    type: string
+  individual_id:
+    type: string
+  image_id:
+    type: string
+  snapshot_id:
+    type: string
+  species:
+    type: string
+  year:
+    type: integer
+  capture_timestamp:
+    type: string
+    format: date-time
+  sex:
+    type: string
+    enum_ref: dictionaries/sex.yaml
+  alive_status:
+    type: string
+    enum_ref: dictionaries/alive_status.yaml
+  stage_name:
+    type: string
+    enum_ref: dictionaries/stage_name.yaml
+  stage_subtype:
+    type: string
+    enum_ref: dictionaries/larva_subtype.yaml
+  view_type:
+    type: string
+    enum_ref: dictionaries/view_type.yaml
+  qc_flag:
+    type: string
+    enum_ref: dictionaries/qc_flag.yaml
+  qc_score:
+    type: number
+  body_length_mm:
+    type: number
+  body_length_value_origin:
+    type: string
+    enum_ref: dictionaries/value_origin.yaml
+  horn_length_mm:
+    type: number
+  horn_length_value_origin:
+    type: string
+    enum_ref: dictionaries/value_origin.yaml
+  thorax_width_mm:
+    type: number
+  thorax_width_value_origin:
+    type: string
+    enum_ref: dictionaries/value_origin.yaml
+  weight_g:
+    type: number
+  weight_value_origin:
+    type: string
+    enum_ref: dictionaries/value_origin.yaml
+  hue_mean:
+    type: number
+  hue_std:
+    type: number
+  saturation_mean:
+    type: number
+  saturation_std:
+    type: number
+  brightness_mean:
+    type: number
+  brightness_std:
+    type: number
+  black_ratio:
+    type: number
+  aspect_ratio:
+    type: number
+  symmetry_score:
+    type: number
+  derived_sire_individual_id:
+    type: string
+    description: Snapshot 派生 · CrossParent から再計算
+  derived_dam_individual_id:
+    type: string
+    description: Snapshot 派生 · CrossParent から再計算
+  lineage_id:
+    type: string
+  lineage_group:
+    type: string
+  thumbnail_path:
+    type: string
+  image_path:
+    type: string
+  embedding_ref:
+    type: string
+  pipeline_name:
+    type: string
+  pipeline_version:
+    type: string
+  model_name:
+    type: string
+  model_version:
+    type: string
+  input_hash:
+    type: string
+  recomputed_at:
+    type: string
+    format: date-time
+  source_event_max_created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+  run_id:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+additionalProperties: false

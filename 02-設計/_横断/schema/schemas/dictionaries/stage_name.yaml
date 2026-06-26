@@ -1,0 +1,14 @@
+# dictionaries/stage_name.yaml — ステージ enum 正本（草案 v1）
+$dictionary_name: stage_name
+schema_version: 1
+values:
+  - key: egg
+    label_ja: 卵
+  - key: larva
+    label_ja: 幼虫
+  - key: pupa
+    label_ja: 蛹
+  - key: adult
+    label_ja: 成虫
+  - key: unknown
+    label_ja: 不明

@@ -1,0 +1,59 @@
+# IHL component catalog — Phase 1 pipeline (REFRAME / UIbuilder registry)
+version: 1
+pipeline: phase1
+
+components:
+  - id: ingest_normalize
+    path: components/ingest_normalize
+    kind: transform
+    phase: 1
+    status: accepted
+    description: input manifest → normalized capture parquet
+
+  - id: thumbnail_builder
+    path: components/thumbnail_builder
+    kind: transform
+    phase: 1
+    status: accepted
+    description: source image → 512px long-edge PNG thumbnail
+
+  - id: embedding_builder
+    path: components/embedding_builder
+    kind: transform
+    phase: 1
+    status: accepted
+    description: image → dummy embedding .npy (CI-safe, no API keys)
+
+  - id: manifest_builder
+    path: components/manifest_builder
+    kind: transform
+    phase: 1
+    status: accepted
+    description: join artifacts → searchable_capture_set parquet
+
+  - id: qc_builder
+    path: components/qc_builder
+    kind: transform
+    phase: 1
+    status: stub
+    description: blur score stub (optional · numpy Laplacian variance)
+
+  - id: color_feature_builder
+    path: components/color_feature_builder
+    kind: transform
+    phase: 1
+    status: stub
+    description: HSV mean features stub (optional · no color correction)
+
+  - id: tag_aggregator
+    path: components/tag_aggregator
+    kind: transform
+    phase: 1
+    status: stub
+    description: tag_event JSONL → tag_aggregate parquet (optional)
+
+pipeline_order:
+  - ingest_normalize
+  - thumbnail_builder
+  - embedding_builder
+  - manifest_builder

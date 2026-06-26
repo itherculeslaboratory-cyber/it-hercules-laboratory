@@ -1,0 +1,12 @@
+# dictionaries/sex.yaml — 性別 enum 正本（草案 v1）
+$dictionary_name: sex
+schema_version: 1
+values:
+  - key: male
+    label_ja: 雄
+  - key: female
+    label_ja: 雌
+  - key: unknown
+    label_ja: 不明
+  - key: undetermined
+    label_ja: 未判定

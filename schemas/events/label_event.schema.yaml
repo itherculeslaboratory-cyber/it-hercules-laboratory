@@ -1,0 +1,48 @@
+# label_event.schema.yaml — 分類ラベル Truth · ADR-H-05
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: label_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Label Event
+type: object
+required:
+  - label_event_id
+  - target_type
+  - target_id
+  - label_name
+  - label_value
+  - source_type
+  - created_at
+  - schema_version
+properties:
+  label_event_id:
+    type: string
+  target_type:
+    type: string
+    enum: [capture, individual]
+  target_id:
+    type: string
+  label_name:
+    type: string
+    enum_ref: dictionaries/label_name.yaml
+    x_enum_strict: false
+  label_value:
+    type: string
+  confidence:
+    type: number
+    minimum: 0
+    maximum: 1
+  source_type:
+    type: string
+    enum_ref: dictionaries/source_type.yaml
+  actor_id:
+    type: string
+  model_run_id:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

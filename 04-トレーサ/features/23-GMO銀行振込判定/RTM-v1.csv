@@ -1,0 +1,15 @@
+req_id,requirement,design_section,test_case,test_layer,impl_path,status,notes
+FR-GMO-01,Webhook受信署名検証,詳細設計-v2 §3,UT-23-03;IT-23-04,unit;integration,gmo webhook security,existing,env時HMAC
+FR-GMO-02,コード+金額照合複数pending日時FIFO,詳細設計-v2 §4,UT-23-04/06;IT-23-01,unit;integration,gmo_reconciliation_store,partial,FIFO gap
+FR-GMO-03,8%取引成立後期待入金照合成功fee停止,詳細設計-v2 §5,IT-23-03;ST-23-03,integration;system,#06 #08,gap,
+FR-GMO-04,照合イベントR2 INSERT ONLY,詳細設計-v2 §4,ST-23-01,system,gmo json store,existing,
+FR-GMO-05,userId決定的transfer_code UIコピー,詳細設計-v2 §2,UT-23-01/02;UAT-23-01,unit;uat,gmo_transfer_code,existing,
+FR-GMO-06,unsentポーリング,詳細設計-v2 §3,UT-23-05,unit,gmo connector,gap,stg後
+FR-GMO-07,本番鍵live証跡人間ゲート,詳細設計-v2 §1,UAT-23-05/06,uat,CONTINUE_QUEUE,human_gate,POST-B8-GMO-04/05 AI禁止
+FR-GMO-08,部分入金残債減算,詳細設計-v2 §4.2,UT-23-07,unit,reconciliation,gap,
+FR-GMO-09,過入金貢献費クレジット,詳細設計-v2 §4.2,ST-23-03,system,#06 §11.7.5,gap,
+FR-GMO-10,返金フロー不提供,詳細設計-v2 §4.2,UAT-23-03,uat,policy,doc,
+NFR-GMO-01,署名不一致401秘密ログ禁止,詳細設計-v2 §6,IT-23-04,integration,webhook security,existing,
+NFR-GMO-02,決定的二重matched防止,詳細設計-v2 §6,ST-23-02,system,reconciliation,partial,
+NFR-GMO-03,market_governance最新行,詳細設計-v2 §6,ST-23-04,system,rag csv,doc,
+NFR-GMO-04,照合失敗短理由,詳細設計-v2 §6,UAT-23-03,unit;uat,api messages,partial,

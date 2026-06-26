@@ -1,0 +1,50 @@
+# dictionaries/artifact_category_tree.yaml — 器物・無機物カテゴリ木（初期シード・草案）
+#
+# ステータス: 草案・人間レビュー待ち / 実装 Go 不可
+# 役割     : domain=artifact の分類ツリー経路（ADR-H-16 §4 経路③）の初期カテゴリ木。
+#            皿・容器・工具などの人工物 / 無機物。葉は item。
+# 正本前提 : ADR-H-16 §3 / §4.2 / 05-観測.md §4.11 OBS-TGT-01
+# 規約     : 最小シード。append-only で拡張（ADR-H-16 §10 未決: 網羅度は人間レビュー）。
+#            path 例: ["容器", "皿"] → tags: domain:artifact / category:容器 / subcategory:皿
+
+$dictionary_name: artifact_category_tree
+schema_version: 1
+is_core_fixed: false        # 弱 enum（拡張前提）
+tree:
+  - key: container
+    label_ja: 容器
+    children:
+      - key: plate
+        label_ja: 皿
+      - key: bowl
+        label_ja: 鉢・ボウル
+      - key: cup
+        label_ja: カップ・コップ
+      - key: case
+        label_ja: ケース・飼育容器
+  - key: tool
+    label_ja: 工具・道具
+    children:
+      - key: measuring
+        label_ja: 計測具（ノギス・はかり）
+      - key: handtool
+        label_ja: 手道具
+  - key: substrate
+    label_ja: 資材・無機物
+    children:
+      - key: soil_mat
+        label_ja: マット・土壌
+      - key: mineral
+        label_ja: 鉱物・無機素材
+  - key: equipment
+    label_ja: 機材・装置
+    children:
+      - key: sensor_device
+        label_ja: センサ機器
+      - key: camera_rig
+        label_ja: 撮影機材
+
+notes:
+  - 最小シード。網羅ではない。新カテゴリは append-only で追記（ADR-H-16 §10）。
+  - tags 生成: 第1階層=category / 第2階層=subcategory（ADR-H-16 §5）。
+  - 葉に到達できないときは「分類未確定」を明示（biological の亜種未区別に相当・§4.2）。

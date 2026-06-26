@@ -1,0 +1,13 @@
+req_id,requirement,design_section,test_case,test_layer,impl_path,status,notes
+FR-PTMKT-01,認証ユーザーのみ購入残高不足理由明示,詳細設計-v2 §3.2,UT-22-03/04;UAT-22-02,unit;uat,apps/api/main.py shop purchase,existing,
+FR-PTMKT-02,免罪符1購入でカルマcount-1,詳細設計-v2 §2.3,IT-22-03;UAT-22-04,integration;uat,economy_logic karma,gap,#08連携
+FR-PTMKT-03,購入R2 INSERT ONLY,詳細設計-v2 §2.1,UT-22-02;ST-22-01,unit;system,event_store pt_event,existing,
+FR-PTMKT-04,PT単一台帳投票指摘と共有,詳細設計-v2 §1.3,IT-22-02;UAT-22-05,integration;uat,economy/pt_event,partial,
+FR-PTMKT-05,Fibonacci段階価格初回1PT,詳細設計-v2 §2.2/§4,UT-22-05;ST-22-03;UAT-22-03,unit;system;uat,economy_logic,gap,固定価格stub
+FR-PTMKT-06,空状態ロード成功失敗理由,詳細設計-v2 §3,ST-22-02;UAT-22-01,system;uat,web shop,partial,
+FR-PTMKT-07,購入上限なしFibで抑制,詳細設計-v2 §4,UAT-22-01,uat,shop,existing,
+FR-PTMKT-08,次回Fib(n)PT表示,詳細設計-v2 §2.2,ST-22-03;UAT-22-03,system;uat,shop UI,gap,n未永続
+NFR-PTMKT-01,IHL component+R2 C-Sync不採用,詳細設計-v2 §5,ST-22-04,system,ihl repo,doc,
+NFR-PTMKT-02,PlatinumCoinRules整合,詳細設計-v2 §5,UAT-22-01,uat,civilization/,doc,
+NFR-PTMKT-03,決定的監査再現,詳細設計-v2 §5,ST-22-04,system,pt_event jsonl,existing,
+NFR-PTMKT-04,legacy indulgence salvage,詳細設計-v2 §5,UAT-22-01,uat,legacy backend,xref,

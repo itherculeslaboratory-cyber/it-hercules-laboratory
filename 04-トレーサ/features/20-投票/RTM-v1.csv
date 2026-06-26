@@ -1,0 +1,17 @@
+req_id,requirement,design_section,test_case,test_layer,impl_path,status,notes
+FR-20-01,投票対象レイヤー0-3 4不可,詳細設計-v2 §2.2/§4,UT-20-04;UAT-20-03,unit;uat,apps/api/main.py:votes_list,partial,catalog seed · Governance doc
+FR-20-02,プラチナ投票UI routeId,詳細設計-v2 §3.2/§3.3,UT-20-02/03;UAT-20-01/04,unit;uat,apps/api/main.py:cast_vote,existing,IHL /vote · legacy routeId gap
+FR-20-03,いいねお気に入り L0除外,詳細設計-v2 §1.2,ST-20-05,system,(PlatinumCoinRules §3),xref,#14 貢献度
+FR-20-04,貢献度100でプラチナ1枚,詳細設計-v2 §2.4,UT-20-05;IT-20-01,unit;integration,(legacy contributionEconomy.ts),gap,#14 連動
+FR-20-05,自然淘汰指標 Governance§10,詳細設計-v2 §4/§5,ST-20-03;UAT-20-07,system;uat,Governance.md §10,gap,記録のみ · UI gap
+FR-20-06,商用マーク3%文明OS,詳細設計-v2 §1.2,ST-20-05,system,ProjectRules.md §6,doc,会計ログ R2
+FR-20-07,フォーク GitHub PR+R2,詳細設計-v2 §1.2,ST-20-05,system,ADR-H-21,gap,経済評価同一グラフ想定
+FR-20-08,改善案テンプレ自動選択,詳細設計-v2 §1.2,ST-20-05,system,(legacy C-Sync),gap,IHL=GitHub ADR
+FR-20-09,免罪符 count-1,詳細設計-v2 §2.4/§4,IT-20-03;UAT-20-05,integration;uat,#22 economy/shop,xref,本機能API外 · #22正本
+FR-20-10,指摘30回/PT 裁判連動,詳細設計-v2 §2.4,IT-20-04,integration,#11 裁判.md §4.3,xref,プラチナ台帳消費
+NFR-20-01,ProjectRules最優先,詳細設計-v2 §6,UAT-20-03,uat,civilization/ProjectRules.md,doc,憲法
+NFR-20-02,vote INSERT ONLY,詳細設計-v2 §2.1/§6,UT-20-01;IT-20-02;ST-20-01,unit;integration;system,libs/ihl/core/event_store.py:write_vote_event,existing,governance/vote_event
+NFR-20-03,月間発行上限API強制,詳細設計-v2 §6,ST-20-05,system,(economyMasterStore),gap,legacy パラメータ
+NFR-20-04,market_governance.csv最新行,詳細設計-v2 §6,UAT-20-06,uat,rag/market_governance.csv,doc,policy resolver
+NFR-20-05,UI rawエラー禁止理由明示,詳細設計-v2 §6,ST-20-04,system,apps/web/src/app/vote/page.tsx,partial,vote UI 最小
+NFR-20-06,GMO live人間ゲート,詳細設計-v2 §6,UAT-20-06,uat,P0-NEXT-GMO-LIVE-EXEC,deferred,虚偽gateなし · stub/stg AI可

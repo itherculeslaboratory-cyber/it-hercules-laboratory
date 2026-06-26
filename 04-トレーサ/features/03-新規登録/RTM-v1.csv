@@ -1,0 +1,57 @@
+# RTM v1 — feature #03 新規登録（オンボーディング handle 確定 · 規約同意境界 · IHL rebuild）
+# 列: req_id,design_section,test_case_id,test_layer,automation,status
+# req 母集合: 01-要件/03-新規登録.md の FR-REG-01..27 + NFR-REG-01..07
+# status: existing=既存pytest緑 / planned=差分TC(IMPL段で追加) / review=設計レビュー受入 / human=人間ゲート / xref=他機能で実証 / gap=IHL未配線(設計のみ) / deferred=将来retrofit(R2一意制約等)
+req_id,design_section,test_case_id,test_layer,automation,status
+FR-REG-01,§1.2 §7 #01境界,UAT-03-06,acceptance,review,xref
+FR-REG-02,§1.2 §7 #01境界,ST-03-01,system,pytest,xref
+FR-REG-03,§7 P2 初期状態,UAT-03-01,acceptance,review,deferred
+FR-REG-04,§7 P2 email_index,UAT-03-01,acceptance,review,deferred
+FR-REG-05,§3.2 status,UT-03-01,unit,pytest,existing
+FR-REG-05,§3.2 status,IT-03-01,integration,pytest,existing
+FR-REG-06,§2.1 必須項目,UAT-03-04,acceptance,review,review
+FR-REG-06a,§2.1 locale必須,UT-03-08,unit,pytest,planned
+FR-REG-06a,§6 i18n,ST-03-06,system,pytest,planned
+FR-REG-06a,§2.1 language,UT-03-11,unit,pytest,planned
+FR-REG-07,§3.1 handle検証,UT-03-03,unit,pytest,planned
+FR-REG-07,§3.4 HANDLE_REQUIRED,UT-03-04,unit,pytest,planned
+FR-REG-07,§3.4 error,IT-03-06,integration,pytest,planned
+FR-REG-07,§3.1 handle,UAT-03-02,acceptance,review,review
+FR-REG-08,§7 P3 check-handle,UAT-03-07,acceptance,review,gap
+FR-REG-09,§3.1 送信条件,UAT-03-02,acceptance,review,review
+FR-REG-10,§4.2 twin tour,UAT-03-05,acceptance,review,deferred
+FR-REG-11,§4.2 別メール,UAT-03-05,acceptance,review,deferred
+FR-REG-12,§3.1 complete,UT-03-02,unit,pytest,existing
+FR-REG-12,§3.1 complete,IT-03-02,integration,pytest,existing
+FR-REG-12,§3.1 complete,UAT-03-01,acceptance,review,review
+FR-REG-13,§4.1 冪等409,UT-03-07,unit,pytest,existing
+FR-REG-13,§3.4 409,IT-03-04,integration,pytest,existing
+FR-REG-13,§4.1 冪等,ST-03-02,system,pytest,existing
+FR-REG-13,§3.4 冪等,UAT-03-03,acceptance,review,review
+FR-REG-14,§7 P4 HANDLE_IMMUTABLE,UAT-03-08,acceptance,review,deferred
+FR-REG-15,§3.1 完了状態,UT-03-06,unit,pytest,existing
+FR-REG-15,§3.2 status complete,IT-03-03,integration,pytest,existing
+FR-REG-16,§7 P3 check-handle,UAT-03-07,acceptance,review,gap
+FR-REG-17,§3.3 register,IT-03-08,integration,pytest,planned
+FR-REG-18,§7 P5 locale API,ST-03-06,system,pytest,deferred
+FR-REG-19,§3.3 同意必須,UT-03-09,unit,pytest,existing
+FR-REG-19,§3.3 同意,IT-03-07,integration,pytest,existing
+FR-REG-20,§7 P5 集約,ST-03-04,system,node,review
+FR-REG-21,§3.3 register agree,UT-03-10,unit,pytest,planned
+FR-REG-21,§3.3 register,IT-03-08,integration,pytest,planned
+FR-REG-21,§3.3 同意境界,UAT-03-06,acceptance,review,xref
+FR-REG-22,§4.2 遷移,ST-03-01,system,pytest,existing
+FR-REG-22,§4.2 home,UAT-03-05,acceptance,review,review
+FR-REG-23,§4.2 未完ログイン,UAT-03-05,acceptance,review,deferred
+FR-REG-24,§2.1 永続,IT-03-05,integration,pytest,planned
+FR-REG-25,§7 P2 handle_index,UAT-03-08,acceptance,review,deferred
+FR-REG-26,§7 P2 JWT非保存,UAT-03-01,acceptance,review,xref
+FR-REG-27,§1.2 genesis特例,UAT-03-01,acceptance,review,deferred
+NFR-REG-01,§6 デバウンス,UAT-03-07,acceptance,review,gap
+NFR-REG-02,§6 error日本語,UAT-03-11,acceptance,review,review
+NFR-REG-02,§6 未実装表記禁止,ST-03-05,system,grep,review
+NFR-REG-03,§6 a11y,UAT-03-09,acceptance,review,review
+NFR-REG-04,§4.1 §6 二重送信防止,UAT-03-10,acceptance,review,review
+NFR-REG-05,§6 TTL/JWT,UAT-03-01,acceptance,review,xref
+NFR-REG-06,§6 カルマ停止,UAT-03-01,acceptance,review,deferred
+NFR-REG-07,§6 自動テスト,ST-03-04,system,node,existing

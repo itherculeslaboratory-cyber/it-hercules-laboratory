@@ -1,0 +1,49 @@
+# cross_growth_summary.schema.yaml — 成長集計 Snapshot
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: cross_growth_summary
+x_ihl_schema_version: 1
+x_ihl_layer: snapshot
+title: Cross Growth Summary
+type: object
+required:
+  - cross_id
+  - schema_version
+  - recomputed_at
+properties:
+  cross_id:
+    type: string
+  instar_first_avg_weight_g:
+    type: number
+  instar_first_n:
+    type: integer
+  instar_second_avg_weight_g:
+    type: number
+  instar_second_n:
+    type: integer
+  instar_third_early_avg_weight_g:
+    type: number
+  instar_third_early_n:
+    type: integer
+  instar_third_late_avg_weight_g:
+    type: number
+  instar_third_late_n:
+    type: integer
+  max_weight_g:
+    type: number
+  max_weight_individual_id:
+    type: string
+  max_total_length_mm:
+    type: number
+  max_total_length_individual_id:
+    type: string
+  min_total_length_mm:
+    type: number
+  min_total_length_individual_id:
+    type: string
+  recomputed_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

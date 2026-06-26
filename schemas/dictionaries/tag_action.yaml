@@ -1,0 +1,20 @@
+# dictionaries/tag_action.yaml — タグ操作 enum 正本（草案 v1）
+$dictionary_name: tag_action
+schema_version: 1
+values:
+  - key: add
+    label_ja: 追加
+  - key: invert
+    label_ja: 反転
+  - key: review_needed
+    label_ja: 要レビュー
+  - key: deprecate
+    label_ja: 非推奨
+  - key: weak_add
+    label_ja: 弱追加
+  - key: alias
+    label_ja: 別名
+  - key: merge
+    label_ja: 統合
+  - key: split
+    label_ja: 分割

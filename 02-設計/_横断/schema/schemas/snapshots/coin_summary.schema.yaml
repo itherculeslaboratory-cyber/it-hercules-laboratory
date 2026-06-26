@@ -1,0 +1,24 @@
+# coin_summary.schema.yaml — Platinum コイン Snapshot · 20/22
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: coin_summary
+x_ihl_schema_version: 1
+x_ihl_layer: snapshot
+title: Coin Summary
+type: object
+required:
+  - actor_id
+  - total_coins_granted
+  - schema_version
+  - recomputed_at
+properties:
+  actor_id:
+    type: string
+  total_coins_granted:
+    type: number
+  recomputed_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

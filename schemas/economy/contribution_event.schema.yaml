@@ -1,0 +1,38 @@
+# contribution_event.schema.yaml — 貢献度 Truth · ADR-H-06
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: contribution_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Contribution Event
+type: object
+required:
+  - contribution_event_id
+  - actor_id
+  - delta
+  - reason_code
+  - created_at
+  - schema_version
+properties:
+  contribution_event_id:
+    type: string
+  actor_id:
+    type: string
+  delta:
+    type: number
+    minimum: 0
+    description: 累積のみ（減少なし）
+  reason_code:
+    type: string
+    enum: [observation, paper, vote, market, manual, other]
+  target_ref:
+    type: string
+  source_type:
+    type: string
+    enum_ref: dictionaries/source_type.yaml
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

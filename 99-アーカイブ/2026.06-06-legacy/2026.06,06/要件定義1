@@ -1,0 +1,2422 @@
+以下は、他のA1/開発者に渡して実装開始できる粒度を目指した **設計ドキュメントー式の初版**です。 長大になるため、まず今回は **Part 1: 上位要件定義、OSS一覧・全体アーキテクチャ・ディレクトリ/ファイル契約** を出します。
+
+続きとして分割可能です。
+
+text
+
+Part 1. 要件定義書・OSS一覧・全体設計・ファイル契約 今回
+
+Part 2. schema詳細設計: searchable capture set/ individual master/embedding locator /Part 3. コンポーネント詳細設計: ingest/thumbnail/embedding/manifest builder/search ui
+
+tag event など
+
+Part 4. 検索詳細設計: metadata filter/cosine検索/reranking/individual集約/prototype
+
+Part 5. 運用設計: snapshot / append-only/run管理/ エラー処理/再解析 Part 6. 画面/API設計: Streamlit/FastAPI/DuckDB-Wasm想定
+
+Part 7. Phase 1実装タスク一覧・AI実装プロンプト
+
+i
+
+markdown
+
+#個体画像検索・解析基盤 要件定義書 v0.1
+
+##1.文書目的
+
+本書は、ヘラクレス等の個体を対象とした画像検索・形態解析,飼育履歴統合・研究データ管理基盤の要件を定義する。
+
+本システムは、Cloudflare R2 を唯一の永続保存先とし、DBを使わず、ファイル契約・manifest snapshot ・append-onlyモデルに基づいて構築する。
+
+他のAIまたは開発者が本書を受け取った場合、以下を理解できることを目的とする。
+
+なぜこの設計思想なのか
+
+何を保存するのか
+
+- 何を検索するのか
+
+何をOSSに任せるのか
+
+何を自作する必要があるのか
+
+Phase 1で何を実装すればよいのか
+
+##2 システム名
+
+仮称:
+仮称:
+
+Individual Image Lake
+
+Append-only Breeding Research Lake
+
+R2-based Image Search Platform
+
+本書では便宜上`R2個体画像検索基盤と呼ぶ。
+
+##3. システムの一文定義
+
+Cloudflare R2 を唯一の永続保存先とする、append-only / immutable / snapshot ベースの研究・飼育データレイク上に、 Parquet manifest による表検索と、embedding による画像類似検索を載せるファイル契約型システム。
+
+##4.基本思想
+
+### 4.1 永続保存の原則
+
+永続保存先は Cloudflare R2 のみとする
+
+DBは使用しない
+
+更新は禁止
+
+削除は禁止
+
+修正は新規レコード追加で表現する
+
+現在採用版は latest snapshot / latest manifest で表現する
+
+・過去データは消さない
+
+-古いデータは安い置き場へ移してもよいが、削除しない
+
+### 4.2 真実の源泉
+
+本システムにおける真実の源泉は、R2上のファイル群である。
+
+具体的には以下を真実の源泉とする。
+
+raw image
+
+raw metadata
+
+normalized Parquet
+
+derived artifacts
+
+manifests
+
+snapshots
+
+schemas
+
+dictionaries
+
+runs
+
+logs
+
+### 4.3 DBを使わない理由
+
+本システムはオンライン業務DBではなく、再解析可能な研究・飼育データレイクである。
+
+必要なのは以下である。
+
+生データ保持
+
+再解析可能性
+
+履歴保持
+
+OSS差し替え性
+
+バッチ処理
+
+ファイル単位での再構築
+
+snapshotによる採用版管理
+
+したがって、常駐DBや更新可能な業務DBを中核に置かない。
+
+### 4.4 OSSに対する方針
+
+・特定OSSにロックインしない
+
+有名で実績のあるOSSを第一候補として使う
+
+OSSは薄くラップする
+
+・入力形式・出力形式・schema manifest run infoを固定する
+
+・中身のOSSは差し替え可能にする
+
+##5. 対象データ
+
+### 5.1 Phase 1対象
+
+Phase 1では以下を対象とする。
+
+- 個体画像
+
+- 撮影メタデータ
+
+- 個体基本情報
+
+- サムネイル
+画像embedding
+
+最小限の形態計測値
+
+- 最小限の色特徵
+
+- 最小限の血統情報
+
+検索用manifest
+
+タグイベント
+
+usage log
+
+### 5.2 将来対象
+
+将来は以下を統合可能にする。
+
+セグメンテーションマスク
+
+- 部位画像
+
+- 詳細形態計測
+
+- 環境時系列
+
+- ライフイベント
+
+発育ステージ履歴
+
+- 飼育介入履歴
+
+健康記録
+
+- 繁殖記録
+
+- 論文・査読・追検証
+
+研究ギャップ
+
+- 仮説投稿
+
+- 進化するタグ体系
+
+##6.検索要件
+
+### 6.1 通常検索
+
+D
+
+通常検索は Parquet manifest を DuckDB / Polars / DuckDB-Wasm 等で読むことで実現する。
+
+検索条件例:
+
+species
+
+year
+
+sex alive status
+
+stage name
+
+qc flag
+
+view type
+
+capture timestamp
+
+body length mm
+
+horn length mm
+
+thorax width mm
+
+Lineage id
+
+Lineage group
+
+###6.2 類似画像検索
+
+類似画像検索は、画像や部位画像から生成した embedding vector の特徴空間における近傍探索として実現する。
+
+ここでいう空間検索は地理空間検索ではない。
+
+定義
+
+画像や部位画像を embedding model により固定長ベクトルへ変換し、そのベクトル空間上で近い点を探す検索。
+
+### 6.3 検索の順序
+
+本システムでは、最初から全件に近似検索をかけない。
+
+基本順序:
+
+1. metadataで絞る
+
+2. sizeで絞る
+
+3. lineageで絞る
+
+4. QCで絞る
+
+5. subsetに対してembedding距離・色差・形差を計算する
+
+6. rerankingする
+
+7. captureまたはindividual単位で返す
+
+### 6.4 Phase 1の類似検索
+
+Phase 1ではFAISSを必須としない。
+
+想定件数:
+
+1000未満~1万件前後
+
+- 条件絞り込み後は数十~数百件程度
+
+この規模では以下で十分。
+
+DuckDB/Polarsでmanifest絞り込み
+
+embeddingをsubsetだけ取得
+
+cosine similarityを計算
+
+色差・サイズ差でrerank
+
+top-k表示
+
+##7.検索粒度
+
+### 7.1 capture単位検索
+
+1回の撮影・1枚または1セットの画像を単位とする検索。
+
+用途
+
+この画像に似た画像を探す撮影時点ごとに比較する
+
+- 同一個体の過去画像と比較する
+
+### 7.2 individual単位検索
+
+複数captureを個体単位に集約する検索。
+
+集約例:
+
+max similarity
+
+mean top3 similarity
+
+latest capture重み付き
+
+gc score重み付き
+
+###7.3 part単位検索
+
+部位画像単位の検索。
+
+例:
+
+horn
+
+thorax
+
+abdomen
+
+head
+
+wing
+
+Phase 1では必須ではない。
+
+### 7.4 prototype検索
+
+理想個体群や目標個体群の平均embeddingまたは平均特徴に近い個体を探す検索。
+
+Phase 1では必須ではない。
+
+##8. 機能要件
+
+### 8.1 ingest機能
+
+raw画像・raw metadataを受け取り、schemaに従ってnormalizedデータを生成する。
+
+出力:
+
+normalized captures
+
+normalized individuals
+
+input manifest
+
+run info
+
+errors
+
+### 8.2 thumbnail生成機能
+
+画像一覧表示用の軽量サムネイルを生成する。
+
+出力:
+
+thumbnail image
+
+thumbnail manifest
+
+run info
+
+errors
+
+### 8.3 embedding生成機能
+
+画像をembedding model でベクトル化する。
+
+出力:
+
+searchable capture set parquet
+
+individual master parquet
+
+embedding locator manifest parquet
+
+### 8.5 検索UI機能
+
+I
+
+ユーザーが条件を指定して検索できるUIを提供する。
+
+Phase 1では Streamlit を第一候補とする。
+
+機能:
+
+metadata filter
+
+size filter
+
+lineage filter
+
+sort
+
+thumbnail display
+
+existing capture based similarity search
+
+top-k display
+
+full image link
+
+### 8.6 タグ機能
+
+タグを固定ラベルではなく、append-onlyなタグイベントとして記録する。
+
+機能:
+
+user raw tag
+
+system raw tag
+
+human added tag
+
+batch added tag
+
+invert tag
+
+review needed tag
+
+aggregate tag view
+
+### 8.7 usage log機能
+
+ユーザーの検索・閲覧・引用イベントをJSONLでR2に記録する。
+
+イベント:
+search
+
+View
+
+cite
+
+##9 非機能要件
+
+###9.1 保存
+
+永続保存はR2のみ全成果物はR2へ保存する
+
+- ローカルー時ファイルは永続扱いしない
+
+####9.2 再現性
+
+すべての派生成果物に以下を持たせる。
+
+run id
+
+schema version
+
+pipeline name
+
+pipeline version
+
+model name
+
+model version
+
+input hash
+
+created at
+
+###9.3 監査性
+
+修正履歴を残す
+
+run infoを残す
+
+errorsを残す build infoを残す
+
+snapshot idを残す
+
+###9.4 可搬性
+
+OSSは薄くラップする入出力契約を固定する
+
+- コンポーネント交換可能にする
+
+###9.5 性能 |
+
+Phase 1では低レイテンシを要求しない。
+
+目安
+
+manifest検索:数秒以内
+
+類似検索: subset数十~数千件に対して数秒以内
+
+- バッチ更新:数秒~数分単位で可
+
+### 9.6 セキュリティ
+
+Phase 1では詳細認証設計は対象外とするが、以下を推奨する。
+
+R2アクセスキーを環境変数管理
+
+public/private bucketの分離
+
+署名付きURLの利用
+
+user idはhash化してusage logへ保存
+
+生画像への直接公開は避ける
+
+##10、制約
+
+DBを使わない
+
+更新しない
+
+削除しない
+
+R2以外を永続保存先にしない
+
+OSSを直接改造しない
+
+コンポーネントはinput/output manifest契約に従う
+
+- snapshotで現在採用版を表現する
+
+markdown
+
+#使用OSS一覧 v0.1
+
+##1. 方針
+
+本システムは特定OSSにロックインしない。
+
+各OSSは、固定されたファイル契約に従う交換可能な部品として扱う。
+
+採用方針
+
+第一候補OSSを明示する
+
+ただし代替可能性を残す OSS内部形式にシステム全体を依存させない
+
+入力・出力・schema manifestを固定する
+
+##2.保存
+
+役割 | 第一候補 | 代替 | 用途 |
+
+オブジェクトストレージ | Cloudflare R2 | S3互換ストレージ | 唯一の永続保存先 |
+
+備考:
+
+本要件では Cloudflare R2 を固定前提とする。 ただしAPIはS3互換として実装すると移植性が高い。
+
+##3. ファイル形式
+
+役割 | 第一候補 | 用途 |
+
+表形式 | Parquet manifest, snapshot, normalized table | 行ログ JSONL usage log, tag event, error log |
+
+schema YAML | schema定義,component定義 | 画像 | JPEG/PNG/TIFF raw, thumbnail, calibrated |
+
+数值配列 | NPY | embedding保存 | 設定 | JSON / YAML run info. build info |
+
+##4.表処理
+
+役割 | 第一候補 | 用途 |
+
+SQL実行 | DuckDB | Parquet検索,join, aggregate Web側SQL | DuckDB-Wasm ブラウザ上でのmanifest検索 | DataFrame処理 |Polars manifest生成,集計 |
+Parquet 1/0 PyArrow | Parquet読み書き、schema扱い |
+
+推奨
+
+manifest生成は Polars または DuckDB
+
+Web検索は DuckDB-Wasm または FastAPI + DuckDB
+
+Parquet書き込みは PyArrow/Polars
+
+##5. 画像処理
+
+役割 第一候補 | 用途 |
+
+基本画像処理 | OpenCV | resize, crop, geometry, blur判定 |
+
+軽量画像1/0 | Pillow | thumbnail, format conversion
+
+計測補助 | scikit-image | mask処理, shape features |
+
+##6. アノテーション
+
+役割 | 第一候補 | 用途 | 画像アノテーション | CVAT | mask, bbox, landmark作成 |
+
+備考:
+
+CVATの内部DBは本システムの永続保存先に含めない。 CVATからexportしたannotation fileをR2へ保存する。
+
+##7. セグメンテーション
+
+役割 | 第一候補 | 用途 |
+
+detection/segmentation Ultralytics | 個体検出,部位検出 | 汎用segment | SAM | 対話的/補助的mask生成 |
+
+高度拡張 | Detectron2 | 必要時のみ |
+
+Phase 1では必須ではない。
+##8. embedding生成
+
+役割 第一候補 | 用途 |
+
+推論基盤 | PyTorch | モデル実行 |
+
+モデルライブラリ timm | 画像backbone | 自己教師あり特徴 | DINOv2 | 画像類似検索第一候補 | 汎用画像・テキスト | open clip | 将来拡張 |
+
+Phase 1推奨:
+
+PyTorch DINOV2
+
+画像全体embedding
+
+cosine similarity用にL2 normalizeする
+
+##9. ベクトル検索
+
+役割 | 第一候補 | 用途 |
+
+近傍探索 | FAISS | 大規模時のANN/高速検索 |
+
+Phase 1:
+
+FAISSなし subsetに対してnumpy cosine計算
+
+Phase 2:
+
+FAISS IndexFlatIP
+
+必要に応じて1VF/HNSW/PQ
+
+## 10. UI/API
+
+役割 | 第一候補 |
+
+用途 |
+
+試作UI | Streamlit | 管理画面,検索UI | API FastAPI 検索API, usage log |
+| Web検索 | DuckDB-Wasm | ブラウザ側manifest検索 |
+
+Phase 1推奨:
+
+まず Streamlit
+
+必要になれば FastAPI + Web UI
+
+##11. 実行環境
+
+役割 | 第一候補 | 用途 |
+
+バッチ処理
+
+実行分離 | Docker | コンポーネント実行環境|
+
+タスク定義
+
+Python CLI | 各component実装 |
+
+Makefile | 実行コマンド簡略化 |
+
+##12. 自作するもの
+
+OSSではなく自作が必要なもの:
+
+項目 | 内容 |
+
+schema | YAMLで列定義・型・必須項目 |
+
+dictionary event type, stage name, missing reason, measurement name |
+
+ID規約 | individual id capture id. run id, snapshot id
+
+manifest規約 検索・結合用Parquet仕様 |
+
+snapshot規約 latest/current採用版の作り方 |
+
+component contract input/output/run/errors規約 |
+
+embedding locator capture idからembedding位置を引く仕様 |
+
+id map FAISS row idからcapture idへ戻す表 |
+
+query whitelist | UIから許す検索条件 |
+
+reranking | 類似候補の順位補正 |
+
+aggregation capture individual集約 |
+
+tag aggregation tag event tag aggregate |
+
+provenance run/model/input hash管理 |
+
+
+
+markdown
+
+#全体アーキテクチャ設計書 v0.1
+
+##1. 全体構成
+
+本システムは、R2上のファイル群と、それを読み書きする独立コンポーネント群で構成する。
+
+text
+
+Cloudflare R2
+
+raw/
+
+normalized/
+
+derived/
+
+manifests/
+
+indexes/
+
+packs/
+
+schemas/
+
+dictionaries/
+
+logs/
+
+tags/
+
+research/
+
+runs/
+
+Execution Components
+
+ingest normalize
+
+thumbnail builder
+
+qc builder
+
+embedding builder
+
+manifest builder
+
+search ui
+
+usage logger
+
+tag aggregator
+
+index builder
+
+## 2. R2の役割
+
+R2は保存庫である。
+
+R2がすること:
+
+ファイル保存
+
+ファイル取得
+
+snapshot保存
+
+manifest配布
+
+raw/derived/runs/logsの保持
+
+R2がしないこと:
+
+SQL検索
+
+Join
+
+embedding距離計算
+
+reranking
+
+類似検索
+
+集計
+
+検索・集計・結合は実行コンポーネント側で行う。
+
+##3. コンポーネント設計思想
+
+全コンポーネントはUSB-C方式で設計する。
+
+text
+
+component USB-C機器
+
+schema/file contract = USB-C規格
+
+R2 folder = 接続ポート
+
+各コンポーネントは以下を守る。
+
+input manifestを読む
+
+artifactを生成する 
+output manifestを書く
+
+run_infoを書く
+
+errorsを書く
+
+既存ファイルを更新しない
+
+- 既存ファイルを削除しない
+
+##4. データ処理フロー
+
+###4.1 登録から検索可能化
+
+text raw image/raw metadata
+
+[ingest normalize] normalized captures / individuals
+
+[thumbnail builder] derived thumbnails
+
+[ac builder] qo results
+
+[embedding builder] embeddings + embedding manifest
+
+[manifest builder] searchable capture set
+
+[search_ui] 検索・表示
+
+Phase 2以降:
+
+text
+
+embedding manifest 1
+
+[index builder]
+
+faiss. index + id map build info
+
+##5. 検索フロー
+
+####5.1 通常検索
+
+text
+
+User
+
+Ul condition
+
+whitelist query builder
+
+DuckDB/ DuckDB-Wasm reads Parquet manifest filter/sort / limit
+
+thumbnail list
+
+full image on demand
+
+###5.2.類似検索 Phase 1
+
+text query capture id
+
+embedding locator query vector取得
+
+searchable capture setをmetadata/size/lineageで絞る
+
+subset embedding取得
+
+cosine similarity
+
+color/size/shape rerank
+
+top-k capture表示 
+
+individual単位に集約 optional
+
+### 5.3 類似検索 Phase 2
+
+text query vector
+
+FAISS search
+
+ id map でcapture idへ戻す
+
+manifest join 
+
+metadata filter / rerank
+
+top-k表示
+
+##6. レイヤー構成
+
+### 6.1 Storage Layer
+
+担当:
+
+R2 raw/normalized/derived/manifests/runs保存
+
+### 6.2 Contract Layer
+
+担当:
+
+schemas
+
+dictionaries
+
+component. yaml
+
+input schema
+
+output schema
+
+###6.3 Processing Layer
+
+担当:
+
+ingest
+
+thumbnail
+
+embedding
+
+feature extraction
+
+manifest build
+
+###6.4 Search Layer
+
+担当:
+
+DuckDB/Polars
+
+cosine search
+
+FAISS optional
+
+reranking
+
+### 6.5 U1/AP1 Layer
+
+担当:
+
+Streamlit
+
+FastAP1
+
+DuckDB-Wasm
+
+### 6.6 Research/Tag Layer
+
+担当
+
+tag events
+
+tag aggregate
+
+review records
+
+hypotheses
+
+replications
+
+gaps
+
+### 7.1 永続データ
+
+永続データは必ずR2に保存する。
+
+raw
+
+normalized I
+
+derived
+
+manifests
+
+indexes
+
+logs
+
+tags
+
+runs
+
+schemas
+
+dictionaries
+
+###7.2一時データ
+
+ローカルやコンテナ内の一時データは永続扱いしない。
+
+一時データ例:
+
+download cache
+
+temp resized image
+
+temporary numpy array
+
+Ul session state
+
+##8. append-only運用
+
+修正例:
+
+### 性別訂正
+
+text
+
+old sex record remains
+
+new sex determination record added
+
+individual master latest regenerated
+
+### embeddingモデル変更
+
+text
+
+derived/embeddings/dinov2_v1/run_001 remains derived/embeddings/dinov2_v2/run_018 added latest embedding snapshot switched
+
+### タグ訂正
+
+text old tag event remains new invert or review needed tag event added tag aggregate regenerated
+
+## 9. snapshot運用
+
+snapshotは、ある時点・ある解釈での採用版集合を表す。
+
+例:
+
+text manifests/snapshots/searchable capture set/snap_2026_001/manifests/latest/searchable capture set/
+
+latestは現在採用版である。 latestの表現方法は2方式を許容する。
+
+###方式A: latestに実体コピー
+
+text manifests/latest/searchable capture set/part-000. parquet
+
+###方式B: latest pointer
+
+text
+
+manifests/latest/searchable capture set pointer. ison
+
+例
+
+ison
+
+"snapshot id: "snap 2026 001",
+
+target path" "r2://bucket/manifests/snapshots/searchable_capture_set/snap_2026_001/".
+
+"created at "2026-01-01T00:00:00Z"
+
+1..
+
+Phase 1では方式Aを推奨する。 単純で実装しやすいため。
+
+##10. Phase 1の実装範囲
+
+必須:
+
+R2ディレクトリ作成
+
+schema作成
+
+ingest normalize
+
+thumbnail builder
+
+embedding builder
+
+manifest bui Ider
+
+searchable capture set
+
+individual master
+
+embedding locator manifest
+
+Streamlit search UI
+
+metadata filter
+
+subset cosine search
+
+tag event logger
+
+usage logger
+
+任意:
+
+- ac builder
+- simple color feature extraction
+
+simple shape feature extraction
+
+不要:
+
+FAISS
+
+Qdrant
+
+常駐DB
+
+高度な分散処理 prototype検索
+
+-part検索
+
+markdown
+
+#R2ディレクトリ設計書 v0.1
+
+##1.基本方針
+
+R2上のディレクトリは、データの意味と処理段階で分離する。
+
+最小構成:
+
+text
+
+r2://bucket/
+
+raw/
+
+normalized/
+
+derived/
+
+manifests/
+
+indexes/
+
+packs/
+
+schemas/
+
+dictionaries/
+
+logs/
+
+tags/
+
+research/
+
+runs/
+
+
+
+##2 raw/
+
+rawは生データ置き場である。
+
+原則:
+
+- 変換しない
+
+上書きしない
+
+削除しない
+
+- 受け取った状態を保持する
+
+構成
+
+raw
+
+text
+
+images/
+
+ingest batch-2026-001/
+
+IMG 0001.jpg
+
+IMG_0002.jpg
+
+raw file manifest, ison!
+
+metadata/
+
+ingest batch-2026-001/
+
+metadata.csv
+
+logs/
+
+ingest batch-2026-001/
+
+source log. ison!
+
+##3. normalized/
+
+normalizedlはschemaに従って正規化された表を置く。
+
+text normalized/
+
+captures/
+
+run_id=run_001/
+
+captures, parquet
+
+individuals/
+
+run_id=run_001/
+
+individuals, parquet
+
+measurements/
+
+run_id=run_001/
+
+manual measurements, parquet
+
+lineage/
+
+L
+
+run_id=run_001/
+
+Lineage, parquet
+
+events/
+
+run_id=run_001/
+
+life events, parquet
+
+##4. derived/
+
+derivedはrawやnormalizedから生成された派生成果物を置く。
+
+text
+
+derived/
+
+thumbnails/
+
+thumbnail_v1/
+
+run_id=run_010/
+
+cap_001.jpg
+
+cap_002.jpg
+
+thumbnail manifest, parquet
+
+embeddings/
+
+dinov2 v1/
+
+run id-run 020/
+
+embeddings npy
+
+embedding manifest parquet
+
+output manifest, parquet
+
+run info json
+
+errors, jsonl
+
+qc/
+
+qc_v1/
+
+run id=run 030/
+
+qc results. parquet
+
+features/
+
+color_v1/
+
+L
+
+run id=run 040/
+
+color features parquet
+
+shape_v1/
+
+L
+
+run id=run_041/
+
+shape features, parquet
+
+segmentations/
+
+sam_v1/
+
+run id-run 050/
+
+masks/
+
+segmentation manifest parquet
+
+measurements/
+
+image_measure_v1/
+
+run_id=run_060/
+
+image measurements, parquet
+
+##5. manifests/
+
+manifestsは検索・結合・採用版管理の中核である。
+
+text
+
+manifests/
+
+latest/
+
+searchable capture set/
+
+part-000. parquet
+
+individual master/
+
+part-000. parquet
+
+embedding locator/part-000. parquet
+
+tag aggregate/
+
+part-000. parquet
+
+snapshots/
+
+searchable capture set/
+
+snapshot id=snap_2026_001/
+
+L part-000. parquet
+
+individual master/
+
+-snapshot id=snap_2026_001/
+
+part-000. parquet
+
+embedding locator/
+
+snapshot id=snap_2026_001/
+
+part-000. parquet
+
+input/
+
+batch 001 _input_manifest. parquet
+
+search candidates/
+
+L
+
+candidate set name dhh adult male/
+
+part-000. parquet
+
+
+##6. indexes/
+
+indexesはFAISS等の検索indexを置く。
+
+Phase 1では空でもよい。
+
+text indexes/
+
+capture/
+
+dinov2_v1_snapshot=snap_2026_001/
+
+faiss, index
+
+id map, parquet
+
+build info, json
+
+individual/
+
+I
+
+dinov2 v1_snapshot=snap_2026_001/
+
+faiss. index
+
+id map.parquet
+
+build info, ison
+
+part/
+
+horn_dinov2_v1_snapshot=snap_2026_001/
+
+faiss, index
+
+id map, parquet
+
+build info, json
+
+##7. packs/
+
+packsはよく使う検索集合をまとめた軽量バックである。
+
+text
+
+packs/
+
+hot/
+
+dhh latest/
+
+manifest.parquet
+
+thumbnails manifest. parquet
+
+embeddings, nру
+
+id map, parquet
+
+build info, json
+
+Phase 1では必須ではないが、DHHなど頻出集合に有効。
+
+##8. schemas/
+
+schema定義を置く。
+
+text
+
+schemas/
+
+capture, schema, yaml
+
+individual.schema, yaml
+
+searchable capture set, schema, yaml
+
+individual master, schema, yami
+
+embedding manifest. schema, yaml
+
+embedding locator, schema, yaml
+
+tag event, schema, yaml
+
+tag aggregate, schema, yaml
+
+usage event, schema, yaml
+
+run info schema, yaml
+
+output manifest, schema, yaml
+
+##9. dictionaries/
+
+列挙値・測定定義を置く。
+
+text
+
+dictionaries/
+
+species, yami
+
+sex. yami
+
+stage name, yami
+
+view type, yam!
+
+ac flag yami
+
+event type, yam!
+
+measurement name.yaml
+
+missing reason, yam!
+
+tag type, yami
+
+tag action, yami
+
+source type, yam!
+
+##10. logs/
+
+usage log等を置く。
+
+text logs/
+
+L
+
+usage events/
+
+dt-2026-01-01/
+
+hour=13/part-0001.jsonl
+
+##11. tags/
+
+タグイベントと集約結果を置く。
+
+text tags/
+
+events/
+
+dt-2026-01-01/
+
+part-0001 jsonl
+
+aggregates/
+
+snapshots/
+
+snapshot id=snap_tag 001/
+
+tag aggregate, parquet
+
+latest/
+
+tag aggregate, parquet
+
+##12. research/
+
+査読・追検証、仮説形成レイヤー用。
+
+"text
+
+research/
+
+papers/
+
+reviews/
+
+hypotheses/
+
+replications/
+
+gaps/
+
+snapshots/
+
+Phase 1ではディレクトリのみ作成でもよい。
+
+##13. runs/
+
+全コンポーネントの実行記録を置く。
+
+text
+
+runs/
+
+component name=embedding builder/
+
+run id-run_020/
+
+run info, ison
+
+input manifest, parquet
+
+output manifest, parquet
+
+errors. jsonl
+
+markdown
+
+#ファイル契約設計書 v0.1
+
+##1.目的
+
+本書は、全コンポーネントが守る共通入出力契約を定義する。
+
+本システムではOSSを直接作り込まず、各OSSをファイル契約に従う部品として薄くラップする。
+
+##2. 全コンポーネント共通ルール
+
+各コンポーネントは以下を満たす。
+
+input manifestを読む
+
+output artifactを作る
+
+output manifestを書く
+
+run infoを書く
+
+errorsを書く
+
+- 既存ファイルを更新しない
+
+- 既存ファイルを削除しない
+
+- すべての出力にrun idを付ける
+
+- すべての出力にschema versionを付ける
+
+##3. 標準コンポーネント構成
+
+text
+
+component/
+
+Dockerfile
+run py
+
+component yaml
+
+input schema, yami
+
+output schema, yami
+
+README. md
+
+tests/
+
+##4.標準実行形式
+
+### Python CLI
+
+bash
+
+python run. py ¥
+
+-input r2://bucket/manifests/input/batch 001. parquet
+
+-output r2://bucket/derived/embeddings/dinov2_v1/run_id=run_001/¥
+
+-run-id run 001
+
+### Docker
+
+bash
+
+docker run component-name:0.1.0 ¥
+
+-input r2://bucket/manifests/input/batch_001. parquet ¥
+
+-output r2://bucket/derived/embeddings/dinov2_v1/run_id=run_001/¥
+
+-run-id run_001
+
+##5. 必須出力ファイル
+
+すべてのコンポーネントは以下を出力する。
+
+text output manifest, parquet
+
+run info, ison
+
+errors. isonl
+
+コンポーネント固有のartifactは追加で出力する。
+
+例:
+
+embedding builder:
+
+text
+
+embeddings, nру
+
+embedding manifest, parquet
+
+output manifest, parquet
+
+run info son
+
+errors. isonl
+
+thumbnail builder:
+
+text
+
+thumbnails/
+
+thumbnail manifest, parquet
+
+output manifest, parquet
+
+run info, json
+
+errors, isonl
+
+I
+
+##6. input manifest parquet 共通列
+
+最低限:
+
+column type required description |
+
+capture id
+
+string | yes |
+
+撮影ID |
+
+individual
+
+id string no
+
+| 個体ID |
+
+input path string yes
+
+入力ファイルバス |
+
+input type string yes
+
+image/metadata/parquet等 |
+
+species string no種
+
+view type
+
+string | no
+
+振影ビュー |
+
+stage name string | no |
+
+発育段階 |
+
+schema version |
+
+string | yes
+
+schema版 |
+
+##7. output manifest. parquet 共通列
+
+column
+
+-
+
+type
+
+required description |
+
+record id capture id
+
+string | yes
+
+出力レコード10 |
+
+string | no
+
+撮影ID |
+
+individual id string
+
+no |
+
+個体ID |
+
+yes thumbnail/embedding/qc等 |
+
+artifact type string
+
+yes R2上の成果物バス | パイプライン名
+
+artifact path string
+
+pipeline name string yes
+
+yes | パイプライン版 |
+
+pipeline version | string | model name string | no |
+
+モデル名
+
+model
+
+version string |
+
+no | モデル版 |
+
+input hash string | yes |
+
+入力hash |
+
+created at timestamp yes |
+
+作成日時 |
+
+schema version |
+
+string | yes
+
+yes |
+
+schema版 |
+
+run id string |
+
+実行ID |
+
+##8. run info, json
+
+必須キー:
+
+!..
+
+ison
+
+"run id": "run 001.
+
+"component name embedding builder".
+
+component version": "0.1.0".
+
+pipeline name embedding dinov2",
+
+"pipeline version": "0.1.0"
+
+"input manifest": "r2://bucket/manifests/input/batch_001, parquet".
+
+"output path": "r2://bucket/derived/embeddings/dinov2_v1/run_id=run_001/"
+
+"output manifest": "r2://bucket/derived/embeddings/dinov2_v1/run_id=run_001/output manifest. parquet".
+
+"created at": "2026-01-01T00:00:00Z".
+
+"finished at": "2026-01-01T00:05:00Z",
+
+"status": "success".
+
+"git commit": "abc123",
+
+"docker image": "embedding builder 0.1.0",
+
+"schema version": "1.0.0"
+
+
+##9. errors, jsonl
+
+エラーはJSONLで追記型にする。
+
+例:
+
+ison ["record_id": "err 001", "capture id": "cap 001", "error_type": "image_read_error. mess essage": "cannot open image", "severity": "error", "run_id":"run_
+
+001", "created_at":"2026-01-01T00:01:00Z")
+
+["record_id": "err 002", "capture_id": "cap 002", "error_type":"missing_metadata", "message": "sex is missing". "severity": "warning", "run_id":"run
+
+001", "created at":"2026-01-01T00:01:10Z")
+
+必須列:
+
+field required |
+
+record id |
+
+yes |
+
+error type yes
+
+message yes
+
+severity yes |
+
+run id yes |
+
+created at yes |
+
+##10. component, yaml
+
+例:
+
+yaml component name embedding builder_dinov2
+
+component version: "0.1.0"
+
+description: "Build image embeddings using DIN0v2"
+
+input
+
+type: parquet
+
+required columns
+
+capture id input path
+
+schema version
+
+output:
+
+files:
+
+embeddings, npy
+
+embedding manifest parquet
+
+output manifest, parquet
+
+run info json
+
+errors, isonl
+
+runtime:
+
+docker image embedding builder dinov2:0.1.0
+
+command "python run, py
+
+provenance
+
+required
+
+run id
+
+model name
+
+model version
+
+input hash
+
+created at
+
+schema version
+
+immutability:
+
+allow overwrite: false
+
+allow delete: false
+
+##11. input hash
+
+input hashは、再現性のために必須とする。
+
+推奨:
+
+raw画像の場合: ファイルバイト列のSHA256
+
+manifestの場合:対象行の正規化JSON表現のSHA256
+
+複数入力の場合: 各hashを連結したもののSHA256
+
+##12.命名規則
+
+###ID
+
+text
+
+individual id: ind lulid)
+
+capture id cap (ulid)
+
+image id: img (ulid)
+
+run id run (yyyymmdd] [ulid)
+
+snapshot id snap (yyyymmdd) (ulid)
+
+tag event id te (ulid)
+
+### artifact path
+
+text derived/lartifact type)/[method version)/run id=(run_id]/...
+
+例:
+
+text derived/embeddings/dinov2_v1/run id=run 20260101 abc/embeddings. npy
+
+##13.禁止事項
+
+既存artifactの上書き
+
+既存manifestの直接更新
+
+既存snapshotの変更
+
+R2以外への永続保存
+
+schema versionなしの出力
+
+run idなしの出力
+
+-provenanceなしの派生成果物
+
+markdown
+
+
+#Phase 1 実装スコープ定義書 v0.1
+
+##1. Phase 1の目的
+
+Phase 1では、最小限の個体画像検索基盤を実装する。
+
+目的:
+
+R2に画像とParquetを置く
+
+searchable capture setを作る
+
+Web UIでmetadata検索する
+
+thumbnailを表示する
+
+既存captureをqueryにした類似検索を行う
+
+FAISSなしでsubset cosine検索する
+
+タグとusage logをappend-onlyで記録する
+
+## 2. Phase 1で作るもの
+
+####R2構成
+
+text
+
+raw/normalized/derived/manifests/schemas/dictionaries/logs/tags/runs/
+
+### schema
+
+text
+
+capture, schema, yaml
+
+D
+
+individual, schema yaml
+
+searchable capture set schema, yaml
+
+embedding manifest, schema, yaml embedding locator schema, vaml
+
+tag event, schema yaml
+
+usage event, schema, yaml run info, schema yaml
+
+output manifest, schema, yaml
+
+### components
+
+text
+
+ingest normalize
+
+thumbnail builder
+
+embedding builder_dinov2
+
+manifest builder
+
+simple search ui
+
+usage logger
+
+tag event logger
+
+tag aggregator
+
+##3. Phase 1で作らないもの
+
+text
+
+FAISS index
+
+Odrant
+
+常駐DB 高度なAPIサーバ
+
+part単位検索
+
+prototype検索
+
+高度な血統解析
+
+環境時系列統合
+
+査読ワークフロー本実装
+
+ただし、将来追加できるようにschemaとディレクトリは壊さない。
+
+###4. Phase 1検索機能
+
+### 通常検索
+
+UI条件:
+
+species
+
+I
+
+year
+
+sex
+
+alive status
+
+stage name
+
+gc flag
+
+horn length mm range
+
+body length mm range
+
+thorax width mm range
+
+Lineage group
+
+###類似検索
+
+query
+
+既存capture id
+
+手順:
+
+1. query captureのembeddingを取得
+
+2. UI条件で候補を絞る
+
+3. 候補embeddingを取得
+
+4. cosine similarityを計算
+
+5. 色差とサイズ差で補正
+
+6. top-kを表示
+
+##5. Phase 1 searchable capture set 必須列
+
+text
+
+capture id
+
+individual id
+
+species
+
+year
+
+capture timestamp
+
+sex alive status
+
+stage name
+
+view type
+
+gc flag
+
+body length mm
+
+horn length mm
+
+thorax width_mm
+
+sire id
+
+dam id
+
+Lineage id
+
+Lineage group
+
+hue mean
+
+saturation mean
+
+brightness mean
+
+black ratio
+
+aspect ratio symmetry score
+
+thumbnail path image path
+
+embedding ref
+
+snapshot id
+
+schema version
+
+run id
+
+created at
+
+##6. 類似スコア Phase 1
+
+text
+
+final score =
+
+0.50 embedding similarity
+
++0.30 color similarity
+
++0.20 size similarity
+
+### embedding similarity
+
+cosine similarity.
+
+### color similarity
+
+以下の差分を正規化して計算する。
+
+hue mean
+
+saturation mean
+
+brightness mean
+
+black ratio
+
+### size similarity
+
+以下の差分を正規化して計算する。
+
+body length mm
+
+horn length mm
+
+thorax width mm
+
+##7. Phase 1完了条件
+
+以下を満たせばPhase 1完了とする。
+
+R2にraw画像を置ける
+
+ingest normalizeがnormalized Parquetを出力する
+
+thumbnail builder がthumbnailを出力する
+
+embedding builderがembeddingを出力する
+
+manifest builderがsearchable capture setを出力する
+
+UIでmetadata検索できる
+
+UIでthumbnail一覧を表示できる
+
+既存captureをqueryにして類似順表示できる
+
+run info/errors/output manifestが各componentで出力される
+
+usage event がJSONLで保存される
+
+tag eventがJSONLで保存される
+
+既存ファイルを更新・削除しない
+
+markdown
+
+#設計思想共有用サマリー v0.1
+
+##1. このシステムは何か
+
+これは、画像検索アプリではなく、個体の一生と研究の再解析可能性を守るためのファイルベース研究データレイクである。
+
+画像、撮影条件、個体情報、血統、飼育履歴、測定値、タグ、査読、追検証を、すべてR2上のappend-onlyファイルとして保存する。
+
+## 2. なぜDBではないのか
+
+このシステムに必要なのは、常時更新される現在値ではなく、過去を消さずに再解析できる履歴である。
+
+DBは便利だが、更新・削除・現在値中心になりやすい。
+
+本システムでは、真実をR2上のファイルに置き、現在の解釈はsnapshotで表す。
+
+##3. なぜmanifestなのか
+
+R2のディレクトリ構造だけでは検索できない。 一方、DBを置くと永続状態がDB側に寄ってしまう。
+
+そこで、R2上にParquet manifestを置く。
+
+manifestは「どこに何があるか」 「検索時に必要な列は何か」を表す整理表である。
+
+検索はmanifestをDuckDB/Polarsで読む。
+
+##4. なぜembeddingなのか
+
+画像の似ている/似ていないは、ファイル名やmetadataだけでは表現できない。
+
+画像をembedding vectorに変換すると、特徴空間上の近さとして類似検索できる。
+
+ただし、embeddingだけに頼らない。
+
+本システムでは以下を分ける。
+
+metadata
+
+size color
+
+shape
+
+lineage
+
+-embedding
+
+#5. なぜ最初に絞るのか全件に近似検索をかけると重い。
+
+しかし実運用では、
+
+性別発育段階
+
+種年代生存状態サイズ血統
+
+で大きく絞れる。
+
+したがって、類似検索は最後の再ソートとして使う。
+
+##6. なぜFAISSを最初から使わないのか想定件数が1000未満~1万前後で、検索時に強く絞れるなら、FAISSは不要。 最初はsubsetに対するcosine計算でよい。
+
+FAISSは件数や検索頻度が増えたときの高速化部品であり、基盤思想ではない。
+
+##7. なぜタグをイベントにするのかタグは真実ではなく、誰かまたは何かによる解釈である。
+
+したがって、
+
+- 誰が付けたか
+
+- いつ付けたか
+
+機械か人間か
+
+反対意見があるか
+
+後から見直されたか
+
+を残す必要がある。
+
+そのため、タグは固定列ではなくappend-onlyなtag eventとして扱う。
+
+##8. なぜ査読・追検証も入るのか
+
+研究は論文を出して終わりではない。
+
+- 不足点
+
+- 未検証点
+
+- 反証可能性
+
+- 追試要求
+
+仮説
+
+- 協力者募集
+
+を残すことで、次の研究が生まれる。
+
+本システムは、研究成果の保管庫ではなく、査読と追検証が循環する研究基盤を目指す。
+
+##9.最重要ルール
+
+text
+
+R2だけに保存する
+
+更新しない
+
+削除しない
+
+修正は追加
+
+現在状態はsnapshot
+
+検索はmanifestを読む
+
+類似検索はembeddingで行う
+
+OSSは薄くラップする
+
+契約を固定する
+
+履歴を残す
+
+次に出すべきものは、実装に直結する **schema詳細設計書**です。 必要なら次の回答で以下を出します。
+
+text
+
+Part 2:
+
+searchable capture set, schema, yaml
+
+individual master, schema, yaml
+
+capture. schema, yaml
+
+individual.schema, yaml
+
+embedding manifest, schema, yaml
+
+embedding locator, schema.yaml
+
+tag event, schema. yaml
+
+tag aggregate, schema. yaml
+
+usage event, schema.yaml
+
+run info. schema, yaml
+
+output manifest. schema. yaml
+
+-dictionaries yaml
+
+
+
+
+
+
+
+
+
+
+

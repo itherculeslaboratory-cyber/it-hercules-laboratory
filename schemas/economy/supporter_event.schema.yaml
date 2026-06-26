@@ -1,0 +1,37 @@
+# supporter_event.schema.yaml — 金銭支援 Truth · ADR-H-06
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: supporter_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Supporter Event
+type: object
+required:
+  - supporter_event_id
+  - actor_id
+  - tier
+  - created_at
+  - schema_version
+properties:
+  supporter_event_id:
+    type: string
+  actor_id:
+    type: string
+  tier:
+    type: string
+    enum: [bronze, silver, gold, platinum_custom]
+    x_ihl_human_confirmed: 2026-06-07
+  amount_jpy:
+    type: integer
+    description: 本番金額は GMO live 人間ゲート後に書込。テストは stub tier のみ（HUMAN-CONFIRMED 2026-06-07 · schema-pack §6 #4）
+    x_ihl_human_confirmed: 2026-06-07
+  gmo_transaction_ref:
+    type: string
+    description: GMO 構造化参照。平文 PII なし（HUMAN-CONFIRMED 2026-06-07 · schema-pack §6 #4）
+    x_ihl_human_confirmed: 2026-06-07
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

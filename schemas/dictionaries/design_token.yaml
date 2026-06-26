@@ -1,0 +1,168 @@
+# dictionaries/design_token.yaml — ThemePack が上書き可能な --civ-* CSS 変数カタログ（草案）
+#
+# ステータス: 草案・人間レビュー待ち / 実装 Go 不可
+# 役割     : ADR-H-17 ThemePack.tokens の許可リスト。INV-TP-01 の lint 正本。
+# 正本前提 : ADR-H-17 §4.1 · ui-reference/preferences.md §A §B
+# 規約     : key（CSS 変数名）は append-only。削除・リネームは schema_version +1。
+
+$dictionary_name: design_token
+schema_version: 1
+css_var_prefix: "--civ-"
+is_core_fixed: false   # 値は ThemePack で上書き可。key 追加は人間レビュー
+
+# 同梱シード pack（Phase 1）
+seed_packs:
+  - id: ihl-lineage-dark
+    title: 血統 OS ダーク（既定）
+    source: preferences.md §B
+  - id: ihl-core-light
+    title: 文明コア明るめ
+    source: frontend/src/index.css civ-p0-* 相当
+
+tokens:
+  # --- 背景 ---
+  - key: "--civ-bg-deep"
+    category: color.bg
+    type: color_hex
+    label_ja: 背景（深）
+    default_lineage_dark: "#0D0D0D"
+    default_core_light: "#F8FAFC"
+    wcag_pair_with: ["--civ-fg"]
+  - key: "--civ-bg-section"
+    category: color.bg
+    type: color_hex
+    label_ja: セクション背景
+    default_lineage_dark: "#121212"
+    default_core_light: "#F1F5F9"
+  - key: "--civ-bg-card"
+    category: color.bg
+    type: color_hex
+    label_ja: カード背景
+    default_lineage_dark: "#1A1A1A"
+    default_core_light: "#FFFFFF"
+
+  # --- 前景 ---
+  - key: "--civ-fg"
+    category: color.fg
+    type: color_hex
+    label_ja: 本文
+    default_lineage_dark: "#E6E6E6"
+    default_core_light: "#1A1A2E"
+  - key: "--civ-fg-muted"
+    category: color.fg
+    type: color_hex
+    label_ja: 補足テキスト
+    default_lineage_dark: "#B3B3B3"
+    default_core_light: "#666666"
+  - key: "--civ-fg-disabled"
+    category: color.fg
+    type: color_hex
+    label_ja: 無効テキスト
+    default_lineage_dark: "#666666"
+    default_core_light: "#999999"
+
+  # --- 枠線 ---
+  - key: "--civ-border"
+    category: color.border
+    type: color_hex
+    label_ja: 枠線
+    default_lineage_dark: "#2A2A2A"
+    default_core_light: "#E0E0E0"
+  - key: "--civ-border-subtle"
+    category: color.border
+    type: color_hex
+    label_ja: 枠線（弱）
+    default_lineage_dark: "#333333"
+    default_core_light: "#E5E7EB"
+
+  # --- 意味色（装飾禁止 · preferences §A）---
+  - key: "--civ-semantic-success"
+    category: color.semantic
+    type: color_hex
+    label_ja: 成功・生存
+    semantic: success
+    default_lineage_dark: "#5CD68D"
+    default_core_light: "#166534"
+  - key: "--civ-semantic-danger"
+    category: color.semantic
+    type: color_hex
+    label_ja: 失敗・危険
+    semantic: danger
+    default_lineage_dark: "#FF6B6B"
+    default_core_light: "#C62828"
+  - key: "--civ-semantic-info"
+    category: color.semantic
+    type: color_hex
+    label_ja: 情報
+    semantic: info
+    default_lineage_dark: "#4DA3FF"
+    default_core_light: "#1A73E8"
+  - key: "--civ-semantic-warning"
+    category: color.semantic
+    type: color_hex
+    label_ja: 注意
+    semantic: warning
+    default_lineage_dark: "#FFD66B"
+    default_core_light: "#E65100"
+
+  # --- 余白（px）---
+  - key: "--civ-space-section"
+    category: space
+    type: length_px
+    label_ja: セクション間
+    default_lineage_dark: "32px"
+    default_core_light: "32px"
+  - key: "--civ-space-card"
+    category: space
+    type: length_px
+    label_ja: カード内
+    default_lineage_dark: "24px"
+    default_core_light: "24px"
+  - key: "--civ-space-graph"
+    category: space
+    type: length_px
+    label_ja: グラフ周囲
+    default_lineage_dark: "40px"
+    default_core_light: "40px"
+
+  # --- 角丸 ---
+  - key: "--civ-radius-card"
+    category: radius
+    type: length_px
+    label_ja: カード角丸
+    default_lineage_dark: "12px"
+    default_core_light: "12px"
+  - key: "--civ-radius-button"
+    category: radius
+    type: length_px
+    label_ja: ボタン角丸
+    default_lineage_dark: "8px"
+    default_core_light: "8px"
+
+  # --- タイポ ---
+  - key: "--civ-font-family"
+    category: typography
+    type: font_stack
+    label_ja: フォント
+    default_lineage_dark: "Inter, 'Noto Sans JP', system-ui, sans-serif"
+    default_core_light: "Inter, 'Noto Sans JP', system-ui, sans-serif"
+  - key: "--civ-font-size-body"
+    category: typography
+    type: length_px
+    label_ja: 本文サイズ
+    default_lineage_dark: "16px"
+    default_core_light: "16px"
+  - key: "--civ-line-height"
+    category: typography
+    type: number
+    label_ja: 行間
+    default_lineage_dark: "1.6"
+    default_core_light: "1.6"
+
+lint_rules:
+  - id: INV-TP-01
+    rule: tokens の key は本ファイルの tokens[].key に存在すること
+  - id: INV-TP-03
+    rule: category=color.semantic 以外のトークンを「装飾目的」で増やさない（ADR-H-17）
+  - id: NFR-DTH-09
+    rule: wcag_pair_with が指定された組は contrast 比 4.5:1 未満で警告

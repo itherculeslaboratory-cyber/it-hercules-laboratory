@@ -1,0 +1,43 @@
+# individual.schema.yaml — 個体 Truth · Phase 1
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: individual
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: IHL Individual
+type: object
+required:
+  - individual_id
+  - schema_version
+  - run_id
+  - created_at
+properties:
+  individual_id:
+    type: string
+  local_label_text:
+    type: string
+  species:
+    type: string
+  birth_or_hatch_date:
+    type: string
+    format: date
+  source_type:
+    type: string
+    enum_ref: dictionaries/source_type.yaml
+  raw_source_ref:
+    type: string
+  note:
+    type: string
+  observation_target_domain:
+    type: string
+    enum_ref: dictionaries/observation_target_domain.yaml
+  record_version:
+    type: integer
+  schema_version:
+    type: integer
+    minimum: 1
+  run_id:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+additionalProperties: false

@@ -1,0 +1,32 @@
+# karma_summary.schema.yaml — カルマ Snapshot · 08 二層
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: karma_summary
+x_ihl_schema_version: 1
+x_ihl_layer: snapshot
+title: Karma Summary
+type: object
+required:
+  - actor_id
+  - karma_value
+  - karma_count
+  - schema_version
+  - recomputed_at
+properties:
+  actor_id:
+    type: string
+  karma_value:
+    type: number
+  karma_count:
+    type: integer
+  fee_unpaid:
+    type: boolean
+  last_batch_at:
+    type: string
+    format: date-time
+  recomputed_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

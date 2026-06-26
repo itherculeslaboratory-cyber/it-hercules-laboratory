@@ -1,0 +1,38 @@
+# individual_master.schema.yaml — 個体マスタ Snapshot · Phase 1
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: individual_master
+x_ihl_schema_version: 1
+x_ihl_layer: snapshot
+title: Individual Master
+type: object
+required:
+  - individual_id
+  - capture_count
+  - schema_version
+  - recomputed_at
+properties:
+  individual_id:
+    type: string
+  local_label_text:
+    type: string
+  species:
+    type: string
+  capture_count:
+    type: integer
+  latest_capture_id:
+    type: string
+  representative_capture_id:
+    type: string
+  latest_capture_timestamp:
+    type: string
+    format: date-time
+  recomputed_at:
+    type: string
+    format: date-time
+  source_event_max_created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

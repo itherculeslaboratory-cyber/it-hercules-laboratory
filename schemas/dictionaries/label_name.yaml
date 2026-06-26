@@ -1,0 +1,34 @@
+# dictionaries/label_name.yaml — LabelEvent.label_name 正本（草案）
+#
+# ステータス: 草案・人間レビュー待ち / 実装 Go 不可
+# 役割     : 教師データの「ラベル名」候補（分類タスクのクラス語彙）。
+#            自由追加可（弱 enum）。新ラベルは append-only で追記する。
+# 正本前提 : ADR-H-04 §6 / ADR-H-05 §1 / 05-観測.md §⑪.2（sex/stage 辞書と整合）
+# 解消 GAP : P1-DATA-01 / AI-G-01
+
+$dictionary_name: label_name
+schema_version: 1
+is_core_fixed: false      # 弱 enum（語彙は拡張前提）
+values:
+  - key: sex
+    label_ja: 性別
+    value_enum_ref: dictionaries/sex.yaml
+  - key: stage_name
+    label_ja: ステージ
+    value_enum_ref: dictionaries/stage_name.yaml
+  - key: view_type
+    label_ja: 撮影方向
+    value_enum_ref: dictionaries/view_type.yaml
+  - key: species
+    label_ja: 種
+    desc: 種同定ラベル（候補提示・確定は常にユーザー / OBS-SOL-04）。
+  - key: morphology_trait
+    label_ja: 形態形質
+    desc: 角型・体色など形態カテゴリ（Template 定義で拡張）。
+  - key: eclosion_failure
+    label_ja: 羽化不全
+    desc: 羽化不全の有無（cross_death_summary の分子に接続）。
+
+notes:
+  - label_name は「何を分類するか」、label_value は「分類結果」。
+  - value_enum_ref を持つラベルは値を該当辞書で検証する。

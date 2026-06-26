@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+dist/
+*.egg-info/
+.env
+.env.platform
+.env.local
+
+# Local R2 truth store (dev/runtime; INSERT-only spike output)
+.ihl-local-r2/
+**/.ihl-local-r2/
+
+# Env legacy archive (must never commit secrets)
+_archive/
+_archive/**

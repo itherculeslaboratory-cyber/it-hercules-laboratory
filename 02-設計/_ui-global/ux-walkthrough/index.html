@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IHL UX ウォークスルー — 草案</title>
+  <link rel="stylesheet" href="walkthrough.css">
+</head>
+<body>
+  <aside id="sidebar" aria-label="画面一覧">
+    <header class="sidebar-header">
+      <h1>IHL UX</h1>
+      <p class="meta">草案 · クリック遷移テスト</p>
+    </header>
+    <nav id="flow-nav"></nav>
+    <footer class="sidebar-footer">
+      <label>
+        <input type="checkbox" id="show-hotspots" checked>
+        ホットスポット表示
+      </label>
+      <label>
+        <input type="checkbox" id="show-labels">
+        ラベル常時表示
+      </label>
+    </footer>
+  </aside>
+
+  <main id="stage">
+    <header id="screen-header">
+      <div id="breadcrumb"></div>
+      <h2 id="screen-title"></h2>
+      <p id="screen-route" class="meta"></p>
+    </header>
+
+    <div id="viewport">
+      <img id="mock-img" alt="" />
+      <div id="hotspots" aria-hidden="true"></div>
+    </div>
+
+    <nav id="footer-nav" aria-label="補助ナビ">
+      <button type="button" id="btn-back" disabled>← 戻る</button>
+      <span id="flow-hint"></span>
+      <button type="button" id="btn-home">ホームへ</button>
+    </nav>
+  </main>
+
+  <script src="walkthrough.js"></script>
+</body>
+</html>

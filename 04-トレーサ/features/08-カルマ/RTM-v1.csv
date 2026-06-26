@@ -1,0 +1,17 @@
+req_id,requirement,design_section,test_case,test_layer,impl_path,status,notes
+FR-KRM-01,登録時 値=0 count=0,詳細設計-v2 §2.3,UT-08-05,unit,libs/ihl/economy/economy_logic.py,partial,初期値128.0は実装既定値・登録初期化は#03連携
+FR-KRM-02,カルマ値 [-100 +100] クリップ,詳細設計-v2 §4,ST-08-04,system,libs/ihl/economy/economy_logic.py,gap,snapshotはraw集計でクリップ未配線
+FR-KRM-03,count n-1->n で値-Fib(n) 逐次,詳細設計-v2 §2.2,UT-08-01/02/06/08;IT-08-02,unit;integration,libs/ihl/economy/economy_logic.py:fib_tier_delta,existing,FIB_SEQUENCE決定的
+FR-KRM-04,毎月25日 count>=1 で count-1,詳細設計-v2 §4,ST-08-05;UAT-08-04,system;uat,(batch未配線),gap,スケジューラ運用バッチ未配線
+FR-KRM-05,count=0 の月のみ値+10,詳細設計-v2 §4,ST-08-05;UAT-08-04,system;uat,(batch未配線),gap,25日サイクル未配線
+FR-KRM-06,値<=-100 で永久BAN,詳細設計-v2 §3.1/§4,ST-08-04;IT-08-05;UAT-08-06,system;integration;uat,apps/api/main.py:profile_metrics,gap,ban_status stub null・401/403は#01連携
+FR-KRM-07,免罪符1購入->count-1,詳細設計-v2 §4,UT-08-07;IT-08-06;UAT-08-05,unit;integration;uat,libs/ihl/economy/economy_logic.py:purchase_shop_item,partial,PT購入は実装・count-1連動は#22連携gap
+FR-KRM-08,争い取引由来Δcount(Y01-Y15),詳細設計-v2 §1.2/§5,IT-08-02,integration,libs/ihl/economy/economy_logic.py:record_fee_unpaid,xref,発生源は#06/#11・#08は適用
+FR-KRM-09,全ミューテーションR2 INSERT ONLY,詳細設計-v2 §2.1,UT-08-03/04;IT-08-03;ST-08-02,unit;integration;system,libs/ihl/economy/economy_logic.py:write_karma_event,existing,append-only karma_event
+FR-KRM-10,表示 自己=値+count 他者=BAN含む,詳細設計-v2 §3.1,UT-08-05;IT-08-01/04,unit;integration,apps/api/main.py:profile_metrics,existing,profile/metrics・詳細UIは設計ゲート後
+NF-KRM-01,INSERT ONLY,詳細設計-v2 §6,ST-08-02,system,libs/event_store.py,existing,append-only
+NF-KRM-02,25日境界 単一正本TZ,詳細設計-v2 §6,ST-08-05,system,(TBD),gap,詳細設計で確定
+NF-KRM-03,Fib決定的 監査再現,詳細設計-v2 §6,UT-08-01;ST-08-03,unit;system,libs/ihl/economy/economy_logic.py:fib_tier_delta,existing,純関数
+NF-KRM-04,BAN API 401/403統一 理由コード,詳細設計-v2 §6,ST-08-04,system,apps/api/main.py,gap,#01連携未配線
+NF-KRM-05,空状態 停止中 免罪符不足の短い理由,詳細設計-v2 §6,ST-08-06,system,(frontend),gap,UI設計ゲート後
+NF-KRM-06,legacy karma_*は参照のみ §12正,詳細設計-v2 §1.4/§6,UAT-08-07,uat,01-要件/08-カルマシステム.md §12,doc,ユーザー確定が数値正本

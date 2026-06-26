@@ -1,0 +1,136 @@
+# dictionaries/ui_primitive_catalog.yaml — UI Primitive 5 種 catalog（草案）
+#
+# ステータス: 草案・人間レビュー待ち / 実装 Go 不可
+# 役割     : ThemePack.primitive_variant_defaults · ScreenDef.design.token_variant の正本。
+# 正本前提 : ADR-H-17 §4.2 · design_token.yaml
+# 規約     : primitive id は固定 5 種。variant は append-only 追加。
+
+$dictionary_name: ui_primitive_catalog
+schema_version: 1
+is_core_fixed: true   # primitive 種別は Phase 2 まで増やさない（FR-DTH-03）
+
+primitives:
+  - id: button
+    label_ja: ボタン
+    shadcn_ref: Button          # Phase 2 · oss-selection §4
+    variants:
+      - id: primary
+        label_ja: 主ボタン
+        token_refs:
+          background: "--civ-semantic-info"
+          color: "--civ-fg"
+          border_radius: "--civ-radius-button"
+        constraints:
+          max_per_screen: 1     # preferences · 1 画面 1 主ボタン
+      - id: secondary
+        label_ja: 副ボタン
+        token_refs:
+          background: "--civ-bg-card"
+          color: "--civ-fg"
+          border: "--civ-border"
+          border_radius: "--civ-radius-button"
+      - id: ghost
+        label_ja: ゴースト
+        token_refs:
+          background: transparent
+          color: "--civ-fg-muted"
+          border_radius: "--civ-radius-button"
+      - id: danger
+        label_ja: 危険操作
+        token_refs:
+          background: "--civ-semantic-danger"
+          color: "--civ-fg"
+          border_radius: "--civ-radius-button"
+
+  - id: input
+    label_ja: 入力欄
+    shadcn_ref: Input
+    variants:
+      - id: default
+        label_ja: 標準
+        token_refs:
+          background: "--civ-bg-card"
+          color: "--civ-fg"
+          border: "--civ-border"
+          border_radius: "--civ-radius-button"
+      - id: error
+        label_ja: エラー
+        token_refs:
+          background: "--civ-bg-card"
+          color: "--civ-fg"
+          border: "--civ-semantic-danger"
+          border_radius: "--civ-radius-button"
+
+  - id: card
+    label_ja: カード
+    shadcn_ref: Card
+    variants:
+      - id: surface
+        label_ja: 表面（既定）
+        token_refs:
+          background: "--civ-bg-card"
+          color: "--civ-fg"
+          border: "--civ-border"
+          border_radius: "--civ-radius-card"
+          padding: "--civ-space-card"
+        notes: box-shadow none（preferences §B）
+      - id: elevated
+        label_ja: 強調（枠のみ）
+        token_refs:
+          background: "--civ-bg-section"
+          color: "--civ-fg"
+          border: "--civ-border"
+          border_radius: "--civ-radius-card"
+          padding: "--civ-space-card"
+
+  - id: tab
+    label_ja: タブ
+    shadcn_ref: Tabs
+    variants:
+      - id: underline
+        label_ja: 下線
+        token_refs:
+          color: "--civ-fg-muted"
+          active_color: "--civ-fg"
+          indicator: "--civ-semantic-info"
+      - id: pill
+        label_ja: ピル
+        token_refs:
+          background: "--civ-bg-section"
+          active_background: "--civ-bg-card"
+          color: "--civ-fg-muted"
+          active_color: "--civ-fg"
+          border_radius: "--civ-radius-button"
+
+  - id: badge
+    label_ja: バッジ
+    shadcn_ref: Badge
+    variants:
+      - id: muted
+        label_ja: 補足
+        token_refs:
+          background: "--civ-bg-section"
+          color: "--civ-fg-muted"
+      - id: success
+        label_ja: 成功
+        token_refs:
+          background: "--civ-semantic-success"
+          color: "--civ-bg-deep"
+      - id: danger
+        label_ja: 失敗
+        token_refs:
+          background: "--civ-semantic-danger"
+          color: "--civ-fg"
+      - id: info
+        label_ja: 情報
+        token_refs:
+          background: "--civ-semantic-info"
+          color: "--civ-fg"
+
+# ScreenDef.design.token_variant 形式: "{primitive_id}/{variant_id}"
+token_variant_pattern: "^[a-z]+/[a-z_]+$"
+
+screen_def_binding:
+  field: design.token_variant
+  example: "card/surface"
+  lint: variant は当該 primitive.variants[].id に存在すること

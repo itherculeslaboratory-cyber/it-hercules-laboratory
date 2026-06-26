@@ -1,0 +1,16 @@
+req_id,requirement,design_section,test_case,test_layer,impl_path,status,notes
+FR-CONTRIB-01,貢献度score非負・ノード/ユーザー単位保持,詳細設計-v2 §2.1/§2.2,UT-14-02;IT-14-03;ST-14-01,unit;integration;system,libs/ihl/economy/economy_logic.py:contribution_total,existing,BASE340+delta累積・減算なし
+FR-CONTRIB-02,換算イベント列挙・eventTypeをR2に残す,詳細設計-v2 §2.1,UT-14-01/04;IT-14-03,unit;integration,libs/ihl/core/event_store.py:write_contribution_event,existing,reason_code保持
+FR-CONTRIB-03,applyContributionDelta・上流10%重み配分,詳細設計-v2 §2.3/§4,IT-14-05;ST-14-05,integration;system,(legacy contributionEconomy.ts),gap,IHL未移植·salvage参照
+FR-CONTRIB-04,祖先なし時upstream分は子に残す,詳細設計-v2 §2.3,ST-14-05,system,(legacy contributionEconomy.ts),gap,legacy算法参照のみ
+FR-CONTRIB-05,100単位到達ごとissueCoin1枚端数繰越,詳細設計-v2 §4,ST-14-04;UAT-14-06,system;uat,(issueCoin未配線),gap,#20投票/プラチナ連携
+FR-CONTRIB-06,投票等で子に付与されたコインも同一グラフ分配,詳細設計-v2 §4,ST-14-05,system,(legacy contributionEconomy.ts),gap,legacy§5.2項
+FR-CONTRIB-07,NodeGraphEntry.ancestors weight配列,詳細設計-v2 §2.3,ST-14-05,system,economy/graph/(legacy),gap,IHL graph未配線
+FR-CONTRIB-08,発行理由に貢献度到達§5.3を含める,詳細設計-v2 §4,ST-14-04,system,(issueCoin),gap,ミント連動後
+FR-CONTRIB-09,ユーザー総貢献applyUserContributionDelta,詳細設計-v2 §3.2,IT-14-02;ST-14-03,integration;system,apps/api/main.py:profile_metrics,partial,profile metrics連携·内訳stub
+FR-CONTRIB-10,API応答nodeId score updated_at,詳細設計-v2 §3.1,IT-14-01/04;UAT-14-01,integration;uat,apps/api/main.py:contribution_summary,existing,ユーザー要約API·nodeIdは管理者経路gap
+NFR-CONTRIB-01,加算ミント分配はR2 append-only,詳細設計-v2 §2.1/§6,UT-14-03;ST-14-02,unit;system,libs/ihl/core/event_store.py:append,existing,INSERT ONLY
+NFR-CONTRIB-02,並行Δ適用時R2最終整合,詳細設計-v2 §6,ST-14-02,system,libs/ihl/core/event_store.py,partial,event順序監査優先
+NFR-CONTRIB-03,月間発行上限等インフレ対策,詳細設計-v2 §6,UAT-14-06,uat,legacy economyMasterStore,xref,legacyパラメータ参照
+NFR-CONTRIB-04,UIはscoreのみ換算式は短いヘルプ,詳細設計-v2 §6;ui/貢献度.md,ST-14-06;UAT-14-04,system;uat,apps/web/src/app/contribution/page.tsx,partial,専用UI存在·内訳UI gap
+NFR-CONTRIB-05,platinum-economy-tracer整合,詳細設計-v2 §6,UAT-14-07,uat,docs/platinum-economy-tracer.md,doc,CI/docsチェック

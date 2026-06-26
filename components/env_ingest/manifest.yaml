@@ -1,0 +1,13 @@
+name: env_ingest
+version: 0.1.0
+kind: transform
+in_schema_ref: schemas/manifest/env_collector_ingest.schema.yaml
+out_schema_ref: schemas/events/telemetry_sample.schema.yaml
+value_origin:
+  default: environment_derived
+emits_run_info: true
+emits_errors: true
+oss:
+  primary:
+    name: switchbot_open_api
+    via: libs/switchbot_client.py

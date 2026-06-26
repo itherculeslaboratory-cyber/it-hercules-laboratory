@@ -1,0 +1,26 @@
+# dictionaries/tag_type.yaml — タグ種別 enum 正本（草案 v1）
+$dictionary_name: tag_type
+schema_version: 1
+values:
+  - key: topic
+    label_ja: トピック
+  - key: morphology
+    label_ja: 形態
+  - key: color
+    label_ja: 色
+  - key: lineage
+    label_ja: 血統
+  - key: quality
+    label_ja: 品質
+  - key: status
+    label_ja: 状態
+  - key: warning
+    label_ja: 警告
+  - key: duplicate_hint
+    label_ja: 重複ヒント
+  - key: research_gap
+    label_ja: 研究ギャップ
+  - key: hypothesis
+    label_ja: 仮説
+  - key: review
+    label_ja: レビュー

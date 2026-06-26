@@ -1,0 +1,65 @@
+# RTM v1 — feature #02 利用規約（規約閲覧 · 同意イベント · IHL rebuild）
+# 列: req_id,design_section,test_case_id,test_layer,automation,status
+# req 母集合: 01-要件/02-利用規約.md の FR(18)+FR-LEGAL/EASY/VIDEO/RESOLVER/UX(20)+NFR(8) = 46
+# status: existing=既存pytest緑 / planned=差分TC(IMPL段) / review=設計レビュー受入 / human=人間ゲート / xref=他機能 / gap=IHL未実装(v2 §7 P4) / deferred=法務binding後retrofit
+req_id,design_section,test_case_id,test_layer,automation,status
+FR-01,§2.1 §3.1,IT-02-02,integration,pytest,planned
+FR-01,§2.1 草案正本,UAT-02-01,acceptance,review,review
+FR-02,§1.4 兄弟文書,UAT-02-08,acceptance,grep,review
+FR-03,§1.4 条項マトリクス,UAT-02-09,acceptance,review,review
+FR-04,§7 P5 HUMAN,UAT-02-10,acceptance,human,human
+FR-05,§7 P5 HUMAN,UAT-02-10,acceptance,human,human
+FR-06,§1.4 条項マトリクス,UAT-02-09,acceptance,review,review
+FR-10,§3.1 GET /terms,IT-02-01,integration,pytest,existing
+FR-10,§3.1 閲覧,UAT-02-01,acceptance,review,review
+FR-11,§1.2 #01境界,IT-02-06,integration,pytest,xref
+FR-11,§1.2 ログイン同意,UAT-02-02,acceptance,review,xref
+FR-12,§4.2 遷移,UAT-02-03,acceptance,review,review
+FR-13,§3.2 agree,IT-02-03,integration,pytest,existing
+FR-13,§1.2 #03境界,UAT-02-04,acceptance,review,xref
+FR-14,§2.2 append-only,IT-02-04,integration,pytest,planned
+FR-14,§2.2 永続化,UT-02-03,unit,pytest,planned
+FR-14,§2.2 同意記録,UAT-02-05,acceptance,review,review
+FR-15,§7 P2 収束方向,UAT-02-09,acceptance,review,deferred
+FR-16,§3.4 二層動画,UAT-02-11,acceptance,review,deferred
+FR-20,§1.2 #03境界,UAT-02-04,acceptance,review,xref
+FR-21,§3.2 agree,IT-02-03,integration,pytest,existing
+FR-22,§1.2 legacy,UAT-02-04,acceptance,review,xref
+FR-30,§1.4 市場注意,UAT-02-08,acceptance,grep,review
+FR-31,§7 P5 HUMAN,UAT-02-10,acceptance,human,human
+FR-LEGAL-01,§3.4 二層,UAT-02-11,acceptance,review,deferred
+FR-LEGAL-02,§2.1 版メタ,UT-02-01,unit,pytest,existing
+FR-LEGAL-02,§2.1 version,IT-02-02,integration,pytest,planned
+FR-LEGAL-02,§2.1 版紐づけ,UT-02-05,unit,pytest,planned
+FR-LEGAL-03,§3.4 binding,UAT-02-10,acceptance,human,human
+FR-LEGAL-03,§2.2 草案条項,UT-02-02,unit,pytest,planned
+FR-LEGAL-03,§2.2 is_draft,UT-02-04,unit,pytest,planned
+FR-EASY-01,§3.4 二層,UAT-02-11,acceptance,review,gap
+FR-EASY-02,§3.4 対応関係,UAT-02-11,acceptance,review,gap
+FR-EASY-03,§3.4 免責固定文,UAT-02-11,acceptance,review,gap
+FR-VIDEO-01,§3.5 resolver,UAT-02-12,acceptance,review,gap
+FR-VIDEO-02,§3.5 explain,UAT-02-12,acceptance,review,gap
+FR-VIDEO-03,§3.5 revision,UAT-02-12,acceptance,review,gap
+FR-RESOLVER-01,§2.3 §3.5,UAT-02-12,acceptance,review,gap
+FR-RESOLVER-02,§2.3 マッピング,UAT-02-12,acceptance,review,gap
+FR-RESOLVER-03,§2.3 section_id,UAT-02-12,acceptance,review,gap
+FR-RESOLVER-04,§3.5 API,IT-02-07,integration,pytest,gap
+FR-UX-01,§1.2 #03,UAT-02-13,acceptance,review,xref
+FR-UX-02,§4.2 scroll,UAT-02-13,acceptance,review,gap
+FR-UX-03,§3.1 未認証閲覧,IT-02-01,integration,pytest,existing
+FR-UX-03,§3.1 閲覧,UAT-02-01,acceptance,review,review
+FR-UX-04,§4.2 LoginPage,UAT-02-03,acceptance,review,review
+FR-UX-05,§3.5 Markdown,UAT-02-12,acceptance,review,gap
+NFR-01,§6 静的Markdown,UAT-02-08,acceptance,grep,review
+NFR-02,§6 草案表記,UAT-02-06,acceptance,review,review
+NFR-03,§6 a11y,UAT-02-07,acceptance,review,review
+NFR-04,§6 トレーサ,ST-02-03,system,node,existing
+NFR-04,§6 条項マトリクス,UAT-02-09,acceptance,review,review
+NFR-05,§2.2 INSERT ONLY,UT-02-06,unit,pytest,planned
+NFR-05,§4.1 append-only,ST-02-04,system,pytest,planned
+NFR-05,§2.2 追記,IT-02-04,integration,pytest,planned
+NFR-06,§6 責任分界,UAT-02-09,acceptance,review,review
+NFR-EASY-01,§2.3 easy-md,UAT-02-11,acceptance,review,gap
+NFR-VIDEO-01,§2.3 URL非直書き,UAT-02-12,acceptance,review,gap
+NFR-RESOLVER-01,§2.3 版管理,UAT-02-12,acceptance,review,gap
+NFR-UX-01,§6 scroll SR,UAT-02-13,acceptance,review,gap

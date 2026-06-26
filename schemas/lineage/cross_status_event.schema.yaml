@@ -1,0 +1,43 @@
+# cross_status_event.schema.yaml — Cross 状態変化 Truth · ADR-cross-status-event
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: cross_status_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Cross Status Event
+type: object
+required:
+  - cross_status_event_id
+  - cross_id
+  - new_status
+  - event_at
+  - actor_id
+  - created_at
+  - schema_version
+properties:
+  cross_status_event_id:
+    type: string
+  cross_id:
+    type: string
+  new_status:
+    type: string
+    enum_ref: dictionaries/cross_status.yaml
+  event_at:
+    type: string
+    format: date-time
+  event_reason:
+    type: string
+  action:
+    type: string
+    enum: [set, correct]
+  actor_id:
+    type: string
+  source_type:
+    type: string
+    enum_ref: dictionaries/source_type.yaml
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

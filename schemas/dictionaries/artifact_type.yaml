@@ -1,0 +1,20 @@
+# dictionaries/artifact_type.yaml — artifact 種別 enum 正本（草案 v1）
+$dictionary_name: artifact_type
+schema_version: 1
+values:
+  - key: raw_image
+    label_ja: 原画像
+  - key: normalized_table
+    label_ja: 正規化テーブル
+  - key: thumbnail
+    label_ja: サムネイル
+  - key: embedding
+    label_ja: 埋め込み
+  - key: manifest
+    label_ja: マニフェスト
+  - key: snapshot
+    label_ja: スナップショット
+  - key: run_info
+    label_ja: 実行情報
+  - key: error_log
+    label_ja: エラーログ

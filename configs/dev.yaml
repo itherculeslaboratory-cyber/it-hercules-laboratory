@@ -1,0 +1,6 @@
+# Phase 1 dev config (no secrets — copy .env.example from design folder for R2/GMO)
+pipeline_name: phase1
+pipeline_version: "0.1.0"
+r2:
+  endpoint: ""  # set via env R2_ENDPOINT
+  bucket: ""

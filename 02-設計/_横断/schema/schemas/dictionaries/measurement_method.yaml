@@ -1,0 +1,90 @@
+# 02-設計/_横断/schema/dictionaries/measurement_method.yaml — 計測方法辞書（設計スタブ）
+#
+# ステータス: 草案（人間レビュー待ち・実装 Go 不可）
+# 作成日（草案）: 2026-06-08
+# 役割:
+#   観測「入力」UI の「計測方法」ドロップダウン候補と、measurement（縦持ち）schema の
+#   measurement_method の正本。各エントリは value_origin（dictionaries/value_origin.yaml）への
+#   既定写像と、機器登録（requires_device）の要否を持つ。
+# 正本（前提）:
+#   - ../README.md §5（dictionaries は enum/辞書の正本）
+#   - ../../01-要件/05-観測.md §⑪.2 value_origin / OBS-TPL-05〜09
+#   - ../02-設計/_横断/adr/ADR-H-13-観測計測テンプレ契約.md §3（method → value_origin 写像）
+#   - 13-データ取得元管理.md / 機器一覧 UI（IoT 選択時の機器登録遷移先）
+# 規約:
+#   - value_origin は invent 禁止（05 §⑪.2 enum に整合）。
+#   - requires_device=true の method を選んだのに機器未登録のとき、UI は
+#     「機器管理へ」バナーを出す（OBS-TPL-08・遷移設計 device_required）。
+
+$dictionary_name: measurement_method
+schema_version: 1
+
+# method 選択 → value_origin の既定写像（ADR-H-13 §3）。UI 既定値であり、ユーザーは上書き可。
+entries:
+  - id: manual_entry
+    label_ja: 手入力
+    value_origin_default: direct_observed
+    requires_device: false
+    note: キーボード手入力。既定の計測方法。単位は measurement_name.unit_default。
+
+  - id: manual_caliper
+    label_ja: 手入力（ノギス）
+    value_origin_default: direct_observed
+    requires_device: false
+    note: ノギス計測の手入力。instrument_name にノギス機種を任意記録。
+
+  - id: manual_scale
+    label_ja: 手入力（電子天秤）
+    value_origin_default: direct_observed
+    requires_device: false
+    note: 体重等の電子天秤手入力。
+
+  - id: iot_switchbot
+    label_ja: IoT取得（SwitchBot）
+    value_origin_default: environment_derived
+    requires_device: true
+    device_kind: switchbot
+    device_route: "/settings/device"
+    note: SwitchBot 温湿度計等。機器未登録時は機器管理へ誘導（OBS-TPL-08）。
+
+  - id: iot_ble_scale
+    label_ja: IoT取得（BLE体重計）
+    value_origin_default: direct_observed
+    requires_device: true
+    device_kind: ble_scale
+    device_route: "/settings/device"
+    note: BLE 体重計。BLE/WebHID 温度直結は ADR 非目標（05 §③）— 体重計は別契約。
+
+  - id: iot_wifi_sensor
+    label_ja: IoT取得（Wi-Fiセンサ）
+    value_origin_default: environment_derived
+    requires_device: true
+    device_kind: wifi_sensor
+    device_route: "/settings/device"
+    note: Wi-Fi 環境センサ / collector 経由。Ed25519 署名 ingest（OBS-ENV-04）。
+
+  - id: derived_from_image
+    label_ja: 画像から算出
+    value_origin_default: image_derived
+    requires_device: false
+    note: LabelMe 計測・Vision 由来。直接観測と混同しない（OBS-REP-IHL-02）。
+
+# value_origin の取りうる値（05 §⑪.2 再掲・正本は dictionaries/value_origin.yaml）
+value_origin_enum_ref: value_origin.yaml
+value_origin_values:
+  - direct_observed
+  - image_derived
+  - environment_derived
+  - lineage_derived
+  - estimated
+  - imputed
+  - aggregate
+  - unknown
+
+# 未決（要件確定が必要・実装前）
+unresolved:
+  - "device_route の最終ルート（/settings/device vs 専用機器一覧 V17）は班 C 12-設定 設計と同期"
+  - "collector 署名 ingest（iot_wifi_sensor）の measurement への正規化経路は ADR-H-13 §4 で確定"
+  - "ユーザー自由追加 method の可否（既定は固定セットのみ・自由入力は当面禁止）"
+
+# 草案・非正本 / 設計スタブ（実 repo 02-設計/_横断/schema/ 未作成）/ 人間レビュー用 / 実装禁止ゲート有効 — 実装 Go 不可

@@ -1,0 +1,36 @@
+# karma_event.schema.yaml — カルマ Truth · ADR-H-06 / 08
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: karma_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Karma Event
+type: object
+required:
+  - karma_event_id
+  - actor_id
+  - layer
+  - delta
+  - created_at
+  - schema_version
+properties:
+  karma_event_id:
+    type: string
+  actor_id:
+    type: string
+  layer:
+    type: string
+    enum: [value, count]
+  delta:
+    type: number
+  reason_code:
+    type: string
+    enum: [monthly_batch, dispute, fee_unpaid, manual, other]
+  dispute_event_ref:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

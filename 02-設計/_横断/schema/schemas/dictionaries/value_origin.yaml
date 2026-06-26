@@ -1,0 +1,44 @@
+# dictionaries/value_origin.yaml — value_origin enum 正本（草案）
+#
+# ステータス: 草案・人間レビュー待ち / 実装 Go 不可
+# 役割     : 計測値・集計値の「出所」を 1 語で表す enum 正本。
+#            02-設計/_横断/schema/*.schema.yaml は enum をベタ書きせず enum_ref でここを参照する
+#            （02-設計/_横断/schema/README.md §2/§5）。
+# 正本前提 : ADR-H-04 §2（状態 vs 変化）/ 02-設計/_横断/schema/README.md §5 / 05-観測.md §⑪.1
+#
+# 規約: 値は append-only に「追加」する。値の削除・意味変更は破壊的変更（schema_version +1 相当）。
+
+$dictionary_name: value_origin
+schema_version: 1
+values:
+  - key: direct_observed
+    label_ja: 直接観測
+    desc: 人が実測した値（キャリパー・はかり等）。最も信頼度が高い既定。
+  - key: image_derived
+    label_ja: 画像由来
+    desc: 画像解析（LabelMe / Vision / CLIP 等）から導出した値。
+  - key: environment_derived
+    label_ja: 環境由来
+    desc: 環境 IoT（SwitchBot / collector）テレメトリから導出した値。
+  - key: lineage_derived
+    label_ja: 血統由来
+    desc: Cross / CrossParent / OffspringAssignment から再構築した値。
+  - key: estimated
+    label_ja: 推定
+    desc: 人または規則ベースの推定値（実測でない）。
+  - key: imputed
+    label_ja: 補完
+    desc: 欠測を統計・補間で埋めた値（environment_timeseries の imputed_flag と対応）。
+  - key: aggregate
+    label_ja: 集計
+    desc: Snapshot 再計算で得た集計値（平均・極値・率など）。Truth ではない。
+  - key: model_inference
+    label_ja: モデル推論
+    desc: AI モデル（ModelRun）出力。AnnotationEvent.source_type=model と対応。
+  - key: unknown
+    label_ja: 不明
+    desc: 出所が確定できない値（既定の安全側ラベル）。
+
+notes:
+  - imputed と estimated を分ける: imputed=欠測補完 / estimated=実測の代替推定。
+  - aggregate は Snapshot 専用。Truth レコードの計測値には付与しない。

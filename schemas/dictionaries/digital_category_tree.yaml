@@ -1,0 +1,46 @@
+# dictionaries/digital_category_tree.yaml — デジタル対象カテゴリ木（ゲーム初期案・草案）
+#
+# ステータス: 草案・人間レビュー待ち / 実装 Go 不可
+# 役割     : domain=digital の分類ツリー経路（ADR-H-16 §4 経路③）の初期案。
+#            ゲーム›ジャンル›作品。葉は work（作品）。Phase 2 本格対応（ADR-H-16 §7）。
+# 正本前提 : ADR-H-16 §3 / §7 / 05-観測.md §4.11 OBS-TGT-01
+# 規約     : 最小シード。作品（work）は append-only で増える前提（網羅しない）。
+#            path 例: ["game", "rpg", "<作品名>"] → tags: domain:digital / platform? / genre:rpg / work:<作品名>
+
+$dictionary_name: digital_category_tree
+schema_version: 1
+is_core_fixed: false        # 弱 enum（作品は無限に増える）
+tree:
+  - key: game
+    label_ja: ゲーム
+    children:
+      - key: rpg
+        label_ja: RPG
+      - key: action
+        label_ja: アクション
+      - key: simulation
+        label_ja: シミュレーション
+      - key: puzzle
+        label_ja: パズル
+      - key: strategy
+        label_ja: ストラテジー
+      - key: other_game
+        label_ja: その他ジャンル
+  - key: software
+    label_ja: ソフトウェア
+    children:
+      - key: app
+        label_ja: アプリ
+      - key: tool_sw
+        label_ja: ツール
+
+# 作品（work）はツリーにベタ書きせず、ジャンル下に append-only で登録する想定。
+work_registration:
+  rank: work
+  parent_required: [game, software]   # 作品はジャンル（葉カテゴリ）配下に置く
+  free_input: true                    # 作品名は自由入力可（弱 enum）
+
+notes:
+  - Phase 1 は最小（ジャンルまで）。作品木の本格対応は Phase 2（ADR-H-16 §7）。
+  - tags 生成: platform（任意）/ genre / work（ADR-H-16 §5）。
+  - 葉（作品）未確定時は「作品未確定（ジャンルまで）」を明示してよい（§4.2）。

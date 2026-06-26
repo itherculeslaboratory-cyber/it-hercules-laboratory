@@ -1,0 +1,56 @@
+# measurement_dictionary_selected.event.schema.yaml — 計測辞書選択イベント · Wave C
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: measurement_dictionary_selected_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Measurement Dictionary Selected Event
+type: object
+required:
+  - event_id
+  - owner_user_id
+  - session_id
+  - scope
+  - selected_items
+  - selected_at
+  - schema_version
+properties:
+  event_id:
+    type: string
+  owner_user_id:
+    type: string
+  session_id:
+    type: string
+  scope:
+    type: string
+    enum: [solid, environment, digital]
+  context_target_id:
+    type: string
+  selected_items:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      required: [measurement_name, measurement_unit, measurement_method]
+      properties:
+        measurement_name:
+          type: string
+          enum_ref: dictionaries/measurement_name.yaml
+        measurement_unit:
+          type: string
+        measurement_method:
+          type: string
+          enum_ref: dictionaries/measurement_method.yaml
+        value_type:
+          type: string
+          enum: [numeric, categorical, boolean, text]
+      additionalProperties: false
+  entry_mode:
+    type: string
+    enum: [photo_ai, manual_taxonomy, qr, device_api]
+  selected_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

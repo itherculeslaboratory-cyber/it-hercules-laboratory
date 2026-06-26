@@ -1,0 +1,39 @@
+# dictionaries/annotation_type.yaml — AnnotationEvent.annotation_type 正本（草案）
+#
+# ステータス: 草案・人間レビュー待ち / 実装 Go 不可
+# 役割     : AI 学習ファストパスの AnnotationEvent が表す「注釈の種類」。
+#            source_type（human/model/reviewer/batch/consensus）と直交する。
+# 正本前提 : ADR-H-04 §6 / ADR-H-05 §1 / 02-設計/_横断/schema/README.md §5 / 専門班 A AI-G-01
+# 解消 GAP : P1-DATA-01 / AI-G-01
+
+$dictionary_name: annotation_type
+schema_version: 1
+values:
+  - key: bbox
+    label_ja: 矩形領域
+    desc: 物体検出用バウンディングボックス（x,y,w,h）。
+  - key: keypoint
+    label_ja: 特徴点
+    desc: 角・関節・体節など計測の起点となる点。
+  - key: polygon
+    label_ja: 多角形マスク
+    desc: セグメンテーション用ポリゴン（LabelMe 由来等）。
+  - key: classification
+    label_ja: 分類ラベル
+    desc: 画像/個体に対する離散ラベル（種・性別候補など）。LabelEvent と連携。
+  - key: measurement_assist
+    label_ja: 計測補助
+    desc: 体長・角長など計測値の AI/人 補助注釈。measurement と紐付く。
+  - key: parentage_hint
+    label_ja: 親子確度ヒント
+    desc: OffspringAssignment.confidence の入力となる親子推定（AI-G-05）。
+  - key: quality_flag
+    label_ja: 品質フラグ
+    desc: ブレ・露出・遮蔽など QC 注釈（qc_flag に集約）。
+  - key: review
+    label_ja: レビュー
+    desc: 既存注釈の妥当性レビュー（source_type=reviewer と併用）。
+
+notes:
+  - annotation_value の構造は annotation_type ごとに異なる（schema は oneOf で分岐）。
+  - 同一 target への複数 AnnotationEvent の集計は ai-training-export-pipeline-v1.md §4。

@@ -1,0 +1,119 @@
+# RTM v1 — feature #05 観測（固体 commit · 計測 · 検索 · テンプレ · IHL image lake · IHL rebuild）
+# 列: req_id,design_section,test_case_id,test_layer,automation,status
+# req 母集合: 01-要件/05-観測.md の OBS-SOL/ENV/DIG/R2/TAX/REP/TAG/RAG/DRV/IMG/TPL/CTX/TGT/NF-*
+# status: existing=既存pytest緑 / planned=差分TC(IMPL段で追加) / review=設計レビュー受入 / human=人間ゲート / xref=他機能で実証 / gap=IHL未配線(設計のみ) / deferred=将来retrofit/UI層/別境界
+req_id,design_section,test_case_id,test_layer,automation,status
+OBS-SOL-01,§3.1 §4 commit,UT-05-01,unit,pytest,existing
+OBS-SOL-02,§2.1 §3.1,UT-05-02,unit,pytest,existing
+OBS-SOL-03,§3.1 contract,ST-05-01,system,pytest,existing
+OBS-SOL-04,§2.1 §6 ユーザー確定,UT-05-03,unit,pytest,planned
+OBS-SOL-05,§7 P2 LabelMe,UAT-05-07,acceptance,review,gap
+OBS-SOL-06,§6 色補正なし,UAT-05-01,acceptance,review,review
+OBS-SOL-07,§3.1 entryMode,UT-05-01,unit,pytest,existing
+OBS-SOL-08,§7 priorSession,UAT-05-01,acceptance,review,gap
+OBS-ENV-01,§2.2 §3.1 env chain,IT-05-02,integration,pytest,existing
+OBS-ENV-02,§2.2 §3.1 telemetry,IT-05-02,integration,pytest,existing
+OBS-ENV-03,§1.2 §7 #13境界,IT-05-01,integration,pytest,xref
+OBS-ENV-04,§1.2 #13 collector,UAT-05-03,acceptance,review,xref
+OBS-ENV-05,§3.1 placement参照,IT-05-01,integration,pytest,existing
+OBS-ENV-06,§2.2 provenance,UT-05-05,unit,pytest,planned
+OBS-DIG-01,§1.2 観測ホーム,UAT-05-01,acceptance,review,deferred
+OBS-DIG-02,§7 デジタル入口,UAT-05-01,acceptance,review,deferred
+OBS-DIG-03,§6 空状態,UT-05-07,unit,pytest,planned
+OBS-DIG-04,§5 Kernel,ST-05-01,system,pytest,review
+OBS-R2-01,§4 §6 INSERT ONLY,ST-05-03,system,pytest,planned
+OBS-R2-02,§4 新レコード,ST-05-03,system,pytest,planned
+OBS-R2-03,§4 no-overwrite,ST-05-03,system,pytest,planned
+OBS-R2-04,§2.1 provenance,UT-05-02,unit,pytest,existing
+OBS-R2-05,§7 latest index,UAT-05-05,acceptance,review,deferred
+OBS-TAX-01,§2.3 §7 P6 型分離,UT-05-08,unit,pytest,gap
+OBS-TAX-02,§7 P1 GBIF,UAT-05-07,acceptance,review,gap
+OBS-TAX-03,§7 P1 Wikidata,UAT-05-07,acceptance,review,gap
+OBS-TAX-04,§2.3 catalog,IT-05-06,integration,pytest,review
+OBS-TAX-05,§7 P1 Question,UAT-05-07,acceptance,review,gap
+OBS-TAX-06,§2.1 alias,UAT-05-02,acceptance,review,review
+OBS-TAX-07,§6 候補根拠,UT-05-03,unit,pytest,planned
+OBS-REP-01,§7 P2 BPCMS,UAT-05-07,acceptance,review,gap
+OBS-REP-02,§7 P2 スケールシート,UAT-05-07,acceptance,review,gap
+OBS-REP-04,§7 bundle,UAT-05-06,acceptance,review,deferred
+OBS-REP-05,§7 manifest,UAT-05-05,acceptance,review,deferred
+OBS-REP-06,§1.2 §7 P3 market自動,UAT-05-07,acceptance,review,deferred
+OBS-REP-08,§2.1 digest,UT-05-02,unit,pytest,review
+OBS-REP-IHL-01,§2.1 run_id,UT-05-02,unit,pytest,existing
+OBS-REP-IHL-02,§2.2 §6 value_origin,ST-05-04,system,pytest,planned
+OBS-TAG-01,§3.2 measurement,IT-05-03,integration,pytest,existing
+OBS-RAG-01,§5 OUT,UAT-05-05,acceptance,review,deferred
+OBS-DRV-01,§7 P1 Driver,UAT-05-07,acceptance,review,gap
+OBS-IMG-04,§2.4 §3.3 similar,IT-05-06,integration,pytest,planned
+OBS-IMG-05,§2.4 ADR-H-12,UAT-05-05,acceptance,review,xref
+OBS-TPL-03,§3.3 正規名,UT-05-06,unit,pytest,planned
+OBS-TPL-04,§2.2 measurement行,UT-05-05,unit,pytest,planned
+OBS-TPL-05,§3.2 method,UT-05-10,unit,pytest,planned
+OBS-TPL-06,§2.2 method→origin,UT-05-04,unit,pytest,existing
+OBS-TPL-16,§3.3 LIST,UAT-05-06,acceptance,review,review
+OBS-TPL-17,§3.3 DETAIL,UT-05-09,unit,pytest,planned
+OBS-CTX-01,§1.2 §7 P4 伝播,UAT-05-01,acceptance,review,deferred
+OBS-CTX-02,§7 P4 既定値,UT-05-03,unit,pytest,deferred
+OBS-TGT-04,§7 P4 亜種まで,UAT-05-02,acceptance,review,deferred
+OBS-TGT-09,§7 P4 候補根拠,UT-05-03,unit,pytest,deferred
+OBS-NF-01,§4 §6 INSERT ONLY,ST-05-03,system,pytest,planned
+OBS-NF-02,§6 秘密非表示,ST-05-07,system,pytest,planned
+OBS-NF-03,§6 3クリック,ST-05-06,system,manual,review
+OBS-NF-04,§6 空/エラー,UT-05-07,unit,pytest,planned
+OBS-NF-05,§6 色意味,UAT-05-01,acceptance,review,review
+OBS-NF-08,§6 監査ID,UAT-05-05,acceptance,review,deferred
+OBS-NF-09,§6 §7 人間ゲート,UAT-05-08,acceptance,manual,human
+OBS-FUP-01,§9.1 §9.3 commit INSERT,ST-05-08,system,pytest,planned
+OBS-FUP-02,§9.1 prior_capture_id,UT-05-13,unit,pytest,planned
+OBS-FUP-03,§0.1 QR/continue,UAT-05-09,acceptance,playwright,planned
+OBS-FUP-04,§9.2 devices[] commit,UT-05-16,unit,pytest,planned
+OBS-FUP-05,§9.3 implicit binding end,UT-05-12,unit,pytest,planned
+OBS-FUP-06,§10 env chunk UI,UAT-05-14,acceptance,playwright,planned
+OBS-FUP-07,§9.1 env snapshot,IT-05-09,integration,pytest,planned
+OBS-FUP-08,§9.2 multi role,IT-05-07,integration,pytest,planned
+OBS-FUP-09,§9.4 next_observation_at,UT-05-14,unit,pytest,planned
+OBS-FUP-10,§9.3 P1 shelf API,UAT-05-03,acceptance,review,deferred
+OBS-FUP-11,§9.7 home summary,ST-05-10,system,pytest,planned
+OBS-RX-UX-01,§10 5チャンク,UAT-05-14,acceptance,manual,review
+OBS-RX-UX-02,§1 3クリック,UAT-05-13,acceptance,manual,review
+OBS-RX-UX-03,§4 confirm主ボタン,UAT-05-09,acceptance,playwright,planned
+OBS-RX-UX-04,§10 env chunk,UAT-05-14,acceptance,playwright,planned
+OBS-RX-UX-05,§3 QR/continue,UAT-05-10,acceptance,playwright,planned
+OBS-RX-UX-06,§9.4 個体詳細schedule,UAT-05-17,acceptance,playwright,planned
+OBS-RX-UX-07,§5 UPDATE拒否,ST-05-09,system,pytest,planned
+OBS-RX-UX-08,§4 bindingサマリー,UAT-05-11,acceptance,playwright,planned
+OBS-RX-UX-09,§6 エラー理由,UAT-05-09,acceptance,playwright,planned
+OBS-RX-UX-10,§10 次回ピッカー,UAT-05-12,acceptance,playwright,planned
+OBS-RX-UX-11,§5 home overdue,ST-05-10,system,pytest,planned
+OBS-RX-RD-01,§9.6 source enum,UT-05-17,unit,pytest,planned
+OBS-RX-RD-02,§9.1 observed_at,UT-05-19,unit,pytest,planned
+OBS-RX-RD-03,§9.3 binding派生,IT-05-07,integration,pytest,planned
+OBS-RX-RD-04,§9.1 構造化行,UAT-05-15,acceptance,playwright,planned
+OBS-RX-RD-05,§9.1 gap透明,IT-05-10,integration,pytest,planned
+OBS-RX-RD-06,§9.1 再現性最小,ST-05-11,system,pytest,planned
+OBS-RX-RD-07,§9.3 subject_ref,IT-05-07,integration,pytest,planned
+OBS-RX-RD-08,§9.3 409 key,IT-05-08,integration,pytest,planned
+OBS-RX-RD-09,§9.3 derived_bindings,IT-05-13,integration,pytest,planned
+OBS-RX-RD-10,§9.3 trigger_capture_id,UT-05-20,unit,pytest,planned
+OBS-RX-RD-11,§9.4 schedule event,UT-05-14,unit,pytest,planned
+OBS-RX-REP-04,§9.1 撮影条件最小,UAT-05-15,acceptance,playwright,planned
+OBS-RX-REP-05,§9.1 digest,UT-05-02,unit,pytest,review
+OBS-RX-REP-07,§9.6 value_origin,UT-05-04,unit,pytest,existing
+OBS-INPUT-01,§10 フェーズDD,UAT-05-15,acceptance,playwright,existing
+OBS-INPUT-02,§10 性別DD,UAT-05-15,acceptance,playwright,existing
+OBS-INPUT-03,§10 行DD追加,UAT-05-15,acceptance,playwright,existing
+OBS-INPUT-04,§10 項目追加,UAT-05-15,acceptance,playwright,existing
+OBS-INPUT-05,§10 単位追加,UAT-05-15,acceptance,playwright,existing
+OBS-INPUT-06,§4.16.6 ver2 OUT,UAT-05-07,acceptance,review,deferred
+OBS-INPUT-07,§4.16.6 ver2 OUT,UAT-05-07,acceptance,review,deferred
+OBS-PHOTO-01,§10 撮影条件行,UAT-05-15,acceptance,playwright,existing
+OBS-TPL-18,§4 confirmテンプレ,UAT-05-15,acceptance,playwright,existing
+OBS-TPL-19,§10 種族束縛,UAT-05-15,acceptance,playwright,existing
+OBS-TPL-22,§9.5 interval metadata,IT-05-14,integration,pytest,planned
+OBS-TPL-23,§9.5 stageプリフィル,UT-05-18,unit,pytest,planned
+OBS-IND-01,§9.1 individual_id,IT-05-12,integration,pytest,planned
+OBS-IND-02,§9.1 sire/dam,UAT-05-16,acceptance,playwright,planned
+OBS-QR-03,§3 プリフィル,UAT-05-09,acceptance,playwright,planned
+OBS-QR-04,§9.1 entry_mode qr,UT-05-01,unit,pytest,planned
+OBS-MVP-01,§2 stage時系列,UAT-05-10,acceptance,playwright,planned
+OBS-MVP-02,§3 プリフィル,UAT-05-10,acceptance,playwright,planned

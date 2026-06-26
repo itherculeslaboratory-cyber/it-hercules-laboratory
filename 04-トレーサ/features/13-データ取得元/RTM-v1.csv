@@ -1,0 +1,16 @@
+req_id,requirement,design_section,test_case,test_layer,impl_path,status,notes
+FR-ENV-01,Placement安定IDとINSERTのみ作成,詳細設計-v2 §2.1,UT-13-01;IT-13-01,unit;integration,libs/placement_store.py:create_placement,existing,Tier A INSERT ONLY
+FR-ENV-02,DeviceBinding終了追記・未終了重複409,詳細設計-v2 §2.2/§7,IT-13-05,integration,(binding routes),gap,openBinding stub
+FR-ENV-03,Occupancy区間・subjectRef参照,詳細設計-v2 §2.3,UT-13-02;IT-13-01,unit;integration,libs/placement_store.py:start_occupancy,existing,409 duplicate
+FR-ENV-04,placement未解決許容・resolved新イベント,詳細設計-v2 §2.4/§7,UAT-13-08,uat,(telemetry.placement.resolved),gap,事後紐づけ未実装
+FR-ENV-05,QR再発行INSERT・期限404,詳細設計-v2 §2.5,UT-13-05;IT-13-04,unit;integration,libs/placement_store.py:create_qr_token,existing,Bearer不要GET
+FR-ENV-06,固体二重POST禁止・単一commit,詳細設計-v2 §3.4,IT-13-03,integration,tests/integration/test_observation_solid.py,existing,#05 capturesのみ
+FR-ENV-07,collector Ed25519署名ingest,詳細設計-v2 §3.1,UT-13-03/06;IT-13-02;ST-13-01,unit;integration;system,apps/api/routes/env.py:env_ingest,existing,X-IHL-Collector-* headers
+FR-ENV-08,R2に測定値+文脈のみ・秘密禁止,詳細設計-v2 §2.4/§6,UT-13-06;ST-13-03,unit;system,libs/env_telemetry.py,existing,サニタイズ列
+FR-ENV-09,history期間フィルタ7日max400,詳細設計-v2 §3.3/§7,ST-13-04;UAT-13-08,system;uat,apps/api/routes/env.py:env_history,partial,dev listing
+FR-ENV-10,IHL collector同一ingest契約再利用,詳細設計-v2 §5,UAT-13-04,uat,components/env_ingest/run.py,existing,C-USB manifest
+NFR-ENV-01,全遷移R2 INSERT ONLY,詳細設計-v2 §2/§6,UT-13-01/04;ST-13-02,unit;system,libs/placement_store.py,existing,Tier A+B ADR-H-20
+NFR-ENV-02,collector queue append-only再送,詳細設計-v2 §6,UAT-13-04,uat,collector/.env.example,doc,queue.jsonl設計
+NFR-ENV-03,Docker volumeで秘密隔離,詳細設計-v2 §5/§6,UAT-13-06,uat,collector/.env.example,doc,UI入力禁止
+NFR-ENV-04,公開QR高エントロピーTTL,詳細設計-v2 §2.5/§6,UT-13-05,unit,libs/placement_store.py:new_qr_token,existing,token_urlsafe
+NFR-ENV-05,空棚409テレメトリ空理由表示,詳細設計-v2 §6,ST-13-06;UAT-13-09,system;uat,apps/api/routes/env.py,partial,UI v1参照

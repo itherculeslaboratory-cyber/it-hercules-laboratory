@@ -1,0 +1,26 @@
+# research_score_summary.schema.yaml — Research Score Snapshot · ADR-H-06
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: research_score_summary
+x_ihl_schema_version: 1
+x_ihl_layer: snapshot
+title: Research Score Summary
+type: object
+required:
+  - actor_id
+  - research_score
+  - schema_version
+  - recomputed_at
+properties:
+  actor_id:
+    type: string
+  research_score:
+    type: number
+  title_tier:
+    type: string
+  recomputed_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

@@ -1,0 +1,44 @@
+# measurement_template.schema.yaml — 計測テンプレ · ADR-H-13
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: measurement_template
+x_ihl_schema_version: 1
+x_ihl_layer: config
+title: Measurement Template
+type: object
+required:
+  - template_id
+  - name
+  - rows
+  - visibility
+  - schema_version
+properties:
+  template_id:
+    type: string
+  name:
+    type: string
+  rows:
+    type: array
+    items:
+      type: object
+      required: [measurement_name, unit, method]
+      properties:
+        measurement_name:
+          type: string
+          enum_ref: dictionaries/measurement_name.yaml
+        unit:
+          type: string
+        method:
+          type: string
+          enum_ref: dictionaries/measurement_method.yaml
+        sex_branch:
+          type: string
+          enum_ref: dictionaries/sex.yaml
+  visibility:
+    type: string
+    enum: [public, private, fork]
+  fork_of:
+    type: string
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

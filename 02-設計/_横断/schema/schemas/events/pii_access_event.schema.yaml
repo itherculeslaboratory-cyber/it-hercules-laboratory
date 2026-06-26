@@ -1,0 +1,44 @@
+# pii_access_event.schema.yaml — PII 監査 Truth · 12-設定
+# メタデータのみ（who/when/kind）。PII 本文・値は行に含めない（schema-pack-v1 §7）
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: pii_access_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: PII Access Event
+type: object
+required:
+  - pii_access_event_id
+  - actor_id
+  - access_kind
+  - target_ref
+  - created_at
+  - schema_version
+properties:
+  pii_access_event_id:
+    type: string
+  actor_id:
+    type: string
+    description: アクセス主体（ハッシュ ID）。平文 PII は含めない。
+  access_kind:
+    type: string
+    enum: [read, export, delete_request, anonymize]
+    description: 操作種別のみ。delete_request は即時 anonymize へ続く（§7.4）。
+  target_ref:
+    type: string
+    description: 対象の不透明参照（trade_id · user_id_hash 等）。PII 本文・値は記録しない。
+  legal_basis:
+    type: string
+    description: 目的コード（例 user_self · trade_counterparty · delete_request）。PII 本文なし（HUMAN-CONFIRMED 2026-06-07 · schema-pack §7）
+    x_ihl_human_confirmed: 2026-06-07
+  retention_until:
+    type: string
+    format: date-time
+    description: 監査ログ行のローテ期限（例 30 日）。PII 本文の保持期限ではない。PII 非保持時は省略可（HUMAN-CONFIRMED 2026-06-07 · schema-pack §7）
+    x_ihl_human_confirmed: 2026-06-07
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

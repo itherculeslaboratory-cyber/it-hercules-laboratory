@@ -1,0 +1,22 @@
+req_id,requirement,design_section,test_case,test_layer,impl_path,status,notes
+FR-16-REFRAME-01,配置とデザインのみ第一級,詳細設計-v2 §1.1/§3.4,IT-16-03;UAT-16-02,integration;uat,apps/api/main.py:builder_canvas_save,existing,canvas manifest
+FR-16-REFRAME-02,catalogからの選択紐づけのみ,詳細設計-v2 §2.1,UT-16-04;UAT-16-03,unit;uat,catalog/components.yaml,partial,lint未配線
+FR-16-REFRAME-03,新API inventはBuilder外,詳細設計-v2 §1.2,IT-16-04;UAT-16-06,integration;uat,(backend),gap,ADR-H-01
+FR-16-REFRAME-04,L1-L4はUI編集権限のみ,詳細設計-v2 §4,UAT-16-04,uat,遷移設計-v1,doc,L4 META編集除外
+FR-16-REFRAME-05,ライブプレビューとDev固定,詳細設計-v2 §5,ST-16-03,system,libs/theme_pack.py,partial,APIのみ
+FR-16-REFRAME-06,lintは既存schema適合のみ,詳細設計-v2 §2/§6,UT-16-03,unit,design_token.yaml,gap,Zod/Ajv未配線
+FR-16-REFRAME-07,ドメインUIは紐づけのみ,詳細設計-v2 §1.2,UAT-16-05,uat,legacy BuilderShell,gap,観測テンプレ外
+FR-16-REFRAME-08,Phase8 platformはBuilder外,詳細設計-v2 §1.2/§7,IT-16-05;ST-16-06,integration;system,Phase8_builder_universal.md,gap,read-only
+FR-16-REFRAME-09,builder-capability二層境界,詳細設計-v2 §7,ST-16-06;UAT-16-07,system;uat,builder-capability-boundary.md,xref,civ-os
+FR-16-REFRAME-10,IHL component思想参照,詳細設計-v2 §0,UAT-16-03,uat,16-UIbuilder.md §12.6,doc,manifest分離
+FR-DTH-01,ThemePackエンティティ,詳細設計-v2 §2.2,UT-16-01;IT-16-01/02,unit;integration,libs/theme_pack.py;test_theme_pack.py,existing,ADR-H-17 retrofit 2026-06-10
+FR-DTH-02,design_token.yaml正本,詳細設計-v2 §2.2,UT-16-03,unit,dictionaries/design_token.yaml,partial,lint gap
+FR-DTH-03,ui_primitive_catalog,詳細設計-v2 §2.2,UT-16-03,unit,ui_primitive_catalog.yaml,partial,variant検証
+FR-DTH-04,world_default適用,詳細設計-v2 §2.2,IT-16-02,integration,ThemePackStore,gap,runtime CSS未配線
+FR-DTH-05,fork系譜ThemePack,詳細設計-v2 §2.2,ST-16-02,system,libs/theme_pack.py,partial,parent_theme_pack_id
+NFR-16-01,R2 INSERT ONLY,詳細設計-v2 §5/§6,UT-16-05;ST-16-02,unit;system,libs/theme_pack.py,partial,版管理
+NFR-16-02,C-USB互換4媒体同期,詳細設計-v2 §6,UAT-16-06,uat,civilization/ProjectRules.md,xref,fork Apply外
+NFR-16-03,L1に生JSON見せない,詳細設計-v2 §6,ST-16-04;UAT-16-04,system;uat,(UI),gap,API構造化のみ
+NFR-16-04,主要導線3クリック,詳細設計-v2 §6,UAT-16-07,uat,ui-reference/preferences.md,xref,civ-os
+NFR-16-05,route-matrix PR差分,詳細設計-v2 §7,UAT-16-05,uat,export-route-matrix,gap,platform
+NFR-16-06,E2E builder modes,詳細設計-v2 §6,UAT-16-07,uat,builder-dev-surface.spec.ts,xref,civ-os

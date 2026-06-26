@@ -1,0 +1,14 @@
+req_id,requirement,design_section,test_case,test_layer,impl_path,status,notes
+META-17-IHL,**IHL固有実装なし（#12 settings流用）**,詳細設計-v2 §0 §3,test_preferences_get/patch（#12共有）,unit;integration,apps/api/main.py:settings_get,partial,本RTMのUT/ITは#12エンドポイントを叩くのみ。#17専用World/Layer APIはgap。
+FR-17-01,Worldテンプレ選択 default+差し替え,詳細設計-v2 §2.1,IT-17-02/03;UAT-17-02,integration;uat,(world-templates API),gap,oral fb_00045 · IHL固有実装なし
+FR-17-02,必須機能チェック警告,詳細設計-v2 §4,UT-17-03;IT-17-04;UAT-17-03,unit;integration;uat,WorldRoutingManager.tsx,gap,legacy正本
+FR-17-03,template level 3種,詳細設計-v2 §2.1,UT-17-05,unit,詳細設計-v2 §2.1,gap,default/recommended/custom
+FR-17-04,LayerSelector L0-L3,詳細設計-v2 §2.2,UAT-17-04,uat,LayerSelector.tsx,gap,永続化なし
+FR-17-05,投票自然淘汰接続,詳細設計-v2 §1.2,IT-17-05;ST-17-03;UAT-17-05,integration;system;uat,#20投票,gap,Governance §10
+FR-17-06,一般ユーザー3クリック入口,詳細設計-v2 §7,UT-17-01;IT-17-01;ST-17-06;UAT-17-02,unit;integration;system;uat,apps/api/main.py:settings_get,partial,settings暫定のみ
+FR-17-07,dev world-routing維持,詳細設計-v2 §7,UAT-17-06,uat,frontend/dev/world-routing,xref,civ-os only
+NFR-17-01,preferences.md §Aチャンク,詳細設計-v2 §6,ST-17-04,uat,ui/UI設計-v1.md,doc,UI gap
+NFR-17-02,テンプレ差し替えR2 INSERT ONLY,詳細設計-v2 §6,UT-17-04;ST-17-02,unit;system,(world apply),gap,local state禁止
+NFR-17-03,採用R2+ADR/PR,詳細設計-v2 §6,UAT-17-07,uat,civilization/C-Sync.md,xref,IHLはR2のみ
+NFR-17-04,空状態エラーローディング,詳細設計-v2 §6,ST-17-04,uat,ui/UI設計-v1.md,gap,キーボード操作
+NFR-17-05,一般到達性明示,詳細設計-v2 §6,ST-17-06,uat,REQ-024,doc,route-matrix整合

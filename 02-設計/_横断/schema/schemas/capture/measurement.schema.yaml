@@ -1,0 +1,55 @@
+# measurement.schema.yaml — 計測 Truth（縦持ち）· ADR-H-13
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: measurement
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Measurement
+type: object
+required:
+  - measurement_id
+  - individual_id
+  - measurement_name
+  - value_origin
+  - created_at
+  - schema_version
+properties:
+  measurement_id:
+    type: string
+  individual_id:
+    type: string
+  capture_id:
+    type: string
+  session_id:
+    type: string
+  measurement_name:
+    type: string
+    enum_ref: dictionaries/measurement_name.yaml
+  measurement_value:
+    type: number
+  measurement_value_text:
+    type: string
+  measurement_unit:
+    type: string
+  measurement_method:
+    type: string
+    enum_ref: dictionaries/measurement_method.yaml
+  value_origin:
+    type: string
+    enum_ref: dictionaries/value_origin.yaml
+  applicable_sex:
+    type: string
+    enum_ref: dictionaries/sex.yaml
+  actor_id:
+    type: string
+  device_id:
+    type: string
+  source:
+    type: string
+    description: OBS-RX-RD-01 lineage (manual_entry | registry_poll | …)
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

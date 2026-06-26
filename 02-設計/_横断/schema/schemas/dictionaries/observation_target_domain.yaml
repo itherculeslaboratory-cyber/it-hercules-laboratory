@@ -1,0 +1,48 @@
+# dictionaries/observation_target_domain.yaml — ObservationTarget.domain 正本（草案）
+#
+# ステータス: 草案・人間レビュー待ち / 実装 Go 不可
+# 役割     : 観測対象のドメイン（生物 / 器物 / デジタル / 環境 / カスタム）の enum 正本。
+#            観測は昆虫専用ではない（ADR-H-16 §1）。ナビゲータの最初の分岐に使う。
+# 正本前提 : ADR-H-16 §3 / 05-観測.md §4.11 OBS-TGT-01
+# 規約     : 値は append-only に追加。削除・意味変更は破壊的変更（schema_version +1 相当）。
+
+$dictionary_name: observation_target_domain
+schema_version: 1
+is_core_fixed: true        # ドメインは骨格（拡張は人間レビュー）
+values:
+  - key: biological
+    label_ja: 生物
+    desc: 動物・植物・菌類など。亜種まで到達（不可なら「亜種未区別（種まで）」を明示）。
+    leaf_rank: subspecies
+    category_tree_ref: dictionaries/biological_rank.yaml
+    external_catalog: [gbif, wikidata]   # テキストメタ参照のみ（UI 画像取得なし）
+    subspecies_required: true            # ADR-H-16 §4.1
+  - key: artifact
+    label_ja: 器物・無機物
+    desc: 皿・容器・工具などの人工物 / 無機物。
+    leaf_rank: item
+    category_tree_ref: dictionaries/artifact_category_tree.yaml
+    subspecies_required: false
+  - key: digital
+    label_ja: デジタル
+    desc: ゲーム作品・ソフトウェアなどのデジタル対象。
+    leaf_rank: work
+    category_tree_ref: dictionaries/digital_category_tree.yaml
+    subspecies_required: false
+  - key: environment
+    label_ja: 環境
+    desc: 飼育ケース・棚・部屋など観測の「場」。Phase 3 で Placement と接続（OBS-ENV-03）。
+    leaf_rank: place
+    category_tree_ref: null              # Phase 3
+    subspecies_required: false
+  - key: custom
+    label_ja: カスタム
+    desc: 上記に当てはまらない自由対象。自由パス（弱 enum・タグのみ）。
+    leaf_rank: custom
+    category_tree_ref: null
+    subspecies_required: false
+
+notes:
+  - leaf_rank は「葉ノードのランク」。biological のみ亜種必須（subspecies_required）。
+  - external_catalog は候補根拠（テキスト）の参照先。確定は常にユーザー（OBS-TAX-07）。
+  - ナビゲータの 3 経路（検索 / 質問 / ツリー）は全ドメイン共通だが正本辞書が異なる（ADR-H-16 §4）。

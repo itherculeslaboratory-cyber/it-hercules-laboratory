@@ -1,0 +1,18 @@
+# dictionaries/view_type.yaml — 撮影方向 enum 正本（草案 v1）
+$dictionary_name: view_type
+schema_version: 1
+values:
+  - key: dorsal
+    label_ja: 背面
+  - key: ventral
+    label_ja: 腹面
+  - key: lateral_left
+    label_ja: 左側面
+  - key: lateral_right
+    label_ja: 右側面
+  - key: frontal
+    label_ja: 正面
+  - key: oblique
+    label_ja: 斜め
+  - key: unknown
+    label_ja: 不明

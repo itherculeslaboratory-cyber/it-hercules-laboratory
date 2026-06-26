@@ -1,0 +1,32 @@
+# IHL ver3 production — API only (Sakura VPS 512MB · api.it-hercules.uk)
+#
+# Usage on VPS:
+#   cp .env.platform.example .env.platform   # fill secrets locally — never commit
+#   docker compose -f docker-compose.prod.yml build api
+#   docker compose -f docker-compose.prod.yml up -d api
+#
+# See docs/vps-api-deploy.md for nginx · pm2 stop · health check.
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: it-hercules-laboratory:prod
+    container_name: ihl-api-prod
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - ./02-設計/_横断/schema/schemas:/schemas:ro
+    environment:
+      IHL_SCHEMAS_ROOT: /schemas
+    env_file:
+      - path: .env.platform
+        required: true
+    command:
+      - uvicorn
+      - apps.api.main:app
+      - --host=0.0.0.0
+      - --port=8000
+      - --workers=1

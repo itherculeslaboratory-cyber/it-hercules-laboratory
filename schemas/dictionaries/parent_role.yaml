@@ -1,0 +1,25 @@
+# dictionaries/parent_role.yaml — CrossParent.parent_role（Template 定義の例・非コア固定）
+#
+# ステータス: 草案・人間レビュー待ち / 実装 Go 不可
+# 重要     : parent_role は「コア固定 enum にしない」（ADR-H-04 §1 / ADR-H-11 §1）。
+#            本ファイルは「DHH（ヘラクレスオオカブト）テンプレの既定例」を示すだけで、
+#            Template 側で自由に定義・拡張できる（多親テンプレ対応）。
+# 正本前提 : ADR-H-11 §1 / ADR-H-04 §1
+
+$dictionary_name: parent_role
+schema_version: 1
+is_core_fixed: false       # ★ コア固定ではない（Template が上書き・拡張可能）
+template_default_values:
+  - key: sire
+    label_ja: 父（種親♂）
+    desc: DHH テンプレの既定の雄親役割。
+  - key: dam
+    label_ja: 母（種親♀）
+    desc: DHH テンプレの既定の雌親役割。
+  - key: surrogate
+    label_ja: 仮親 / 不明親
+    desc: 役割未確定・代理。多親・不明テンプレで使用。
+
+notes:
+  - schema（cross_parent.schema.yaml）は parent_role を string とし、enum_ref は
+    「Template 既定の候補提示」用に弱参照する（厳格 enum 検証はしない）。

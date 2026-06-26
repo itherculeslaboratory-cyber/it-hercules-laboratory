@@ -1,0 +1,30 @@
+# dictionaries/cross_status.yaml — Cross 状態 enum（草案）
+#
+# ステータス: 草案・人間レビュー待ち / 実装 Go 不可
+# 役割     : Cross の「現在状態（status）」の取りうる値。
+#            重要: 状態の「変化」は CrossStatusEvent（append-only）で記録し、
+#            cross.status は Snapshot で再計算する（ADR-cross-status-event 参照）。
+# 正本前提 : ADR-H-11 §1 / ADR-H-04 §2 / ADR-cross-status-event.md
+
+$dictionary_name: cross_status
+schema_version: 1
+values:
+  - key: planned
+    label_ja: 計画
+    desc: 交配を計画した（未実行）。
+  - key: executed
+    label_ja: 実行済
+    desc: 交配を実行した。意味色 success（#5CD68D）で表示。
+  - key: failed
+    label_ja: 失敗
+    desc: 交配が成立しなかった。
+  - key: abandoned
+    label_ja: 中止
+    desc: 計画を取りやめた。
+
+transitions_hint:
+  # 正式な許可辺は ADR-cross-status-event.md §3 / 詳細設計で確定（参考値）
+  - from: planned
+    to: [executed, failed, abandoned]
+  - from: executed
+    to: [failed]   # 事後に「実行したが不成立」を訂正する場合のみ（新イベントで表現）

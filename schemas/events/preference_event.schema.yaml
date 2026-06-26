@@ -1,0 +1,42 @@
+# preference_event.schema.yaml — マチアプ pairwise Truth · ADR-H-02
+# Truth 永続: choice + capture ペアのみ。dimension_matrix はセッション overlay（x_ihl_persist: false）
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: preference_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Preference Event
+type: object
+required:
+  - preference_event_id
+  - user_id_hash
+  - choice
+  - left_capture_id
+  - right_capture_id
+  - recorded_at
+  - schema_version
+properties:
+  preference_event_id:
+    type: string
+  user_id_hash:
+    type: string
+    description: SHA-256 + salt。生 user_id は Truth に保存しない（HUMAN-CONFIRMED 2026-06-07 · schema-pack §6 #1）
+    x_ihl_human_confirmed: 2026-06-07
+  choice:
+    type: string
+    enum: [left, right, neither, skip]
+  left_capture_id:
+    type: string
+  right_capture_id:
+    type: string
+  dimension_matrix:
+    type: object
+    description: ValueCheck overlay — セッションのみ。Truth/R2 永続禁止（HUMAN-CONFIRMED 2026-06-07 · schema-pack §6 #2）
+    x_ihl_persist: false
+    x_ihl_human_confirmed: 2026-06-07
+  recorded_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

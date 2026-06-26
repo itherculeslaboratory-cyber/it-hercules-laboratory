@@ -1,0 +1,61 @@
+# observation_target_selected.event.schema.yaml — 観測対象確定イベント · Wave B
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: observation_target_selected_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Observation Target Selected Event
+type: object
+required:
+  - event_id
+  - owner_user_id
+  - session_id
+  - target_id
+  - domain
+  - path
+  - rank
+  - selected_via
+  - selected_at
+  - schema_version
+properties:
+  event_id:
+    type: string
+  owner_user_id:
+    type: string
+  session_id:
+    type: string
+  target_id:
+    type: string
+  domain:
+    type: string
+    enum_ref: dictionaries/observation_target_domain.yaml
+  path:
+    type: array
+    minItems: 1
+    items:
+      type: string
+  rank:
+    type: string
+    enum: [genus, species, subspecies, custom]
+  selected_via:
+    type: string
+    enum: [search, tree, recent]
+  subspecies_policy:
+    type: string
+    enum: [reached_subspecies, undetermined_subspecies]
+  canonical_ids:
+    type: object
+    properties:
+      gbif_taxon_key:
+        type: string
+      wikidata_qid:
+        type: string
+    additionalProperties: false
+  actor_id:
+    type: string
+  selected_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

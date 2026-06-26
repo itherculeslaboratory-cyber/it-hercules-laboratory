@@ -1,0 +1,25 @@
+req_id,requirement,design_section,test_case,test_layer,impl_path,status,notes
+FR-SET-01,認証済みのみ/me/settings,詳細設計-v2 §3.5,UAT-12-01,uat,apps/api/routes/me.py,partial,actor_id クエリ · auth middleware gap #01
+FR-SET-02,論文LLM PATCH API key 保存時のみ,詳細設計-v2 §1.2/§7,UT-12-07,unit,(MeSettingsPage salvage),gap,legacy BYOK 未移植
+FR-SET-03,固体観測LLM 独立フィールド,詳細設計-v2 §1.2/§7,UT-12-07,unit,(solidObservationLlm),gap,legacy 未移植
+FR-SET-04,dev ツール表示 既定 off,詳細設計-v2 §1.2/§7,UT-12-08,unit,(useUiAccessPreferences),gap,REQ-024 UI 未移植
+FR-SET-05,admin 導線 admin のみ変更,詳細設計-v2 §3.5,UT-12-08,unit,(isAdminLikeUser),gap,UI/API 未実装
+FR-SET-06,Capability サマリ 読取専用,詳細設計-v2 §1.2,UAT-12-09,uat,(useAuthCapabilities),gap,legacy salvage
+FR-SET-07,Web Push VAPID 未取得時代替,詳細設計-v2 §1.2,UAT-12-02,uat,(push subscribe),gap,VAPID route 未実装
+FR-SET-08,プロフィールは本画面外,詳細設計-v2 §1.2,UAT-12-09,uat,01-要件/12-設定.md,doc,マイページ IA 分離
+FR-SET-09,PATCH 許可フィールドのみ 秘密値ログ禁止,詳細設計-v2 §2.1/§3.2,UT-12-03;IT-12-02,unit;integration,libs/ihl/identity/preferences_store.py:patch,existing,allowed frozenset
+FR-SET-10,UI に未実装/WIP 表示禁止,詳細設計-v2 §6,UAT-12-10,uat,.cursor/rules/no-user-facing-unimplemented.mdc,doc,IHL UI 未配線
+FR-SET-11,表示言語 locale 変更,詳細設計-v2 §2.1/§3.2,UT-12-01;UAT-12-01,unit;uat,apps/api/routes/me.py:patch_preferences,existing,language フィールド
+FR-SET-12,言語保存後 UI 全文切替,詳細設計-v2 §5,UAT-12-01,uat,(i18n client reload),gap,API ready · UI gap
+FR-SET-13,locale は country と独立,詳細設計-v2 §5,UAT-12-01,uat,01-要件/21-翻訳-言語.md,doc,契約のみ
+FR-SET-14,言語変更 カルマ/争い非ブロック,詳細設計-v2 §5,UAT-12-01,uat,01-要件/21-翻訳-言語.md,doc,middleware 未実装
+FR-SET-15,locale は preferences PATCH 統合,詳細設計-v2 §3.2,UT-12-02;IT-12-01,unit;integration,apps/api/routes/me.py,existing,legacy POST /auth/locale 非使用
+FR-SET-16,局留め設定 登録更新,詳細設計-v2 §4/§7,IT-12-04,integration,(trade_pii PATCH),gap,v1 設計のみ
+FR-SET-17,配送先 取引相手のみ参照,詳細設計-v2 §2.3/§4,UT-12-05;IT-12-03,unit;integration,libs/ihl/governance/pii.py:TradePiiSession,partial,session_only · counterparty GET gap
+FR-SET-18,振込口座 取引相手のみ 直書き禁止,詳細設計-v2 §4,UAT-12-08,uat,02-設計/features/12-設定/ui/UI設計-v1.md,gap,UI 草案 · API gap
+FR-SET-19,取引前 completeness 誘導,詳細設計-v2 §4,IT-12-05;UAT-12-05,integration;uat,(#06 market gate),xref,推奨のみ · 必須化 HUMAN
+NFR-SET-01,API Key レスポンス非返却,詳細設計-v2 §6,UT-12-06;ST-12-02,unit;system,apps/api/routes/me.py,existing,preferences に key フィールド無
+NFR-SET-02,dev/admin 即時反映 永続,詳細設計-v2 §6,UT-12-08,unit,(localStorage sync),gap,legacy
+NFR-SET-03,保存中 disabled 1行結果,詳細設計-v2 §6,UAT-12-01,uat,02-設計/features/12-設定/ui/UI設計-v1.md,partial,UI 設計 · API 同期
+NFR-SET-04,data-testid E2E 維持,詳細設計-v2 §6,ST-12-05,system,(settings-show-dev-tools),gap,UI 未配線
+NFR-SET-05,World/FeatureNode IA 段階移行,詳細設計-v2 §6,UAT-12-10,uat,docs/REQUIREMENTS.md REQ-024,deferred,表側 IA 移行中

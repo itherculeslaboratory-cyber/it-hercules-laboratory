@@ -1,0 +1,47 @@
+# name_event.schema.yaml — 命名イベント Truth · #28
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: name_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Name Event
+type: object
+required:
+  - event_id
+  - owner_user_id
+  - individual_id
+  - event_type
+  - new_name
+  - occurred_at
+  - schema_version
+properties:
+  event_id:
+    type: string
+  owner_user_id:
+    type: string
+  individual_id:
+    type: string
+  event_type:
+    type: string
+    enum: [name_assigned, name_renamed, name_promoted]
+  old_name:
+    type: string
+  new_name:
+    type: string
+  template_id:
+    type: string
+  actor_type:
+    type: string
+    enum: [human, semi_auto, auto]
+  actor_id:
+    type: string
+  promotion_reason:
+    type: string
+  source_session_id:
+    type: string
+  occurred_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

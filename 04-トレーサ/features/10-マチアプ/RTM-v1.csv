@@ -1,0 +1,23 @@
+req_id,requirement,design_section,test_case,test_layer,impl_path,status,notes
+FR-MCH-01,セッションレコード ValueCheckSessionRecord,詳細設計-v2 §1.2/§7,UAT-10-06,uat,(legacy TS),gap,旧/api/value-check IHL未移植・pairwiseに置換
+FR-MCH-02,セル値 x/minus/circle/null 総合no/maybe/yes,詳細設計-v2 §3.2,UT-10-05,unit,apps/api/main.py:match_vote,partial,choice正規化のみ実装・離散セル評価はgap
+FR-MCH-03,既定テンプレ valuecheck_default_v1 5次元,詳細設計-v2 §1.2/§7,UAT-10-06,uat,(legacy TS),gap,TS-legacy
+FR-MCH-04,API GET/POST /api/value-check/*,詳細設計-v2 §1.2/§7,UAT-10-06,uat,(未移植),gap,IHL pairwise /match/* に置換
+FR-MCH-05,INSERT ONLY value_check_sessions/templates,詳細設計-v2 §2.1,UT-10-02;IT-10-02;ST-10-04,unit;integration;system,libs/ihl/core/event_store.py:write_preference_event,existing,preference_event append-only
+FR-MCH-06,検索順序 RAG->valuePreset->Boost,詳細設計-v2 §1.2/§7,ST-10-02,system,(検索基盤),xref,valueCheckSearchBoost.ts
+FR-MCH-07,集約 直近N mergeBoost avoid優先,詳細設計-v2 §1.2/§7,IT-10-05,integration,(検索基盤),xref,検索基盤
+FR-MCH-08,ブースト定数 STEP/MAX,詳細設計-v2 §1.2/§7,ST-10-02,system,(検索基盤),xref,valueCheckSearchBoost.ts正本
+FR-MCH-09,Zod正本 valueCheckTemplateSchema,詳細設計-v2 §1.2/§7,UAT-10-06,uat,(TS schema),gap,IHL未移植
+FR-MCH-10,画像YES/NO評価 重み更新,詳細設計-v2 §1.2/§7,UAT-10-07,uat,(fb_00046),deferred,候補・未実装
+FR-MCH-11,タグ収束,詳細設計-v2 §1.2/§7,UAT-10-07,uat,(fb_00046),deferred,候補
+FR-MCH-12,再測定タグ,詳細設計-v2 §1.2/§7,UAT-10-07,uat,(fb_00046),deferred,候補
+FR-MCH-13,MatchApp PoC createEngine/evaluate,詳細設計-v2 §1.2/§7,ST-10-05,system,(TS stub),gap,SAMPLE_TAGS/ITEMS stub
+FR-MCH-14,UI 4画面 評価/ランキング/タグ/分析,詳細設計-v2 §1.2/§7,ST-10-05;UAT-10-05,system;uat,(MatchApp.tsx),gap,TS stub・サンプル明示
+FR-MCH-15,append-only tag events,詳細設計-v2 §1.2/§7,IT-10-05,integration,(09/13 shared),xref,tag_event思想 #09/#13共有
+FR-MCH-16,aggregate tag view 再生成,詳細設計-v2 §4,IT-10-05;ST-10-04,integration;system,libs/ihl/core/event_store.py,partial,集約再生成思想・上書き禁止
+NFR-MCH-01,離散モデル 合計スコア定義しない,詳細設計-v2 §2.2/§6,ST-10-02,system,apps/api/main.py,existing,preference_event離散列
+NFR-MCH-02,プライバシー 本人JWT限定 非漏洩,詳細設計-v2 §2.1/§6,UT-10-03/04;IT-10-03;ST-10-03,unit;integration;system,libs/ihl/core/event_store.py:write_preference_event,existing,sha256 hash + _NON_PERSIST_KEYS dimension_matrix
+NFR-MCH-03,テスト valueCheck/entity/routes CI緑,詳細設計-v2 §7,UT-10-01/02,unit,tests/unit/test_match.py,existing,IHL test_match緑
+NFR-MCH-04,stub明示 サンプルデータ表示,詳細設計-v2 §6,ST-10-05;UAT-10-05,system;uat,(MatchApp UI),gap,本番装わない
+NFR-MCH-05,fb_00046地位 候補,詳細設計-v2 §6,UAT-10-07,uat,01-要件/10-マチアプ.md,doc,accepted昇格前本番接続不要
+NFR-MCH-06,色は意味のみ,詳細設計-v2 §6,ST-10-06,system,(UI preferences),gap,preferences §色意味

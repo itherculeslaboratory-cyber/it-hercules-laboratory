@@ -1,0 +1,42 @@
+# dispute_event.schema.yaml — 争いイベント Truth · 11 裁判
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: dispute_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Dispute Event
+type: object
+required:
+  - dispute_event_id
+  - dispute_id
+  - event_kind
+  - actor_id
+  - created_at
+  - schema_version
+properties:
+  dispute_event_id:
+    type: string
+  dispute_id:
+    type: string
+  event_kind:
+    type: string
+    enum: [opened, evidence_added, ruling, appealed, closed]
+  actor_id:
+    type: string
+  karma_delta_count:
+    type: integer
+    description: KarmaEvent への入力（08 二層 count）
+  market_dsp_ref:
+    type: string
+    description: >
+      マーケット争い時のみ。形式 {anchor_type}:{anchor_id}
+      （例 trade_private:trade_xxx）。非マーケット争いでは省略。
+      U-MKT-DSP 設計 Go は別ゲート（機能 11）。
+      （HUMAN-CONFIRMED 2026-06-07 · schema-pack §6 #10）
+    x_ihl_human_confirmed: 2026-06-07
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

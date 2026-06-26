@@ -1,0 +1,34 @@
+# pointer.schema.yaml — latest pointer JSON · ADR-D01 方式 B
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: pointer
+x_ihl_schema_version: 1
+x_ihl_layer: manifest
+title: Latest Pointer
+type: object
+required:
+  - pointer_id
+  - target_kind
+  - target_snapshot_id
+  - target_path
+  - created_at
+  - schema_version
+properties:
+  pointer_id:
+    type: string
+  target_kind:
+    type: string
+    enum: [searchable_capture_set, individual_master, tag_aggregate, economy_rules]
+  target_snapshot_id:
+    type: string
+  target_path:
+    type: string
+  superseded_by:
+    type: string
+    description: 後続 pointer_id（弱参照・append-only）
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

@@ -1,0 +1,12 @@
+{
+  "name": "it-hercules-laboratory",
+  "private": true,
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:e2e:smoke": "playwright test e2e/ihl-smoke.spec.ts",
+    "test:e2e:ver2": "playwright test e2e/ihl-observation-ver2.spec.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.51.1"
+  }
+}

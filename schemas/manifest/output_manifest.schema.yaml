@@ -1,0 +1,53 @@
+# output_manifest.schema.yaml — component OUT 契約 · Phase 1
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: output_manifest
+x_ihl_schema_version: 1
+x_ihl_layer: manifest
+title: Output Manifest
+type: object
+required:
+  - record_id
+  - capture_id
+  - individual_id
+  - artifact_type
+  - artifact_path
+  - artifact_format
+  - pipeline_name
+  - pipeline_version
+  - input_hash
+  - schema_version
+  - run_id
+  - created_at
+properties:
+  record_id:
+    type: string
+  capture_id:
+    type: string
+  individual_id:
+    type: string
+  artifact_type:
+    type: string
+    enum_ref: dictionaries/artifact_type.yaml
+  artifact_path:
+    type: string
+  artifact_format:
+    type: string
+  pipeline_name:
+    type: string
+  pipeline_version:
+    type: string
+  model_name:
+    type: string
+  model_version:
+    type: string
+  input_hash:
+    type: string
+  schema_version:
+    type: integer
+    minimum: 1
+  run_id:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+additionalProperties: false

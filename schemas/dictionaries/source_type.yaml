@@ -1,0 +1,32 @@
+# dictionaries/source_type.yaml — 記録出所 enum 正本（草案 v1）
+$dictionary_name: source_type
+schema_version: 1
+values:
+  - key: manual_import
+    label_ja: 手動取込
+  - key: camera_exif
+    label_ja: カメラ EXIF
+  - key: batch_import
+    label_ja: バッチ取込
+  - key: user_raw
+    label_ja: ユーザー raw
+  - key: system_raw
+    label_ja: システム raw
+  - key: human_added
+    label_ja: 人手追加
+  - key: batch_added
+    label_ja: バッチ追加
+  - key: model_inference
+    label_ja: モデル推論
+  - key: human
+    label_ja: 人手（ADR-H-05）
+  - key: model
+    label_ja: モデル（ADR-H-05）
+  - key: reviewer
+    label_ja: レビュアー
+  - key: batch
+    label_ja: バッチ
+  - key: consensus
+    label_ja: 合意
+  - key: unknown
+    label_ja: 不明

@@ -1,0 +1,27 @@
+req_id,requirement,design_section,test_case,test_layer,impl_path,status,notes
+FR-DSP-01,掲示板争い入口は指摘のみ 通報UIなし,詳細設計-v2 §1.2/§7,UAT-11-05,uat,(dispute create API),gap,入口UI #07連携未実装
+FR-DSP-02,指摘に必須タグ+必須理由,詳細設計-v2 §2.3,UAT-11-05,uat,(tag catalog),gap,U-MKT-DSP-02
+FR-DSP-03,指摘成立で二人部屋生成,詳細設計-v2 §3.1,UT-11-01;IT-11-01,unit;integration,apps/api/dispute_service.py:seed_thread,existing,seed_thread smoke
+FR-DSP-04,第三者閲覧可 投稿は当事者二人のみ,詳細設計-v2 §3.1,UT-11-01;UAT-11-02,unit;uat,apps/api/main.py:GET dispute,existing,public_view true
+FR-DSP-05,同一anchor open中重複指摘禁止,詳細設計-v2 §2.3,IT-11-04,integration,(anchor gate),gap,1-open rule未実装
+FR-DSP-06,ネスト指摘 深さ上限なし,詳細設計-v2 §4,UAT-11-10,uat,(nested dispute),gap,設計のみ
+FR-DSP-07,合意時表示切替 削除せずR2保持,詳細設計-v2 §4,UAT-11-10,uat,(agreed flow),gap,INSERT表示勝ち未実装
+FR-DSP-08,1ヶ月無合意で強制クローズ,詳細設計-v2 §4/§6,UAT-11-06,uat,(force_closed),gap,deadline stub
+FR-DSP-09,未解決強制クローズ累計とΔcount,詳細設計-v2 §1.2/§7,UAT-11-06,uat,(#08 karma),xref,#08 Fibonacci
+FR-DSP-10,30指摘ごとプラチナ1枚,詳細設計-v2 §1.2/§7,UAT-11-07,uat,(#20 vote),xref,#20 PT
+FR-DSP-11,UI言語は登録言語 クライアント翻訳可,詳細設計-v2 §6,UAT-11-02,uat,(#12 settings),xref,#12 言語設定
+FR-DSP-12,マーケット争い プライベート/種別/判例,詳細設計-v2 §2.1/§3.3,UT-11-03;IT-11-03,unit;integration,apps/api/dispute_service.py:open_market_dispute,partial,trade_private refのみ
+FR-DSP-13,バグ類は司法外,詳細設計-v2 §1.2,UAT-11-08,uat,01-要件/11-裁判.md,doc,障害修正フロー
+FR-DSP-14,全イベントR2 append-only,詳細設計-v2 §2.2,UT-11-04;ST-11-02,unit;system,libs/event_store.py:write_dispute_event,existing,INSERT ONLY
+FR-DSP-15,配送完了後争い常に記録 合意キャンセル無記録,詳細設計-v2 §1.2/§7,UAT-11-08,uat,(#06 trade),xref,#06 取引成立
+FR-DSP-16,公開投票7日 1票=1PT 判例R2,詳細設計-v2 §4,UAT-11-07,uat,(#20 vote),gap,platinum_vote未実装
+FR-DSP-17,低評価タグ+理由 評価争い版管理,詳細設計-v2 §1.2/§7,UAT-11-10,uat,(rating_dialogue),gap,rating争い未実装
+FR-DSP-18,証拠attach許可タイプ PII redact,詳細設計-v2 §3.2,UT-11-05,unit,libs/pii.py:redact_pii_text,partial,message redactのみ
+FR-DSP-19,局留め等は設定事前登録 PII直書き禁止,詳細設計-v2 §1.2,UAT-11-08,uat,(#12 settings),xref,#12 取引前設定
+FR-DSP-20,行政不使用フラグ 人間ゲート,詳細設計-v2 §1.2,UAT-11-09,uat,(Y11 admin),HUMAN,AI不可
+FR-DSP-21,Engagement争いは掲示板指摘同型,詳細設計-v2 §2.1,IT-11-05,integration,(#07 board),xref,U-MKT-DSP-09
+NFR-DSP-01,開発者判定権限UIなし,詳細設計-v2 §6,UT-11-06;ST-11-03,unit;system,apps/api/main.py,existing,admin resolve route無
+NFR-DSP-02,INSERT ONLY 旧レコードUPDATE/DELETE禁止,詳細設計-v2 §2.2/§6,ST-11-02,system,libs/event_store.py,existing,R2Engine整合
+NFR-DSP-03,TTL 1ヶ月 サーバー時刻,詳細設計-v2 §6,UAT-11-06,uat,(force_closed job),gap,deadline stub
+NFR-DSP-04,空状態・理由表示,詳細設計-v2 §6,ST-11-LINT-06,system,(UI v1),partial,seed messages
+NFR-DSP-05,GitHub+R2 C-Sync不採用,詳細設計-v2 §6,UAT-11-04,uat,01-要件/11-裁判.md,doc,event store正本

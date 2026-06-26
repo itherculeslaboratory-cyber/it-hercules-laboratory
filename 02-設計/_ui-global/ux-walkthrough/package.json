@@ -1,0 +1,10 @@
+{
+  "name": "ihl-ux-walkthrough",
+  "private": true,
+  "description": "IHL mock PNG UX walkthrough — local static server",
+  "scripts": {
+    "prestart": "node setup-mockups-link.mjs",
+    "start": "npx --yes serve . -l 3000",
+    "open": "node -e \"require('child_process').exec(process.platform==='win32'?'start http://localhost:3000':process.platform==='darwin'?'open http://localhost:3000':'xdg-open http://localhost:3000')\""
+  }
+}

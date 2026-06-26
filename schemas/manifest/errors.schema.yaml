@@ -1,0 +1,43 @@
+# errors.schema.yaml — errors.jsonl 行契約 · Phase 1
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: errors
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Error Record
+type: object
+required:
+  - error_id
+  - error_type
+  - severity
+  - message
+  - run_id
+  - created_at
+  - schema_version
+properties:
+  error_id:
+    type: string
+  capture_id:
+    type: string
+  individual_id:
+    type: string
+  input_path:
+    type: string
+  error_type:
+    type: string
+    enum: [io_error, schema_violation, decode_error, model_error, unknown]
+  severity:
+    type: string
+    enum: [warning, error, fatal]
+  message:
+    type: string
+  detail:
+    type: object
+  run_id:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

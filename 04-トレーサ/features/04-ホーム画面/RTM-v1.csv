@@ -1,0 +1,40 @@
+# RTM v1 — feature #04 ホーム画面（司令塔 read-only サマリー · 観測 CTA · IHL rebuild）
+# 列: req_id,design_section,test_case_id,test_layer,automation,status
+# req 母集合: 01-要件/04-ホーム画面.md の H-001..H-072 + NF-H-01..NF-H-09
+# status: existing=既存pytest緑 / planned=差分TC(IMPL段で追加) / review=設計レビュー受入 / human=人間ゲート / xref=他機能で実証 / gap=IHL未配線(設計のみ) / deferred=将来retrofit/横断UX
+req_id,design_section,test_case_id,test_layer,automation,status
+H-001,§1.1 §4.1 認証後着地,ST-04-01,system,manual,xref
+H-002,§1.2 §7 P5 IA,UAT-04-03,acceptance,review,deferred
+H-010,§2.1 §3.1,IT-04-01,integration,pytest,existing
+H-011,§3.1 §4.1 観測CTA,UT-04-01,unit,pytest,existing
+H-012,§7 P1 カード集合,UAT-04-03,acceptance,review,gap
+H-013,§7 P3 リンク,UAT-04-03,acceptance,review,deferred
+H-014,§2.1 サマリDTO,IT-04-01,integration,pytest,existing
+H-020,§2.1 §3.1 カード,UT-04-02,unit,pytest,existing
+H-021,§4.1 入口地図,UT-04-04,unit,pytest,planned
+H-022,§7 P1 testid,UAT-04-03,acceptance,review,gap
+H-030,§2.2 §3.1 観測件数,UT-04-05,unit,pytest,planned
+H-031,§7 P2 リッチミニマップ,UAT-04-06,acceptance,review,gap
+H-032,§2.2 フォールバック,IT-04-03,integration,pytest,planned
+H-033,§7 P2 ローディング,UAT-04-06,acceptance,review,gap
+H-040,§1.2 §7 P3 インボックス,UAT-04-06,acceptance,review,deferred
+H-041,§7 P3 未読件数,UAT-04-06,acceptance,review,deferred
+H-042,§7 P3 空状態,UAT-04-06,acceptance,review,deferred
+H-043,§1.2 §7 P3 環境due,UAT-04-06,acceptance,review,deferred
+H-044,§7 P3 通知統合,UAT-04-06,acceptance,review,deferred
+H-050,§7 P3 すぐ使う導線,UAT-04-03,acceptance,review,gap
+H-051,§7 P3 a11y導線,UAT-04-03,acceptance,review,gap
+H-060,§1.2 Twin廃止,UAT-04-06,acceptance,review,deferred
+H-061,§1.2 Twin廃止,UAT-04-06,acceptance,review,deferred
+H-070,§7 P5 REQ-024 IA,UAT-04-03,acceptance,review,deferred
+H-071,§7 P5 Slice1,UAT-04-03,acceptance,review,deferred
+H-072,§7 P5 メニュー一本化,UAT-04-03,acceptance,review,deferred
+NF-H-01,§6 認知負荷,UT-04-03,unit,pytest,planned
+NF-H-02,§3.1 §6 操作1クリック,ST-04-02,system,manual,review
+NF-H-03,§2.2 §6 フォールバック,UT-04-06,unit,pytest,planned
+NF-H-04,§6 a11y,ST-04-04,system,manual,review
+NF-H-05,§6 レスポンシブ,UAT-04-04,acceptance,manual,review
+NF-H-06,§6 並列fetch,IT-04-01,integration,pytest,review
+NF-H-07,§2.1 §6 非PII,ST-04-06,system,manual,review
+NF-H-08,§6 §7.1 テスト,UT-04-01,unit,pytest,existing
+NF-H-09,§6 未実装文言禁止,UAT-04-01,acceptance,review,review

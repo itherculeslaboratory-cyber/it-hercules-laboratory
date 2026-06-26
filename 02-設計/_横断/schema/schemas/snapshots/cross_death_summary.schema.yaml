@@ -1,0 +1,43 @@
+# cross_death_summary.schema.yaml — 死亡・不全 Snapshot
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: cross_death_summary
+x_ihl_schema_version: 1
+x_ihl_layer: snapshot
+title: Cross Death Summary
+type: object
+required:
+  - cross_id
+  - cohort_size
+  - schema_version
+  - recomputed_at
+properties:
+  cross_id:
+    type: string
+  cohort_size:
+    type: integer
+  mortality_count:
+    type: integer
+  mortality_to_alive_rate:
+    type: number
+  complete_rate:
+    type: number
+  eclosion_failure_rate:
+    type: number
+  eclosion_failure_count:
+    type: integer
+  stage_name:
+    type: string
+    enum_ref: dictionaries/stage_name.yaml
+  larva_subtype:
+    type: string
+    enum_ref: dictionaries/larva_subtype.yaml
+  recomputed_at:
+    type: string
+    format: date-time
+  source_event_max_created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

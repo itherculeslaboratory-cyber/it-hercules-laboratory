@@ -1,0 +1,43 @@
+[
+  {
+    "template_id": "tpl_male_std",
+    "title": "ヘラクレス成虫（雄）標準",
+    "visibility": "public",
+    "target_species": "Dynastes hercules hercules",
+    "target_scope": "biological",
+    "phase_default": "adult",
+    "sex_default": "male",
+    "item_count": 6,
+    "fork_count": 3,
+    "rows": [
+      { "item": "体長", "value": "", "unit": "mm", "method": "manual_entry" },
+      { "item": "胸幅", "value": "", "unit": "mm", "method": "manual_entry" },
+      { "item": "角長", "value": "", "unit": "mm", "method": "manual_entry" }
+    ],
+    "photo_conditions": [
+      { "item": "アスペクト比", "value": "4:3", "unit": "" },
+      { "item": "色補正", "value": "なし", "unit": "" },
+      { "item": "撮影角度", "value": "背面", "unit": "" }
+    ]
+  },
+  {
+    "template_id": "tpl_female_std",
+    "title": "ヘラクレス成虫（雌）標準",
+    "visibility": "public",
+    "target_species": "Dynastes hercules hercules",
+    "target_scope": "biological",
+    "phase_default": "adult",
+    "sex_default": "female",
+    "item_count": 5,
+    "fork_count": 1,
+    "rows": [
+      { "item": "体長", "value": "", "unit": "mm", "method": "manual_entry" },
+      { "item": "胸幅", "value": "", "unit": "mm", "method": "manual_entry" },
+      { "item": "体重", "value": "", "unit": "g", "method": "manual_entry" }
+    ],
+    "photo_conditions": [
+      { "item": "アスペクト比", "value": "4:3", "unit": "" },
+      { "item": "色補正", "value": "なし", "unit": "" }
+    ]
+  }
+]

@@ -1,0 +1,39 @@
+# vote_event.schema.yaml — 投票 Truth · 20 自然淘汰
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: vote_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Vote Event
+type: object
+required:
+  - vote_event_id
+  - poll_id
+  - voter_id
+  - choice
+  - created_at
+  - schema_version
+properties:
+  vote_event_id:
+    type: string
+  poll_id:
+    type: string
+  voter_id:
+    type: string
+    description: '@handle 平文（投票者識別 · HUMAN-CONFIRMED 2026-06-07 · schema-pack §6 #8）'
+    x_ihl_human_confirmed: 2026-06-07
+  choice:
+    type: string
+    enum: [approve, reject, abstain]
+  weight_pt:
+    type: number
+    description: PT 消費量（Snapshot と整合）
+  coin_grant_ref:
+    type: string
+    description: CoinEvent への弱参照
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

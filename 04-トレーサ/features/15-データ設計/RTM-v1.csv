@@ -1,0 +1,21 @@
+req_id,requirement,design_section,test_case,test_layer,impl_path,status,notes
+FR-DATA-01,CoreEntityBase core+rag必須,詳細設計-v2 §2.1,UT-15-01/02,unit,schemas/common/core_subset.schema.yaml,existing,IHL core_subset fragment
+FR-DATA-02,C-USB io compatibility security intent_ref,詳細設計-v2 §2.1,IT-15-03,integration,catalog/components.yaml,xref,#00 C-USB catalog
+FR-DATA-03,R2 INSERT ONLY prev_hash event_hash,詳細設計-v2 §2.2,ST-15-02,system,libs/ihl/core/r2_io.py,existing,R2Engine整合
+FR-DATA-04,replayで状態再構築,詳細設計-v2 §2.2,UAT-15-03,uat,civilization/R2Engine.md,doc,設計契約
+FR-DATA-05,RAG 3軸インデックス,詳細設計-v2 §2.4,UT-15-04,unit,schemas/capture/searchable_capture_set.schema.yaml,existing,enum_ref解決
+FR-DATA-06,系譜 parent_uuid ancestor_chain generation,詳細設計-v2 §2.1,ST-15-06,system,schemas/lineage/*.schema.yaml,doc,hash規約
+FR-DATA-07,4媒体同期 spec post commit R2,詳細設計-v2 §2.2,ST-15-05,system,civilization/ProjectRules.md,xref,civ-os手順
+FR-DATA-08,kind別拡張エンティティ,詳細設計-v2 §2.1,IT-15-03,integration,schema-pack-v1.md §2,doc,必要kindのみ
+FR-DATA-09,永続R2のみ DB禁止,詳細設計-v2 §2.3,ST-15-01/02,system,libs/ihl/core/r2_io.py,existing,IHL正本
+FR-DATA-10,input/output manifest run_info errors必須,詳細設計-v2 §2.3,UT-15-03;IT-15-01,unit;integration,schemas/manifest/*.schema.yaml,existing,pipeline契約
+FR-DATA-11,run_id schema_version created_at等付与,詳細設計-v2 §2.3,UT-15-03,unit,schemas/manifest/run_info.schema.yaml,existing,provenance
+FR-DATA-12,Phase1必須schema群,詳細設計-v2 §2.3,ST-15-03;UAT-15-04,system;uat,schema-pack-v1.md,existing,45 schema
+FR-DATA-13,latest pointer方式B,詳細設計-v2 §2.3,IT-15-05,integration,schemas/manifest/pointer.schema.yaml,gap,ADR-D01設計のみ
+FR-DATA-14,ULID系prefix ID,詳細設計-v2 §2.3,ST-15-04,system,各entity schema pattern,doc,ind_/cap_/run_
+FR-DATA-15,tag append-only JSONL,詳細設計-v2 §2.3/§6,IT-15-04;UAT-15-05,integration;uat,schemas/events/tag_event.schema.yaml,existing,aggregateビュー
+NFR-DATA-01,hash算出規約文書化,詳細設計-v2 §5,ST-15-06,system,schema-pack-v1.md,doc,再計算可能
+NFR-DATA-02,schema version付き新schemaのみ,詳細設計-v2 §4,UT-15-05,unit,libs/schema_validator.py,existing,in-place ALTER禁止
+NFR-DATA-03,exists後write衝突例外,詳細設計-v2 §3.2,ST-15-02,system,libs/ihl/core/r2_io.py,existing,AI実装指示#3
+NFR-DATA-04,embedding npy+manifest offset,詳細設計-v2 §3.2,IT-15-02,integration,schemas/manifest/embedding_manifest.schema.yaml,existing,npy locator
+NFR-DATA-05,キー名前空間混在禁止,詳細設計-v2 §3.3,ST-15-04;UAT-15-06,system;uat,02-設計/_横断/schema/,doc,world/ vs raw/

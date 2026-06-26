@@ -1,0 +1,34 @@
+# coin_event.schema.yaml — Platinum 功績章 Truth · ADR-H-06
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: coin_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Coin Event
+type: object
+required:
+  - coin_event_id
+  - actor_id
+  - grant_amount
+  - created_at
+  - schema_version
+properties:
+  coin_event_id:
+    type: string
+  actor_id:
+    type: string
+  grant_amount:
+    type: number
+    minimum: 0
+    description: 付与のみ
+  reason_code:
+    type: string
+    enum: [vote_reward, contribution_rebate, manual, other]
+  vote_event_ref:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

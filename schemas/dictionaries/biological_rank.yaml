@@ -1,0 +1,63 @@
+# dictionaries/biological_rank.yaml — 生物分類ランク（kingdom→subspecies）正本（草案）
+#
+# ステータス: 草案・人間レビュー待ち / 実装 Go 不可
+# 役割     : domain=biological の分類ツリー経路（ADR-H-16 §4 経路③）のランク列。
+#            葉は subspecies。到達不能なら species + 「亜種未区別（種まで）」を明示。
+# 正本前提 : ADR-H-16 §4.1 / 05-観測.md §4.5 OBS-TAX / §4.11 OBS-TGT-04
+# 規約     : ランク順は固定。中間ランク（亜目・上科等）は任意ノードとして path に挟める。
+#            外部正本は GBIF / Wikidata の「テキストメタ」を参照（UI 画像取得なし）。
+
+$dictionary_name: biological_rank
+schema_version: 1
+is_core_fixed: true
+# ランク列（ルート→葉）。order は path 内の階層順序を表す。
+ranks:
+  - key: kingdom
+    label_ja: 界
+    order: 1
+    tag_facet: false          # 検索 facet には出さない（タグ過多回避・ADR-H-16 §5）
+  - key: phylum
+    label_ja: 門
+    order: 2
+    tag_facet: false
+  - key: class
+    label_ja: 綱
+    order: 3
+    tag_facet: false
+  - key: order
+    label_ja: 目
+    order: 4
+    tag_facet: true           # タグ化（order:Coleoptera 等）
+  - key: family
+    label_ja: 科
+    order: 5
+    tag_facet: true
+  - key: genus
+    label_ja: 属
+    order: 6
+    tag_facet: true
+  - key: species
+    label_ja: 種
+    order: 7
+    tag_facet: true
+    is_min_acceptable: true   # ここまで到達できれば「亜種未区別」明示で確定可
+  - key: subspecies
+    label_ja: 亜種
+    order: 8
+    tag_facet: true
+    is_leaf_default: true     # 既定の葉（ここまで到達が原則）
+
+# 亜種未区別ステータス（ADR-H-16 §4.1）
+subspecies_status:
+  - key: resolved
+    label_ja: 亜種まで確定
+    desc: 葉が subspecies、または単型種（亜種が記載されない種）で species=亜種相当。
+  - key: undetermined_to_species
+    label_ja: 亜種未区別（種まで）
+    desc: 亜種が不明 / 同定困難。display_ja 末尾に「（亜種未区別）」を付す。空確定は禁止。
+
+notes:
+  - monotypic（単型種）フラグは外部カタログ / 種辞書側で判定。判定不能時は undetermined_to_species。
+  - 中間ランク（subfamily・tribe・superfamily 等）は path に任意ノードとして含めてよい（順序は order 準拠）。
+  - tag_facet=false のランクは tags[] に出さない（界・門・綱）。検索 facet は目以下（ADR-H-16 §5）。
+  - 確定（user_confirmed）は常にユーザー。GBIF/Wikidata は候補根拠（OBS-TAX-07）。

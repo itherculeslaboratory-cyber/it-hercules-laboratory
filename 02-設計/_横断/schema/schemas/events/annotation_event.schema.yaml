@@ -1,0 +1,46 @@
+# annotation_event.schema.yaml — AI 学習注釈 Truth · ADR-H-05
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: annotation_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Annotation Event
+type: object
+required:
+  - annotation_event_id
+  - target_type
+  - target_id
+  - annotation_type
+  - source_type
+  - created_at
+  - schema_version
+properties:
+  annotation_event_id:
+    type: string
+  target_type:
+    type: string
+    enum: [capture, individual, measurement, offspring_assignment]
+  target_id:
+    type: string
+  annotation_type:
+    type: string
+    enum_ref: dictionaries/annotation_type.yaml
+  annotation_value:
+    type: object
+  confidence:
+    type: number
+    minimum: 0
+    maximum: 1
+  source_type:
+    type: string
+    enum_ref: dictionaries/source_type.yaml
+  actor_id:
+    type: string
+  model_run_id:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

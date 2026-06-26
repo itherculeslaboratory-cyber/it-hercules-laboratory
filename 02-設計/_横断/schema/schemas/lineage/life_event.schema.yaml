@@ -1,0 +1,46 @@
+# life_event.schema.yaml — 生死・羽化等の変化 Truth · ADR-H-04 §2
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: life_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Life Event
+type: object
+required:
+  - life_event_id
+  - individual_id
+  - event_type
+  - event_at
+  - actor_id
+  - created_at
+  - schema_version
+properties:
+  life_event_id:
+    type: string
+  individual_id:
+    type: string
+  event_type:
+    type: string
+    enum: [death, eclosion_failure, molt, hatch, eclosion]
+  event_at:
+    type: string
+    format: date-time
+  stage_name:
+    type: string
+    enum_ref: dictionaries/stage_name.yaml
+  larva_subtype:
+    type: string
+    enum_ref: dictionaries/larva_subtype.yaml
+  event_reason:
+    type: string
+  source_type:
+    type: string
+    enum_ref: dictionaries/source_type.yaml
+  actor_id:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

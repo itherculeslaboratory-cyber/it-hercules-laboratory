@@ -1,0 +1,27 @@
+req_id,requirement,design_section,test_case,test_layer,impl_path,status,notes
+FR-PPR-01,マッチAPI 観測+条件P->PaperMatchPayload,詳細設計-v2 §3.2,UT-09-02/03;IT-09-02;ST-09-01,unit;integration;system,apps/api/routes/research.py:research_match,existing,POST /match match_id発番
+FR-PPR-02,キー分類 missingKeys/violatedKeys/充足,詳細設計-v2 §2.1/§4,UT-09-04;IT-09-03;ST-09-03,unit;integration;system,apps/api/routes/research.py:research_match,partial,score/telemetry_samplesのみ・違反詳細分類は簡略
+FR-PPR-03,条件P JSON表現 type/min/max/required,詳細設計-v2 §2,UT-09-02,unit,apps/api/routes/research.py,partial,最終Schema未確定(fb_00032)
+FR-PPR-04,固体ブリッジ load/save観測JSON,詳細設計-v2 §1.2/§7,(legacy TS),gap,(未移植),gap,旧PaperMatchPage localStorage IHL未移植
+FR-PPR-05,自動実行 solid=1 auto=1,詳細設計-v2 §1.2/§7,(legacy TS),gap,(未移植),gap,TS-legacy
+FR-PPR-06,RAGヒント 不足キー,詳細設計-v2 §6/§7,ST-09-06,system,(LLM境界),gap,docs/search-scoring.md基盤・IHL match非依存
+FR-PPR-07,LLM拡張 include_llm,詳細設計-v2 §6,ST-09-06,system,(任意鍵),gap,鍵依存・OFF既定
+FR-PPR-08,下書きCRUD conditionsP,詳細設計-v2 §1.2/§7,(未移植),gap,(未移植),gap,認証ユーザ下書き IHL未移植
+FR-PPR-09,仮説生成->Project POST,詳細設計-v2 §4/§7,(未配線),gap,(未配線),gap,FR-PAPER-06拡張
+FR-PPR-10,空状態エラー raw非表示,詳細設計-v2 §6,IT-09-06;ST-09-04,integration;system,apps/api/routes/research.py,existing,matched DTO安定
+FR-PPR-11,E2E到達 papers画面,詳細設計-v2 §3.1,UT-09-01/06;IT-09-01,unit;integration,apps/api/routes/research.py:research_papers,existing,GET /papers
+NFR-PPR-01,候補と正本の分離 fb_00032/33,詳細設計-v2 §6,UAT-09-06,uat,01-要件/09-論文.md §13,doc,FR-PAPERは要件化候補
+NFR-PPR-02,UI規範 PageColumn 新規DS禁止,詳細設計-v2 §6,(frontend),uat,(frontend),deferred,UI設計v1
+NFR-PPR-03,再現性 match入力export INSERT,詳細設計-v2 §2.1,UT-09-05;IT-09-04/05;ST-09-02,unit;integration;system,apps/api/routes/research.py,existing,research_match_v1 INSERT
+NFR-PPR-04,LLM境界 鍵未設定OFF,詳細設計-v2 §6,ST-09-06,system,apps/api/routes/research.py,existing,IHL match LLM非依存
+NFR-PPR-05,テスト REQ-014 CI維持,詳細設計-v2 §7,UT-09-01/02,unit,tests/unit/test_research_match.py,existing,既存CI
+FR-PAPER-04,テンプレートエンジン Paper Schema,詳細設計-v2 §1.2/§7,ST-09-05,system,apps/api/routes/research.py:research_papers,partial,進行中fallbackのみ・Engine未採用
+FR-PAPER-03,観測検索->テンプレ流し込み,詳細設計-v2 §1.2/§7,UAT-09-06,uat,(未着手),deferred,§14設計ゲート
+FR-PAPER-05,環境条件節 env snapshot->条件P,詳細設計-v2 §1.2/§7,UAT-09-06,uat,(デモキー),deferred,§14設計ゲート
+FR-PAPER-06,予測節 4象限GAP->仮説,詳細設計-v2 §4/§7,UAT-09-06,uat,(1段落仮説),deferred,§14設計ゲート
+FR-PAPER-07,結果節 results INSERT confidence,詳細設計-v2 §7,UAT-09-06,uat,(テンプレのみ),deferred,§14設計ゲート
+FR-PAPER-08,検証ループ->データ増殖 Citation,詳細設計-v2 §7,UAT-09-06,uat,(PoC),deferred,§14設計ゲート
+FR-PAPER-01,自ホストBBSレビュー層 Citation,詳細設計-v2 §1.3/§7,UAT-09-06,uat,(07連携),xref,#07掲示板paper board
+FR-PAPER-02,論文タグ tag_event,詳細設計-v2 §1.3/§7,UAT-09-06,uat,(10連携),xref,#10マチアプshared
+FR-PAPER-09,論文embedding索引,詳細設計-v2 §7,UAT-09-06,uat,(検索基盤),xref,docs/search-scoring.md
+FR-PAPER-11,条件P JSON Schema正本 fb_00032,詳細設計-v2 §1.2/§7,UAT-09-06,uat,(デモDEFAULT_P),gap,人間Schema確定

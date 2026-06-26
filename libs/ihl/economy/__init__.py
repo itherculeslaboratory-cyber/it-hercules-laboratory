@@ -1,0 +1,1 @@
+"""IHL economy domain."""

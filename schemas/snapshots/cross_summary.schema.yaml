@@ -1,0 +1,51 @@
+# cross_summary.schema.yaml — 世代集計 Snapshot · ADR-H-11
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: cross_summary
+x_ihl_schema_version: 1
+x_ihl_layer: snapshot
+title: Cross Summary
+type: object
+required:
+  - cross_id
+  - current_status
+  - cohort_size
+  - schema_version
+  - recomputed_at
+properties:
+  cross_id:
+    type: string
+  cross_name:
+    type: string
+  current_status:
+    type: string
+    enum_ref: dictionaries/cross_status.yaml
+  cohort_size:
+    type: integer
+  mortality_count:
+    type: integer
+  mortality_to_alive_rate:
+    type: number
+    minimum: 0
+    maximum: 1
+    description: 分子分母は Template + cross_death_summary §6 正本。CI warning のみ（HUMAN-CONFIRMED 2026-06-07 · schema-pack §6 #5）
+    x_ihl_human_confirmed: 2026-06-07
+  complete_rate:
+    type: number
+    minimum: 0
+    maximum: 1
+    description: 分子分母は Template + cross_death_summary §6 正本。CI warning のみ（HUMAN-CONFIRMED 2026-06-07 · schema-pack §6 #5）
+    x_ihl_human_confirmed: 2026-06-07
+  eclosion_failure_rate:
+    type: number
+    minimum: 0
+    maximum: 1
+  recomputed_at:
+    type: string
+    format: date-time
+  source_event_max_created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

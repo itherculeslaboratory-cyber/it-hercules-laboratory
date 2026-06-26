@@ -1,0 +1,53 @@
+# measurement_dictionary_extended.event.schema.yaml — 辞書拡張イベント · Wave C
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: measurement_dictionary_extended_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Measurement Dictionary Extended Event
+type: object
+required:
+  - event_id
+  - owner_user_id
+  - session_id
+  - added_measurement_name
+  - value_type
+  - unit_default
+  - method_default
+  - created_at
+  - schema_version
+properties:
+  event_id:
+    type: string
+  owner_user_id:
+    type: string
+  session_id:
+    type: string
+  source_event_id:
+    type: string
+    description: measurement_dictionary_selected_event の参照
+  added_measurement_name:
+    type: string
+  added_measurement_label_ja:
+    type: string
+  value_type:
+    type: string
+    enum: [numeric, categorical, boolean, text]
+  unit_default:
+    type: string
+  method_default:
+    type: string
+    enum_ref: dictionaries/measurement_method.yaml
+  applicable_sex:
+    type: string
+    enum_ref: dictionaries/sex.yaml
+  actor_id:
+    type: string
+  reason:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

@@ -1,0 +1,12 @@
+# dictionaries/alive_status.yaml — 生死状態 enum 正本（草案 v1）
+$dictionary_name: alive_status
+schema_version: 1
+values:
+  - key: alive
+    label_ja: 生存
+  - key: dead
+    label_ja: 死亡
+  - key: unknown
+    label_ja: 不明
+  - key: not_applicable
+    label_ja: 該当なし

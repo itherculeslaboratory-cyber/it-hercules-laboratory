@@ -1,0 +1,12 @@
+# dictionaries/qc_flag.yaml — QC フラグ enum 正本（草案 v1）
+$dictionary_name: qc_flag
+schema_version: 1
+values:
+  - key: usable
+    label_ja: 使用可
+  - key: warning
+    label_ja: 注意
+  - key: reject
+    label_ja: 除外
+  - key: unchecked
+    label_ja: 未検査

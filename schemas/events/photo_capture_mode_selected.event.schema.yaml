@@ -1,0 +1,41 @@
+# photo_capture_mode_selected.event.schema.yaml — 写真モード選択イベント · Wave D
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: photo_capture_mode_selected_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Photo Capture Mode Selected Event
+type: object
+required:
+  - event_id
+  - session_id
+  - owner_user_id
+  - capture_mode
+  - selected_at
+  - schema_version
+properties:
+  event_id:
+    type: string
+  session_id:
+    type: string
+  owner_user_id:
+    type: string
+  capture_mode:
+    type: string
+    enum: [camera, file_select]
+  source_device:
+    type: string
+    enum: [mobile_camera, desktop_camera, local_file]
+  shooting_condition:
+    type: string
+  no_color_correction:
+    type: boolean
+    description: true 固定（OBS-SOL-06）
+  actor_id:
+    type: string
+  selected_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

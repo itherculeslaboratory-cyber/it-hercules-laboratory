@@ -1,0 +1,28 @@
+# pt_summary.schema.yaml — PT 残高 Snapshot · ADR-H-06
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: pt_summary
+x_ihl_schema_version: 1
+x_ihl_layer: snapshot
+title: PT Summary
+type: object
+required:
+  - actor_id
+  - current_pt_balance
+  - schema_version
+  - recomputed_at
+properties:
+  actor_id:
+    type: string
+  current_pt_balance:
+    type: number
+  lifetime_earned:
+    type: number
+  lifetime_spent:
+    type: number
+  recomputed_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

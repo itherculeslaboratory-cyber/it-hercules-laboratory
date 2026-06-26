@@ -1,0 +1,33 @@
+# pt_event.schema.yaml — PT 影響力 Truth · ADR-H-06
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: pt_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: PT Event
+type: object
+required:
+  - pt_event_id
+  - actor_id
+  - delta
+  - created_at
+  - schema_version
+properties:
+  pt_event_id:
+    type: string
+  actor_id:
+    type: string
+  delta:
+    type: number
+    description: 増減可（消費型）
+  reason_code:
+    type: string
+    enum: [shop_purchase, vote_spend, grant, adjustment, other]
+  shop_item_ref:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

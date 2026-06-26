@@ -1,0 +1,146 @@
+# 02-設計/_横断/schema/dictionaries/measurement_name.yaml — 計測項目辞書（設計スタブ）
+#
+# ステータス: 草案（人間レビュー待ち・実装 Go 不可）
+# 作成日（草案）: 2026-06-08
+# 役割:
+#   観測「入力」UI の「項目」ドロップダウン候補と、measurement（縦持ち）schema の
+#   measurement_name の正本。各エントリは UI フォーム生成（数値/単位/性別表示）に必要な
+#   メタを持つ。雌雄テンプレの表示分岐（applicable_sex）と入力種別（value_type）はここで固定する。
+# 正本（前提）:
+#   - ../README.md §5（dictionaries は enum/辞書の正本）
+#   - ../../01-要件/05-観測.md §⑪.1 searchable_capture_set / §⑪.2 辞書 enum / OBS-TPL-01〜15
+#   - ../02-設計/_横断/adr/ADR-H-13-観測計測テンプレ契約.md（civ-os commit ↔ IHL measurement bridge）
+#   - ../cross_summary_fields.md §1（instar 体重・larva_weight_g）
+# 規約:
+#   - 列の invent 禁止。searchable_capture_set / measurement の列名に整合させる。
+#   - applicable_sex: male | female | both（雌雄テンプレの既定表示分岐。OBS-TPL-02）
+#   - value_type: numeric | categorical | boolean | text（UI 入力種別へ写像）
+#   - unit_default: 既定単位（単位 DD の初期値。ユーザーは「＋ 追加」で別単位を選べる）
+#   - measurement_method の既定は measurement_method.yaml を参照（method_default）
+
+$dictionary_name: measurement_name
+schema_version: 1
+
+# value_type → UI 入力種別の写像（フォーム生成規約。ADR-H-13 §3）
+value_type_to_input:
+  numeric:     number_input        # 数値入力（単位 DD 併設）
+  categorical: select_or_add       # 候補 DD ＋「＋ 自由入力」
+  boolean:     toggle              # オン/オフ
+  text:        text_input          # 自由記述（単位なし）
+
+# 性別分岐の規約（OBS-TPL-01/02）
+#   sex(dictionaries/sex.yaml: male/female/unknown/undetermined) に応じて
+#   applicable_sex != both の項目を既定で表示/非表示にする。
+#   unknown / undetermined のときは both のみ既定表示し、male/female 項目は「任意で表示」。
+sex_visibility_rule:
+  male:         [both, male]
+  female:       [both, female]
+  unknown:      [both]
+  undetermined: [both]
+
+entries:
+  # --- 形態計測（成虫・both） ---
+  - id: weight_g
+    label_ja: 体重
+    unit_default: g
+    applicable_sex: both
+    value_type: numeric
+    note: 個体体重。searchable_capture_set.weight_g に対応。
+
+  - id: body_length_mm
+    label_ja: 体長
+    unit_default: mm
+    applicable_sex: both
+    value_type: numeric
+    note: 全長（頭角を除く本体長 or 全長は Template 定義で明示）。searchable_capture_set.body_length_mm。
+
+  - id: thorax_width_mm
+    label_ja: 胸幅
+    unit_default: mm
+    applicable_sex: both
+    value_type: numeric
+    note: 前胸背板の最大幅。searchable_capture_set.thorax_width_mm。
+
+  - id: elytra_length_mm
+    label_ja: 上翅長
+    unit_default: mm
+    applicable_sex: both
+    value_type: numeric
+    note: 肩部から上翅先端まで。Template で計測起点を明示。
+
+  # --- 雄専用（角） ---
+  - id: horn_length_mm
+    label_ja: 角長
+    unit_default: mm
+    applicable_sex: male      # 雌では既定で非表示（OBS-TPL-02）
+    value_type: numeric
+    note: 頭角長（上翅先端〜頭角先端等は Template 定義）。searchable_capture_set.horn_length_mm。雄テンプレ既定表示。
+
+  # --- 雌寄り（繁殖記録） ---
+  - id: egg_count
+    label_ja: 産卵数
+    unit_default: 個
+    applicable_sex: female    # 雌テンプレ既定表示
+    value_type: numeric
+    note: 産卵数の記録。life_event(birth/oviposition) との二重計上に注意（ADR-H-13 §4）。
+
+  # --- 幼虫（instar・both） ---
+  - id: larva_weight_g
+    label_ja: 幼虫体重
+    unit_default: g
+    applicable_sex: both
+    value_type: numeric
+    note: instar ステージ別体重。cross_growth_summary の instar_*_avg_weight_g 集計源（cross_summary_fields.md §1）。
+
+  - id: head_width_mm
+    label_ja: 頭幅
+    unit_default: mm
+    applicable_sex: both
+    value_type: numeric
+    note: 幼虫頭幅。令（instar）判定の補助指標。
+
+  # --- 環境（観測時点スナップショット・both） ---
+  - id: temperature_c
+    label_ja: 温度
+    unit_default: "°C"
+    applicable_sex: both
+    value_type: numeric
+    note: 計測方法 IoT(SwitchBot 等) と手入力を method で区別（measurement_method.yaml）。environment_timeseries とも連携。
+
+  - id: humidity_pct
+    label_ja: 湿度
+    unit_default: "%"
+    applicable_sex: both
+    value_type: numeric
+    note: 相対湿度。IoT/手入力を method で区別。
+
+  - id: co2_ppm
+    label_ja: CO2濃度
+    unit_default: ppm
+    applicable_sex: both
+    value_type: numeric
+    note: 任意。collector / IoT sensor 由来。
+
+  # --- 状態・記述（both） ---
+  - id: pre_molt_flag
+    label_ja: 脱皮前
+    unit_default: null
+    applicable_sex: both
+    value_type: boolean
+    note: 旧 civ-os observationTemplates の pre_molt 相当。単位なし。
+
+  - id: batch_note
+    label_ja: 備考
+    unit_default: null
+    applicable_sex: both
+    value_type: text
+    note: 自由記述メモ。単位 DD は非表示。
+
+# 未決（要件確定が必要・実装前）
+unresolved:
+  - "計測起点（体長/上翅長の定義差）は Template 側の明示に委ねる（コア固定 enum にしない・ADR-H-04 §1/§2）"
+  - "applicable_sex=female の項目セット（産卵数以外）は飼育要件確定後に拡充"
+  - "ユーザー自由入力（＋ 自由入力）で追加した measurement_name の正規化・重複統合ルールは ADR-H-13 §5 で確定"
+  - "instar 別 larva_weight_g の令境界は cross_summary_fields.md §5（molt event 対応）と同期"
+
+# 草案・非正本 / 設計スタブ（実 repo 02-設計/_横断/schema/ 未作成）/ 人間レビュー用 / 実装禁止ゲート有効 — 実装 Go 不可

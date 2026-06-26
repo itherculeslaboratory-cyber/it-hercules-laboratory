@@ -1,0 +1,41 @@
+# tag_aggregate.schema.yaml — タグ集計 Snapshot · Phase 1
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: tag_aggregate
+x_ihl_schema_version: 1
+x_ihl_layer: snapshot
+title: Tag Aggregate
+type: object
+required:
+  - target_type
+  - target_id
+  - tag
+  - add_count
+  - schema_version
+  - recomputed_at
+properties:
+  target_type:
+    type: string
+    enum: [capture, individual, cross]
+  target_id:
+    type: string
+  tag:
+    type: string
+  tag_type:
+    type: string
+    enum_ref: dictionaries/tag_type.yaml
+  add_count:
+    type: integer
+  invert_count:
+    type: integer
+  review_needed_count:
+    type: integer
+  aggregate_state:
+    type: string
+    enum: [weak, strong, disputed, deprecated]
+  recomputed_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

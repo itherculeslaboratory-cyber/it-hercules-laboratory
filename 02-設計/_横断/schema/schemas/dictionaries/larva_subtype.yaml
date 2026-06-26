@@ -1,0 +1,15 @@
+# dictionaries/larva_subtype.yaml — 幼虫細分 enum 正本（弱 enum · 草案 v1）
+$dictionary_name: larva_subtype
+schema_version: 1
+is_core_fixed: false
+values:
+  - key: first_instar
+    label_ja: 初令
+  - key: second_instar
+    label_ja: 二令
+  - key: third_early
+    label_ja: 三令前期
+  - key: third_late
+    label_ja: 三令後期
+  - key: unknown
+    label_ja: 不明

@@ -1,0 +1,76 @@
+# embedding_manifest.schema.yaml — embedding manifest · Phase 1
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: embedding_manifest
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Embedding Manifest
+type: object
+required:
+  - embedding_id
+  - capture_id
+  - individual_id
+  - image_id
+  - embedding_dim
+  - embedding_file
+  - vector_offset
+  - normalized_flag
+  - model_name
+  - model_version
+  - schema_version
+  - run_id
+  - created_at
+properties:
+  embedding_id:
+    type: string
+  capture_id:
+    type: string
+  individual_id:
+    type: string
+  image_id:
+    type: string
+  part_type:
+    type: string
+  embedding_model:
+    type: string
+  embedding_version:
+    type: string
+  embedding_dim:
+    type: integer
+  embedding_file:
+    type: string
+  vector_offset:
+    type: integer
+  vector_length:
+    type: integer
+  normalized_flag:
+    type: boolean
+  input_image_path:
+    type: string
+  input_hash:
+    type: string
+  preprocessing_name:
+    type: string
+  preprocessing_version:
+    type: string
+  model_name:
+    type: string
+  model_version:
+    type: string
+  pipeline_name:
+    type: string
+  pipeline_version:
+    type: string
+  snapshot_id:
+    type: string
+  value_origin:
+    type: string
+    enum_ref: dictionaries/value_origin.yaml
+  schema_version:
+    type: integer
+    minimum: 1
+  run_id:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+additionalProperties: false

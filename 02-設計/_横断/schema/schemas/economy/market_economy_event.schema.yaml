@@ -1,0 +1,38 @@
+# market_economy_event.schema.yaml — マーケット経済 Truth · 06 / ADR-H-06
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: market_economy_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Market Economy Event
+type: object
+required:
+  - market_economy_event_id
+  - actor_id
+  - event_kind
+  - created_at
+  - schema_version
+properties:
+  market_economy_event_id:
+    type: string
+  actor_id:
+    type: string
+  event_kind:
+    type: string
+    enum: [fee_unpaid_set, fee_unpaid_clear, lottery_entry, lottery_win, lottery_lose]
+  lot_id:
+    type: string
+  fib_tier:
+    type: integer
+    minimum: 1
+    description: >
+      未納継続月 n（1-based）。event_kind=fee_unpaid_set のとき必須。
+      lottery_entry / lottery_win / lottery_lose では任意。
+      （HUMAN-CONFIRMED 2026-06-07 · schema-pack §6 #9）
+    x_ihl_human_confirmed: 2026-06-07
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

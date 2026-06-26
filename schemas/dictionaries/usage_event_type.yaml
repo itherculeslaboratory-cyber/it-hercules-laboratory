@@ -1,0 +1,20 @@
+# dictionaries/usage_event_type.yaml — usage イベント種別 enum 正本（草案 v1）
+$dictionary_name: usage_event_type
+schema_version: 1
+values:
+  - key: search
+    label_ja: 検索
+  - key: view
+    label_ja: 閲覧
+  - key: cite
+    label_ja: 引用
+  - key: download
+    label_ja: ダウンロード
+  - key: similar_search
+    label_ja: 類似検索
+  - key: tag_add
+    label_ja: タグ追加
+  - key: tag_invert
+    label_ja: タグ反転
+  - key: export
+    label_ja: エクスポート

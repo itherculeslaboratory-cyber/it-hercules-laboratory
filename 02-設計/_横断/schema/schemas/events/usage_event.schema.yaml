@@ -1,0 +1,52 @@
+# usage_event.schema.yaml — 利用ログ Truth · Phase 1
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: usage_event
+x_ihl_schema_version: 1
+x_ihl_layer: truth
+title: Usage Event
+type: object
+required:
+  - usage_event_id
+  - event_type
+  - created_at
+  - schema_version
+properties:
+  usage_event_id:
+    type: string
+  event_type:
+    type: string
+    enum_ref: dictionaries/usage_event_type.yaml
+  user_id_hash:
+    type: string
+    description: SHA-256 + salt。生 user_id は Truth に保存しない（HUMAN-CONFIRMED 2026-06-07 · schema-pack §6 #1）
+    x_ihl_human_confirmed: 2026-06-07
+  session_id:
+    type: string
+  query_id:
+    type: string
+  target_type:
+    type: string
+    enum: [capture, individual, search_result]
+  target_id:
+    type: string
+  filters:
+    type: object
+  sort_key:
+    type: string
+  result_count:
+    type: integer
+  top_result_ids:
+    type: array
+    items:
+      type: string
+  ui_name:
+    type: string
+  ui_version:
+    type: string
+  created_at:
+    type: string
+    format: date-time
+  schema_version:
+    type: integer
+    minimum: 1
+additionalProperties: false

@@ -1,0 +1,31 @@
+# core_subset.schema.yaml — IHL CoreEntityBase サブセット · ADR-Phase2 §5
+$schema: https://json-schema.org/draft/2020-12/schema
+$schema_name: core_subset
+x_ihl_schema_version: 1
+title: IHL Core Subset
+type: object
+required:
+  - schema_version
+  - created_at
+properties:
+  schema_version:
+    type: integer
+    minimum: 1
+  created_at:
+    type: string
+    format: date-time
+  run_id:
+    type: string
+  snapshot_id:
+    type: string
+  input_hash:
+    type: string
+  value_origin:
+    type: string
+    enum_ref: dictionaries/value_origin.yaml
+  source_type:
+    type: string
+    enum_ref: dictionaries/source_type.yaml
+  local_label_text:
+    type: string
+additionalProperties: false

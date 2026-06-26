@@ -1,0 +1,136 @@
+# IHL full stack — Docker Desktop (Windows/macOS/Linux)
+#
+# Quick start:
+#   docker compose up api search          # API :8000 + Streamlit search :8501
+#   docker compose --profile web up       # + Next.js web :3000
+#   docker compose --profile test run --rm test   # pytest (target 100+)
+#
+# Schemas: volume mount from design tree (Windows junctions do not propagate into Linux containers).
+# Secrets: never COPY .env into the image; use env_file mount below.
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: it-hercules-laboratory:dev
+    container_name: ihl-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - ./02-設計/_横断/schema/schemas:/schemas:ro
+    environment:
+      IHL_SCHEMAS_ROOT: /schemas
+      # Local dev and Playwright E2E only — do not enable in production
+      IHL_DEV_EXPOSE_MAGIC_TOKEN: "1"
+    env_file:
+      - path: .env
+        required: false
+      - path: .env.platform
+        required: false
+      - path: .env.local
+        required: false
+    command:
+      - uvicorn
+      - apps.api.main:app
+      - --host=0.0.0.0
+      - --port=8000
+      - --reload
+      - --reload-dir=apps
+      - --reload-dir=libs
+
+  web:
+    profiles: ["web", "full"]
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    image: it-hercules-laboratory:web
+    container_name: ihl-web
+    ports:
+      - "3000:3000"
+    env_file:
+      - path: .env
+        required: false
+      - path: .env.platform
+        required: false
+      - path: .env.local
+        required: false
+    environment:
+      IHL_API_URL: ${IHL_API_URL:-http://api:8000}
+    depends_on:
+      - api
+
+  collector:
+    profiles: ["collector", "full"]
+    image: node:20-alpine
+    container_name: ihl-collector
+    working_dir: /app
+    volumes:
+      - .:/app
+      - ihl-collector-data:/data
+    env_file:
+      - path: .env
+        required: false
+      - path: .env.platform
+        required: false
+      - path: .env.local
+        required: false
+    command:
+      - node
+      - collector/switchbot-local-collector.mjs
+    depends_on:
+      - api
+
+  search:
+    profiles: ["search", "full"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: it-hercules-laboratory:dev
+    container_name: ihl-search
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+      - ./02-設計/_横断/schema/schemas:/schemas:ro
+    environment:
+      IHL_SCHEMAS_ROOT: /schemas
+    env_file:
+      - path: .env
+        required: false
+      - path: .env.platform
+        required: false
+      - path: .env.local
+        required: false
+    command:
+      - streamlit
+      - run
+      - apps/search/app.py
+      - --server.address=0.0.0.0
+      - --server.port=8501
+
+  test:
+    profiles: ["test"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: it-hercules-laboratory:dev
+    container_name: ihl-test
+    volumes:
+      - .:/app
+      - ./02-設計/_横断/schema/schemas:/schemas:ro
+    environment:
+      IHL_SCHEMAS_ROOT: /schemas
+    env_file:
+      - path: .env
+        required: false
+      - path: .env.platform
+        required: false
+      - path: .env.local
+        required: false
+    command: ["pytest", "-q"]
+    working_dir: /app
+
+volumes:
+  ihl-collector-data:

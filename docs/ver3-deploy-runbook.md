@@ -218,13 +218,37 @@ docker compose build api
 
 ### 3. Web（Pages）デプロイ
 
-**Cloudflare Dashboard（推奨）**
+**リポジトリ内の正本**: `apps/web/wrangler.toml` の `pages_build_output_dir` が **`.vercel/output/static`**。ダッシュボードと矛盾する場合は **wrangler.toml が優先**（CF Pages v2 設定）。
+
+**Cloudflare Dashboard — 手順チェックリスト（1 項目ずつ確認）**
+
+1. [ ] **Workers & Pages** → 対象プロジェクト（例: `civillization-os`）を開く
+2. [ ] **Settings** → **Build** → **Build configuration**
+3. [ ] **Production branch** = `main`（repo の既定ブランチと一致）
+4. [ ] **Root directory** = `apps/web`（**空欄・`/`・リポジトリルートは NG**）
+5. [ ] **Framework preset** = Next.js または **None / Custom**（下表のコマンドを手入力できること）
+6. [ ] **Build command** = `npm ci && npm run pages:build`  
+   - **NG 例**: `npx @cloudflare/next-on-pages@1` のみ（`pages-postbuild` と正しい出力先をスキップする）  
+   - **暫定 OK**: 古いコマンドのままでも `postbuild` が `.next/cache` を削除するが、**出力先は wrangler.toml か下記 output で必ず修正**
+7. [ ] **Build output directory** = `.vercel/output/static`  
+   - **NG**: `.next` · `out` · **空欄**（デフォルト）→ `Validating asset output directory` で `.next/cache/webpack/.../0.pack`（25 MiB 超）が落ちる  
+   - wrangler.toml 導入後も、初回はダッシュボードを開いて **Save** し、次デプロイのビルドログに `pages_build_output_dir` が効いているか確認
+8. [ ] **Environment variables（Production）**: `IHL_API_URL` = `https://api.it-hercules.uk` · `NODE_VERSION` = `20`
+9. [ ] **Save** を押してから **Deployments** → **Retry deployment**（設定変更だけでは古い output 設定が残ることがある）
+
+**ビルドログで成功の目安**
+
+| ログ行 | 意味 |
+|--------|------|
+| `[pages-postbuild] removed .next/cache` | `postbuild` が webpack cache を削除（古い build command でも実行） |
+| `⚡️ Completed \`npx @cloudflare/next-on-pages@1\`` | next-on-pages 成功 |
+| `Validating asset output directory` の直後に **エラー無し** | 出力先が `.vercel/output/static` で 25 MiB 制限を通過 |
 
 | 設定 | 値 |
 |------|-----|
 | Root directory | `apps/web` |
 | Build command | `npm ci && npm run pages:build` |
-| Build output directory | **`.vercel/output/static`** |
+| Build output directory | **`.vercel/output/static`**（wrangler.toml と一致） |
 | Production env | `IHL_API_URL=https://api.it-hercules.uk` · `NODE_VERSION=20` |
 
 **ローカル検証**

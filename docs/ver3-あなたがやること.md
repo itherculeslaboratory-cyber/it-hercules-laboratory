@@ -215,6 +215,20 @@ curl.exe -sS "https://api.it-hercules.uk/health"
 
 旧 civ-os（Vite `frontend`）用 Pages がある場合、**IHL 用に新プロジェクト**を作るか、既存を **差し替え**（方針は開発者と合意）。
 
+**リポジトリ正本**: `apps/web/wrangler.toml` — `pages_build_output_dir = ".vercel/output/static"`。ダッシュボードの Build output と食い違うときは **wrangler.toml が優先**。
+
+#### ダッシュボードチェックリスト（未設定だと毎回 25 MiB で落ちる）
+
+1. [ ] プロジェクト → **Settings** → **Build**
+2. [ ] **Root directory** = `apps/web`（**必須** — 空欄はリポジトリルートになり `.next` がアップロード対象になる）
+3. [ ] **Build command** = `npm ci && npm run pages:build`  
+   - 今 `npx @cloudflare/next-on-pages@1` だけになっている場合は **必ず差し替え**
+4. [ ] **Build output directory** = `.vercel/output/static`（**`.next` 禁止 · 空欄禁止**）
+5. [ ] Production 環境変数: `IHL_API_URL=https://api.it-hercules.uk` · `NODE_VERSION=20`
+6. [ ] **Save** → **Deployments** → 最新を **Retry deployment**
+7. [ ] ビルドログに `[pages-postbuild] removed .next/cache` があること
+8. [ ] `Validating asset output directory` の後に **Pages only supports files up to 25 MiB** が **出ない**こと
+
 | 設定項目 | 入れる値（IHL） |
 |----------|-----------------|
 | **リポジトリ** | `it-hercules-laboratory` |
@@ -225,7 +239,7 @@ curl.exe -sS "https://api.it-hercules.uk/health"
 | **Build output directory** | **`.vercel/output/static`**（**必須** — `.next` や空欄にすると 25 MiB 超の webpack cache で失敗） |
 | **環境変数（Production）** | **`IHL_API_URL`** = `https://api.it-hercules.uk` · **`NODE_VERSION`** = `20` |
 
-> **よくある失敗**: Build output を `.next` にすると `.next/cache/webpack/.../0.pack`（100 MiB 超）がアップロード対象になり `Pages only supports files up to 25 MiB` で落ちる。next-on-pages の正しい出力は **`.vercel/output/static`** のみ。
+> **よくある失敗**: Build output を `.next` にすると `.next/cache/webpack/client-production/0.pack`（30〜100 MiB 超）がアップロード対象になり `Pages only supports files up to 25 MiB` で **Validating asset output directory** 段階で落ちる。next-on-pages の正しい出力は **`.vercel/output/static`** のみ。`apps/web/wrangler.toml` でも同じパスを固定している。
 
 `IHL_API_URL` が無いと、画面は `/api/*` を **間違った先**に転送する。
 

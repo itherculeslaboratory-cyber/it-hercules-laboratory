@@ -1,0 +1,6 @@
+# Cloudflare Pages — build output (source of truth when present).
+# Root directory in dashboard must be apps/web so this file is the project root.
+name = "civillization-os"
+pages_build_output_dir = ".vercel/output/static"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]

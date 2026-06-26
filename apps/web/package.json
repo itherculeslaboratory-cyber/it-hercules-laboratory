@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --port 3000",
     "build": "next build",
+    "postbuild": "node scripts/pages-postbuild.mjs",
     "pages:build": "next build && npx @cloudflare/next-on-pages@1 && node scripts/pages-postbuild.mjs",
     "start": "next start --port 3000",
     "lint": "next lint",

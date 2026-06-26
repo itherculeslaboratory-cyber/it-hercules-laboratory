@@ -2,6 +2,9 @@
  * Cloudflare Pages post-build: drop webpack cache and guard static output.
  * CF Pages rejects any asset > 25 MiB; .next/cache can exceed that if the
  * dashboard Build output directory points at .next instead of .vercel/output/static.
+ *
+ * Invoked via npm "postbuild" (after next build, including when next-on-pages
+ * runs `npm run build`) and again at the end of `npm run pages:build`.
  */
 import { existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -16,10 +19,10 @@ if (existsSync(cacheDir)) {
 }
 
 if (!existsSync(outDir)) {
-  console.error(
-    "[pages-postbuild] missing .vercel/output/static — run next build && @cloudflare/next-on-pages first",
+  console.log(
+    "[pages-postbuild] skip .assetsignore — .vercel/output/static not ready (next-on-pages may run next)",
   );
-  process.exit(1);
+  process.exit(0);
 }
 
 mkdirSync(outDir, { recursive: true });

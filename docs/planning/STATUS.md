@@ -32,7 +32,7 @@
 |------|------|
 | **観測検索スコープ** | **Scope A（コミュニティ）** — ログイン済みユーザーは **全観測カタログ**を検索・閲覧。`owner_user_id` / セッション actor による検索絞り込み **なし** |
 | **書き込み・個人設定** | `useActorId()` / セッション `actor_id` で commit · 命名 · 個体 · デバイス等は **本人スコープ** |
-| **本番ログイン必須** | **はい** — API: `IHL_AUTH_REQUIRED=1` · Web: `IHL_WEB_AUTH_BYPASS` **未設定**（middleware 認証 ON） |
+| **本番ログイン必須** | **はい（WRITE のみ）** — API: `IHL_AUTH_REQUIRED=1` で commit/upload 等 · **観測 search/list/detail/image は Scope A により未ログイン可** · Web middleware も観測 READ ルートを公開 |
 
 ### 本番環境変数チェックリスト（人間 · VPS / Pages）
 
@@ -57,6 +57,8 @@
 | **AppShell 認証導線** | 未認証: ログイン/新規登録 Link · 認証済み: actor 表示 + ログアウト · `useAuthSession` |
 | **actor_id 連携** | 観測入力/confirm · 個体 · 設定デバイス — `u_demo` → session `actor_id`（未ログイン時 dev フォールバック） |
 | **観測画像表示** | `dafdd53` — `AuthenticatedImage.tsx` · blob 認証付き表示 |
+| **ログイン導線** | AppShell ログイン/登録/ログアウト — **本番確認 OK（2026-07-03）** |
+| **未ログイン観測検索 401** | **修正済み** — router 全体 `enforce_auth_when_required` が READ をブロックしていた · WRITE のみ認証 |
 | **API / CORS / nginx** | `api.it-hercules.uk` 直叩き · `test_cors.py` |
 | **検索スコープ A** | 人間ゲート解消 · API/UI はカタログ横断（`test_observation_search_scope_a_returns_all_owners`） |
 
@@ -66,6 +68,7 @@
 
 | 問題 | 詳細 |
 |------|------|
+| ~~未ログイン観測検索 401~~ | **修正済み（2026-07-03）** — [`backlog/2026-06-27-tomorrow.md`](./backlog/2026-06-27-tomorrow.md) |
 | **parity C4 README** | ~~12 mismatch~~ → **PASS**（claims パス修正済み） |
 | **magic link メール** | 本番 SMTP 未配線（人間ゲート） |
 | **PT ショップ UI polish** | 意図的延期 |
@@ -75,9 +78,9 @@
 
 ## 次の 3 タスク
 
-1. **VPS `.env` 実地確認** — `IHL_AUTH_REQUIRED=1` がサーバに入っているか（未設定なら追加して `docker compose` 再起動）
+1. **VPS 再デプロイ** — `main` push 後 `docker compose` pull/up（観測 READ 認証免除を本番反映）
 2. **`test_csv_import.py` 修復** — SwitchBot CSV fixture 2 件
-3. **Pages 再デプロイ** — `main` push で CF Pages 自動反映
+3. **Pages 再デプロイ** — `main` push で CF Pages 自動反映（middleware 観測 READ 公開）
 
 ---
 

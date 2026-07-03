@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, HTTPException
 from fastapi.responses import Response
 from pydantic import BaseModel, Field
 
@@ -35,10 +35,10 @@ from libs.measurement_template_catalog import get_template as get_measurement_te
 from libs.measurement_template_catalog import list_templates as list_measurement_templates
 from libs.query import ALLOWED_FILTERS, QueryValidationError, count_captures, search_captures
 from libs.r2_io import default_local_root
-from libs.ihl.identity.auth_deps import enforce_auth_when_required
+from libs.ihl.identity.auth_deps import RequiredWhenEnabledAuth
 from libs.scoring import search_similar
 
-router = APIRouter(tags=["observation"], dependencies=[Depends(enforce_auth_when_required)])
+router = APIRouter(tags=["observation"])
 
 MEASUREMENT_NAME_MAP = {
     "体長": "body_length_mm",
@@ -482,8 +482,8 @@ def observation_search(body: CaptureSearchRequest) -> dict[str, Any]:
     """Community catalog search (scope A): full merged catalog, no session actor filter.
 
     ``owner_user_id`` is intentionally absent from ``CaptureSearchRequest`` and
-    ``ALLOWED_FILTERS``. Login gates read access when ``IHL_AUTH_REQUIRED=1``;
-    write paths (solid commit, naming, individuals) keep per-owner scoping.
+    ``ALLOWED_FILTERS``. Scope A: read stays public even when ``IHL_AUTH_REQUIRED=1``;
+    write paths (upload, templates POST, measurements) require session.
     """
     parquet_path, _ = resolve_data_sources()
     filters = {k: v for k, v in body.model_dump().items() if k in ALLOWED_FILTERS and v}
@@ -522,7 +522,10 @@ def observation_search(body: CaptureSearchRequest) -> dict[str, Any]:
 
 
 @router.post("/api/v1/observation/upload")
-def observation_upload(body: CaptureUploadRequest) -> dict[str, Any]:
+def observation_upload(
+    body: CaptureUploadRequest,
+    _auth: RequiredWhenEnabledAuth,
+) -> dict[str, Any]:
     """Register capture Truth event; optionally run pipeline fixture."""
     store = get_event_store()
     capture_id = f"cap_{body.species[:3]}_{os.urandom(4).hex()}"
@@ -593,7 +596,10 @@ def measurement_template_detail(template_id: str) -> dict[str, Any]:
 
 
 @router.post("/api/v1/observation/templates", status_code=201)
-def create_measurement_template(body: ObservationTemplateCreateRequest) -> dict[str, Any]:
+def create_measurement_template(
+    body: ObservationTemplateCreateRequest,
+    _auth: RequiredWhenEnabledAuth,
+) -> dict[str, Any]:
     if not body.target_species.strip():
         raise HTTPException(status_code=400, detail="target_species は必須です")
     if not body.rows:
@@ -651,7 +657,10 @@ def observation_target_catalog() -> dict[str, Any]:
 
 
 @router.post("/api/v1/observation/measurements")
-def save_measurements(body: MeasurementSaveRequest) -> dict[str, Any]:
+def save_measurements(
+    body: MeasurementSaveRequest,
+    _auth: RequiredWhenEnabledAuth,
+) -> dict[str, Any]:
     if not body.rows:
         raise HTTPException(status_code=400, detail="計測行がありません")
     store = get_event_store()
@@ -684,7 +693,10 @@ def save_measurements(body: MeasurementSaveRequest) -> dict[str, Any]:
 
 
 @router.post("/api/v1/observation/dictionary-extensions", status_code=201)
-def save_dictionary_extension(body: DictionaryExtensionRequest) -> dict[str, Any]:
+def save_dictionary_extension(
+    body: DictionaryExtensionRequest,
+    _auth: RequiredWhenEnabledAuth,
+) -> dict[str, Any]:
     value = body.value.strip()
     if not value:
         raise HTTPException(status_code=400, detail="value は必須です")

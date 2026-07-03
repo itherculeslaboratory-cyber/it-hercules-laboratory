@@ -61,7 +61,11 @@ export function useObservationSearch() {
         setEmptyMessage(res.message ?? "条件に一致する個体がありません");
       }
     } catch (e) {
-      setError(e instanceof ApiError ? e.message : "検索に失敗しました");
+      if (e instanceof ApiError && e.status === 401) {
+        setError("観測カタログを見るにはログインが必要です");
+      } else {
+        setError(e instanceof ApiError ? e.message : "検索に失敗しました");
+      }
       setItems([]);
       setTotal(0);
     } finally {

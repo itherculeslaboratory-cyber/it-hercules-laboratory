@@ -225,12 +225,24 @@ def test_it_01_11_session_endpoint_resolves_actor(
     assert res.json()["actor_id"] == hash_actor_id("session@example.com")
 
 
-def test_it_01_12_observation_auth_gate_when_required(
+def test_it_01_12_observation_search_public_read_when_auth_required(
     client: TestClient, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    """ver3: IHL_AUTH_REQUIRED=1 で観測 search は無セッション 401。"""
+    """Scope A: IHL_AUTH_REQUIRED=1 でも観測 search は無セッション 200。"""
     monkeypatch.setenv("IHL_AUTH_REQUIRED", "1")
     res = client.post("/api/v1/observation/search", json={"limit": 5})
+    assert res.status_code == 200
+
+
+def test_it_01_12b_observation_upload_requires_session_when_auth_on(
+    client: TestClient, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Write path: upload は IHL_AUTH_REQUIRED=1 で無セッション 401。"""
+    monkeypatch.setenv("IHL_AUTH_REQUIRED", "1")
+    res = client.post(
+        "/api/v1/observation/upload",
+        json={"species": "Dynastes hercules hercules"},
+    )
     assert res.status_code == 401
     assert res.json()["detail"] == "AUTH_REQUIRED"
 
@@ -241,10 +253,10 @@ def test_it_01_13_observation_auth_bypass_in_dev(client: TestClient) -> None:
     assert res.status_code == 200
 
 
-def test_it_01_14_observation_image_requires_session_when_auth_on(
+def test_it_01_14_observation_image_public_read_when_auth_on(
     client: TestClient, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    """Cross-origin img cannot send X-IHL-Session — browser must fetch blob with header."""
+    """Scope A: catalog image GET is public; AuthenticatedImage still sends session when present."""
     monkeypatch.setenv("IHL_AUTH_REQUIRED", "1")
     monkeypatch.setenv("IHL_R2_LOCAL_ROOT", str(tmp_path / "r2"))
     reset_stores_for_tests()
@@ -273,7 +285,8 @@ def test_it_01_14_observation_image_requires_session_when_auth_on(
     capture_id = commit.json()["captureId"]
 
     unauth = client.get(f"/api/v1/observation/{capture_id}/image")
-    assert unauth.status_code == 401
+    assert unauth.status_code == 200
+    assert unauth.headers["content-type"].startswith("image/")
 
     authed = client.get(f"/api/v1/observation/{capture_id}/image", headers=headers)
     assert authed.status_code == 200

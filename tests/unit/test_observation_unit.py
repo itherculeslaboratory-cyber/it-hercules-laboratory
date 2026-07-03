@@ -50,6 +50,26 @@ def test_ut_05_07_measurements_empty_rows_rejected(client: TestClient) -> None:
     assert res.status_code == 400
 
 
+def test_observation_search_scope_a_returns_all_owners(client: TestClient) -> None:
+    """Scope A: search lists captures from all owners (no actor filter)."""
+    for owner, species in (("u_alice", "Alice species"), ("u_bob", "Bob species")):
+        res = client.post(
+            "/api/solid-observation/commit",
+            json={
+                "species": species,
+                "owner_user_id": owner,
+                "rows": [{"item": "体長", "value": "70.0", "unit": "mm", "method": "manual_entry"}],
+            },
+        )
+        assert res.status_code == 201
+
+    search = client.post("/api/v1/observation/search", json={"limit": 50})
+    assert search.status_code == 200
+    species_set = {item.get("species") for item in search.json()["items"]}
+    assert "Alice species" in species_set
+    assert "Bob species" in species_set
+
+
 def test_ut_05_08_search_rejects_unknown_filter(client: TestClient) -> None:
     """UT-05-08 / OBS-TAX query: whitelist 外フィルタは弾く（400 か empty）。"""
     res = client.post("/api/v1/observation/search", json={"species": "ヘラクレス"})

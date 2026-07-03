@@ -479,6 +479,12 @@ def _search_truth_captures(filters: dict[str, str]) -> list[dict[str, Any]]:
 
 @router.post("/api/v1/observation/search")
 def observation_search(body: CaptureSearchRequest) -> dict[str, Any]:
+    """Community catalog search (scope A): full merged catalog, no session actor filter.
+
+    ``owner_user_id`` is intentionally absent from ``CaptureSearchRequest`` and
+    ``ALLOWED_FILTERS``. Login gates read access when ``IHL_AUTH_REQUIRED=1``;
+    write paths (solid commit, naming, individuals) keep per-owner scoping.
+    """
     parquet_path, _ = resolve_data_sources()
     filters = {k: v for k, v in body.model_dump().items() if k in ALLOWED_FILTERS and v}
 

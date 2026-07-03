@@ -190,6 +190,16 @@
 4. Web: `ihl_session_token` cookie 保存 · API 呼び出しに `X-IHL-Session` ヘッダ  
 5. `GET /api/v1/auth/session` — セッション有効性確認  
 6. 観測 API: `IHL_AUTH_REQUIRED=1` 時は無セッション **401 `AUTH_REQUIRED`**
+7. 観測検索: **Scope A（コミュニティ）** — 認証済みなら全カタログ横断（owner 絞り込みなし · [`planning/STATUS.md`](./planning/STATUS.md)）
+
+**本番ログイン必須（確定 · 2026-07-03）**
+
+| 層 | 必須設定 | 禁止 |
+|----|----------|------|
+| VPS API | `IHL_AUTH_REQUIRED=1` | `IHL_AUTH_BYPASS` · `IHL_DEV_EXPOSE_MAGIC_TOKEN` |
+| Pages Web | `IHL_API_URL=https://api.it-hercules.uk` | `IHL_WEB_AUTH_BYPASS=1`（middleware 全スキップ） |
+
+VPS `.env` に `IHL_AUTH_REQUIRED` が無い場合は **追加して API コンテナ再起動**（[`vps-api-deploy.md`](./vps-api-deploy.md) §2）。
 
 オープン登録（B2=B）: `/register` でハンドル登録（現行 stub）→ magic link で同一 actor に紐付けは **次バッチ**。
 

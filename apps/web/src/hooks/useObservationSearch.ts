@@ -38,6 +38,7 @@ export interface ObservationFilters {
   limit?: number;
 }
 
+/** Scope A (community): search returns the full catalog; no owner_user_id in request. */
 export function useObservationSearch() {
   const [items, setItems] = useState<CaptureItem[]>([]);
   const [total, setTotal] = useState(0);

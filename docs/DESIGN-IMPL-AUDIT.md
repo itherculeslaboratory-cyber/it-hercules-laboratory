@@ -27,7 +27,7 @@
 | **#02 利用規約** | aligned | `/terms` · agree API |
 | **#03 新規登録** | aligned | `/register` · login 逆導線追加 |
 | **#05 観測 ver2** | aligned | 検索 POST · フィルタ · 空状態 |
-| **#05 観測 ver3** | **partial** | 本番 blob 画像 · API 直叩き OK · **検索スコープ API 未実装**（`scope: mine/public/all`） |
+| **#05 観測 ver3** | **aligned** | 本番 blob 画像 · API 直叩き OK · **検索 Scope A**（カタログ横断 · 2026-07-03 確定） |
 | **#05 観測入力** | **partial→改善** | `u_demo` → `useActorId()` 連携（本バッチ）· バックエンド既定 `u_demo` は dev 用のまま |
 | **#06–#23** | partial（OSS ギャップ） | [`02-設計/_横断/00-OSS機能ギャップ表-v1.md`](02-設計/_横断/00-OSS機能ギャップ表-v1.md) 参照 |
 | **ver3 インフラ** | aligned | `api.it-hercules.uk` · CORS · nginx テンプレ |
@@ -43,13 +43,13 @@
 - **対応**: `AppShell` に未認証時 Link · 認証済み actor 表示 + ログアウト · `useAuthSession` hook
 - **残**: 本番 `IHL_WEB_AUTH_BYPASS` 意図確認（人間ゲート）
 
-### 観測検索スコープ（P2）— **部分実装**
+### 観測検索スコープ（P2）— **Scope A 確定（2026-07-03）**
 
-- **API**: `observation_search` はセッション actor で絞らない（カタログ横断）
-- **フロント**: 検索リクエストに owner なし（意図どおり広い結果）
-- **データ分断**: commit / 個体 / 命名の `u_demo` 固定 → **`useActorId()` で session 連携**（本バッチ）
-- **未確定（人間）**: プロダクト方針 `mine | public | all` · parquet に `owner_user_id` / `visibility` 追加
-- **既定採用（暫定）**: ログイン時は session `actor_id` で書き込み · 検索は API 既存どおり **全件マージ**（スコープ UI は後追い）
+- **方針**: コミュニティモデル — ログイン済みユーザーは **全観測**を検索・閲覧
+- **API**: `observation_search` はセッション actor / `owner_user_id` で絞らない（`ALLOWED_FILTERS` に owner なし）
+- **フロント**: `useObservationSearch` は taxonomy フィルタのみ送信
+- **書き込み**: commit / 個体 / 命名は **`useActorId()`** で本人スコープ
+- **後追い**: parquet `owner_user_id` / `visibility` · mine/public UI チップ（Scope A では不要）
 
 ---
 

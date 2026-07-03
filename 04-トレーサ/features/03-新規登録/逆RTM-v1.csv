@@ -1,0 +1,38 @@
+# 逆RTM v1 — feature #03 新規登録（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 03 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UT-03-01,unit,pytest,1,FR-REG-05,existing
+UT-03-02,unit,pytest,1,FR-REG-12,existing
+UT-03-03,unit,pytest,1,FR-REG-07,planned
+UT-03-04,unit,pytest,1,FR-REG-07,planned
+UT-03-06,unit,pytest,1,FR-REG-15,existing
+UT-03-07,unit,pytest,1,FR-REG-13,existing
+UT-03-08,unit,pytest,1,FR-REG-06a,planned
+UT-03-09,unit,pytest,1,FR-REG-19,existing
+UT-03-10,unit,pytest,1,FR-REG-21,planned
+UT-03-11,unit,pytest,1,FR-REG-06a,planned
+IT-03-01,integration,pytest,1,FR-REG-05,existing
+IT-03-02,integration,pytest,1,FR-REG-12,existing
+IT-03-03,integration,pytest,1,FR-REG-15,existing
+IT-03-04,integration,pytest,1,FR-REG-13,existing
+IT-03-05,integration,pytest,1,FR-REG-24,planned
+IT-03-06,integration,pytest,1,FR-REG-07,planned
+IT-03-07,integration,pytest,1,FR-REG-19,existing
+IT-03-08,integration,pytest,2,FR-REG-17 FR-REG-21,planned
+ST-03-01,system,pytest,2,FR-REG-02 FR-REG-22,xref existing
+ST-03-02,system,pytest,1,FR-REG-13,existing
+ST-03-04,system,node,2,FR-REG-20 NFR-REG-07,review existing
+ST-03-05,system,grep,1,NFR-REG-02,review
+ST-03-06,system,pytest,2,FR-REG-06a FR-REG-18,planned deferred
+UAT-03-01,acceptance,review,7,FR-REG-03 FR-REG-04 FR-REG-12 FR-REG-26 FR-REG-27 NFR-REG-05 NFR-REG-06,deferred review xref
+UAT-03-02,acceptance,review,2,FR-REG-07 FR-REG-09,review
+UAT-03-03,acceptance,review,1,FR-REG-13,review
+UAT-03-04,acceptance,review,1,FR-REG-06,review
+UAT-03-05,acceptance,review,4,FR-REG-10 FR-REG-11 FR-REG-22 FR-REG-23,deferred review
+UAT-03-06,acceptance,review,2,FR-REG-01 FR-REG-21,xref
+UAT-03-07,acceptance,review,3,FR-REG-08 FR-REG-16 NFR-REG-01,gap
+UAT-03-08,acceptance,review,2,FR-REG-14 FR-REG-25,deferred
+UAT-03-09,acceptance,review,1,NFR-REG-03,review
+UAT-03-10,acceptance,review,1,NFR-REG-04,review
+UAT-03-11,acceptance,review,1,NFR-REG-02,review

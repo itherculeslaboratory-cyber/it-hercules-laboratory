@@ -1,0 +1,27 @@
+# 逆RTM v1 — feature #08 カルマ（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 08 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+IT-08-02,unit,pytest,2,FR-KRM-03 FR-KRM-08,existing xref
+IT-08-04,unit,pytest,1,FR-KRM-10,existing
+ST-08-02,unit,pytest,2,FR-KRM-09 NFR-KRM-01,existing
+UT-08-01,unit,pytest,2,FR-KRM-03 NFR-KRM-03,existing
+UT-08-03,unit,pytest,1,FR-KRM-09,existing
+UT-08-05,unit,pytest,2,FR-KRM-01 FR-KRM-10,partial existing
+UT-08-06,unit,pytest,1,FR-KRM-03,existing
+UT-08-07,unit,pytest,1,FR-KRM-07,partial
+UT-08-08,unit,pytest,1,FR-KRM-03,existing
+IT-08-01,integration,pytest,1,FR-KRM-10,existing
+IT-08-05,integration,pytest,1,FR-KRM-06,gap
+IT-08-06,integration,pytest,1,FR-KRM-07,partial
+UT-08-02,integration,pytest,1,FR-KRM-03,existing
+UT-08-04,integration,pytest,1,FR-KRM-09,existing
+IT-08-03,system,pytest,1,FR-KRM-09,existing
+ST-08-03,system,pytest,1,NFR-KRM-03,existing
+ST-08-04,system,pytest,3,FR-KRM-02 FR-KRM-06 NFR-KRM-04,gap
+ST-08-05,system,pytest,3,FR-KRM-04 FR-KRM-05 NFR-KRM-02,gap
+ST-08-06,system,pytest,1,NFR-KRM-05,gap
+UAT-08-04,uat,pytest,2,FR-KRM-04 FR-KRM-05,gap
+UAT-08-05,uat,pytest,1,FR-KRM-07,partial
+UAT-08-06,uat,pytest,1,FR-KRM-06,gap
+UAT-08-07,uat,review,1,NFR-KRM-06,doc

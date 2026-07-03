@@ -1,0 +1,252 @@
+{
+  "feature_id": "19",
+  "feature_name": "コンポ掲示板",
+  "mode": "MICRO",
+  "generated": "2026-07-03",
+  "source_workorder": "WorkOrder-19.json",
+  "target_range": "60-150",
+  "paths": {
+    "req": ".\\01-要件\\19-コンポーネント掲示板.md",
+    "detV3": ".\\02-設計\\features\\19-コンポーネント掲示板\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\19-コンポーネント掲示板\\RTM-v1.csv",
+    "route_files": []
+  },
+  "slice_counts": {
+    "total": 17,
+    "by_type": {
+      "reverse-rtm": 4,
+      "fr-1id": 13
+    },
+    "by_owner": {
+      "auto": 17
+    }
+  },
+  "fr_slices_truncated": 0,
+  "slices": [
+    {
+      "slice_id": "19-MICRO-revrtm-001",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM unit",
+        "0 行",
+        "UT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/19-コンポーネント掲示板/逆RTM-v1.csv"
+      ],
+      "acceptance": "UT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "19-MICRO-revrtm-002",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM integration",
+        "0 行",
+        "IT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/19-コンポーネント掲示板/逆RTM-v1.csv"
+      ],
+      "acceptance": "IT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "19-MICRO-revrtm-003",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM system",
+        "0 行",
+        "ST-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/19-コンポーネント掲示板/逆RTM-v1.csv"
+      ],
+      "acceptance": "ST-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "19-MICRO-revrtm-004",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM acceptance",
+        "0 行",
+        "UAT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/19-コンポーネント掲示板/逆RTM-v1.csv"
+      ],
+      "acceptance": "UAT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "19-MICRO-fr-001",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/19-コンポーネント掲示板.md FR-19-01",
+        "RTM status=libs/ihl/governance/github_component_board.py"
+      ],
+      "outputs": [
+        "02-設計/features/19-コンポーネント掲示板/slices/fr/fr-19-01.md"
+      ],
+      "acceptance": "FR-19-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "19-MICRO-fr-002",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/19-コンポーネント掲示板.md FR-19-02",
+        "RTM status=rag/file_board_registry.csv"
+      ],
+      "outputs": [
+        "02-設計/features/19-コンポーネント掲示板/slices/fr/fr-19-02.md"
+      ],
+      "acceptance": "FR-19-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "19-MICRO-fr-003",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/19-コンポーネント掲示板.md FR-19-03",
+        "RTM status=apps/api/routes/board.py"
+      ],
+      "outputs": [
+        "02-設計/features/19-コンポーネント掲示板/slices/fr/fr-19-03.md"
+      ],
+      "acceptance": "FR-19-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "19-MICRO-fr-004",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/19-コンポーネント掲示板.md FR-19-04",
+        "RTM status=(ragService legacy)"
+      ],
+      "outputs": [
+        "02-設計/features/19-コンポーネント掲示板/slices/fr/fr-19-04.md"
+      ],
+      "acceptance": "FR-19-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "19-MICRO-fr-005",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/19-コンポーネント掲示板.md FR-19-05",
+        "RTM status=CivilizationSyncEngine.md"
+      ],
+      "outputs": [
+        "02-設計/features/19-コンポーネント掲示板/slices/fr/fr-19-05.md"
+      ],
+      "acceptance": "FR-19-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "19-MICRO-fr-006",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/19-コンポーネント掲示板.md FR-19-06",
+        "RTM status=docs/components/*/BOARD.md"
+      ],
+      "outputs": [
+        "02-設計/features/19-コンポーネント掲示板/slices/fr/fr-19-06.md"
+      ],
+      "acceptance": "FR-19-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "19-MICRO-fr-007",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/19-コンポーネント掲示板.md FR-19-07",
+        "RTM status=(ImproveForksPage)"
+      ],
+      "outputs": [
+        "02-設計/features/19-コンポーネント掲示板/slices/fr/fr-19-07.md"
+      ],
+      "acceptance": "FR-19-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "19-MICRO-fr-008",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/19-コンポーネント掲示板.md NFR-19-01",
+        "RTM status=libs/board_store.py"
+      ],
+      "outputs": [
+        "02-設計/features/19-コンポーネント掲示板/slices/fr/nfr-19-01.md"
+      ],
+      "acceptance": "NFR-19-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "19-MICRO-fr-009",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/19-コンポーネント掲示板.md NFR-19-02",
+        "RTM status=github_component_board.py"
+      ],
+      "outputs": [
+        "02-設計/features/19-コンポーネント掲示板/slices/fr/nfr-19-02.md"
+      ],
+      "acceptance": "NFR-19-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "19-MICRO-fr-010",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/19-コンポーネント掲示板.md NFR-19-03",
+        "RTM status=config/file-board-linkage.json"
+      ],
+      "outputs": [
+        "02-設計/features/19-コンポーネント掲示板/slices/fr/nfr-19-03.md"
+      ],
+      "acceptance": "NFR-19-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "19-MICRO-fr-011",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/19-コンポーネント掲示板.md NFR-19-04",
+        "RTM status=(file-board-registry-sync.test.ts)"
+      ],
+      "outputs": [
+        "02-設計/features/19-コンポーネント掲示板/slices/fr/nfr-19-04.md"
+      ],
+      "acceptance": "NFR-19-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "19-MICRO-fr-012",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/19-コンポーネント掲示板.md NFR-19-05",
+        "RTM status=docs/file-board-linkage.md"
+      ],
+      "outputs": [
+        "02-設計/features/19-コンポーネント掲示板/slices/fr/nfr-19-05.md"
+      ],
+      "acceptance": "NFR-19-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "19-MICRO-fr-013",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/19-コンポーネント掲示板.md NFR-19-06",
+        "RTM status=github_component_board.py"
+      ],
+      "outputs": [
+        "02-設計/features/19-コンポーネント掲示板/slices/fr/nfr-19-06.md"
+      ],
+      "acceptance": "NFR-19-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    }
+  ]
+}

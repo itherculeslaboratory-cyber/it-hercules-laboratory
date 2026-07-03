@@ -1,0 +1,66 @@
+{
+  "feature_id": "16",
+  "feature_name": "UIbuilder",
+  "generated": "2026-07-03",
+  "slices_root": "02-設計/features/16-UIbuilder/slices",
+  "total": 28,
+  "categories": {
+    "api": {
+      "count": 4,
+      "files": [
+        "get-api-v1-theme-packs-pack-id.md",
+        "get-api-v1-theme-packs.md",
+        "post-api-v1-builder-canvas.md",
+        "post-api-v1-theme-packs.md"
+      ]
+    },
+    "schema": {
+      "count": 2,
+      "files": [
+        "canvassaverequest.md",
+        "themepacksave.md"
+      ]
+    },
+    "errors": {
+      "count": 1,
+      "files": [
+        "404.md"
+      ]
+    },
+    "screens": {
+      "count": 0,
+      "files": []
+    },
+    "reverse-rtm": {
+      "count": 4,
+      "files": [
+        "revrtm-001-unit-layer.md",
+        "revrtm-002-integration-layer.md",
+        "revrtm-003-system-layer.md",
+        "revrtm-004-acceptance-layer.md"
+      ]
+    },
+    "fr": {
+      "count": 17,
+      "files": [
+        "fr-16-reframe-01.md",
+        "fr-16-reframe-02.md",
+        "fr-16-reframe-03.md",
+        "fr-16-reframe-04.md",
+        "fr-16-reframe-05.md",
+        "fr-16-reframe-06.md",
+        "fr-16-reframe-07.md",
+        "fr-16-reframe-08.md",
+        "fr-16-reframe-09.md",
+        "fr-16-reframe-10.md",
+        "fr-dth-01.md",
+        "nfr-16-01.md",
+        "nfr-16-02.md",
+        "nfr-16-03.md",
+        "nfr-16-04.md",
+        "nfr-16-05.md",
+        "nfr-16-06.md"
+      ]
+    }
+  }
+}

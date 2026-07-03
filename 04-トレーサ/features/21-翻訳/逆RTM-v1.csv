@@ -1,0 +1,21 @@
+# 逆RTM v1 — feature #21 翻訳（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 21 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UT-21-02,unit,pytest,1,FR-I18N-UI-02,existing
+UT-21-03,unit,pytest,1,FR-I18N-SET-01,existing
+UT-21-04,unit,pytest,1,FR-I18N-UI-02,existing
+UT-21-05,unit,pytest,1,FR-I18N-UI-02,existing
+UT-21-06,unit,pytest,1,FR-I18N-UGC-02,gap
+IT-21-01,integration,pytest,2,FR-I18N-SET-01 FR-I18N-SET-02,existing
+IT-21-02,integration,pytest,1,FR-I18N-UI-01,partial
+IT-21-03,integration,pytest,3,FR-I18N-REG-01 FR-I18N-REG-02 FR-I18N-REG-03,gap partial
+ST-21-01,system,pytest,2,FR-I18N-UI-01 FR-I18N-UI-03,partial
+ST-21-02,system,review,1,NFR-I18N-05,doc
+ST-21-04,system,pytest,4,FR-I18N-UI-04 FR-I18N-UGC-01 FR-I18N-UGC-02 NFR-I18N-01,xref gap
+ST-21-03,ci,pytest,2,FR-I18N-UI-03 NFR-I18N-06,partial gap
+UAT-21-01,uat,pytest,1,FR-I18N-REG-04,gap
+UAT-21-02,uat,pytest,3,FR-I18N-SET-03 FR-I18N-SET-04 NFR-I18N-04,partial xref
+UAT-21-04,uat,pytest,3,FR-I18N-UGC-02 FR-I18N-UGC-03 NFR-I18N-02,gap
+UAT-21-05,uat,pytest,2,FR-I18N-UGC-04 FR-I18N-UGC-05,gap
+UAT-21-06,uat,pytest,2,FR-I18N-REG-01 NFR-I18N-03,gap deferred

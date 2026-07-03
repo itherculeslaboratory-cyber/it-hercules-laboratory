@@ -1,0 +1,142 @@
+# IHL 契約レジスタ v0 — 自動生成（正本: apps/api/routes/*.py）
+# 生成: node scripts/ihl-contract-oracle.mjs --feature 05 --write
+# 検証: node scripts/ihl-contract-oracle.mjs --feature 05 --check
+# 手編集禁止（DET §3.9 表と DET diff GATE で突き合わせる）
+feature_id: "05"
+feature_name: "観測"
+generated: "2026-07-03"
+oracle_version: "v0"
+source_files:
+  - "apps/api/routes/observation.py"
+  - "apps/api/routes/observation_solid.py"
+golden_fixtures_dir: "fixtures/oracle/"
+route_count: 16
+routes:
+  - method: GET
+    path: "/api/v1/observation/{capture_id}"
+    path_normalized: "/api/v1/observation/{param}"
+    handler: observation_detail
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/observation.py"
+  - method: GET
+    path: "/api/v1/observation/{capture_id}/image"
+    path_normalized: "/api/v1/observation/{param}/image"
+    handler: observation_capture_image
+    auth: public
+    success_status: 200
+    errors: [404]
+    source_file: "apps/api/routes/observation.py"
+  - method: GET
+    path: "/api/v1/observation/{capture_id}/reanalysis-manifest"
+    path_normalized: "/api/v1/observation/{param}/reanalysis-manifest"
+    handler: observation_reanalysis_manifest
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/observation.py"
+  - method: GET
+    path: "/api/v1/observation/measurement-dictionary"
+    path_normalized: "/api/v1/observation/measurement-dictionary"
+    handler: measurement_dictionary
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/observation.py"
+  - method: GET
+    path: "/api/v1/observation/targets/catalog"
+    path_normalized: "/api/v1/observation/targets/catalog"
+    handler: observation_target_catalog
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/observation.py"
+  - method: GET
+    path: "/api/v1/observation/templates"
+    path_normalized: "/api/v1/observation/templates"
+    handler: measurement_templates
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/observation.py"
+  - method: GET
+    path: "/api/v1/observation/templates/{template_id}"
+    path_normalized: "/api/v1/observation/templates/{param}"
+    handler: measurement_template_detail
+    auth: public
+    success_status: 200
+    errors: [404]
+    source_file: "apps/api/routes/observation.py"
+  - method: POST
+    path: "/api/captures"
+    path_normalized: "/api/captures"
+    handler: post_solid_capture
+    auth: session
+    success_status: 201
+    errors: [400, 401, 404]
+    source_file: "apps/api/routes/observation_solid.py"
+  - method: POST
+    path: "/api/measurements"
+    path_normalized: "/api/measurements"
+    handler: post_solid_measurements
+    auth: session
+    success_status: 200
+    errors: [400, 401, 404]
+    source_file: "apps/api/routes/observation_solid.py"
+  - method: POST
+    path: "/api/solid-observation/commit"
+    path_normalized: "/api/solid-observation/commit"
+    handler: commit_solid_observation
+    auth: session
+    success_status: 201
+    errors: [400, 401, 404, 409]
+    source_file: "apps/api/routes/observation_solid.py"
+  - method: POST
+    path: "/api/v1/observation/dictionary-extensions"
+    path_normalized: "/api/v1/observation/dictionary-extensions"
+    handler: save_dictionary_extension
+    auth: session
+    success_status: 201
+    errors: [400, 401]
+    source_file: "apps/api/routes/observation.py"
+  - method: POST
+    path: "/api/v1/observation/measurements"
+    path_normalized: "/api/v1/observation/measurements"
+    handler: save_measurements
+    auth: session
+    success_status: 200
+    errors: [400, 401]
+    source_file: "apps/api/routes/observation.py"
+  - method: POST
+    path: "/api/v1/observation/search"
+    path_normalized: "/api/v1/observation/search"
+    handler: observation_search
+    auth: public
+    success_status: 200
+    errors: [400]
+    source_file: "apps/api/routes/observation.py"
+  - method: POST
+    path: "/api/v1/observation/targets/search"
+    path_normalized: "/api/v1/observation/targets/search"
+    handler: observation_target_search
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/observation.py"
+  - method: POST
+    path: "/api/v1/observation/templates"
+    path_normalized: "/api/v1/observation/templates"
+    handler: create_measurement_template
+    auth: session
+    success_status: 201
+    errors: [400, 401]
+    source_file: "apps/api/routes/observation.py"
+  - method: POST
+    path: "/api/v1/observation/upload"
+    path_normalized: "/api/v1/observation/upload"
+    handler: observation_upload
+    auth: session
+    success_status: 200
+    errors: [401]
+    source_file: "apps/api/routes/observation.py"

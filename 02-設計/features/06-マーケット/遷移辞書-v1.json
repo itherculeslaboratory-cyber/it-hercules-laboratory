@@ -1,0 +1,34 @@
+{
+  "feature_id": "06",
+  "feature_name": "マーケット",
+  "version": "v1",
+  "note": "route × auth × status の骨格（MAD-WAVE-2）。web 画面状態は UI/遷移正本参照。契約正本は 契約レジスタ-v1.yaml。",
+  "generated": "2026-07-03",
+  "auth_model": {
+    "listings": "public read · 状態書込は actor_id 明示（本番 auth gap · NFR-MKT-03）",
+    "transfer": "stub tier 強制 · live は P0-NEXT-GMO-LIVE-EXEC 人間ゲート"
+  },
+  "web_routes": [
+    {
+      "route": "/market",
+      "kind": "list",
+      "states": ["load", "list_ready", "empty", "error"],
+      "primary_action": "listing 詳細へ",
+      "api": ["GET /api/v1/market/listings"]
+    },
+    {
+      "route": "/market/[listing_id]",
+      "kind": "detail",
+      "states": ["load", "detail_ready", "transition", "matched", "error"],
+      "primary_action": "transition / match",
+      "api": ["GET /api/v1/market/listings/{id}", "POST .../transition", "POST .../match"]
+    }
+  ],
+  "api_transitions": [
+    { "method": "GET", "path": "/api/v1/market/listings", "auth": "public", "success": 200, "errors": [] },
+    { "method": "GET", "path": "/api/v1/market/listings/{listing_id}", "auth": "public", "success": 200, "errors": [404] },
+    { "method": "POST", "path": "/api/v1/market/listings/{listing_id}/transition", "auth": "public", "success": 200, "errors": [409] },
+    { "method": "POST", "path": "/api/v1/market/listings/{listing_id}/match", "auth": "public", "success": 200, "errors": [409] },
+    { "method": "GET", "path": "/api/v1/market/transfer/{listing_id}", "auth": "public", "success": 200, "errors": [] }
+  ]
+}

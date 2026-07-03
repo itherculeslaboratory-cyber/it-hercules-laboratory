@@ -1,0 +1,43 @@
+{
+  "id": "03",
+  "name": "新規登録",
+  "prefix": "03-新規登録",
+  "paths": {
+    "req": ".\\01-要件\\03-新規登録.md",
+    "detV2": ".\\02-設計\\features\\03-新規登録\\詳細設計-v2.md",
+    "detV3": ".\\02-設計\\features\\03-新規登録\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\03-新規登録\\RTM-v1.csv"
+  },
+  "lineCounts": {
+    "req": 280,
+    "detV2": 233,
+    "detV3": 237,
+    "testPlans": 273,
+    "rtmRows": 52
+  },
+  "reqDetPatternScore": {
+    "api_paths": 11,
+    "data_testid": 1,
+    "apps_paths": 0,
+    "pytest_refs": 0,
+    "impl_sections": 1,
+    "schema_fields": 0,
+    "total": 13
+  },
+  "depthRatio": 0.832,
+  "reqIdCount": 44,
+  "tcIdCount": 37,
+  "rtm": {
+    "statusDist": {
+      "xref": 5,
+      "deferred": 10,
+      "existing": 13,
+      "review": 11,
+      "planned": 10,
+      "gap": 3
+    },
+    "issueCount": 0,
+    "issues": []
+  },
+  "priority": "P2"
+}

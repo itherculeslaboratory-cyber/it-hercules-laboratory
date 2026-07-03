@@ -1,0 +1,22 @@
+{
+  "id": "04",
+  "name": "ホーム",
+  "reqIdCount": 19,
+  "apiRoutes": [
+    "/api/v1/home/summary"
+  ],
+  "webRoutes": [
+    "/observation",
+    "/observation/[id]",
+    "/observation/context",
+    "/observation/done",
+    "/observation/input",
+    "/observation/input/confirm",
+    "/observation/solid",
+    "/observation/templates",
+    "/observation/templates/[id]",
+    "/observation/templates/[id]/fork"
+  ],
+  "implGaps": [],
+  "gapCount": 0
+}

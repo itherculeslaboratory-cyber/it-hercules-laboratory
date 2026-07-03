@@ -11,7 +11,7 @@
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { queueDoc } from '../../../scripts/ihl-path-resolve.mjs';
+import { queueDoc } from './ihl-path-resolve.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const WAVE_QUEUE = queueDoc('00-Vモデル-Waveキュー-v1.md', 'auto');

@@ -1,0 +1,421 @@
+{
+  "feature_id": "11",
+  "feature_name": "裁判",
+  "mode": "MICRO",
+  "generated": "2026-07-03",
+  "source_workorder": "WorkOrder-11.json",
+  "target_range": "60-150",
+  "paths": {
+    "req": ".\\01-要件\\11-裁判.md",
+    "detV3": ".\\02-設計\\features\\11-裁判\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\11-裁判\\RTM-v1.csv",
+    "route_files": []
+  },
+  "slice_counts": {
+    "total": 30,
+    "by_type": {
+      "reverse-rtm": 4,
+      "fr-1id": 26
+    },
+    "by_owner": {
+      "auto": 30
+    }
+  },
+  "fr_slices_truncated": 0,
+  "slices": [
+    {
+      "slice_id": "11-MICRO-revrtm-001",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM unit",
+        "0 行",
+        "UT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/11-裁判/逆RTM-v1.csv"
+      ],
+      "acceptance": "UT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "11-MICRO-revrtm-002",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM integration",
+        "0 行",
+        "IT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/11-裁判/逆RTM-v1.csv"
+      ],
+      "acceptance": "IT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "11-MICRO-revrtm-003",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM system",
+        "0 行",
+        "ST-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/11-裁判/逆RTM-v1.csv"
+      ],
+      "acceptance": "ST-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "11-MICRO-revrtm-004",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM acceptance",
+        "0 行",
+        "UAT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/11-裁判/逆RTM-v1.csv"
+      ],
+      "acceptance": "UAT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "11-MICRO-fr-001",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-01",
+        "RTM status=(dispute create API)"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-01.md"
+      ],
+      "acceptance": "FR-DSP-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-002",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-02",
+        "RTM status=(tag catalog)"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-02.md"
+      ],
+      "acceptance": "FR-DSP-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-003",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-03",
+        "RTM status=apps/api/dispute_service.py:seed_thread"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-03.md"
+      ],
+      "acceptance": "FR-DSP-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-004",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-04",
+        "RTM status=apps/api/main.py:GET dispute"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-04.md"
+      ],
+      "acceptance": "FR-DSP-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-005",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-05",
+        "RTM status=(anchor gate)"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-05.md"
+      ],
+      "acceptance": "FR-DSP-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-006",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-06",
+        "RTM status=(nested dispute)"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-06.md"
+      ],
+      "acceptance": "FR-DSP-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-007",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-07",
+        "RTM status=(agreed flow)"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-07.md"
+      ],
+      "acceptance": "FR-DSP-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-008",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-08",
+        "RTM status=(force_closed)"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-08.md"
+      ],
+      "acceptance": "FR-DSP-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-009",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-09",
+        "RTM status=(#08 karma)"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-09.md"
+      ],
+      "acceptance": "FR-DSP-09 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-010",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-10",
+        "RTM status=(#20 vote)"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-10.md"
+      ],
+      "acceptance": "FR-DSP-10 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-011",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-11",
+        "RTM status=(#12 settings)"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-11.md"
+      ],
+      "acceptance": "FR-DSP-11 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-012",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-12",
+        "RTM status=apps/api/dispute_service.py:open_market_dispute"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-12.md"
+      ],
+      "acceptance": "FR-DSP-12 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-013",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-13",
+        "RTM status=01-要件/11-裁判.md"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-13.md"
+      ],
+      "acceptance": "FR-DSP-13 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-014",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-14",
+        "RTM status=libs/event_store.py:write_dispute_event"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-14.md"
+      ],
+      "acceptance": "FR-DSP-14 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-015",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-15",
+        "RTM status=(#06 trade)"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-15.md"
+      ],
+      "acceptance": "FR-DSP-15 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-016",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-16",
+        "RTM status=(#20 vote)"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-16.md"
+      ],
+      "acceptance": "FR-DSP-16 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-017",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-17",
+        "RTM status=(rating_dialogue)"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-17.md"
+      ],
+      "acceptance": "FR-DSP-17 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-018",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-18",
+        "RTM status=libs/pii.py:redact_pii_text"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-18.md"
+      ],
+      "acceptance": "FR-DSP-18 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-019",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-19",
+        "RTM status=(#12 settings)"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-19.md"
+      ],
+      "acceptance": "FR-DSP-19 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-020",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-20",
+        "RTM status=(Y11 admin)"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-20.md"
+      ],
+      "acceptance": "FR-DSP-20 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-021",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md FR-DSP-21",
+        "RTM status=(#07 board)"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/fr-dsp-21.md"
+      ],
+      "acceptance": "FR-DSP-21 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-022",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md NFR-DSP-01",
+        "RTM status=apps/api/main.py"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/nfr-dsp-01.md"
+      ],
+      "acceptance": "NFR-DSP-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-023",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md NFR-DSP-02",
+        "RTM status=libs/event_store.py"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/nfr-dsp-02.md"
+      ],
+      "acceptance": "NFR-DSP-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-024",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md NFR-DSP-03",
+        "RTM status=(force_closed job)"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/nfr-dsp-03.md"
+      ],
+      "acceptance": "NFR-DSP-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-025",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md NFR-DSP-04",
+        "RTM status=(UI v1)"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/nfr-dsp-04.md"
+      ],
+      "acceptance": "NFR-DSP-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "11-MICRO-fr-026",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/11-裁判.md NFR-DSP-05",
+        "RTM status=01-要件/11-裁判.md"
+      ],
+      "outputs": [
+        "02-設計/features/11-裁判/slices/fr/nfr-dsp-05.md"
+      ],
+      "acceptance": "NFR-DSP-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    }
+  ]
+}

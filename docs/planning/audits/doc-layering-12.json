@@ -1,0 +1,43 @@
+{
+  "id": "12",
+  "name": "設定",
+  "prefix": "12-設定",
+  "paths": {
+    "req": ".\\01-要件\\12-設定.md",
+    "detV2": ".\\02-設計\\features\\12-設定\\詳細設計-v2.md",
+    "detV3": ".\\02-設計\\features\\12-設定\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\12-設定\\RTM-v1.csv"
+  },
+  "lineCounts": {
+    "req": 209,
+    "detV2": 197,
+    "detV3": 212,
+    "testPlans": 186,
+    "rtmRows": 30
+  },
+  "reqDetPatternScore": {
+    "api_paths": 6,
+    "data_testid": 2,
+    "apps_paths": 0,
+    "pytest_refs": 0,
+    "impl_sections": 1,
+    "schema_fields": 0,
+    "total": 9
+  },
+  "depthRatio": 0.943,
+  "reqIdCount": 27,
+  "tcIdCount": 28,
+  "rtm": {
+    "statusDist": {
+      "planned": 4,
+      "gap": 11,
+      "review": 4,
+      "existing": 8,
+      "xref": 2,
+      "deferred": 1
+    },
+    "issueCount": 0,
+    "issues": []
+  },
+  "priority": "P2"
+}

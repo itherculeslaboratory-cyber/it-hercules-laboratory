@@ -1,0 +1,12 @@
+# ENV-MATRIX v1 — 環境変数横断レジストリ（狂気モード · 機械生成）
+# 正本: docs/planning/STATUS.md · ver3-deploy-runbook.md · vps-api-deploy.md
+# 生成: node scripts/ihl-registry-env-matrix.mjs
+# 列: var,layer,prod_value,purpose,gate,features
+var,layer,prod_value,purpose,gate,features
+IHL_AUTH_REQUIRED,VPS API,1,WRITE に session 必須（未設定だと観測 WRITE が無認証可）,human,01,03,05,06,07,12,16,17,23
+IHL_AUTH_BYPASS,VPS API,(unset),開発用 auth バイパス（本番は未設定必須）,human,01,03,05
+IHL_CORS_ORIGINS,VPS API,https://it-hercules.uk,CORS 許可 origin,human,ALL-API
+IHL_WEB_AUTH_BYPASS,Pages Web,(unset),1 だと middleware が全ルート無認証通過（本番未設定必須）,human,01,03,04,05,12
+IHL_API_URL,Pages Web,https://api.it-hercules.uk,Web → API ベース URL,human,ALL-WEB
+IHL_EVENT_ROOT,VPS API,(deploy 依存),Truth event store ルート,auto,00,05,11,02
+IHL_R2_LOCAL_ROOT,VPS API,(deploy 依存),ローカル R2 blob ルート,auto,00,05

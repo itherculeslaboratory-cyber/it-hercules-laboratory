@@ -1,0 +1,625 @@
+{
+  "feature_id": "04",
+  "feature_name": "ホーム",
+  "mode": "MICRO",
+  "generated": "2026-07-03",
+  "source_workorder": "WorkOrder-04.json",
+  "target_range": "60-150",
+  "paths": {
+    "req": ".\\01-要件\\04-ホーム画面.md",
+    "detV3": ".\\02-設計\\features\\04-ホーム画面\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\04-ホーム画面\\RTM-v1.csv",
+    "route_files": [
+      "apps/api/main.py"
+    ]
+  },
+  "slice_counts": {
+    "total": 45,
+    "by_type": {
+      "api-1route": 1,
+      "schema-field": 3,
+      "reverse-rtm": 4,
+      "fr-1id": 37
+    },
+    "by_owner": {
+      "auto": 33,
+      "tier-a": 12
+    }
+  },
+  "fr_slices_truncated": 0,
+  "slices": [
+    {
+      "slice_id": "04-MICRO-api-001",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/main.py",
+        "GET /api/v1/home/summary",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/api/get-api-v1-home-summary.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "04-MICRO-schema-001",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/main.py home_summary",
+        "class HomeSummaryResponse(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/schema/homesummaryresponse.md"
+      ],
+      "acceptance": "3 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "04-MICRO-schema-002",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "DET §2.1",
+        "class HomeCard(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/schema/homecard.md"
+      ],
+      "acceptance": "4 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "04-MICRO-schema-003",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "DET §2.1",
+        "class HomePrimaryCta(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/schema/homeprimarycta.md"
+      ],
+      "acceptance": "2 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "04-MICRO-revrtm-001",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM unit",
+        "7 行",
+        "UT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/04-ホーム画面/逆RTM-v1.csv"
+      ],
+      "acceptance": "UT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "04-MICRO-revrtm-002",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM integration",
+        "4 行",
+        "IT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/04-ホーム画面/逆RTM-v1.csv"
+      ],
+      "acceptance": "IT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "04-MICRO-revrtm-003",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM system",
+        "4 行",
+        "ST-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/04-ホーム画面/逆RTM-v1.csv"
+      ],
+      "acceptance": "ST-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "04-MICRO-revrtm-004",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM acceptance",
+        "20 行",
+        "UAT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/04-ホーム画面/逆RTM-v1.csv"
+      ],
+      "acceptance": "UAT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "04-MICRO-fr-001",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-001",
+        "RTM status=xref"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-001.md"
+      ],
+      "acceptance": "H-001 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-002",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-002",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-002.md"
+      ],
+      "acceptance": "H-002 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-003",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-010",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-010.md"
+      ],
+      "acceptance": "H-010 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-004",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-011",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-011.md"
+      ],
+      "acceptance": "H-011 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-005",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-012",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-012.md"
+      ],
+      "acceptance": "H-012 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-006",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-013",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-013.md"
+      ],
+      "acceptance": "H-013 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-007",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-014",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-014.md"
+      ],
+      "acceptance": "H-014 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-008",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-020",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-020.md"
+      ],
+      "acceptance": "H-020 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-009",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-021",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-021.md"
+      ],
+      "acceptance": "H-021 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-010",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-022",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-022.md"
+      ],
+      "acceptance": "H-022 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-011",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-030",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-030.md"
+      ],
+      "acceptance": "H-030 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-012",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-031",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-031.md"
+      ],
+      "acceptance": "H-031 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-013",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-032",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-032.md"
+      ],
+      "acceptance": "H-032 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-014",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-033",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-033.md"
+      ],
+      "acceptance": "H-033 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-015",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-040",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-040.md"
+      ],
+      "acceptance": "H-040 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-016",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-041",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-041.md"
+      ],
+      "acceptance": "H-041 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-017",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-042",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-042.md"
+      ],
+      "acceptance": "H-042 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-018",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-043",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-043.md"
+      ],
+      "acceptance": "H-043 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-019",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-044",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-044.md"
+      ],
+      "acceptance": "H-044 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-020",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-050",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-050.md"
+      ],
+      "acceptance": "H-050 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-021",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-051",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-051.md"
+      ],
+      "acceptance": "H-051 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-022",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-060",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-060.md"
+      ],
+      "acceptance": "H-060 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-023",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-061",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-061.md"
+      ],
+      "acceptance": "H-061 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-024",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-070",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-070.md"
+      ],
+      "acceptance": "H-070 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-025",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-071",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-071.md"
+      ],
+      "acceptance": "H-071 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-026",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md H-072",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/h-072.md"
+      ],
+      "acceptance": "H-072 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-027",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md NF-H-01",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/nf-h-01.md"
+      ],
+      "acceptance": "NF-H-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-028",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md NF-H-02",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/nf-h-02.md"
+      ],
+      "acceptance": "NF-H-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-029",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md NF-H-03",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/nf-h-03.md"
+      ],
+      "acceptance": "NF-H-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-030",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md NF-H-04",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/nf-h-04.md"
+      ],
+      "acceptance": "NF-H-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-031",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md NF-H-05",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/nf-h-05.md"
+      ],
+      "acceptance": "NF-H-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-032",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md NF-H-06",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/nf-h-06.md"
+      ],
+      "acceptance": "NF-H-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-033",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md NF-H-07",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/nf-h-07.md"
+      ],
+      "acceptance": "NF-H-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-034",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md NF-H-08",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/nf-h-08.md"
+      ],
+      "acceptance": "NF-H-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-035",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md NF-H-09",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/nf-h-09.md"
+      ],
+      "acceptance": "NF-H-09 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-036",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md OBS-RX-UX-11",
+        "RTM status=unknown"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/obs-rx-ux-11.md"
+      ],
+      "acceptance": "OBS-RX-UX-11 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "04-MICRO-fr-037",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/04-ホーム画面.md OBS-FUP-11",
+        "RTM status=unknown"
+      ],
+      "outputs": [
+        "02-設計/features/04-ホーム画面/slices/fr/obs-fup-11.md"
+      ],
+      "acceptance": "OBS-FUP-11 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    }
+  ]
+}

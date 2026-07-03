@@ -1,0 +1,82 @@
+{
+  "id": "05",
+  "name": "観測",
+  "reqIdCount": 226,
+  "apiRoutes": [
+    "/api/captures",
+    "/api/measurements",
+    "/api/v1/observation/measurements",
+    "/api/v1/observation/dictionary-extensions",
+    "/api/v1/observation/measurement-dictionary",
+    "/api/v1/observation/search",
+    "/api/v1/observation/targets/catalog",
+    "/api/v1/observation/targets/search",
+    "/api/v1/observation/templates",
+    "/api/v1/observation/templates/{template_id}",
+    "/api/v1/observation/upload",
+    "/api/v1/observation/{capture_id}",
+    "/api/v1/observation/{capture_id}/image",
+    "/api/v1/observation/{capture_id}/reanalysis-manifest",
+    "template_id",
+    "/api/solid-observation/commit",
+    "owner_user_id"
+  ],
+  "webRoutes": [
+    "/observation",
+    "/observation/[id]",
+    "/observation/[id]/page.tsx",
+    "/observation/context",
+    "/observation/context/page.tsx",
+    "/observation/done",
+    "/observation/done/page.tsx",
+    "/observation/input",
+    "/observation/input/confirm",
+    "/observation/input/confirm/page.tsx",
+    "/observation/input/page.tsx",
+    "/observation/page.tsx",
+    "/observation/solid",
+    "/observation/solid/page.tsx",
+    "/observation/templates",
+    "/observation/templates/[id]",
+    "/observation/templates/[id]/fork",
+    "/observation/templates/[id]/fork/page.tsx",
+    "/observation/templates/[id]/page.tsx",
+    "/observation/templates/page.tsx"
+  ],
+  "implGaps": [
+    {
+      "id": "IMPL-GAP-05-API-1",
+      "kind": "api_route",
+      "surface": "/api/captures",
+      "suggest": "DET-v3-§3"
+    },
+    {
+      "id": "IMPL-GAP-05-API-2",
+      "kind": "api_route",
+      "surface": "owner_user_id",
+      "suggest": "DET-v3-§3"
+    },
+    {
+      "id": "IMPL-GAP-05-SCREEN-3",
+      "kind": "screen_fix",
+      "surface": "Scope A catalog search (unauthenticated READ)",
+      "suggest": "REQ §補遺 OBS-GAP-xx",
+      "note": "OBS-GAP candidate"
+    },
+    {
+      "id": "IMPL-GAP-05-SCREEN-4",
+      "kind": "screen_fix",
+      "surface": "AuthenticatedImage blob fetch for photos",
+      "suggest": "REQ §補遺 OBS-GAP-xx",
+      "note": "OBS-GAP candidate"
+    },
+    {
+      "id": "IMPL-GAP-05-SCREEN-5",
+      "kind": "screen_fix",
+      "surface": "READ vs WRITE auth split on observation router",
+      "suggest": "REQ §補遺 OBS-GAP-xx",
+      "note": "OBS-GAP candidate"
+    }
+  ],
+  "gapCount": 5
+}

@@ -1,0 +1,121 @@
+{
+  "id": "23",
+  "name": "GMO 振込",
+  "prefix": "23-GMO銀行振込判定",
+  "paths": {
+    "req": ".\\01-要件\\23-GMO銀行振込判定.md",
+    "detV2": ".\\02-設計\\features\\23-GMO銀行振込判定\\詳細設計-v2.md",
+    "detV3": ".\\02-設計\\features\\23-GMO銀行振込判定\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\23-GMO銀行振込判定\\RTM-v1.csv"
+  },
+  "lineCounts": {
+    "req": 390,
+    "detV2": 156,
+    "detV3": 165,
+    "testPlans": 89,
+    "rtmRows": 14
+  },
+  "reqDetPatternScore": {
+    "api_paths": 4,
+    "data_testid": 0,
+    "apps_paths": 0,
+    "pytest_refs": 0,
+    "impl_sections": 0,
+    "schema_fields": 0,
+    "total": 4
+  },
+  "depthRatio": 0.4,
+  "reqIdCount": 23,
+  "tcIdCount": 22,
+  "rtm": {
+    "statusDist": {
+      "gmo webhook security": 1,
+      "gmo_reconciliation_store": 1,
+      "#06 #08": 1,
+      "gmo json store": 1,
+      "gmo_transfer_code": 1,
+      "gmo connector": 1,
+      "CONTINUE_QUEUE": 1,
+      "reconciliation": 2,
+      "#06 §11.7.5": 1,
+      "policy": 1,
+      "webhook security": 1,
+      "rag csv": 1,
+      "api messages": 1
+    },
+    "issueCount": 14,
+    "issues": [
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-GMO-01",
+        "test_case_id": "詳細設計-v2 §3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-GMO-02",
+        "test_case_id": "詳細設計-v2 §4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-GMO-03",
+        "test_case_id": "詳細設計-v2 §5"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-GMO-04",
+        "test_case_id": "詳細設計-v2 §4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-GMO-05",
+        "test_case_id": "詳細設計-v2 §2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-GMO-06",
+        "test_case_id": "詳細設計-v2 §3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-GMO-07",
+        "test_case_id": "詳細設計-v2 §1"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-GMO-08",
+        "test_case_id": "詳細設計-v2 §4.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-GMO-09",
+        "test_case_id": "詳細設計-v2 §4.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-GMO-10",
+        "test_case_id": "詳細設計-v2 §4.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-GMO-01",
+        "test_case_id": "詳細設計-v2 §6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-GMO-02",
+        "test_case_id": "詳細設計-v2 §6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-GMO-03",
+        "test_case_id": "詳細設計-v2 §6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-GMO-04",
+        "test_case_id": "詳細設計-v2 §6"
+      }
+    ]
+  },
+  "priority": "P1"
+}

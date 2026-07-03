@@ -1,0 +1,55 @@
+{
+  "feature_id": "08",
+  "feature_name": "カルマ",
+  "generated": "2026-07-03",
+  "slices_root": "02-設計/features/08-カルマ/slices",
+  "total": 20,
+  "categories": {
+    "api": {
+      "count": 0,
+      "files": []
+    },
+    "schema": {
+      "count": 0,
+      "files": []
+    },
+    "errors": {
+      "count": 0,
+      "files": []
+    },
+    "screens": {
+      "count": 0,
+      "files": []
+    },
+    "reverse-rtm": {
+      "count": 4,
+      "files": [
+        "revrtm-001-unit-layer.md",
+        "revrtm-002-integration-layer.md",
+        "revrtm-003-system-layer.md",
+        "revrtm-004-acceptance-layer.md"
+      ]
+    },
+    "fr": {
+      "count": 16,
+      "files": [
+        "fr-krm-01.md",
+        "fr-krm-02.md",
+        "fr-krm-03.md",
+        "fr-krm-04.md",
+        "fr-krm-05.md",
+        "fr-krm-06.md",
+        "fr-krm-07.md",
+        "fr-krm-08.md",
+        "fr-krm-09.md",
+        "fr-krm-10.md",
+        "nf-krm-01.md",
+        "nf-krm-02.md",
+        "nf-krm-03.md",
+        "nf-krm-04.md",
+        "nf-krm-05.md",
+        "nf-krm-06.md"
+      ]
+    }
+  }
+}

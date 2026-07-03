@@ -1,0 +1,499 @@
+{
+  "feature_id": "12",
+  "feature_name": "設定",
+  "mode": "MICRO",
+  "generated": "2026-07-03",
+  "source_workorder": "WorkOrder-12.json",
+  "target_range": "60-150",
+  "paths": {
+    "req": ".\\01-要件\\12-設定.md",
+    "detV3": ".\\02-設計\\features\\12-設定\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\12-設定\\RTM-v1.csv",
+    "route_files": [
+      "apps/api/routes/me.py",
+      "apps/api/main.py"
+    ]
+  },
+  "slice_counts": {
+    "total": 35,
+    "by_type": {
+      "api-1route": 5,
+      "schema-field": 2,
+      "reverse-rtm": 4,
+      "fr-1id": 24
+    },
+    "by_owner": {
+      "auto": 20,
+      "tier-a": 15
+    }
+  },
+  "fr_slices_truncated": 0,
+  "slices": [
+    {
+      "slice_id": "12-MICRO-api-001",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/me.py",
+        "GET /api/v1/me/preferences",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/api/get-api-v1-me-preferences.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "12-MICRO-api-002",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/me.py",
+        "GET /api/v1/me/settings",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/api/get-api-v1-me-settings.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "12-MICRO-api-003",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/main.py",
+        "GET /api/v1/settings",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/api/get-api-v1-settings.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "12-MICRO-api-004",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/me.py",
+        "PATCH /api/v1/me/preferences",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/api/patch-api-v1-me-preferences.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "12-MICRO-api-005",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/main.py",
+        "POST /api/v1/settings/pii-session",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/api/post-api-v1-settings-pii-session.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "12-MICRO-schema-001",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/me.py",
+        "class PreferencesPatchBody(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/schema/preferencespatchbody.md"
+      ],
+      "acceptance": "5 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "12-MICRO-schema-002",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "DET §2.1",
+        "class PreferencesProjection(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/schema/preferencesprojection.md"
+      ],
+      "acceptance": "6 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "12-MICRO-revrtm-001",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM unit",
+        "10 行",
+        "UT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/12-設定/逆RTM-v1.csv"
+      ],
+      "acceptance": "UT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "12-MICRO-revrtm-002",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM integration",
+        "5 行",
+        "IT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/12-設定/逆RTM-v1.csv"
+      ],
+      "acceptance": "IT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "12-MICRO-revrtm-003",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM system",
+        "2 行",
+        "ST-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/12-設定/逆RTM-v1.csv"
+      ],
+      "acceptance": "ST-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "12-MICRO-revrtm-004",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM acceptance",
+        "13 行",
+        "UAT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/12-設定/逆RTM-v1.csv"
+      ],
+      "acceptance": "UAT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "12-MICRO-fr-001",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-01",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-01.md"
+      ],
+      "acceptance": "FR-SET-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-002",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-02",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-02.md"
+      ],
+      "acceptance": "FR-SET-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-003",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-03",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-03.md"
+      ],
+      "acceptance": "FR-SET-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-004",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-04",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-04.md"
+      ],
+      "acceptance": "FR-SET-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-005",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-05",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-05.md"
+      ],
+      "acceptance": "FR-SET-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-006",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-06",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-06.md"
+      ],
+      "acceptance": "FR-SET-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-007",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-07",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-07.md"
+      ],
+      "acceptance": "FR-SET-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-008",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-08",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-08.md"
+      ],
+      "acceptance": "FR-SET-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-009",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-09",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-09.md"
+      ],
+      "acceptance": "FR-SET-09 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-010",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-10",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-10.md"
+      ],
+      "acceptance": "FR-SET-10 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-011",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-11",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-11.md"
+      ],
+      "acceptance": "FR-SET-11 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-012",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-12",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-12.md"
+      ],
+      "acceptance": "FR-SET-12 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-013",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-13",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-13.md"
+      ],
+      "acceptance": "FR-SET-13 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-014",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-14",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-14.md"
+      ],
+      "acceptance": "FR-SET-14 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-015",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-15",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-15.md"
+      ],
+      "acceptance": "FR-SET-15 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-016",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-16",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-16.md"
+      ],
+      "acceptance": "FR-SET-16 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-017",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-17",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-17.md"
+      ],
+      "acceptance": "FR-SET-17 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-018",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-18",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-18.md"
+      ],
+      "acceptance": "FR-SET-18 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-019",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md FR-SET-19",
+        "RTM status=xref"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/fr-set-19.md"
+      ],
+      "acceptance": "FR-SET-19 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-020",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md NFR-SET-01",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/nfr-set-01.md"
+      ],
+      "acceptance": "NFR-SET-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-021",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md NFR-SET-02",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/nfr-set-02.md"
+      ],
+      "acceptance": "NFR-SET-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-022",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md NFR-SET-03",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/nfr-set-03.md"
+      ],
+      "acceptance": "NFR-SET-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-023",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md NFR-SET-04",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/nfr-set-04.md"
+      ],
+      "acceptance": "NFR-SET-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "12-MICRO-fr-024",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/12-設定.md NFR-SET-05",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/12-設定/slices/fr/nfr-set-05.md"
+      ],
+      "acceptance": "NFR-SET-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "11",
+  "name": "裁判",
+  "reqIdCount": 38,
+  "apiRoutes": [
+    "/api/v1/dispute/{thread_id}"
+  ],
+  "webRoutes": [
+    "/observation",
+    "/observation/[id]",
+    "/observation/context",
+    "/observation/done",
+    "/observation/input",
+    "/observation/input/confirm",
+    "/observation/solid",
+    "/observation/templates",
+    "/observation/templates/[id]",
+    "/observation/templates/[id]/fork"
+  ],
+  "implGaps": [],
+  "gapCount": 0
+}

@@ -1,0 +1,32 @@
+{
+  "feature_id": "05",
+  "feature_name": "観測",
+  "version": "v1",
+  "note": "route × auth × status の骨格（狂気モード基盤）。web 画面状態は screen-state スライスで肉付けする。契約正本は 契約レジスタ-v1.yaml。",
+  "generated": "2026-07-03",
+  "auth_model": {
+    "scope_a_public_read": true,
+    "write_requires_session": true,
+    "env_flag": "IHL_AUTH_REQUIRED",
+    "unauth_write_status": 401,
+    "unauth_write_detail": "AUTH_REQUIRED"
+  },
+  "web_routes": [
+    { "route": "/observation", "kind": "list", "states": ["loading", "empty", "error", "ok"], "primary_action": "観測を追加", "api": ["POST /api/v1/observation/search"] },
+    { "route": "/observation/input", "kind": "form", "states": ["draft", "validation_error", "ready"], "primary_action": "確認へ", "api": ["GET /api/v1/observation/templates", "GET /api/v1/observation/measurement-dictionary"] },
+    { "route": "/observation/confirm", "kind": "confirm", "states": ["review", "submitting", "commit_error", "committed"], "primary_action": "確定（commit）", "api": ["POST /api/solid-observation/commit"] },
+    { "route": "/observation/[capture_id]", "kind": "detail", "states": ["loading", "not_found", "ok"], "primary_action": "再解析マニフェスト", "api": ["GET /api/v1/observation/{capture_id}", "GET /api/v1/observation/{capture_id}/image", "GET /api/v1/observation/{capture_id}/reanalysis-manifest"] }
+  ],
+  "api_transitions": [
+    { "method": "POST", "path": "/api/v1/observation/search", "auth": "public", "success": 200, "errors": [400], "on_error": { "400": "検索条件エラー表示（フィルタリセット導線）" }, "empty": "status=empty → 空状態カード" },
+    { "method": "GET", "path": "/api/v1/observation/{capture_id}", "auth": "public", "success": 200, "errors": [404], "on_error": { "404": "詳細 not_found 画面" } },
+    { "method": "GET", "path": "/api/v1/observation/{capture_id}/image", "auth": "public", "success": 200, "errors": [404], "on_error": { "404": "画像なしプレースホルダ（photo_absent_reason）" } },
+    { "method": "POST", "path": "/api/v1/observation/upload", "auth": "session", "success": 200, "errors": [401] },
+    { "method": "POST", "path": "/api/v1/observation/measurements", "auth": "session", "success": 200, "errors": [400, 401] },
+    { "method": "POST", "path": "/api/v1/observation/templates", "auth": "session", "success": 201, "errors": [400, 401] },
+    { "method": "POST", "path": "/api/v1/observation/dictionary-extensions", "auth": "session", "success": 201, "errors": [400, 401] },
+    { "method": "POST", "path": "/api/captures", "auth": "session", "success": 201, "errors": [400, 401, 404] },
+    { "method": "POST", "path": "/api/measurements", "auth": "session", "success": 200, "errors": [400, 401, 404] },
+    { "method": "POST", "path": "/api/solid-observation/commit", "auth": "session", "success": 201, "errors": [400, 401, 404, 409], "on_error": { "409": "表示名重複 → 命名やり直し導線", "400": "DIGEST_MISMATCH / 計測データなし", "404": "PRIOR/TELEMETRY not found" } }
+  ]
+}

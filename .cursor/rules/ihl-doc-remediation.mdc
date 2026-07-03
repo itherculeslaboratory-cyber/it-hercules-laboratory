@@ -1,0 +1,44 @@
+---
+description: IHL DOC-REMED — 文書層分離リメディエーション。01-要件/02-設計/03-テスト計画 編集時に適用。
+globs:
+  - 01-要件/**
+  - 02-設計/**
+  - 03-テスト計画/**
+  - 04-トレーサ/**
+  - docs/planning/audits/**
+alwaysApply: false
+---
+
+# IHL DOC-REMED ルール
+
+**Magic phrase**: `IHL-DOC-AUDIT`（監査）· `IHL-DOC-REMED`（執筆）
+
+**Skill 正本**: [`.cursor/skills/ihl-doc-remediation/SKILL.md`](../skills/ihl-doc-remediation/SKILL.md)
+
+## 禁止
+
+- DOC-REMED 中の **実装コード変更**（`apps/` `libs/` `tests/` の機能修正）
+- gap を `existing` に粉飾
+- REQ 本文の一括削除
+- 高性能 API での執筆・RTM CSV 大量更新
+
+## モデル
+
+| 役割 | モデル |
+|------|--------|
+| 監査 · WorkOrder · IMPL-GAP 判定 · spot | Tier A（Opus 等） |
+| スライス執筆 · マージ | Auto（composer-2.5-fast） |
+| GATE | shell のみ |
+
+## 並列
+
+- 1 機能あたり Auto スライス **最大 6**
+- 入力は WorkOrder JSON + 該当節のみ
+
+## ゲート必須
+
+```bash
+node scripts/ihl-rtm-coverage-check.mjs --feature NN
+node scripts/ihl-design-impl-parity-check.mjs --feature NN
+node scripts/ihl-doc-layering-audit.mjs --feature NN --compare-baseline
+```

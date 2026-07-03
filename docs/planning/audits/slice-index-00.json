@@ -1,0 +1,70 @@
+{
+  "feature_id": "00",
+  "feature_name": "土台",
+  "generated": "2026-07-03",
+  "slices_root": "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices",
+  "total": 35,
+  "categories": {
+    "api": {
+      "count": 0,
+      "files": []
+    },
+    "schema": {
+      "count": 0,
+      "files": []
+    },
+    "errors": {
+      "count": 0,
+      "files": []
+    },
+    "screens": {
+      "count": 0,
+      "files": []
+    },
+    "reverse-rtm": {
+      "count": 4,
+      "files": [
+        "revrtm-001-unit-layer.md",
+        "revrtm-002-integration-layer.md",
+        "revrtm-003-system-layer.md",
+        "revrtm-004-acceptance-layer.md"
+      ]
+    },
+    "fr": {
+      "count": 31,
+      "files": [
+        "found-d01.md",
+        "found-d02.md",
+        "found-d03.md",
+        "found-d04.md",
+        "found-d05.md",
+        "found-d06.md",
+        "found-d07.md",
+        "found-d08.md",
+        "found-m01.md",
+        "found-m02.md",
+        "found-m03.md",
+        "found-m04.md",
+        "found-m05.md",
+        "found-n01.md",
+        "found-n02.md",
+        "found-n03.md",
+        "found-n04.md",
+        "found-n05.md",
+        "found-n06.md",
+        "found-n07.md",
+        "found-n08.md",
+        "found-s01.md",
+        "found-s02.md",
+        "found-s03.md",
+        "found-s04.md",
+        "found-s05.md",
+        "found-s06.md",
+        "found-s07.md",
+        "found-s08.md",
+        "found-s09.md",
+        "found-s10.md"
+      ]
+    }
+  }
+}

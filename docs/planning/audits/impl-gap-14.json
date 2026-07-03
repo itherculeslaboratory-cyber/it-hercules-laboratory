@@ -1,0 +1,22 @@
+{
+  "id": "14",
+  "name": "貢献度",
+  "reqIdCount": 31,
+  "apiRoutes": [
+    "/api/v1/contribution"
+  ],
+  "webRoutes": [
+    "/observation",
+    "/observation/[id]",
+    "/observation/context",
+    "/observation/done",
+    "/observation/input",
+    "/observation/input/confirm",
+    "/observation/solid",
+    "/observation/templates",
+    "/observation/templates/[id]",
+    "/observation/templates/[id]/fork"
+  ],
+  "implGaps": [],
+  "gapCount": 0
+}

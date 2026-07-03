@@ -1,0 +1,118 @@
+{
+  "id": "17",
+  "name": "UI選択",
+  "prefix": "17-UI選択画面改善",
+  "paths": {
+    "req": ".\\01-要件\\17-UI選択画面改善.md",
+    "detV2": ".\\02-設計\\features\\17-UI選択画面改善\\詳細設計-v2.md",
+    "detV3": ".\\02-設計\\features\\17-UI選択画面改善\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\17-UI選択画面改善\\RTM-v1.csv"
+  },
+  "lineCounts": {
+    "req": 193,
+    "detV2": 162,
+    "detV3": 171,
+    "testPlans": 134,
+    "rtmRows": 13
+  },
+  "reqDetPatternScore": {
+    "api_paths": 0,
+    "data_testid": 0,
+    "apps_paths": 0,
+    "pytest_refs": 0,
+    "impl_sections": 0,
+    "schema_fields": 0,
+    "total": 0
+  },
+  "depthRatio": 0.839,
+  "reqIdCount": 12,
+  "tcIdCount": 23,
+  "rtm": {
+    "statusDist": {
+      "apps/api/main.py:settings_get": 2,
+      "(world-templates API)": 1,
+      "WorldRoutingManager.tsx": 1,
+      "詳細設計-v2 §2.1": 1,
+      "LayerSelector.tsx": 1,
+      "#20投票": 1,
+      "frontend/dev/world-routing": 1,
+      "ui/UI設計-v1.md": 2,
+      "(world apply)": 1,
+      "civilization/C-Sync.md": 1,
+      "REQ-024": 1
+    },
+    "issueCount": 14,
+    "issues": [
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "META-17-IHL",
+        "test_case_id": "詳細設計-v2 §0 §3"
+      },
+      {
+        "type": "req_id_not_in_req",
+        "req_id": "META-17-IHL"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-17-01",
+        "test_case_id": "詳細設計-v2 §2.1"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-17-02",
+        "test_case_id": "詳細設計-v2 §4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-17-03",
+        "test_case_id": "詳細設計-v2 §2.1"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-17-04",
+        "test_case_id": "詳細設計-v2 §2.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-17-05",
+        "test_case_id": "詳細設計-v2 §1.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-17-06",
+        "test_case_id": "詳細設計-v2 §7"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-17-07",
+        "test_case_id": "詳細設計-v2 §7"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-17-01",
+        "test_case_id": "詳細設計-v2 §6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-17-02",
+        "test_case_id": "詳細設計-v2 §6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-17-03",
+        "test_case_id": "詳細設計-v2 §6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-17-04",
+        "test_case_id": "詳細設計-v2 §6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-17-05",
+        "test_case_id": "詳細設計-v2 §6"
+      }
+    ]
+  },
+  "priority": "P1"
+}

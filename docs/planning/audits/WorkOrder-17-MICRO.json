@@ -1,0 +1,287 @@
+{
+  "feature_id": "17",
+  "feature_name": "UI選択",
+  "mode": "MICRO",
+  "generated": "2026-07-03",
+  "source_workorder": "WorkOrder-17.json",
+  "target_range": "60-150",
+  "paths": {
+    "req": ".\\01-要件\\17-UI選択画面改善.md",
+    "detV3": ".\\02-設計\\features\\17-UI選択画面改善\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\17-UI選択画面改善\\RTM-v1.csv",
+    "route_files": [
+      "apps/api/main.py",
+      "apps/api/routes/me.py"
+    ]
+  },
+  "slice_counts": {
+    "total": 19,
+    "by_type": {
+      "api-1route": 2,
+      "schema-field": 1,
+      "reverse-rtm": 4,
+      "fr-1id": 12
+    },
+    "by_owner": {
+      "auto": 10,
+      "tier-a": 9
+    }
+  },
+  "fr_slices_truncated": 0,
+  "slices": [
+    {
+      "slice_id": "17-MICRO-api-001",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/main.py",
+        "GET /api/v1/settings",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/17-UI選択画面改善/slices/api/get-api-v1-settings.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "17-MICRO-api-002",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/me.py",
+        "PATCH /api/v1/me/preferences",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/17-UI選択画面改善/slices/api/patch-api-v1-me-preferences.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "17-MICRO-schema-001",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/me.py",
+        "class PreferencesPatchBody(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/17-UI選択画面改善/slices/schema/preferencespatchbody.md"
+      ],
+      "acceptance": "5 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "17-MICRO-revrtm-001",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM unit",
+        "3 行",
+        "UT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/17-UI選択画面改善/逆RTM-v1.csv"
+      ],
+      "acceptance": "UT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "17-MICRO-revrtm-002",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM integration",
+        "3 行",
+        "IT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/17-UI選択画面改善/逆RTM-v1.csv"
+      ],
+      "acceptance": "IT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "17-MICRO-revrtm-003",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM system",
+        "3 行",
+        "ST-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/17-UI選択画面改善/逆RTM-v1.csv"
+      ],
+      "acceptance": "ST-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "17-MICRO-revrtm-004",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM acceptance",
+        "3 行",
+        "UAT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/17-UI選択画面改善/逆RTM-v1.csv"
+      ],
+      "acceptance": "UAT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "17-MICRO-fr-001",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/17-UI選択画面改善.md FR-17-01",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/17-UI選択画面改善/slices/fr/fr-17-01.md"
+      ],
+      "acceptance": "FR-17-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "17-MICRO-fr-002",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/17-UI選択画面改善.md FR-17-02",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/17-UI選択画面改善/slices/fr/fr-17-02.md"
+      ],
+      "acceptance": "FR-17-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "17-MICRO-fr-003",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/17-UI選択画面改善.md FR-17-03",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/17-UI選択画面改善/slices/fr/fr-17-03.md"
+      ],
+      "acceptance": "FR-17-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "17-MICRO-fr-004",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/17-UI選択画面改善.md FR-17-04",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/17-UI選択画面改善/slices/fr/fr-17-04.md"
+      ],
+      "acceptance": "FR-17-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "17-MICRO-fr-005",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/17-UI選択画面改善.md FR-17-05",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/17-UI選択画面改善/slices/fr/fr-17-05.md"
+      ],
+      "acceptance": "FR-17-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "17-MICRO-fr-006",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/17-UI選択画面改善.md FR-17-06",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/17-UI選択画面改善/slices/fr/fr-17-06.md"
+      ],
+      "acceptance": "FR-17-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "17-MICRO-fr-007",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/17-UI選択画面改善.md FR-17-07",
+        "RTM status=xref"
+      ],
+      "outputs": [
+        "02-設計/features/17-UI選択画面改善/slices/fr/fr-17-07.md"
+      ],
+      "acceptance": "FR-17-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "17-MICRO-fr-008",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/17-UI選択画面改善.md NFR-17-01",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/17-UI選択画面改善/slices/fr/nfr-17-01.md"
+      ],
+      "acceptance": "NFR-17-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "17-MICRO-fr-009",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/17-UI選択画面改善.md NFR-17-02",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/17-UI選択画面改善/slices/fr/nfr-17-02.md"
+      ],
+      "acceptance": "NFR-17-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "17-MICRO-fr-010",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/17-UI選択画面改善.md NFR-17-03",
+        "RTM status=xref"
+      ],
+      "outputs": [
+        "02-設計/features/17-UI選択画面改善/slices/fr/nfr-17-03.md"
+      ],
+      "acceptance": "NFR-17-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "17-MICRO-fr-011",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/17-UI選択画面改善.md NFR-17-04",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/17-UI選択画面改善/slices/fr/nfr-17-04.md"
+      ],
+      "acceptance": "NFR-17-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "17-MICRO-fr-012",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/17-UI選択画面改善.md NFR-17-05",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/17-UI選択画面改善/slices/fr/nfr-17-05.md"
+      ],
+      "acceptance": "NFR-17-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    }
+  ]
+}

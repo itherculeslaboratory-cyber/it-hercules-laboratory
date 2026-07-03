@@ -1,0 +1,127 @@
+{
+  "id": "00",
+  "name": "土台",
+  "prefix": "00-土台-MiniKernel-C-USB-コンポーネント",
+  "paths": {
+    "req": ".\\01-要件\\00-土台-MiniKernel-C-USB-コンポーネント.md",
+    "detV2": ".\\02-設計\\features\\00-土台-MiniKernel-C-USB-コンポーネント\\詳細設計-v2.md",
+    "detV3": ".\\02-設計\\features\\00-土台-MiniKernel-C-USB-コンポーネント\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\00-土台-MiniKernel-C-USB-コンポーネント\\RTM-v1.csv"
+  },
+  "lineCounts": {
+    "req": 588,
+    "detV2": 264,
+    "detV3": 0,
+    "testPlans": 249,
+    "rtmRows": 62
+  },
+  "reqDetPatternScore": {
+    "api_paths": 0,
+    "data_testid": 0,
+    "apps_paths": 0,
+    "pytest_refs": 0,
+    "impl_sections": 0,
+    "schema_fields": 0,
+    "total": 0
+  },
+  "depthRatio": 0.449,
+  "reqIdCount": 0,
+  "tcIdCount": 47,
+  "rtm": {
+    "statusDist": {
+      "review": 28,
+      "existing": 22,
+      "planned": 10,
+      "xref": 1,
+      "human": 1
+    },
+    "issueCount": 67,
+    "issues": [
+      {
+        "type": "req_id_not_in_req",
+        "req_id": "FOUND-S01"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FOUND-S01",
+        "test_case_id": "ST-00-LINT-05"
+      },
+      {
+        "type": "req_id_not_in_req",
+        "req_id": "FOUND-S01"
+      },
+      {
+        "type": "req_id_not_in_req",
+        "req_id": "FOUND-S02"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FOUND-S02",
+        "test_case_id": "ST-00-LINT-05"
+      },
+      {
+        "type": "req_id_not_in_req",
+        "req_id": "FOUND-S02"
+      },
+      {
+        "type": "req_id_not_in_req",
+        "req_id": "FOUND-S03"
+      },
+      {
+        "type": "req_id_not_in_req",
+        "req_id": "FOUND-S03"
+      },
+      {
+        "type": "req_id_not_in_req",
+        "req_id": "FOUND-S03"
+      },
+      {
+        "type": "req_id_not_in_req",
+        "req_id": "FOUND-S03"
+      },
+      {
+        "type": "req_id_not_in_req",
+        "req_id": "FOUND-S03"
+      },
+      {
+        "type": "req_id_not_in_req",
+        "req_id": "FOUND-S04"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FOUND-S04",
+        "test_case_id": "ST-00-LINT-05"
+      },
+      {
+        "type": "req_id_not_in_req",
+        "req_id": "FOUND-S04"
+      },
+      {
+        "type": "req_id_not_in_req",
+        "req_id": "FOUND-S05"
+      },
+      {
+        "type": "req_id_not_in_req",
+        "req_id": "FOUND-S06"
+      },
+      {
+        "type": "req_id_not_in_req",
+        "req_id": "FOUND-S07"
+      },
+      {
+        "type": "req_id_not_in_req",
+        "req_id": "FOUND-S08"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FOUND-S08",
+        "test_case_id": "ST-00-LINT-05"
+      },
+      {
+        "type": "req_id_not_in_req",
+        "req_id": "FOUND-S08"
+      }
+    ]
+  },
+  "priority": "P1"
+}

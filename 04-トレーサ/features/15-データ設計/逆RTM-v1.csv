@@ -1,0 +1,24 @@
+# 逆RTM v1 — feature #15 データ設計（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 15 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UT-15-01,unit,pytest,1,FR-DATA-01,existing
+UT-15-02,unit,pytest,1,FR-DATA-01,existing
+UT-15-03,unit,pytest,2,FR-DATA-10 FR-DATA-11,existing
+UT-15-04,unit,pytest,1,FR-DATA-05,existing
+UT-15-05,unit,pytest,1,NFR-DATA-02,existing
+IT-15-01,integration,pytest,1,FR-DATA-10,existing
+IT-15-02,integration,pytest,1,NFR-DATA-04,existing
+IT-15-03,integration,pytest,2,FR-DATA-02 FR-DATA-08,xref doc
+IT-15-04,integration,pytest,1,FR-DATA-15,existing
+IT-15-05,integration,pytest,1,FR-DATA-13,gap
+ST-15-01,system,pytest,1,FR-DATA-09,existing
+ST-15-02,system,pytest,3,FR-DATA-03 FR-DATA-09 NFR-DATA-03,existing
+ST-15-03,system,pytest,1,FR-DATA-12,existing
+ST-15-04,system,review,2,FR-DATA-14 NFR-DATA-05,doc
+ST-15-05,system,pytest,1,FR-DATA-07,xref
+ST-15-06,system,review,2,FR-DATA-06 NFR-DATA-01,doc
+UAT-15-03,uat,review,1,FR-DATA-04,doc
+UAT-15-04,uat,pytest,1,FR-DATA-12,existing
+UAT-15-05,uat,pytest,1,FR-DATA-15,existing
+UAT-15-06,uat,review,1,NFR-DATA-05,doc

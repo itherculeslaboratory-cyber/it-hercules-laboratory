@@ -1,0 +1,20 @@
+# 逆RTM v1 — feature #06 マーケット（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 06 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UT-06-01,unit,pytest,1,FR-MKT-02,existing
+UT-06-04,unit,pytest,1,FR-MKT-13,existing
+UT-06-05,unit,pytest,1,FR-MKT-03,planned
+UT-06-07,unit,pytest,1,FR-MKT-07,planned
+IT-06-01,integration,pytest,1,FR-MKT-01,existing
+IT-06-02,integration,pytest,1,FR-MKT-12,existing
+IT-06-04,integration,pytest,1,NFR-MKT-04,existing
+IT-06-05,integration,pytest,2,NFR-MKT-03 NFR-MKT-06,gap
+IT-06-07,integration,pytest,1,FR-MKT-11,existing
+ST-06-06,system,pytest,1,FR-MKT-06,review
+ST-06-07,system,pytest,1,FR-MKT-08,review
+ST-06-08,system,pytest,1,NFR-MKT-02,planned
+UAT-06-01,acceptance,review,2,FR-MKT-10 NFR-MKT-01,deferred review
+UAT-06-04,acceptance,review,1,NFR-MKT-05,review
+UAT-06-07,acceptance,review,4,FR-MKT-04 FR-MKT-05 FR-MKT-14 FR-MKT-15,gap deferred
+UAT-06-08,acceptance,manual,1,FR-MKT-09,human

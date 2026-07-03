@@ -1,0 +1,43 @@
+{
+  "id": "07",
+  "name": "掲示板",
+  "prefix": "07-掲示板",
+  "paths": {
+    "req": ".\\01-要件\\07-掲示板.md",
+    "detV2": ".\\02-設計\\features\\07-掲示板\\詳細設計-v2.md",
+    "detV3": ".\\02-設計\\features\\07-掲示板\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\07-掲示板\\RTM-v1.csv"
+  },
+  "lineCounts": {
+    "req": 211,
+    "detV2": 197,
+    "detV3": 209,
+    "testPlans": 199,
+    "rtmRows": 21
+  },
+  "reqDetPatternScore": {
+    "api_paths": 0,
+    "data_testid": 0,
+    "apps_paths": 0,
+    "pytest_refs": 0,
+    "impl_sections": 0,
+    "schema_fields": 0,
+    "total": 0
+  },
+  "depthRatio": 0.934,
+  "reqIdCount": 29,
+  "tcIdCount": 25,
+  "rtm": {
+    "statusDist": {
+      "gap": 8,
+      "existing": 3,
+      "planned": 4,
+      "xref": 3,
+      "deferred": 1,
+      "review": 2
+    },
+    "issueCount": 0,
+    "issues": []
+  },
+  "priority": "P2"
+}

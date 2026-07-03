@@ -1,0 +1,22 @@
+{
+  "feature_id": "01",
+  "feature_name": "ログイン",
+  "version": "v1",
+  "note": "route × auth × status の骨格（MAD-WAVE-REPLICATE-01 基盤）。web 画面状態は screen-state スライスで肉付けする。契約正本は 契約レジスタ-v1.yaml。",
+  "generated": "2026-07-03",
+  "auth_model": {
+    "magic_link_ttl_seconds": 900,
+    "session_token": "opaque (secrets.token_urlsafe(32))",
+    "env_dev_token": "IHL_DEV_EXPOSE_MAGIC_TOKEN",
+    "session_header": "Authorization: Bearer | X-IHL-Session"
+  },
+  "web_routes": [
+    { "route": "/login", "kind": "form", "states": ["idle", "sending", "sent", "send_error", "verifying", "verify_error", "authenticated"], "primary_action": "ログインリンクを送信", "api": ["POST /api/v1/auth/magic-link", "POST /api/v1/auth/verify"] }
+  ],
+  "api_transitions": [
+    { "method": "POST", "path": "/api/v1/auth/magic-link", "auth": "public", "success": 200, "errors": [], "on_success": "sent 状態 · dev_token あれば UI 表示" },
+    { "method": "POST", "path": "/api/v1/auth/verify", "auth": "public", "success": 200, "errors": [401], "on_error": { "401": "INVALID_OR_EXPIRED_TOKEN → verify_error → 再送信導線" }, "on_success": "session_token 保存 → authenticated → #03 or #04" },
+    { "method": "POST", "path": "/api/v1/auth/register", "auth": "public", "success": 200, "errors": [400], "on_error": { "400": "規約未同意 → チェックボックス強調" } },
+    { "method": "GET", "path": "/api/v1/auth/session", "auth": "token header", "success": 200, "errors": [401], "on_error": { "401": "AUTH_REQUIRED → /login へ" } }
+  ]
+}

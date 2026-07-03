@@ -1,0 +1,65 @@
+{
+  "feature_id": "09",
+  "feature_name": "論文",
+  "generated": "2026-07-03",
+  "slices_root": "02-設計/features/09-論文/slices",
+  "total": 30,
+  "categories": {
+    "api": {
+      "count": 0,
+      "files": []
+    },
+    "schema": {
+      "count": 0,
+      "files": []
+    },
+    "errors": {
+      "count": 0,
+      "files": []
+    },
+    "screens": {
+      "count": 0,
+      "files": []
+    },
+    "reverse-rtm": {
+      "count": 4,
+      "files": [
+        "revrtm-001-unit-layer.md",
+        "revrtm-002-integration-layer.md",
+        "revrtm-003-system-layer.md",
+        "revrtm-004-acceptance-layer.md"
+      ]
+    },
+    "fr": {
+      "count": 26,
+      "files": [
+        "fr-paper-01.md",
+        "fr-paper-02.md",
+        "fr-paper-03.md",
+        "fr-paper-04.md",
+        "fr-paper-05.md",
+        "fr-paper-06.md",
+        "fr-paper-07.md",
+        "fr-paper-08.md",
+        "fr-paper-09.md",
+        "fr-paper-11.md",
+        "fr-ppr-01.md",
+        "fr-ppr-02.md",
+        "fr-ppr-03.md",
+        "fr-ppr-04.md",
+        "fr-ppr-05.md",
+        "fr-ppr-06.md",
+        "fr-ppr-07.md",
+        "fr-ppr-08.md",
+        "fr-ppr-09.md",
+        "fr-ppr-10.md",
+        "fr-ppr-11.md",
+        "nfr-ppr-01.md",
+        "nfr-ppr-02.md",
+        "nfr-ppr-03.md",
+        "nfr-ppr-04.md",
+        "nfr-ppr-05.md"
+      ]
+    }
+  }
+}

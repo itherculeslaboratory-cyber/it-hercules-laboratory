@@ -1,0 +1,24 @@
+{
+  "_note": "契約オラクル golden fixture（プレースホルダ v0）— POST /api/v1/observation/search",
+  "endpoint": { "method": "POST", "path": "/api/v1/observation/search", "auth": "public" },
+  "request": {
+    "species": "Dynastes hercules hercules",
+    "sex": "male",
+    "limit": 24
+  },
+  "response_shape": {
+    "status": "ok",
+    "items": [
+      {
+        "capture_id": "cap_dyn_deadbeef",
+        "individual_id": "ind_deadbeef",
+        "species": "Dynastes hercules hercules",
+        "sex": "male",
+        "has_photo": true,
+        "image_url": "/api/v1/observation/cap_dyn_deadbeef/image",
+        "key_measurements": ["体長 78mm"]
+      }
+    ],
+    "total": 1
+  }
+}

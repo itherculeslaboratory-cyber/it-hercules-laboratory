@@ -1,0 +1,65 @@
+{
+  "feature_id": "11",
+  "feature_name": "裁判",
+  "generated": "2026-07-03",
+  "slices_root": "02-設計/features/11-裁判/slices",
+  "total": 30,
+  "categories": {
+    "api": {
+      "count": 0,
+      "files": []
+    },
+    "schema": {
+      "count": 0,
+      "files": []
+    },
+    "errors": {
+      "count": 0,
+      "files": []
+    },
+    "screens": {
+      "count": 0,
+      "files": []
+    },
+    "reverse-rtm": {
+      "count": 4,
+      "files": [
+        "revrtm-001-unit-layer.md",
+        "revrtm-002-integration-layer.md",
+        "revrtm-003-system-layer.md",
+        "revrtm-004-acceptance-layer.md"
+      ]
+    },
+    "fr": {
+      "count": 26,
+      "files": [
+        "fr-dsp-01.md",
+        "fr-dsp-02.md",
+        "fr-dsp-03.md",
+        "fr-dsp-04.md",
+        "fr-dsp-05.md",
+        "fr-dsp-06.md",
+        "fr-dsp-07.md",
+        "fr-dsp-08.md",
+        "fr-dsp-09.md",
+        "fr-dsp-10.md",
+        "fr-dsp-11.md",
+        "fr-dsp-12.md",
+        "fr-dsp-13.md",
+        "fr-dsp-14.md",
+        "fr-dsp-15.md",
+        "fr-dsp-16.md",
+        "fr-dsp-17.md",
+        "fr-dsp-18.md",
+        "fr-dsp-19.md",
+        "fr-dsp-20.md",
+        "fr-dsp-21.md",
+        "nfr-dsp-01.md",
+        "nfr-dsp-02.md",
+        "nfr-dsp-03.md",
+        "nfr-dsp-04.md",
+        "nfr-dsp-05.md"
+      ]
+    }
+  }
+}

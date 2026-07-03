@@ -1,0 +1,22 @@
+{
+  "feature_id": "16",
+  "feature_name": "UIbuilder",
+  "version": "v1",
+  "note": "route × auth × status の骨格（MAD-WAVE-2）。UI 編集状態は 遷移設計-v1 正本。",
+  "generated": "2026-07-03",
+  "auth_model": { "builder": "public API · L1-L4 は UI 権限 gap" },
+  "web_routes": [
+    {
+      "route": "/builder",
+      "kind": "editor",
+      "states": ["draft", "lint", "saved", "preview", "lint_error"],
+      "api": ["GET/POST /api/v1/theme-packs", "POST /api/v1/builder/canvas"]
+    }
+  ],
+  "api_transitions": [
+    { "method": "GET", "path": "/api/v1/theme-packs", "auth": "public", "success": 200, "errors": [] },
+    { "method": "POST", "path": "/api/v1/theme-packs", "auth": "public", "success": 200, "errors": [] },
+    { "method": "GET", "path": "/api/v1/theme-packs/{pack_id}", "auth": "public", "success": 200, "errors": [404] },
+    { "method": "POST", "path": "/api/v1/builder/canvas", "auth": "public", "success": 200, "errors": [] }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "04",
+  "name": "ホーム",
+  "prefix": "04-ホーム画面",
+  "paths": {
+    "req": ".\\01-要件\\04-ホーム画面.md",
+    "detV2": ".\\02-設計\\features\\04-ホーム画面\\詳細設計-v2.md",
+    "detV3": ".\\02-設計\\features\\04-ホーム画面\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\04-ホーム画面\\RTM-v1.csv"
+  },
+  "lineCounts": {
+    "req": 260,
+    "detV2": 191,
+    "detV3": 195,
+    "testPlans": 220,
+    "rtmRows": 35
+  },
+  "reqDetPatternScore": {
+    "api_paths": 5,
+    "data_testid": 5,
+    "apps_paths": 0,
+    "pytest_refs": 0,
+    "impl_sections": 1,
+    "schema_fields": 0,
+    "total": 11
+  },
+  "depthRatio": 0.735,
+  "reqIdCount": 19,
+  "tcIdCount": 24,
+  "rtm": {
+    "statusDist": {
+      "xref": 1,
+      "deferred": 12,
+      "existing": 5,
+      "gap": 6,
+      "planned": 5,
+      "review": 6
+    },
+    "issueCount": 0,
+    "issues": []
+  },
+  "priority": "P2"
+}

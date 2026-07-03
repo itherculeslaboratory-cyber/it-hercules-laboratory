@@ -1,0 +1,239 @@
+{
+  "feature_id": "22",
+  "feature_name": "PT ショップ",
+  "mode": "MICRO",
+  "generated": "2026-07-03",
+  "source_workorder": "WorkOrder-22.json",
+  "target_range": "60-150",
+  "paths": {
+    "req": ".\\01-要件\\22-プラチナコインマーケット.md",
+    "detV3": ".\\02-設計\\features\\22-プラチナコインマーケット\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\22-プラチナコインマーケット\\RTM-v1.csv",
+    "route_files": []
+  },
+  "slice_counts": {
+    "total": 16,
+    "by_type": {
+      "reverse-rtm": 4,
+      "fr-1id": 12
+    },
+    "by_owner": {
+      "auto": 16
+    }
+  },
+  "fr_slices_truncated": 0,
+  "slices": [
+    {
+      "slice_id": "22-MICRO-revrtm-001",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM unit",
+        "0 行",
+        "UT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/22-プラチナコインマーケット/逆RTM-v1.csv"
+      ],
+      "acceptance": "UT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "22-MICRO-revrtm-002",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM integration",
+        "0 行",
+        "IT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/22-プラチナコインマーケット/逆RTM-v1.csv"
+      ],
+      "acceptance": "IT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "22-MICRO-revrtm-003",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM system",
+        "0 行",
+        "ST-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/22-プラチナコインマーケット/逆RTM-v1.csv"
+      ],
+      "acceptance": "ST-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "22-MICRO-revrtm-004",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM acceptance",
+        "0 行",
+        "UAT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/22-プラチナコインマーケット/逆RTM-v1.csv"
+      ],
+      "acceptance": "UAT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "22-MICRO-fr-001",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/22-プラチナコインマーケット.md FR-PTMKT-01",
+        "RTM status=apps/api/main.py shop purchase"
+      ],
+      "outputs": [
+        "02-設計/features/22-プラチナコインマーケット/slices/fr/fr-ptmkt-01.md"
+      ],
+      "acceptance": "FR-PTMKT-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "22-MICRO-fr-002",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/22-プラチナコインマーケット.md FR-PTMKT-02",
+        "RTM status=economy_logic karma"
+      ],
+      "outputs": [
+        "02-設計/features/22-プラチナコインマーケット/slices/fr/fr-ptmkt-02.md"
+      ],
+      "acceptance": "FR-PTMKT-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "22-MICRO-fr-003",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/22-プラチナコインマーケット.md FR-PTMKT-03",
+        "RTM status=event_store pt_event"
+      ],
+      "outputs": [
+        "02-設計/features/22-プラチナコインマーケット/slices/fr/fr-ptmkt-03.md"
+      ],
+      "acceptance": "FR-PTMKT-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "22-MICRO-fr-004",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/22-プラチナコインマーケット.md FR-PTMKT-04",
+        "RTM status=economy/pt_event"
+      ],
+      "outputs": [
+        "02-設計/features/22-プラチナコインマーケット/slices/fr/fr-ptmkt-04.md"
+      ],
+      "acceptance": "FR-PTMKT-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "22-MICRO-fr-005",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/22-プラチナコインマーケット.md FR-PTMKT-05",
+        "RTM status=economy_logic"
+      ],
+      "outputs": [
+        "02-設計/features/22-プラチナコインマーケット/slices/fr/fr-ptmkt-05.md"
+      ],
+      "acceptance": "FR-PTMKT-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "22-MICRO-fr-006",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/22-プラチナコインマーケット.md FR-PTMKT-06",
+        "RTM status=web shop"
+      ],
+      "outputs": [
+        "02-設計/features/22-プラチナコインマーケット/slices/fr/fr-ptmkt-06.md"
+      ],
+      "acceptance": "FR-PTMKT-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "22-MICRO-fr-007",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/22-プラチナコインマーケット.md FR-PTMKT-07",
+        "RTM status=shop"
+      ],
+      "outputs": [
+        "02-設計/features/22-プラチナコインマーケット/slices/fr/fr-ptmkt-07.md"
+      ],
+      "acceptance": "FR-PTMKT-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "22-MICRO-fr-008",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/22-プラチナコインマーケット.md FR-PTMKT-08",
+        "RTM status=shop UI"
+      ],
+      "outputs": [
+        "02-設計/features/22-プラチナコインマーケット/slices/fr/fr-ptmkt-08.md"
+      ],
+      "acceptance": "FR-PTMKT-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "22-MICRO-fr-009",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/22-プラチナコインマーケット.md NFR-PTMKT-01",
+        "RTM status=ihl repo"
+      ],
+      "outputs": [
+        "02-設計/features/22-プラチナコインマーケット/slices/fr/nfr-ptmkt-01.md"
+      ],
+      "acceptance": "NFR-PTMKT-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "22-MICRO-fr-010",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/22-プラチナコインマーケット.md NFR-PTMKT-02",
+        "RTM status=civilization/"
+      ],
+      "outputs": [
+        "02-設計/features/22-プラチナコインマーケット/slices/fr/nfr-ptmkt-02.md"
+      ],
+      "acceptance": "NFR-PTMKT-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "22-MICRO-fr-011",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/22-プラチナコインマーケット.md NFR-PTMKT-03",
+        "RTM status=pt_event jsonl"
+      ],
+      "outputs": [
+        "02-設計/features/22-プラチナコインマーケット/slices/fr/nfr-ptmkt-03.md"
+      ],
+      "acceptance": "NFR-PTMKT-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "22-MICRO-fr-012",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/22-プラチナコインマーケット.md NFR-PTMKT-04",
+        "RTM status=legacy backend"
+      ],
+      "outputs": [
+        "02-設計/features/22-プラチナコインマーケット/slices/fr/nfr-ptmkt-04.md"
+      ],
+      "acceptance": "NFR-PTMKT-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    }
+  ]
+}

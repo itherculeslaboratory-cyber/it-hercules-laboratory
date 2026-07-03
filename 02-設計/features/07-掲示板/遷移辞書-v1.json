@@ -1,0 +1,29 @@
+{
+  "feature_id": "07",
+  "feature_name": "掲示板",
+  "version": "v1",
+  "note": "route × auth × status の骨格（MAD-WAVE-2）。契約正本は 契約レジスタ-v1.yaml。",
+  "generated": "2026-07-03",
+  "auth_model": { "board": "public · INSERT ONLY イベント投影" },
+  "web_routes": [
+    {
+      "route": "/board",
+      "kind": "hub",
+      "states": ["load", "categories_ready", "empty", "error"],
+      "api": ["GET /api/v1/board/categories"]
+    },
+    {
+      "route": "/board/[category]",
+      "kind": "list",
+      "states": ["load", "threads_ready", "create", "posted", "error"],
+      "api": ["GET/POST /api/v1/board/{category}/threads", "POST .../posts"]
+    }
+  ],
+  "api_transitions": [
+    { "method": "GET", "path": "/api/v1/board/categories", "auth": "public", "success": 200, "errors": [] },
+    { "method": "GET", "path": "/api/v1/board/{category}/threads", "auth": "public", "success": 200, "errors": [] },
+    { "method": "POST", "path": "/api/v1/board/{category}/threads", "auth": "public", "success": 200, "errors": [] },
+    { "method": "POST", "path": "/api/v1/board/{category}/threads/{thread_id}/posts", "auth": "public", "success": 200, "errors": [] },
+    { "method": "GET", "path": "/api/v1/component-board", "auth": "public", "success": 200, "errors": [] }
+  ]
+}

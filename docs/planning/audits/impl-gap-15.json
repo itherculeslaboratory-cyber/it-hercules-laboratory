@@ -1,0 +1,20 @@
+{
+  "id": "15",
+  "name": "データ設計",
+  "reqIdCount": 20,
+  "apiRoutes": [],
+  "webRoutes": [
+    "/observation",
+    "/observation/[id]",
+    "/observation/context",
+    "/observation/done",
+    "/observation/input",
+    "/observation/input/confirm",
+    "/observation/solid",
+    "/observation/templates",
+    "/observation/templates/[id]",
+    "/observation/templates/[id]/fork"
+  ],
+  "implGaps": [],
+  "gapCount": 0
+}

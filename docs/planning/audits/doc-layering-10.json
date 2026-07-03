@@ -1,0 +1,154 @@
+{
+  "id": "10",
+  "name": "マチアプ",
+  "prefix": "10-マチアプ",
+  "paths": {
+    "req": ".\\01-要件\\10-マチアプ.md",
+    "detV2": ".\\02-設計\\features\\10-マチアプ\\詳細設計-v2.md",
+    "detV3": ".\\02-設計\\features\\10-マチアプ\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\10-マチアプ\\RTM-v1.csv"
+  },
+  "lineCounts": {
+    "req": 347,
+    "detV2": 183,
+    "detV3": 0,
+    "testPlans": 138,
+    "rtmRows": 22
+  },
+  "reqDetPatternScore": {
+    "api_paths": 2,
+    "data_testid": 0,
+    "apps_paths": 0,
+    "pytest_refs": 0,
+    "impl_sections": 0,
+    "schema_fields": 0,
+    "total": 2
+  },
+  "depthRatio": 0.527,
+  "reqIdCount": 43,
+  "tcIdCount": 24,
+  "rtm": {
+    "statusDist": {
+      "(legacy TS)": 2,
+      "apps/api/main.py:match_vote": 1,
+      "(未移植)": 1,
+      "libs/ihl/core/event_store.py:write_preference_event": 2,
+      "(検索基盤)": 3,
+      "(TS schema)": 1,
+      "(fb_00046)": 3,
+      "(TS stub)": 1,
+      "(MatchApp.tsx)": 1,
+      "(09/13 shared)": 1,
+      "libs/ihl/core/event_store.py": 1,
+      "apps/api/main.py": 1,
+      "tests/unit/test_match.py": 1,
+      "(MatchApp UI)": 1,
+      "01-要件/10-マチアプ.md": 1,
+      "(UI preferences)": 1
+    },
+    "issueCount": 22,
+    "issues": [
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-MCH-01",
+        "test_case_id": "詳細設計-v2 §1.2/§7"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-MCH-02",
+        "test_case_id": "詳細設計-v2 §3.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-MCH-03",
+        "test_case_id": "詳細設計-v2 §1.2/§7"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-MCH-04",
+        "test_case_id": "詳細設計-v2 §1.2/§7"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-MCH-05",
+        "test_case_id": "詳細設計-v2 §2.1"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-MCH-06",
+        "test_case_id": "詳細設計-v2 §1.2/§7"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-MCH-07",
+        "test_case_id": "詳細設計-v2 §1.2/§7"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-MCH-08",
+        "test_case_id": "詳細設計-v2 §1.2/§7"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-MCH-09",
+        "test_case_id": "詳細設計-v2 §1.2/§7"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-MCH-10",
+        "test_case_id": "詳細設計-v2 §1.2/§7"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-MCH-11",
+        "test_case_id": "詳細設計-v2 §1.2/§7"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-MCH-12",
+        "test_case_id": "詳細設計-v2 §1.2/§7"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-MCH-13",
+        "test_case_id": "詳細設計-v2 §1.2/§7"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-MCH-14",
+        "test_case_id": "詳細設計-v2 §1.2/§7"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-MCH-15",
+        "test_case_id": "詳細設計-v2 §1.2/§7"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-MCH-16",
+        "test_case_id": "詳細設計-v2 §4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-MCH-01",
+        "test_case_id": "詳細設計-v2 §2.2/§6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-MCH-02",
+        "test_case_id": "詳細設計-v2 §2.1/§6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-MCH-03",
+        "test_case_id": "詳細設計-v2 §7"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-MCH-04",
+        "test_case_id": "詳細設計-v2 §6"
+      }
+    ]
+  },
+  "priority": "P1"
+}

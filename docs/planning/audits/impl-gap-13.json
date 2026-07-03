@@ -1,0 +1,23 @@
+{
+  "id": "13",
+  "name": "データ取得元",
+  "reqIdCount": 27,
+  "apiRoutes": [
+    "/api/env/ingest",
+    "/api/env/placements"
+  ],
+  "webRoutes": [
+    "/observation",
+    "/observation/[id]",
+    "/observation/context",
+    "/observation/done",
+    "/observation/input",
+    "/observation/input/confirm",
+    "/observation/solid",
+    "/observation/templates",
+    "/observation/templates/[id]",
+    "/observation/templates/[id]/fork"
+  ],
+  "implGaps": [],
+  "gapCount": 0
+}

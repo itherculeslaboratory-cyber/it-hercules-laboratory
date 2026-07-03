@@ -1,0 +1,126 @@
+{
+  "id": "14",
+  "name": "貢献度",
+  "prefix": "14-貢献度",
+  "paths": {
+    "req": ".\\01-要件\\14-貢献度.md",
+    "detV2": ".\\02-設計\\features\\14-貢献度\\詳細設計-v2.md",
+    "detV3": ".\\02-設計\\features\\14-貢献度\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\14-貢献度\\RTM-v1.csv"
+  },
+  "lineCounts": {
+    "req": 283,
+    "detV2": 216,
+    "detV3": 0,
+    "testPlans": 141,
+    "rtmRows": 15
+  },
+  "reqDetPatternScore": {
+    "api_paths": 2,
+    "data_testid": 0,
+    "apps_paths": 0,
+    "pytest_refs": 0,
+    "impl_sections": 0,
+    "schema_fields": 0,
+    "total": 2
+  },
+  "depthRatio": 0.763,
+  "reqIdCount": 31,
+  "tcIdCount": 23,
+  "rtm": {
+    "statusDist": {
+      "libs/ihl/economy/economy_logic.py:contribution_total": 1,
+      "libs/ihl/core/event_store.py:write_contribution_event": 1,
+      "(legacy contributionEconomy.ts)": 3,
+      "(issueCoin未配線)": 1,
+      "economy/graph/(legacy)": 1,
+      "(issueCoin)": 1,
+      "apps/api/main.py:profile_metrics": 1,
+      "apps/api/main.py:contribution_summary": 1,
+      "libs/ihl/core/event_store.py:append": 1,
+      "libs/ihl/core/event_store.py": 1,
+      "legacy economyMasterStore": 1,
+      "apps/web/src/app/contribution/page.tsx": 1,
+      "docs/platinum-economy-tracer.md": 1
+    },
+    "issueCount": 15,
+    "issues": [
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-CONTRIB-01",
+        "test_case_id": "詳細設計-v2 §2.1/§2.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-CONTRIB-02",
+        "test_case_id": "詳細設計-v2 §2.1"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-CONTRIB-03",
+        "test_case_id": "詳細設計-v2 §2.3/§4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-CONTRIB-04",
+        "test_case_id": "詳細設計-v2 §2.3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-CONTRIB-05",
+        "test_case_id": "詳細設計-v2 §4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-CONTRIB-06",
+        "test_case_id": "詳細設計-v2 §4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-CONTRIB-07",
+        "test_case_id": "詳細設計-v2 §2.3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-CONTRIB-08",
+        "test_case_id": "詳細設計-v2 §4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-CONTRIB-09",
+        "test_case_id": "詳細設計-v2 §3.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-CONTRIB-10",
+        "test_case_id": "詳細設計-v2 §3.1"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-CONTRIB-01",
+        "test_case_id": "詳細設計-v2 §2.1/§6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-CONTRIB-02",
+        "test_case_id": "詳細設計-v2 §6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-CONTRIB-03",
+        "test_case_id": "詳細設計-v2 §6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-CONTRIB-04",
+        "test_case_id": "詳細設計-v2 §6;ui/貢献度.md"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-CONTRIB-05",
+        "test_case_id": "詳細設計-v2 §6"
+      }
+    ]
+  },
+  "priority": "P1"
+}

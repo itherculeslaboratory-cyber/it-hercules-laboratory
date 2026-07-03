@@ -1,0 +1,19 @@
+# 逆RTM v1 — feature #16 UIbuilder（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 16 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UT-16-01,unit,pytest,1,FR-DTH-01,existing
+UT-16-03,unit,pytest,1,FR-16-REFRAME-06,gap
+UT-16-04,unit,pytest,1,FR-16-REFRAME-02,gap
+UT-16-05,unit,pytest,1,NFR-16-01,planned
+IT-16-03,integration,pytest,1,FR-16-REFRAME-01,existing
+IT-16-04,integration,pytest,1,FR-16-REFRAME-03,gap
+IT-16-05,integration,pytest,1,FR-16-REFRAME-08,gap
+ST-16-03,system,pytest,1,FR-16-REFRAME-05,planned
+ST-16-04,system,pytest,1,NFR-16-03,gap
+ST-16-06,system,pytest,1,FR-16-REFRAME-09,xref
+UAT-16-03,acceptance,review,1,FR-16-REFRAME-10,review
+UAT-16-04,acceptance,review,1,FR-16-REFRAME-04,review
+UAT-16-05,acceptance,review,2,FR-16-REFRAME-07 NFR-16-05,gap
+UAT-16-06,acceptance,review,1,NFR-16-02,xref
+UAT-16-07,acceptance,review,2,NFR-16-04 NFR-16-06,xref

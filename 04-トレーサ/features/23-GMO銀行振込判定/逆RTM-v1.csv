@@ -1,0 +1,17 @@
+# 逆RTM v1 — feature #23 GMO 振込（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 23 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UT-23-01,unit,pytest,1,FR-GMO-05,existing
+UT-23-03,unit,pytest,1,FR-GMO-01,existing
+UT-23-04,unit,pytest,1,FR-GMO-02,planned
+UT-23-05,unit,pytest,1,FR-GMO-06,gap
+UT-23-07,unit,pytest,1,FR-GMO-08,gap
+IT-23-03,integration,pytest,1,FR-GMO-03,gap
+IT-23-04,integration,pytest,1,NFR-GMO-01,existing
+ST-23-01,system,pytest,1,FR-GMO-04,existing
+ST-23-02,system,pytest,1,NFR-GMO-02,planned
+ST-23-03,system,pytest,1,FR-GMO-09,gap
+ST-23-04,system,pytest,1,NFR-GMO-03,review
+UAT-23-03,acceptance,review,2,FR-GMO-10 NFR-GMO-04,review planned
+UAT-23-05,acceptance,manual,1,FR-GMO-07,human

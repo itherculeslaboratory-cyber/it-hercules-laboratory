@@ -1,0 +1,70 @@
+{
+  "feature_id": "01",
+  "feature_name": "ログイン",
+  "generated": "2026-07-03",
+  "slices_root": "02-設計/features/01-ログイン/slices",
+  "total": 32,
+  "categories": {
+    "api": {
+      "count": 4,
+      "files": [
+        "get-api-v1-auth-session.md",
+        "post-api-v1-auth-magic-link.md",
+        "post-api-v1-auth-register.md",
+        "post-api-v1-auth-verify.md"
+      ]
+    },
+    "schema": {
+      "count": 3,
+      "files": [
+        "magiclinkrequest.md",
+        "magiclinkverifyrequest.md",
+        "registerrequest.md"
+      ]
+    },
+    "errors": {
+      "count": 2,
+      "files": [
+        "400.md",
+        "401.md"
+      ]
+    },
+    "screens": {
+      "count": 0,
+      "files": []
+    },
+    "reverse-rtm": {
+      "count": 4,
+      "files": [
+        "revrtm-001-unit-layer.md",
+        "revrtm-002-integration-layer.md",
+        "revrtm-003-system-layer.md",
+        "revrtm-004-acceptance-layer.md"
+      ]
+    },
+    "fr": {
+      "count": 19,
+      "files": [
+        "fr-login-01.md",
+        "fr-login-02.md",
+        "fr-login-03.md",
+        "fr-login-04.md",
+        "fr-login-05.md",
+        "fr-login-06.md",
+        "fr-login-07.md",
+        "fr-login-08.md",
+        "fr-login-09.md",
+        "fr-login-10.md",
+        "fr-login-11.md",
+        "nfr-login-01.md",
+        "nfr-login-02.md",
+        "nfr-login-03.md",
+        "nfr-login-04.md",
+        "nfr-login-05.md",
+        "nfr-login-06.md",
+        "nfr-login-07.md",
+        "nfr-login-08.md"
+      ]
+    }
+  }
+}

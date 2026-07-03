@@ -1,0 +1,43 @@
+{
+  "generated": "2026-07-03",
+  "features": [
+    {
+      "featureId": "11",
+      "name": "裁判",
+      "mode": "routes",
+      "slices": 30,
+      "breakdown": "fr26",
+      "oracle": "✅ PASS",
+      "gate": "5/5",
+      "rtmRows": 31,
+      "revTc": 20,
+      "rtm": "✅ PASS",
+      "parity": "✅ PASS",
+      "layering": "✅ PASS",
+      "revrtm": "✅ PASS",
+      "oracleVerdict": "PASS",
+      "oracleNote": "3 routes · DET §3.9 突合 PASS",
+      "routeCount": 3,
+      "passCount": 5
+    },
+    {
+      "featureId": "02",
+      "name": "利用規約",
+      "mode": "legal-fr",
+      "slices": 50,
+      "breakdown": "fr46",
+      "oracle": "✅ PASS",
+      "gate": "5/5",
+      "rtmRows": 60,
+      "revTc": 27,
+      "rtm": "✅ PASS",
+      "parity": "✅ PASS",
+      "layering": "✅ PASS",
+      "revrtm": "✅ PASS",
+      "oracleVerdict": "PASS",
+      "oracleNote": "route 無し · DET §3.9 空 · HUMAN-02-LEGAL 条文不変更",
+      "routeCount": 0,
+      "passCount": 5
+    }
+  ]
+}

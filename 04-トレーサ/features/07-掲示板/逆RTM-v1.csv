@@ -1,0 +1,15 @@
+# 逆RTM v1 — feature #07 掲示板（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 07 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UT-07-01,unit,pytest,1,FR-BBS-05,existing
+UT-07-03,unit,pytest,1,FR-BBS-15,planned
+UT-07-04,unit,pytest,1,NFR-BBS-01,planned
+IT-07-01,integration,pytest,3,FR-BBS-06 FR-BBS-14 NFR-BBS-05,existing review
+IT-07-05,integration,pytest,1,FR-BBS-10,planned
+IT-07-06,integration,pytest,1,NFR-BBS-04,planned
+ST-07-05,system,pytest,1,NFR-BBS-02,review
+UAT-07-04,acceptance,review,1,FR-BBS-16,deferred
+UAT-07-05,acceptance,review,3,FR-BBS-11 FR-BBS-12 FR-BBS-13,xref
+UAT-07-06,acceptance,review,1,FR-BBS-07,gap
+UAT-07-07,acceptance,review,7,FR-BBS-01 FR-BBS-02 FR-BBS-03 FR-BBS-04 FR-BBS-08 FR-BBS-09 NFR-BBS-03,gap

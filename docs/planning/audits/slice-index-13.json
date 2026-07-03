@@ -1,0 +1,58 @@
+{
+  "feature_id": "13",
+  "feature_name": "データ取得元",
+  "generated": "2026-07-03",
+  "slices_root": "02-設計/features/13-データ取得元/slices",
+  "total": 23,
+  "categories": {
+    "api": {
+      "count": 0,
+      "files": []
+    },
+    "schema": {
+      "count": 0,
+      "files": []
+    },
+    "errors": {
+      "count": 0,
+      "files": []
+    },
+    "screens": {
+      "count": 0,
+      "files": []
+    },
+    "reverse-rtm": {
+      "count": 4,
+      "files": [
+        "revrtm-001-unit-layer.md",
+        "revrtm-002-integration-layer.md",
+        "revrtm-003-system-layer.md",
+        "revrtm-004-acceptance-layer.md"
+      ]
+    },
+    "fr": {
+      "count": 19,
+      "files": [
+        "fr-env-01.md",
+        "fr-env-02.md",
+        "fr-env-03.md",
+        "fr-env-04.md",
+        "fr-env-05.md",
+        "fr-env-06.md",
+        "fr-env-07.md",
+        "fr-env-08.md",
+        "fr-env-09.md",
+        "fr-env-10.md",
+        "nfr-env-01.md",
+        "nfr-env-02.md",
+        "nfr-env-03.md",
+        "nfr-env-04.md",
+        "nfr-env-05.md",
+        "obs-fup-04.md",
+        "obs-rx-rd-03.md",
+        "obs-rx-rd-07.md",
+        "obs-rx-rd-08.md"
+      ]
+    }
+  }
+}

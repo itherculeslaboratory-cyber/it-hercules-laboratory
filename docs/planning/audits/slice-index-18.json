@@ -1,0 +1,57 @@
+{
+  "feature_id": "18",
+  "feature_name": "写真解析",
+  "generated": "2026-07-03",
+  "slices_root": "02-設計/features/18-写真解析/slices",
+  "total": 22,
+  "categories": {
+    "api": {
+      "count": 0,
+      "files": []
+    },
+    "schema": {
+      "count": 0,
+      "files": []
+    },
+    "errors": {
+      "count": 0,
+      "files": []
+    },
+    "screens": {
+      "count": 0,
+      "files": []
+    },
+    "reverse-rtm": {
+      "count": 4,
+      "files": [
+        "revrtm-001-unit-layer.md",
+        "revrtm-002-integration-layer.md",
+        "revrtm-003-system-layer.md",
+        "revrtm-004-acceptance-layer.md"
+      ]
+    },
+    "fr": {
+      "count": 18,
+      "files": [
+        "fr-18-01.md",
+        "fr-18-02.md",
+        "fr-18-03.md",
+        "fr-18-04.md",
+        "fr-18-05.md",
+        "fr-18-06.md",
+        "fr-18-07.md",
+        "fr-18-08.md",
+        "fr-18-09.md",
+        "fr-18-10.md",
+        "fr-18-11.md",
+        "nfr-18-01.md",
+        "nfr-18-02.md",
+        "nfr-18-03.md",
+        "nfr-18-04.md",
+        "nfr-18-05.md",
+        "nfr-18-06.md",
+        "nfr-18-07.md"
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "feature_id": "23",
+  "feature_name": "GMO 振込",
+  "version": "v1",
+  "note": "route × auth × tier の骨格（MAD-WAVE-2）。live は人間ゲート。",
+  "generated": "2026-07-03",
+  "auth_model": {
+    "webhook": "HMAC 署名 · 401 on mismatch",
+    "bank_api": "stub → 503 · stg/live は人間ゲート"
+  },
+  "api_transitions": [
+    { "method": "GET", "path": "/api/v1/gmo/reconciliation/meta", "auth": "public", "success": 200, "errors": [] },
+    { "method": "GET", "path": "/api/v1/gmo/transfer-code", "auth": "public", "success": 200, "errors": [] },
+    { "method": "POST", "path": "/api/v1/gmo/expected-payment", "auth": "public", "success": 200, "errors": [] },
+    { "method": "POST", "path": "/api/v1/gmo/webhook", "auth": "public", "success": 202, "errors": [401] },
+    { "method": "POST", "path": "/api/v1/gmo/va-deposit/subscribe", "auth": "public", "success": 200, "errors": [502, 503] },
+    { "method": "GET", "path": "/api/v1/gmo/va-deposit/unsent", "auth": "public", "success": 200, "errors": [502, 503] }
+  ]
+}

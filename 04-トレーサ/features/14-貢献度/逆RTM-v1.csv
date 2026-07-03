@@ -1,0 +1,23 @@
+# 逆RTM v1 — feature #14 貢献度（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 14 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UT-14-01,unit,pytest,1,FR-CONTRIB-02,existing
+UT-14-02,unit,pytest,1,FR-CONTRIB-01,existing
+UT-14-03,unit,pytest,1,NFR-CONTRIB-01,existing
+IT-14-01,integration,pytest,1,FR-CONTRIB-10,existing
+IT-14-02,integration,pytest,1,FR-CONTRIB-09,partial
+IT-14-03,integration,pytest,2,FR-CONTRIB-01 FR-CONTRIB-02,existing
+IT-14-05,integration,pytest,1,FR-CONTRIB-03,gap
+UAT-14-01,integration,pytest,1,FR-CONTRIB-10,existing
+UT-14-04,integration,pytest,1,FR-CONTRIB-02,existing
+ST-14-01,system,pytest,1,FR-CONTRIB-01,existing
+ST-14-02,system,pytest,2,NFR-CONTRIB-01 NFR-CONTRIB-02,existing partial
+ST-14-03,system,pytest,1,FR-CONTRIB-09,partial
+ST-14-04,system,pytest,2,FR-CONTRIB-05 FR-CONTRIB-08,gap
+ST-14-05,system,pytest,4,FR-CONTRIB-03 FR-CONTRIB-04 FR-CONTRIB-06 FR-CONTRIB-07,gap
+ST-14-06,system,pytest,1,NFR-CONTRIB-04,partial
+IT-14-04,uat,pytest,1,FR-CONTRIB-10,existing
+UAT-14-04,uat,pytest,1,NFR-CONTRIB-04,partial
+UAT-14-06,uat,pytest,2,FR-CONTRIB-05 NFR-CONTRIB-03,gap xref
+UAT-14-07,uat,review,1,NFR-CONTRIB-05,doc

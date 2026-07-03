@@ -1,0 +1,24 @@
+# 逆RTM v1 — feature #13 データ取得元（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 13 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+ST-13-01,unit,pytest,1,FR-ENV-07,existing
+ST-13-02,unit,pytest,1,NFR-ENV-01,existing
+UT-13-01,unit,pytest,2,FR-ENV-01 NFR-ENV-01,existing
+UT-13-02,unit,pytest,1,FR-ENV-03,existing
+UT-13-03,unit,pytest,1,FR-ENV-07,existing
+UT-13-05,unit,pytest,2,FR-ENV-05 NFR-ENV-04,existing
+IT-13-01,integration,pytest,2,FR-ENV-01 FR-ENV-03,existing
+IT-13-03,integration,pytest,1,FR-ENV-06,existing
+IT-13-04,integration,pytest,1,FR-ENV-05,existing
+IT-13-05,integration,pytest,1,FR-ENV-02,gap
+UT-13-06,integration,pytest,2,FR-ENV-07 FR-ENV-08,existing
+IT-13-02,system,pytest,1,FR-ENV-07,existing
+ST-13-03,system,pytest,1,FR-ENV-08,existing
+ST-13-04,system,pytest,1,FR-ENV-09,partial
+ST-13-06,system,pytest,1,NFR-ENV-05,partial
+UT-13-04,system,pytest,1,NFR-ENV-01,existing
+UAT-13-04,uat,pytest,2,FR-ENV-10 NFR-ENV-02,existing doc
+UAT-13-06,uat,review,1,NFR-ENV-03,doc
+UAT-13-08,uat,pytest,2,FR-ENV-04 FR-ENV-09,gap partial
+UAT-13-09,uat,pytest,1,NFR-ENV-05,partial

@@ -1,0 +1,47 @@
+{
+  "id": "01",
+  "name": "ログイン",
+  "reqIdCount": 20,
+  "apiRoutes": [
+    "/api/v1/auth/magic-link",
+    "/api/v1/auth/verify",
+    "/api/v1/auth",
+    "/magic-link",
+    "/register",
+    "/session",
+    "/verify"
+  ],
+  "webRoutes": [
+    "/observation",
+    "/observation/[id]",
+    "/observation/context",
+    "/observation/done",
+    "/observation/input",
+    "/observation/input/confirm",
+    "/observation/solid",
+    "/observation/templates",
+    "/observation/templates/[id]",
+    "/observation/templates/[id]/fork"
+  ],
+  "implGaps": [
+    {
+      "id": "IMPL-GAP-01-API-1",
+      "kind": "api_route",
+      "surface": "/magic-link",
+      "suggest": "DET-v3-§3"
+    },
+    {
+      "id": "IMPL-GAP-01-API-2",
+      "kind": "api_route",
+      "surface": "/register",
+      "suggest": "DET-v3-§3"
+    },
+    {
+      "id": "IMPL-GAP-01-API-3",
+      "kind": "api_route",
+      "surface": "/session",
+      "suggest": "DET-v3-§3"
+    }
+  ],
+  "gapCount": 3
+}

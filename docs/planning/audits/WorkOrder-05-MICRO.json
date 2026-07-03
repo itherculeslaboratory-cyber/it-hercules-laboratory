@@ -1,0 +1,2040 @@
+{
+  "feature_id": "05",
+  "feature_name": "観測",
+  "mode": "MICRO",
+  "generated": "2026-07-03",
+  "source_workorder": "WorkOrder-05.json",
+  "target_range": "60-150",
+  "paths": {
+    "req": ".\\01-要件\\05-観測.md",
+    "detV3": ".\\02-設計\\features\\05-観測\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\05-観測\\RTM-v1.csv",
+    "route_files": [
+      "apps/api/routes/observation.py",
+      "apps/api/routes/observation_solid.py"
+    ]
+  },
+  "slice_counts": {
+    "total": 150,
+    "by_type": {
+      "api-1route": 16,
+      "schema-field": 17,
+      "error-code": 4,
+      "screen-state": 4,
+      "reverse-rtm": 4,
+      "fr-1id": 105
+    },
+    "by_owner": {
+      "auto": 125,
+      "tier-a": 25
+    }
+  },
+  "fr_slices_truncated": 84,
+  "slices": [
+    {
+      "slice_id": "05-MICRO-api-001",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "GET /api/v1/observation/{capture_id}",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/api/get-api-v1-observation-capture-id.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "05-MICRO-api-002",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "GET /api/v1/observation/{capture_id}/image",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/api/get-api-v1-observation-capture-id-image.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[404]"
+    },
+    {
+      "slice_id": "05-MICRO-api-003",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "GET /api/v1/observation/{capture_id}/reanalysis-manifest",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/api/get-api-v1-observation-capture-id-reanalysis-manifest.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "05-MICRO-api-004",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "GET /api/v1/observation/measurement-dictionary",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/api/get-api-v1-observation-measurement-dictionary.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "05-MICRO-api-005",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "GET /api/v1/observation/targets/catalog",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/api/get-api-v1-observation-targets-catalog.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "05-MICRO-api-006",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "GET /api/v1/observation/templates",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/api/get-api-v1-observation-templates.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "05-MICRO-api-007",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "GET /api/v1/observation/templates/{template_id}",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/api/get-api-v1-observation-templates-template-id.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[404]"
+    },
+    {
+      "slice_id": "05-MICRO-api-008",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/observation_solid.py",
+        "POST /api/captures",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/api/post-api-captures.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=session · errors=[400,401,404]"
+    },
+    {
+      "slice_id": "05-MICRO-api-009",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/observation_solid.py",
+        "POST /api/measurements",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/api/post-api-measurements.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=session · errors=[400,401,404]"
+    },
+    {
+      "slice_id": "05-MICRO-api-010",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/observation_solid.py",
+        "POST /api/solid-observation/commit",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/api/post-api-solid-observation-commit.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=session · errors=[400,401,404,409]"
+    },
+    {
+      "slice_id": "05-MICRO-api-011",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "POST /api/v1/observation/dictionary-extensions",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/api/post-api-v1-observation-dictionary-extensions.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=session · errors=[400,401]"
+    },
+    {
+      "slice_id": "05-MICRO-api-012",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "POST /api/v1/observation/measurements",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/api/post-api-v1-observation-measurements.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=session · errors=[400,401]"
+    },
+    {
+      "slice_id": "05-MICRO-api-013",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "POST /api/v1/observation/search",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/api/post-api-v1-observation-search.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[400]"
+    },
+    {
+      "slice_id": "05-MICRO-api-014",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "POST /api/v1/observation/targets/search",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/api/post-api-v1-observation-targets-search.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "05-MICRO-api-015",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "POST /api/v1/observation/templates",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/api/post-api-v1-observation-templates.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=session · errors=[400,401]"
+    },
+    {
+      "slice_id": "05-MICRO-api-016",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "POST /api/v1/observation/upload",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/api/post-api-v1-observation-upload.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=session · errors=[401]"
+    },
+    {
+      "slice_id": "05-MICRO-schema-001",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "class CaptureSearchRequest(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/schema/capturesearchrequest.md"
+      ],
+      "acceptance": "7 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "05-MICRO-schema-002",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "class CaptureUploadRequest(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/schema/captureuploadrequest.md"
+      ],
+      "acceptance": "6 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "05-MICRO-schema-003",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "class MeasurementRow(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/schema/measurementrow.md"
+      ],
+      "acceptance": "4 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "05-MICRO-schema-004",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "class MeasurementSaveRequest(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/schema/measurementsaverequest.md"
+      ],
+      "acceptance": "3 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "05-MICRO-schema-005",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "class ObservationTargetSearchRequest(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/schema/observationtargetsearchrequest.md"
+      ],
+      "acceptance": "3 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "05-MICRO-schema-006",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "class TemplateMeasurementRow(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/schema/templatemeasurementrow.md"
+      ],
+      "acceptance": "4 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "05-MICRO-schema-007",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "class TemplatePhotoConditionRow(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/schema/templatephotoconditionrow.md"
+      ],
+      "acceptance": "5 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "05-MICRO-schema-008",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "class ObservationTemplateCreateRequest(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/schema/observationtemplatecreaterequest.md"
+      ],
+      "acceptance": "9 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "05-MICRO-schema-009",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/observation.py",
+        "class DictionaryExtensionRequest(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/schema/dictionaryextensionrequest.md"
+      ],
+      "acceptance": "3 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "05-MICRO-schema-010",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/observation_solid.py",
+        "class SolidCaptureBody(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/schema/solidcapturebody.md"
+      ],
+      "acceptance": "9 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "05-MICRO-schema-011",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/observation_solid.py",
+        "class SolidMeasurementRow(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/schema/solidmeasurementrow.md"
+      ],
+      "acceptance": "6 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "05-MICRO-schema-012",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/observation_solid.py",
+        "class SolidMeasurementsBody(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/schema/solidmeasurementsbody.md"
+      ],
+      "acceptance": "6 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "05-MICRO-schema-013",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/observation_solid.py",
+        "class ObservationCommitMeasurementRow(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/schema/observationcommitmeasurementrow.md"
+      ],
+      "acceptance": "6 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "05-MICRO-schema-014",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/observation_solid.py",
+        "class EnvironmentSnapshotBody(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/schema/environmentsnapshotbody.md"
+      ],
+      "acceptance": "5 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "05-MICRO-schema-015",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/observation_solid.py",
+        "class ObservationPhotoConditionRow(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/schema/observationphotoconditionrow.md"
+      ],
+      "acceptance": "5 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "05-MICRO-schema-016",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/observation_solid.py",
+        "class ObservationDeviceDeclaration(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/schema/observationdevicedeclaration.md"
+      ],
+      "acceptance": "4 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "05-MICRO-schema-017",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/observation_solid.py",
+        "class ObservationCommitBody(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/schema/observationcommitbody.md"
+      ],
+      "acceptance": "31 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "05-MICRO-error-001",
+      "owner": "auto",
+      "type": "error-code",
+      "inputs": [
+        "HTTP 400",
+        "POST /api/captures",
+        "POST /api/measurements",
+        "POST /api/solid-observation/commit",
+        "POST /api/v1/observation/dictionary-extensions",
+        "POST /api/v1/observation/measurements",
+        "POST /api/v1/observation/search"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/errors/400.md"
+      ],
+      "acceptance": "400 の発生条件 · detail メッセージ · UI 導線 · エラーカタログ行"
+    },
+    {
+      "slice_id": "05-MICRO-error-002",
+      "owner": "auto",
+      "type": "error-code",
+      "inputs": [
+        "HTTP 401",
+        "POST /api/captures",
+        "POST /api/measurements",
+        "POST /api/solid-observation/commit",
+        "POST /api/v1/observation/dictionary-extensions",
+        "POST /api/v1/observation/measurements",
+        "POST /api/v1/observation/templates"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/errors/401.md"
+      ],
+      "acceptance": "401 の発生条件 · detail メッセージ · UI 導線 · エラーカタログ行"
+    },
+    {
+      "slice_id": "05-MICRO-error-003",
+      "owner": "auto",
+      "type": "error-code",
+      "inputs": [
+        "HTTP 404",
+        "GET /api/v1/observation/{capture_id}/image",
+        "GET /api/v1/observation/templates/{template_id}",
+        "POST /api/captures",
+        "POST /api/measurements",
+        "POST /api/solid-observation/commit"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/errors/404.md"
+      ],
+      "acceptance": "404 の発生条件 · detail メッセージ · UI 導線 · エラーカタログ行"
+    },
+    {
+      "slice_id": "05-MICRO-error-004",
+      "owner": "auto",
+      "type": "error-code",
+      "inputs": [
+        "HTTP 409",
+        "POST /api/solid-observation/commit"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/errors/409.md"
+      ],
+      "acceptance": "409 の発生条件 · detail メッセージ · UI 導線 · エラーカタログ行"
+    },
+    {
+      "slice_id": "05-MICRO-screen-001",
+      "owner": "tier-a",
+      "type": "screen-state",
+      "inputs": [
+        "/observation",
+        "kind=list",
+        "ui-reference/preferences.md"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/screens/observation.md"
+      ],
+      "acceptance": "loading / empty / error / ok の4状態 · 主ボタン1 · 3クリック以内（観測ホーム/検索）"
+    },
+    {
+      "slice_id": "05-MICRO-screen-002",
+      "owner": "tier-a",
+      "type": "screen-state",
+      "inputs": [
+        "/observation/input",
+        "kind=form",
+        "ui-reference/preferences.md"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/screens/observation-input.md"
+      ],
+      "acceptance": "loading / empty / error / ok の4状態 · 主ボタン1 · 3クリック以内（観測入力）"
+    },
+    {
+      "slice_id": "05-MICRO-screen-003",
+      "owner": "tier-a",
+      "type": "screen-state",
+      "inputs": [
+        "/observation/confirm",
+        "kind=confirm",
+        "ui-reference/preferences.md"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/screens/observation-confirm.md"
+      ],
+      "acceptance": "loading / empty / error / ok の4状態 · 主ボタン1 · 3クリック以内（観測 confirm（binding moment））"
+    },
+    {
+      "slice_id": "05-MICRO-screen-004",
+      "owner": "tier-a",
+      "type": "screen-state",
+      "inputs": [
+        "/observation/[capture_id]",
+        "kind=detail",
+        "ui-reference/preferences.md"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/screens/observation-capture-id.md"
+      ],
+      "acceptance": "loading / empty / error / ok の4状態 · 主ボタン1 · 3クリック以内（観測詳細）"
+    },
+    {
+      "slice_id": "05-MICRO-revrtm-001",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM unit",
+        "32 行",
+        "UT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/05-観測/逆RTM-v1.csv"
+      ],
+      "acceptance": "UT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "05-MICRO-revrtm-002",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM integration",
+        "18 行",
+        "IT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/05-観測/逆RTM-v1.csv"
+      ],
+      "acceptance": "IT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "05-MICRO-revrtm-003",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM system",
+        "14 行",
+        "ST-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/05-観測/逆RTM-v1.csv"
+      ],
+      "acceptance": "ST-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "05-MICRO-revrtm-004",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM acceptance",
+        "53 行",
+        "UAT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/05-観測/逆RTM-v1.csv"
+      ],
+      "acceptance": "UAT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "05-MICRO-fr-001",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-SOL-01",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-sol-01.md"
+      ],
+      "acceptance": "OBS-SOL-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-002",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-SOL-02",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-sol-02.md"
+      ],
+      "acceptance": "OBS-SOL-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-003",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-SOL-03",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-sol-03.md"
+      ],
+      "acceptance": "OBS-SOL-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-004",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-SOL-04",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-sol-04.md"
+      ],
+      "acceptance": "OBS-SOL-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-005",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-SOL-05",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-sol-05.md"
+      ],
+      "acceptance": "OBS-SOL-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-006",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-SOL-06",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-sol-06.md"
+      ],
+      "acceptance": "OBS-SOL-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-007",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-SOL-07",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-sol-07.md"
+      ],
+      "acceptance": "OBS-SOL-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-008",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-SOL-08",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-sol-08.md"
+      ],
+      "acceptance": "OBS-SOL-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-009",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-ENV-01",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-env-01.md"
+      ],
+      "acceptance": "OBS-ENV-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-010",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-ENV-02",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-env-02.md"
+      ],
+      "acceptance": "OBS-ENV-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-011",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-ENV-03",
+        "RTM status=xref"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-env-03.md"
+      ],
+      "acceptance": "OBS-ENV-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-012",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-ENV-04",
+        "RTM status=xref"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-env-04.md"
+      ],
+      "acceptance": "OBS-ENV-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-013",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-ENV-05",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-env-05.md"
+      ],
+      "acceptance": "OBS-ENV-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-014",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-ENV-06",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-env-06.md"
+      ],
+      "acceptance": "OBS-ENV-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-015",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-DIG-01",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-dig-01.md"
+      ],
+      "acceptance": "OBS-DIG-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-016",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-DIG-02",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-dig-02.md"
+      ],
+      "acceptance": "OBS-DIG-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-017",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-DIG-03",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-dig-03.md"
+      ],
+      "acceptance": "OBS-DIG-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-018",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-DIG-04",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-dig-04.md"
+      ],
+      "acceptance": "OBS-DIG-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-019",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-R2-01",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-r2-01.md"
+      ],
+      "acceptance": "OBS-R2-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-020",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-R2-02",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-r2-02.md"
+      ],
+      "acceptance": "OBS-R2-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-021",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-R2-03",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-r2-03.md"
+      ],
+      "acceptance": "OBS-R2-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-022",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-R2-04",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-r2-04.md"
+      ],
+      "acceptance": "OBS-R2-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-023",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-R2-05",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-r2-05.md"
+      ],
+      "acceptance": "OBS-R2-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-024",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-TAX-01",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-tax-01.md"
+      ],
+      "acceptance": "OBS-TAX-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-025",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-TAX-02",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-tax-02.md"
+      ],
+      "acceptance": "OBS-TAX-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-026",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-TAX-03",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-tax-03.md"
+      ],
+      "acceptance": "OBS-TAX-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-027",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-TAX-04",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-tax-04.md"
+      ],
+      "acceptance": "OBS-TAX-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-028",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-TAX-05",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-tax-05.md"
+      ],
+      "acceptance": "OBS-TAX-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-029",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-TAX-06",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-tax-06.md"
+      ],
+      "acceptance": "OBS-TAX-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-030",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-TAX-07",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-tax-07.md"
+      ],
+      "acceptance": "OBS-TAX-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-031",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-REP-01",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rep-01.md"
+      ],
+      "acceptance": "OBS-REP-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-032",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-REP-02",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rep-02.md"
+      ],
+      "acceptance": "OBS-REP-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-033",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-REP-04",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rep-04.md"
+      ],
+      "acceptance": "OBS-REP-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-034",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-REP-05",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rep-05.md"
+      ],
+      "acceptance": "OBS-REP-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-035",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-REP-06",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rep-06.md"
+      ],
+      "acceptance": "OBS-REP-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-036",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-REP-08",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rep-08.md"
+      ],
+      "acceptance": "OBS-REP-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-037",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-REP-IHL-01",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rep-ihl-01.md"
+      ],
+      "acceptance": "OBS-REP-IHL-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-038",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-REP-IHL-02",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rep-ihl-02.md"
+      ],
+      "acceptance": "OBS-REP-IHL-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-039",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-TAG-01",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-tag-01.md"
+      ],
+      "acceptance": "OBS-TAG-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-040",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RAG-01",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rag-01.md"
+      ],
+      "acceptance": "OBS-RAG-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-041",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-DRV-01",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-drv-01.md"
+      ],
+      "acceptance": "OBS-DRV-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-042",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-IMG-04",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-img-04.md"
+      ],
+      "acceptance": "OBS-IMG-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-043",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-IMG-05",
+        "RTM status=xref"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-img-05.md"
+      ],
+      "acceptance": "OBS-IMG-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-044",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-TPL-03",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-tpl-03.md"
+      ],
+      "acceptance": "OBS-TPL-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-045",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-TPL-04",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-tpl-04.md"
+      ],
+      "acceptance": "OBS-TPL-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-046",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-TPL-05",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-tpl-05.md"
+      ],
+      "acceptance": "OBS-TPL-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-047",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-TPL-06",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-tpl-06.md"
+      ],
+      "acceptance": "OBS-TPL-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-048",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-TPL-16",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-tpl-16.md"
+      ],
+      "acceptance": "OBS-TPL-16 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-049",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-TPL-17",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-tpl-17.md"
+      ],
+      "acceptance": "OBS-TPL-17 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-050",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-CTX-01",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-ctx-01.md"
+      ],
+      "acceptance": "OBS-CTX-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-051",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-CTX-02",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-ctx-02.md"
+      ],
+      "acceptance": "OBS-CTX-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-052",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-TGT-04",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-tgt-04.md"
+      ],
+      "acceptance": "OBS-TGT-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-053",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-TGT-09",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-tgt-09.md"
+      ],
+      "acceptance": "OBS-TGT-09 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-054",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-NF-01",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-nf-01.md"
+      ],
+      "acceptance": "OBS-NF-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-055",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-NF-02",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-nf-02.md"
+      ],
+      "acceptance": "OBS-NF-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-056",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-NF-03",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-nf-03.md"
+      ],
+      "acceptance": "OBS-NF-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-057",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-NF-04",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-nf-04.md"
+      ],
+      "acceptance": "OBS-NF-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-058",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-NF-05",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-nf-05.md"
+      ],
+      "acceptance": "OBS-NF-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-059",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-NF-08",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-nf-08.md"
+      ],
+      "acceptance": "OBS-NF-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-060",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-NF-09",
+        "RTM status=human"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-nf-09.md"
+      ],
+      "acceptance": "OBS-NF-09 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-061",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-FUP-01",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-fup-01.md"
+      ],
+      "acceptance": "OBS-FUP-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-062",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-FUP-02",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-fup-02.md"
+      ],
+      "acceptance": "OBS-FUP-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-063",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-FUP-03",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-fup-03.md"
+      ],
+      "acceptance": "OBS-FUP-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-064",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-FUP-04",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-fup-04.md"
+      ],
+      "acceptance": "OBS-FUP-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-065",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-FUP-05",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-fup-05.md"
+      ],
+      "acceptance": "OBS-FUP-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-066",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-FUP-06",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-fup-06.md"
+      ],
+      "acceptance": "OBS-FUP-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-067",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-FUP-07",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-fup-07.md"
+      ],
+      "acceptance": "OBS-FUP-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-068",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-FUP-08",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-fup-08.md"
+      ],
+      "acceptance": "OBS-FUP-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-069",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-FUP-09",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-fup-09.md"
+      ],
+      "acceptance": "OBS-FUP-09 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-070",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-FUP-10",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-fup-10.md"
+      ],
+      "acceptance": "OBS-FUP-10 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-071",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-FUP-11",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-fup-11.md"
+      ],
+      "acceptance": "OBS-FUP-11 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-072",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-UX-01",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-ux-01.md"
+      ],
+      "acceptance": "OBS-RX-UX-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-073",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-UX-02",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-ux-02.md"
+      ],
+      "acceptance": "OBS-RX-UX-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-074",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-UX-03",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-ux-03.md"
+      ],
+      "acceptance": "OBS-RX-UX-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-075",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-UX-04",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-ux-04.md"
+      ],
+      "acceptance": "OBS-RX-UX-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-076",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-UX-05",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-ux-05.md"
+      ],
+      "acceptance": "OBS-RX-UX-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-077",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-UX-06",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-ux-06.md"
+      ],
+      "acceptance": "OBS-RX-UX-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-078",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-UX-07",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-ux-07.md"
+      ],
+      "acceptance": "OBS-RX-UX-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-079",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-UX-08",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-ux-08.md"
+      ],
+      "acceptance": "OBS-RX-UX-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-080",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-UX-09",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-ux-09.md"
+      ],
+      "acceptance": "OBS-RX-UX-09 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-081",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-UX-10",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-ux-10.md"
+      ],
+      "acceptance": "OBS-RX-UX-10 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-082",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-UX-11",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-ux-11.md"
+      ],
+      "acceptance": "OBS-RX-UX-11 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-083",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-RD-01",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-rd-01.md"
+      ],
+      "acceptance": "OBS-RX-RD-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-084",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-RD-02",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-rd-02.md"
+      ],
+      "acceptance": "OBS-RX-RD-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-085",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-RD-03",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-rd-03.md"
+      ],
+      "acceptance": "OBS-RX-RD-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-086",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-RD-04",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-rd-04.md"
+      ],
+      "acceptance": "OBS-RX-RD-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-087",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-RD-05",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-rd-05.md"
+      ],
+      "acceptance": "OBS-RX-RD-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-088",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-RD-06",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-rd-06.md"
+      ],
+      "acceptance": "OBS-RX-RD-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-089",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-RD-07",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-rd-07.md"
+      ],
+      "acceptance": "OBS-RX-RD-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-090",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-RD-08",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-rd-08.md"
+      ],
+      "acceptance": "OBS-RX-RD-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-091",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-RD-09",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-rd-09.md"
+      ],
+      "acceptance": "OBS-RX-RD-09 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-092",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-RD-10",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-rd-10.md"
+      ],
+      "acceptance": "OBS-RX-RD-10 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-093",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-RD-11",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-rd-11.md"
+      ],
+      "acceptance": "OBS-RX-RD-11 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-094",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-REP-04",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-rep-04.md"
+      ],
+      "acceptance": "OBS-RX-REP-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-095",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-REP-05",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-rep-05.md"
+      ],
+      "acceptance": "OBS-RX-REP-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-096",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-RX-REP-07",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-rx-rep-07.md"
+      ],
+      "acceptance": "OBS-RX-REP-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-097",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-INPUT-01",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-input-01.md"
+      ],
+      "acceptance": "OBS-INPUT-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-098",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-INPUT-02",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-input-02.md"
+      ],
+      "acceptance": "OBS-INPUT-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-099",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-INPUT-03",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-input-03.md"
+      ],
+      "acceptance": "OBS-INPUT-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-100",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-INPUT-04",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-input-04.md"
+      ],
+      "acceptance": "OBS-INPUT-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-101",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-INPUT-05",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-input-05.md"
+      ],
+      "acceptance": "OBS-INPUT-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-102",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-INPUT-06",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-input-06.md"
+      ],
+      "acceptance": "OBS-INPUT-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-103",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-INPUT-07",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-input-07.md"
+      ],
+      "acceptance": "OBS-INPUT-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-104",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-PHOTO-01",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-photo-01.md"
+      ],
+      "acceptance": "OBS-PHOTO-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "05-MICRO-fr-105",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/05-観測.md OBS-TPL-18",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/05-観測/slices/fr/obs-tpl-18.md"
+      ],
+      "acceptance": "OBS-TPL-18 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    }
+  ]
+}

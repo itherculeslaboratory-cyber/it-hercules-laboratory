@@ -1,0 +1,23 @@
+# 逆RTM v1 — feature #20 投票（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 20 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UAT-20-01,unit,pytest,1,FR-20-02,existing
+UAT-20-04,unit,pytest,1,FR-20-02,existing
+UT-20-01,unit,pytest,1,NFR-20-02,existing
+UT-20-02,unit,pytest,1,FR-20-02,existing
+UT-20-04,unit,pytest,1,FR-20-01,partial
+UT-20-05,unit,pytest,1,FR-20-04,gap
+IT-20-01,integration,pytest,1,FR-20-04,gap
+IT-20-02,integration,pytest,1,NFR-20-02,existing
+IT-20-03,integration,pytest,1,FR-20-09,xref
+IT-20-04,integration,pytest,1,FR-20-10,xref
+ST-20-01,system,pytest,1,NFR-20-02,existing
+ST-20-03,system,pytest,1,FR-20-05,gap
+ST-20-04,system,pytest,1,NFR-20-05,partial
+ST-20-05,system,pytest,5,FR-20-03 FR-20-06 FR-20-07 FR-20-08 NFR-20-03,xref doc gap
+UAT-20-03,uat,pytest,2,FR-20-01 NFR-20-01,partial doc
+UAT-20-05,uat,pytest,1,FR-20-09,xref
+UAT-20-06,uat,review,2,NFR-20-04 NFR-20-06,doc deferred
+UAT-20-07,uat,pytest,1,FR-20-05,gap
+UT-20-03,uat,pytest,1,FR-20-02,existing

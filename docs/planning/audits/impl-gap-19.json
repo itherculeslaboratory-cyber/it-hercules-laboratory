@@ -1,0 +1,53 @@
+{
+  "id": "19",
+  "name": "コンポ掲示板",
+  "reqIdCount": 13,
+  "apiRoutes": [
+    "/api/v1/component-board",
+    "/api/v1/board/categories",
+    "/api/v1/board/{category}/threads",
+    "/api/v1/board/{category}/threads/{thread_id}/posts",
+    "/api/v1/onboarding",
+    "/complete",
+    "/status"
+  ],
+  "webRoutes": [
+    "/observation",
+    "/observation/[id]",
+    "/observation/context",
+    "/observation/done",
+    "/observation/input",
+    "/observation/input/confirm",
+    "/observation/solid",
+    "/observation/templates",
+    "/observation/templates/[id]",
+    "/observation/templates/[id]/fork"
+  ],
+  "implGaps": [
+    {
+      "id": "IMPL-GAP-19-API-1",
+      "kind": "api_route",
+      "surface": "/api/v1/component-board",
+      "suggest": "DET-v3-§3"
+    },
+    {
+      "id": "IMPL-GAP-19-API-2",
+      "kind": "api_route",
+      "surface": "/api/v1/onboarding",
+      "suggest": "DET-v3-§3"
+    },
+    {
+      "id": "IMPL-GAP-19-API-3",
+      "kind": "api_route",
+      "surface": "/complete",
+      "suggest": "DET-v3-§3"
+    },
+    {
+      "id": "IMPL-GAP-19-API-4",
+      "kind": "api_route",
+      "surface": "/status",
+      "suggest": "DET-v3-§3"
+    }
+  ],
+  "gapCount": 4
+}

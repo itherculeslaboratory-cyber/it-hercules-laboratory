@@ -1,0 +1,24 @@
+# 逆RTM v1 — feature #11 裁判（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 11 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UT-11-01,unit,pytest,2,FR-DSP-03 FR-DSP-04,existing
+UT-11-03,unit,pytest,1,FR-DSP-12,partial
+UT-11-04,unit,pytest,1,FR-DSP-14,existing
+UT-11-05,unit,pytest,1,FR-DSP-18,partial
+UT-11-06,unit,pytest,1,NFR-DSP-01,existing
+IT-11-01,integration,pytest,1,FR-DSP-03,existing
+IT-11-03,integration,pytest,1,FR-DSP-12,partial
+IT-11-04,integration,pytest,1,FR-DSP-05,gap
+IT-11-05,integration,pytest,1,FR-DSP-21,xref
+ST-11-02,system,pytest,2,FR-DSP-14 NFR-DSP-02,existing
+ST-11-03,system,pytest,1,NFR-DSP-01,existing
+ST-11-LINT-06,system,pytest,1,NFR-DSP-04,partial
+UAT-11-02,uat,pytest,2,FR-DSP-04 FR-DSP-11,existing xref
+UAT-11-04,uat,review,1,NFR-DSP-05,doc
+UAT-11-05,uat,pytest,2,FR-DSP-01 FR-DSP-02,gap
+UAT-11-06,uat,pytest,3,FR-DSP-08 FR-DSP-09 NFR-DSP-03,gap xref
+UAT-11-07,uat,pytest,2,FR-DSP-10 FR-DSP-16,xref gap
+UAT-11-08,uat,review,3,FR-DSP-13 FR-DSP-15 FR-DSP-19,doc xref
+UAT-11-09,uat,pytest,1,FR-DSP-20,HUMAN
+UAT-11-10,uat,pytest,3,FR-DSP-06 FR-DSP-07 FR-DSP-17,gap

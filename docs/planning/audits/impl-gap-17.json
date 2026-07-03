@@ -1,0 +1,29 @@
+{
+  "id": "17",
+  "name": "UI選択",
+  "reqIdCount": 12,
+  "apiRoutes": [
+    "/api/v1/settings"
+  ],
+  "webRoutes": [
+    "/observation",
+    "/observation/[id]",
+    "/observation/context",
+    "/observation/done",
+    "/observation/input",
+    "/observation/input/confirm",
+    "/observation/solid",
+    "/observation/templates",
+    "/observation/templates/[id]",
+    "/observation/templates/[id]/fork"
+  ],
+  "implGaps": [
+    {
+      "id": "IMPL-GAP-17-API-1",
+      "kind": "api_route",
+      "surface": "/api/v1/settings",
+      "suggest": "DET-v3-§3"
+    }
+  ],
+  "gapCount": 1
+}

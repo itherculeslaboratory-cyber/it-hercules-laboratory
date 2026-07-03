@@ -1,0 +1,20 @@
+# 逆RTM v1 — feature #04 ホーム（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 04 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UT-04-01,unit,pytest,2,H-011 NF-H-08,existing
+UT-04-02,unit,pytest,1,H-020,existing
+UT-04-03,unit,pytest,1,NF-H-01,planned
+UT-04-04,unit,pytest,1,H-021,planned
+UT-04-05,unit,pytest,1,H-030,planned
+UT-04-06,unit,pytest,1,NF-H-03,planned
+IT-04-01,integration,pytest,3,H-010 H-014 NF-H-06,existing review
+IT-04-03,integration,pytest,1,H-032,planned
+ST-04-01,system,manual,1,H-001,xref
+ST-04-02,system,manual,1,NF-H-02,review
+ST-04-04,system,manual,1,NF-H-04,review
+ST-04-06,system,manual,1,NF-H-07,review
+UAT-04-01,acceptance,review,1,NF-H-09,review
+UAT-04-03,acceptance,review,9,H-002 H-012 H-013 H-022 H-050 H-051 H-070 H-071 H-072,deferred gap
+UAT-04-04,acceptance,manual,1,NF-H-05,review
+UAT-04-06,acceptance,review,9,H-031 H-033 H-040 H-041 H-042 H-043 H-044 H-060 H-061,gap deferred

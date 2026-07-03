@@ -1,0 +1,61 @@
+# IHL 契約レジスタ v0 — 自動生成（正本: apps/api/routes/*.py）
+# 生成: node scripts/ihl-contract-oracle.mjs --feature 23 --write
+# 検証: node scripts/ihl-contract-oracle.mjs --feature 23 --check
+# 手編集禁止（DET §3.9 表と DET diff GATE で突き合わせる）
+feature_id: "23"
+feature_name: "GMO 振込"
+generated: "2026-07-03"
+oracle_version: "v0"
+source_files:
+  - "apps/api/routes/gmo.py"
+golden_fixtures_dir: "fixtures/oracle/"
+route_count: 6
+routes:
+  - method: GET
+    path: "/api/v1/gmo/reconciliation/meta"
+    path_normalized: "/api/v1/gmo/reconciliation/meta"
+    handler: reconciliation_meta
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/gmo.py"
+  - method: GET
+    path: "/api/v1/gmo/transfer-code"
+    path_normalized: "/api/v1/gmo/transfer-code"
+    handler: transfer_code
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/gmo.py"
+  - method: GET
+    path: "/api/v1/gmo/va-deposit/unsent"
+    path_normalized: "/api/v1/gmo/va-deposit/unsent"
+    handler: va_deposit_unsent
+    auth: public
+    success_status: 200
+    errors: [502, 503]
+    source_file: "apps/api/routes/gmo.py"
+  - method: POST
+    path: "/api/v1/gmo/expected-payment"
+    path_normalized: "/api/v1/gmo/expected-payment"
+    handler: expected_payment
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/gmo.py"
+  - method: POST
+    path: "/api/v1/gmo/va-deposit/subscribe"
+    path_normalized: "/api/v1/gmo/va-deposit/subscribe"
+    handler: va_deposit_subscribe
+    auth: public
+    success_status: 200
+    errors: [502, 503]
+    source_file: "apps/api/routes/gmo.py"
+  - method: POST
+    path: "/api/v1/gmo/webhook"
+    path_normalized: "/api/v1/gmo/webhook"
+    handler: gmo_webhook
+    auth: public
+    success_status: 202
+    errors: [401]
+    source_file: "apps/api/routes/gmo.py"

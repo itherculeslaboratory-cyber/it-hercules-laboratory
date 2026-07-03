@@ -1,0 +1,43 @@
+{
+  "id": "06",
+  "name": "マーケット",
+  "prefix": "06-マーケット",
+  "paths": {
+    "req": ".\\01-要件\\06-マーケット.md",
+    "detV2": ".\\02-設計\\features\\06-マーケット\\詳細設計-v2.md",
+    "detV3": ".\\02-設計\\features\\06-マーケット\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\06-マーケット\\RTM-v1.csv"
+  },
+  "lineCounts": {
+    "req": 462,
+    "detV2": 226,
+    "detV3": 230,
+    "testPlans": 204,
+    "rtmRows": 21
+  },
+  "reqDetPatternScore": {
+    "api_paths": 5,
+    "data_testid": 0,
+    "apps_paths": 0,
+    "pytest_refs": 0,
+    "impl_sections": 0,
+    "schema_fields": 0,
+    "total": 5
+  },
+  "depthRatio": 0.489,
+  "reqIdCount": 39,
+  "tcIdCount": 32,
+  "rtm": {
+    "statusDist": {
+      "existing": 6,
+      "planned": 3,
+      "gap": 5,
+      "deferred": 2,
+      "review": 4,
+      "human": 1
+    },
+    "issueCount": 0,
+    "issues": []
+  },
+  "priority": "P2"
+}

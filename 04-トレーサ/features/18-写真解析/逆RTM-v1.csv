@@ -1,0 +1,25 @@
+# 逆RTM v1 — feature #18 写真解析（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 18 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+IT-18-02,unit,pytest,1,FR-18-07,existing
+UT-18-01,unit,pytest,3,FR-18-07 NFR-18-04 NFR-18-07,existing
+UT-18-02,unit,pytest,2,NFR-18-01 NFR-18-07,existing
+UT-18-03,unit,pytest,1,FR-18-02,partial
+UT-18-04,unit,pytest,1,NFR-18-02,existing
+UT-18-06,unit,pytest,2,FR-18-06 FR-18-08,gap
+IT-18-01,integration,pytest,2,FR-18-03 FR-18-11,existing
+IT-18-04,integration,pytest,2,FR-18-01 FR-18-05,gap
+IT-18-05,integration,pytest,1,FR-18-09,partial
+UT-18-05,integration,pytest,2,FR-18-07 NFR-18-07,existing
+ST-18-01,system,pytest,2,NFR-18-01 NFR-18-04,existing
+ST-18-02,system,pytest,1,NFR-18-02,existing
+ST-18-03,system,pytest,2,FR-18-09 FR-18-10,partial
+ST-18-04,system,pytest,1,NFR-18-05,partial
+ST-18-05,system,pytest,3,FR-18-04 NFR-18-03 NFR-18-06,gap doc
+UAT-18-01,uat,pytest,1,FR-18-02,partial
+UAT-18-02,uat,pytest,1,FR-18-03,existing
+UAT-18-03,uat,pytest,1,NFR-18-02,existing
+UAT-18-04,uat,pytest,1,FR-18-11,existing
+UAT-18-06,uat,pytest,1,FR-18-10,partial
+UAT-18-07,uat,pytest,1,NFR-18-06,gap

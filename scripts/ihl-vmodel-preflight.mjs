@@ -22,13 +22,13 @@
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { queueDoc, REPO_ROOT, IHL_ROOT } from '../../../scripts/ihl-path-resolve.mjs';
+import { queueDoc, REPO_ROOT, IHL_ROOT } from './ihl-path-resolve.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const RULES_DIR = join(REPO_ROOT, '.cursor/rules');
 const SCRIPTS_DIR = join(REPO_ROOT, 'scripts');
-const IHL_SCRIPTS_DIR = join(IHL_ROOT, 'scripts');
+const IHL_SCRIPTS_DIR = join(__dirname);
 const AUTOMATION_DIR = join(IHL_ROOT, '05-運用/automation');
 const QUEUES_DIR = join(IHL_ROOT, '05-運用/queues');
 

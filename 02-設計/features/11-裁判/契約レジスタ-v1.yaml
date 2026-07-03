@@ -1,0 +1,37 @@
+# IHL 契約レジスタ v0 — 自動生成（正本: apps/api/routes/*.py）
+# 生成: node scripts/ihl-contract-oracle.mjs --feature 11 --write
+# 検証: node scripts/ihl-contract-oracle.mjs --feature 11 --check
+# 手編集禁止（DET §3.9 表と DET diff GATE で突き合わせる）
+feature_id: "11"
+feature_name: "裁判"
+generated: "2026-07-03"
+oracle_version: "v0"
+source_files:
+  - "apps/api/main.py"
+golden_fixtures_dir: "fixtures/oracle/"
+route_count: 3
+routes:
+  - method: GET
+    path: "/api/v1/dispute/{thread_id}"
+    path_normalized: "/api/v1/dispute/{param}"
+    handler: dispute_room
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/main.py"
+  - method: POST
+    path: "/api/v1/dispute/{thread_id}/messages"
+    path_normalized: "/api/v1/dispute/{param}/messages"
+    handler: dispute_post_message
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/main.py"
+  - method: POST
+    path: "/api/v1/dispute/{thread_id}/open-market"
+    path_normalized: "/api/v1/dispute/{param}/open-market"
+    handler: dispute_open_market
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/main.py"

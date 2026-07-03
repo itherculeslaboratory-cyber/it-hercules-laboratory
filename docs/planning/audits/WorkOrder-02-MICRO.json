@@ -1,0 +1,682 @@
+{
+  "feature_id": "02",
+  "feature_name": "利用規約",
+  "mode": "MICRO",
+  "generated": "2026-07-03",
+  "source_workorder": "WorkOrder-02.json",
+  "target_range": "60-150",
+  "paths": {
+    "req": ".\\01-要件\\02-利用規約.md",
+    "detV3": ".\\02-設計\\features\\02-利用規約\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\02-利用規約\\RTM-v1.csv",
+    "route_files": []
+  },
+  "slice_counts": {
+    "total": 50,
+    "by_type": {
+      "reverse-rtm": 4,
+      "fr-1id": 46
+    },
+    "by_owner": {
+      "auto": 16,
+      "tier-a": 34
+    }
+  },
+  "fr_slices_truncated": 0,
+  "slices": [
+    {
+      "slice_id": "02-MICRO-revrtm-001",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM unit",
+        "6 行",
+        "UT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/02-利用規約/逆RTM-v1.csv"
+      ],
+      "acceptance": "UT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "02-MICRO-revrtm-002",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM integration",
+        "10 行",
+        "IT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/02-利用規約/逆RTM-v1.csv"
+      ],
+      "acceptance": "IT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "02-MICRO-revrtm-003",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM system",
+        "2 行",
+        "ST-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/02-利用規約/逆RTM-v1.csv"
+      ],
+      "acceptance": "ST-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "02-MICRO-revrtm-004",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM acceptance",
+        "42 行",
+        "UAT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/02-利用規約/逆RTM-v1.csv"
+      ],
+      "acceptance": "UAT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "02-MICRO-fr-001",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-01",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-01.md"
+      ],
+      "acceptance": "FR-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-002",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-02",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-02.md"
+      ],
+      "acceptance": "FR-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-003",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-03",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-03.md"
+      ],
+      "acceptance": "FR-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-004",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-04",
+        "RTM status=human"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-04.md"
+      ],
+      "acceptance": "FR-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-005",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-05",
+        "RTM status=human"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-05.md"
+      ],
+      "acceptance": "FR-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-006",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-06",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-06.md"
+      ],
+      "acceptance": "FR-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-007",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-10",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-10.md"
+      ],
+      "acceptance": "FR-10 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-008",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-11",
+        "RTM status=xref"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-11.md"
+      ],
+      "acceptance": "FR-11 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-009",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-12",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-12.md"
+      ],
+      "acceptance": "FR-12 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-010",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-13",
+        "RTM status=xref"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-13.md"
+      ],
+      "acceptance": "FR-13 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-011",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-14",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-14.md"
+      ],
+      "acceptance": "FR-14 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-012",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-15",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-15.md"
+      ],
+      "acceptance": "FR-15 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-013",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-16",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-16.md"
+      ],
+      "acceptance": "FR-16 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-014",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-20",
+        "RTM status=xref"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-20.md"
+      ],
+      "acceptance": "FR-20 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-015",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-21",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-21.md"
+      ],
+      "acceptance": "FR-21 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-016",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-22",
+        "RTM status=xref"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-22.md"
+      ],
+      "acceptance": "FR-22 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-017",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-30",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-30.md"
+      ],
+      "acceptance": "FR-30 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-018",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-31",
+        "RTM status=human"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-31.md"
+      ],
+      "acceptance": "FR-31 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-019",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-LEGAL-01",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-legal-01.md"
+      ],
+      "acceptance": "FR-LEGAL-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-020",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-LEGAL-02",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-legal-02.md"
+      ],
+      "acceptance": "FR-LEGAL-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-021",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-LEGAL-03",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-legal-03.md"
+      ],
+      "acceptance": "FR-LEGAL-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-022",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-EASY-01",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-easy-01.md"
+      ],
+      "acceptance": "FR-EASY-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-023",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-EASY-02",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-easy-02.md"
+      ],
+      "acceptance": "FR-EASY-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-024",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-EASY-03",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-easy-03.md"
+      ],
+      "acceptance": "FR-EASY-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-025",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-VIDEO-01",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-video-01.md"
+      ],
+      "acceptance": "FR-VIDEO-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-026",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-VIDEO-02",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-video-02.md"
+      ],
+      "acceptance": "FR-VIDEO-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-027",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-VIDEO-03",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-video-03.md"
+      ],
+      "acceptance": "FR-VIDEO-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-028",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-RESOLVER-01",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-resolver-01.md"
+      ],
+      "acceptance": "FR-RESOLVER-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-029",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-RESOLVER-02",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-resolver-02.md"
+      ],
+      "acceptance": "FR-RESOLVER-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-030",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-RESOLVER-03",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-resolver-03.md"
+      ],
+      "acceptance": "FR-RESOLVER-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-031",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-RESOLVER-04",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-resolver-04.md"
+      ],
+      "acceptance": "FR-RESOLVER-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-032",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-UX-01",
+        "RTM status=xref"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-ux-01.md"
+      ],
+      "acceptance": "FR-UX-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-033",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-UX-02",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-ux-02.md"
+      ],
+      "acceptance": "FR-UX-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-034",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-UX-03",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-ux-03.md"
+      ],
+      "acceptance": "FR-UX-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-035",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-UX-04",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-ux-04.md"
+      ],
+      "acceptance": "FR-UX-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-036",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md FR-UX-05",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/fr-ux-05.md"
+      ],
+      "acceptance": "FR-UX-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-037",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md NFR-01",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/nfr-01.md"
+      ],
+      "acceptance": "NFR-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-038",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md NFR-02",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/nfr-02.md"
+      ],
+      "acceptance": "NFR-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-039",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md NFR-03",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/nfr-03.md"
+      ],
+      "acceptance": "NFR-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-040",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md NFR-04",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/nfr-04.md"
+      ],
+      "acceptance": "NFR-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-041",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md NFR-05",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/nfr-05.md"
+      ],
+      "acceptance": "NFR-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-042",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md NFR-06",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/nfr-06.md"
+      ],
+      "acceptance": "NFR-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-043",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md NFR-EASY-01",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/nfr-easy-01.md"
+      ],
+      "acceptance": "NFR-EASY-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-044",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md NFR-VIDEO-01",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/nfr-video-01.md"
+      ],
+      "acceptance": "NFR-VIDEO-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-045",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md NFR-RESOLVER-01",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/nfr-resolver-01.md"
+      ],
+      "acceptance": "NFR-RESOLVER-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "02-MICRO-fr-046",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/02-利用規約.md NFR-UX-01",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/02-利用規約/slices/fr/nfr-ux-01.md"
+      ],
+      "acceptance": "NFR-UX-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    }
+  ]
+}

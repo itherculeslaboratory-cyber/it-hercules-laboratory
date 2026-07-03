@@ -1,0 +1,144 @@
+{
+  "id": "18",
+  "name": "写真解析",
+  "prefix": "18-写真解析",
+  "paths": {
+    "req": ".\\01-要件\\18-写真解析.md",
+    "detV2": ".\\02-設計\\features\\18-写真解析\\詳細設計-v2.md",
+    "detV3": ".\\02-設計\\features\\18-写真解析\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\18-写真解析\\RTM-v1.csv"
+  },
+  "lineCounts": {
+    "req": 227,
+    "detV2": 208,
+    "detV3": 0,
+    "testPlans": 142,
+    "rtmRows": 18
+  },
+  "reqDetPatternScore": {
+    "api_paths": 4,
+    "data_testid": 0,
+    "apps_paths": 0,
+    "pytest_refs": 1,
+    "impl_sections": 0,
+    "schema_fields": 0,
+    "total": 5
+  },
+  "depthRatio": 0.916,
+  "reqIdCount": 18,
+  "tcIdCount": 24,
+  "rtm": {
+    "statusDist": {
+      "(solidObservation.ts)": 1,
+      "apps/api/main.py:photo_analysis_result": 2,
+      "apps/api/main.py:photo_analysis_approve": 1,
+      "(solidObservation LabelMe)": 1,
+      "(buildSolidObservationReanalysisManifest)": 1,
+      "(thumbnail_builder)": 1,
+      "components/embedding_builder/run.py": 2,
+      "(qc_builder)": 1,
+      "apps/search/app.py": 1,
+      "libs/ihl/observation/scoring.py": 1,
+      "libs/ihl/core/event_store.py:write_tag_event": 1,
+      "libs/r2_io.py": 1,
+      "schema-pack-v1.md": 1,
+      "apps/web/src/app/component/photo-analysis": 1,
+      "docs/solid-vision-backends.md": 1,
+      "tests/unit/test_embedding_builder.py": 1
+    },
+    "issueCount": 18,
+    "issues": [
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-18-01",
+        "test_case_id": "詳細設計-v2 §2.1/§3.4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-18-02",
+        "test_case_id": "詳細設計-v2 §3.4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-18-03",
+        "test_case_id": "詳細設計-v2 §4/§3.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-18-04",
+        "test_case_id": "詳細設計-v2 §1.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-18-05",
+        "test_case_id": "詳細設計-v2 §1.2/§3.4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-18-06",
+        "test_case_id": "詳細設計-v2 §2.4/§5"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-18-07",
+        "test_case_id": "詳細設計-v2 §2.2/§3.3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-18-08",
+        "test_case_id": "詳細設計-v2 §2.4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-18-09",
+        "test_case_id": "詳細設計-v2 §2.4/§5"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-18-10",
+        "test_case_id": "詳細設計-v2 §5"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-18-11",
+        "test_case_id": "詳細設計-v2 §2.3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-18-01",
+        "test_case_id": "詳細設計-v2 §6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-18-02",
+        "test_case_id": "詳細設計-v2 §6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-18-03",
+        "test_case_id": "詳細設計-v2 §2.1"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-18-04",
+        "test_case_id": "詳細設計-v2 §5/§6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-18-05",
+        "test_case_id": "詳細設計-v2 §6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-18-06",
+        "test_case_id": "詳細設計-v2 §4/§6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-18-07",
+        "test_case_id": "詳細設計-v2 §6"
+      }
+    ]
+  },
+  "priority": "P1"
+}

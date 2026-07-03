@@ -1,0 +1,159 @@
+{
+  "id": "21",
+  "name": "翻訳",
+  "prefix": "21-翻訳",
+  "paths": {
+    "req": ".\\01-要件\\21-翻訳-言語.md",
+    "detV2": ".\\02-設計\\features\\21-翻訳\\詳細設計-v2.md",
+    "detV3": ".\\02-設計\\features\\21-翻訳\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\21-翻訳\\RTM-v1.csv"
+  },
+  "lineCounts": {
+    "req": 272,
+    "detV2": 165,
+    "detV3": 0,
+    "testPlans": 82,
+    "rtmRows": 23
+  },
+  "reqDetPatternScore": {
+    "api_paths": 6,
+    "data_testid": 0,
+    "apps_paths": 0,
+    "pytest_refs": 0,
+    "impl_sections": 0,
+    "schema_fields": 0,
+    "total": 6
+  },
+  "depthRatio": 0.607,
+  "reqIdCount": 25,
+  "tcIdCount": 19,
+  "rtm": {
+    "statusDist": {
+      "apps/api onboarding": 1,
+      "#03 onboarding UI": 1,
+      "#03 setup-profile": 1,
+      "web onboarding": 1,
+      "#12 preferences": 1,
+      "routes/me.py PATCH": 1,
+      "#12 UI": 2,
+      "session": 1,
+      "preferences+i18n": 1,
+      "libs/ihl/i18n/i18n_catalog.py": 1,
+      "i18n_catalog": 1,
+      "#16 UIbuilder": 1,
+      "board/dispute meta": 1,
+      "client transform": 1,
+      "ugc view": 1,
+      "#11 dispute": 1,
+      "#11 UI": 1,
+      "client": 2,
+      "#02 ToS": 1,
+      "display layer": 1,
+      "ci scripts": 1
+    },
+    "issueCount": 23,
+    "issues": [
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-I18N-REG-01",
+        "test_case_id": "詳細設計-v2 §2.1"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-I18N-REG-02",
+        "test_case_id": "詳細設計-v2 §2.1"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-I18N-REG-03",
+        "test_case_id": "詳細設計-v2 §3.3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-I18N-REG-04",
+        "test_case_id": "詳細設計-v2 §2.1"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-I18N-SET-01",
+        "test_case_id": "詳細設計-v2 §3.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-I18N-SET-02",
+        "test_case_id": "詳細設計-v2 §3.3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-I18N-SET-03",
+        "test_case_id": "詳細設計-v2 §5"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-I18N-SET-04",
+        "test_case_id": "詳細設計-v2 §2.1"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-I18N-UI-01",
+        "test_case_id": "詳細設計-v2 §3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-I18N-UI-02",
+        "test_case_id": "詳細設計-v2 §2.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-I18N-UI-03",
+        "test_case_id": "詳細設計-v2 §2.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-I18N-UI-04",
+        "test_case_id": "詳細設計-v2 §4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-I18N-UGC-01",
+        "test_case_id": "詳細設計-v2 §2.3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-I18N-UGC-02",
+        "test_case_id": "詳細設計-v2 §2.3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-I18N-UGC-03",
+        "test_case_id": "詳細設計-v2 §2.3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-I18N-UGC-04",
+        "test_case_id": "詳細設計-v2 §2.3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-I18N-UGC-05",
+        "test_case_id": "詳細設計-v2 §4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-I18N-01",
+        "test_case_id": "詳細設計-v2 §5"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-I18N-02",
+        "test_case_id": "詳細設計-v2 §5"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-I18N-03",
+        "test_case_id": "詳細設計-v2 §5"
+      }
+    ]
+  },
+  "priority": "P1"
+}

@@ -1,0 +1,369 @@
+{
+  "feature_id": "10",
+  "feature_name": "マチアプ",
+  "mode": "MICRO",
+  "generated": "2026-07-03",
+  "source_workorder": "WorkOrder-10.json",
+  "target_range": "60-150",
+  "paths": {
+    "req": ".\\01-要件\\10-マチアプ.md",
+    "detV3": ".\\02-設計\\features\\10-マチアプ\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\10-マチアプ\\RTM-v1.csv",
+    "route_files": []
+  },
+  "slice_counts": {
+    "total": 26,
+    "by_type": {
+      "reverse-rtm": 4,
+      "fr-1id": 22
+    },
+    "by_owner": {
+      "auto": 26
+    }
+  },
+  "fr_slices_truncated": 0,
+  "slices": [
+    {
+      "slice_id": "10-MICRO-revrtm-001",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM unit",
+        "0 行",
+        "UT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/10-マチアプ/逆RTM-v1.csv"
+      ],
+      "acceptance": "UT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "10-MICRO-revrtm-002",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM integration",
+        "0 行",
+        "IT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/10-マチアプ/逆RTM-v1.csv"
+      ],
+      "acceptance": "IT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "10-MICRO-revrtm-003",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM system",
+        "0 行",
+        "ST-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/10-マチアプ/逆RTM-v1.csv"
+      ],
+      "acceptance": "ST-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "10-MICRO-revrtm-004",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM acceptance",
+        "0 行",
+        "UAT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/10-マチアプ/逆RTM-v1.csv"
+      ],
+      "acceptance": "UAT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "10-MICRO-fr-001",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md FR-MCH-01",
+        "RTM status=(legacy TS)"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/fr-mch-01.md"
+      ],
+      "acceptance": "FR-MCH-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-002",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md FR-MCH-02",
+        "RTM status=apps/api/main.py:match_vote"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/fr-mch-02.md"
+      ],
+      "acceptance": "FR-MCH-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-003",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md FR-MCH-03",
+        "RTM status=(legacy TS)"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/fr-mch-03.md"
+      ],
+      "acceptance": "FR-MCH-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-004",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md FR-MCH-04",
+        "RTM status=(未移植)"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/fr-mch-04.md"
+      ],
+      "acceptance": "FR-MCH-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-005",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md FR-MCH-05",
+        "RTM status=libs/ihl/core/event_store.py:write_preference_event"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/fr-mch-05.md"
+      ],
+      "acceptance": "FR-MCH-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-006",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md FR-MCH-06",
+        "RTM status=(検索基盤)"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/fr-mch-06.md"
+      ],
+      "acceptance": "FR-MCH-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-007",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md FR-MCH-07",
+        "RTM status=(検索基盤)"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/fr-mch-07.md"
+      ],
+      "acceptance": "FR-MCH-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-008",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md FR-MCH-08",
+        "RTM status=(検索基盤)"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/fr-mch-08.md"
+      ],
+      "acceptance": "FR-MCH-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-009",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md FR-MCH-09",
+        "RTM status=(TS schema)"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/fr-mch-09.md"
+      ],
+      "acceptance": "FR-MCH-09 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-010",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md FR-MCH-10",
+        "RTM status=(fb_00046)"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/fr-mch-10.md"
+      ],
+      "acceptance": "FR-MCH-10 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-011",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md FR-MCH-11",
+        "RTM status=(fb_00046)"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/fr-mch-11.md"
+      ],
+      "acceptance": "FR-MCH-11 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-012",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md FR-MCH-12",
+        "RTM status=(fb_00046)"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/fr-mch-12.md"
+      ],
+      "acceptance": "FR-MCH-12 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-013",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md FR-MCH-13",
+        "RTM status=(TS stub)"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/fr-mch-13.md"
+      ],
+      "acceptance": "FR-MCH-13 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-014",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md FR-MCH-14",
+        "RTM status=(MatchApp.tsx)"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/fr-mch-14.md"
+      ],
+      "acceptance": "FR-MCH-14 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-015",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md FR-MCH-15",
+        "RTM status=(09/13 shared)"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/fr-mch-15.md"
+      ],
+      "acceptance": "FR-MCH-15 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-016",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md FR-MCH-16",
+        "RTM status=libs/ihl/core/event_store.py"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/fr-mch-16.md"
+      ],
+      "acceptance": "FR-MCH-16 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-017",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md NFR-MCH-01",
+        "RTM status=apps/api/main.py"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/nfr-mch-01.md"
+      ],
+      "acceptance": "NFR-MCH-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-018",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md NFR-MCH-02",
+        "RTM status=libs/ihl/core/event_store.py:write_preference_event"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/nfr-mch-02.md"
+      ],
+      "acceptance": "NFR-MCH-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-019",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md NFR-MCH-03",
+        "RTM status=tests/unit/test_match.py"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/nfr-mch-03.md"
+      ],
+      "acceptance": "NFR-MCH-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-020",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md NFR-MCH-04",
+        "RTM status=(MatchApp UI)"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/nfr-mch-04.md"
+      ],
+      "acceptance": "NFR-MCH-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-021",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md NFR-MCH-05",
+        "RTM status=01-要件/10-マチアプ.md"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/nfr-mch-05.md"
+      ],
+      "acceptance": "NFR-MCH-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "10-MICRO-fr-022",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/10-マチアプ.md NFR-MCH-06",
+        "RTM status=(UI preferences)"
+      ],
+      "outputs": [
+        "02-設計/features/10-マチアプ/slices/fr/nfr-mch-06.md"
+      ],
+      "acceptance": "NFR-MCH-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    }
+  ]
+}

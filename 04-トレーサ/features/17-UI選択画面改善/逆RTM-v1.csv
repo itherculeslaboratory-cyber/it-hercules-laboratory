@@ -1,0 +1,15 @@
+# 逆RTM v1 — feature #17 UI選択（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 17 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UT-17-03,unit,pytest,1,FR-17-02,gap
+UT-17-04,unit,pytest,1,NFR-17-02,gap
+UT-17-05,unit,pytest,1,FR-17-03,gap
+IT-17-01,integration,pytest,1,FR-17-06,planned
+IT-17-02,integration,pytest,1,FR-17-01,gap
+IT-17-05,integration,pytest,1,FR-17-05,gap
+ST-17-04,system,pytest,2,NFR-17-01 NFR-17-04,review gap
+ST-17-06,system,pytest,1,NFR-17-05,review
+UAT-17-04,acceptance,review,1,FR-17-04,gap
+UAT-17-06,acceptance,review,1,FR-17-07,xref
+UAT-17-07,acceptance,review,1,NFR-17-03,xref

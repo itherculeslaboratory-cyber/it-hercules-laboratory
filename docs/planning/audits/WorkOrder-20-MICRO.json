@@ -1,0 +1,291 @@
+{
+  "feature_id": "20",
+  "feature_name": "投票",
+  "mode": "MICRO",
+  "generated": "2026-07-03",
+  "source_workorder": "WorkOrder-20.json",
+  "target_range": "60-150",
+  "paths": {
+    "req": ".\\01-要件\\20-投票-プラチナコイン-自然淘汰.md",
+    "detV3": ".\\02-設計\\features\\20-投票\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\20-投票\\RTM-v1.csv",
+    "route_files": []
+  },
+  "slice_counts": {
+    "total": 20,
+    "by_type": {
+      "reverse-rtm": 4,
+      "fr-1id": 16
+    },
+    "by_owner": {
+      "auto": 20
+    }
+  },
+  "fr_slices_truncated": 0,
+  "slices": [
+    {
+      "slice_id": "20-MICRO-revrtm-001",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM unit",
+        "0 行",
+        "UT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/20-投票/逆RTM-v1.csv"
+      ],
+      "acceptance": "UT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "20-MICRO-revrtm-002",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM integration",
+        "0 行",
+        "IT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/20-投票/逆RTM-v1.csv"
+      ],
+      "acceptance": "IT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "20-MICRO-revrtm-003",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM system",
+        "0 行",
+        "ST-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/20-投票/逆RTM-v1.csv"
+      ],
+      "acceptance": "ST-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "20-MICRO-revrtm-004",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM acceptance",
+        "0 行",
+        "UAT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/20-投票/逆RTM-v1.csv"
+      ],
+      "acceptance": "UAT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "20-MICRO-fr-001",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/20-投票.md FR-20-01",
+        "RTM status=apps/api/main.py:votes_list"
+      ],
+      "outputs": [
+        "02-設計/features/20-投票/slices/fr/fr-20-01.md"
+      ],
+      "acceptance": "FR-20-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "20-MICRO-fr-002",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/20-投票.md FR-20-02",
+        "RTM status=apps/api/main.py:cast_vote"
+      ],
+      "outputs": [
+        "02-設計/features/20-投票/slices/fr/fr-20-02.md"
+      ],
+      "acceptance": "FR-20-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "20-MICRO-fr-003",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/20-投票.md FR-20-03",
+        "RTM status=(PlatinumCoinRules §3)"
+      ],
+      "outputs": [
+        "02-設計/features/20-投票/slices/fr/fr-20-03.md"
+      ],
+      "acceptance": "FR-20-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "20-MICRO-fr-004",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/20-投票.md FR-20-04",
+        "RTM status=(legacy contributionEconomy.ts)"
+      ],
+      "outputs": [
+        "02-設計/features/20-投票/slices/fr/fr-20-04.md"
+      ],
+      "acceptance": "FR-20-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "20-MICRO-fr-005",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/20-投票.md FR-20-05",
+        "RTM status=Governance.md §10"
+      ],
+      "outputs": [
+        "02-設計/features/20-投票/slices/fr/fr-20-05.md"
+      ],
+      "acceptance": "FR-20-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "20-MICRO-fr-006",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/20-投票.md FR-20-06",
+        "RTM status=ProjectRules.md §6"
+      ],
+      "outputs": [
+        "02-設計/features/20-投票/slices/fr/fr-20-06.md"
+      ],
+      "acceptance": "FR-20-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "20-MICRO-fr-007",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/20-投票.md FR-20-07",
+        "RTM status=ADR-H-21"
+      ],
+      "outputs": [
+        "02-設計/features/20-投票/slices/fr/fr-20-07.md"
+      ],
+      "acceptance": "FR-20-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "20-MICRO-fr-008",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/20-投票.md FR-20-08",
+        "RTM status=(legacy C-Sync)"
+      ],
+      "outputs": [
+        "02-設計/features/20-投票/slices/fr/fr-20-08.md"
+      ],
+      "acceptance": "FR-20-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "20-MICRO-fr-009",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/20-投票.md FR-20-09",
+        "RTM status=#22 economy/shop"
+      ],
+      "outputs": [
+        "02-設計/features/20-投票/slices/fr/fr-20-09.md"
+      ],
+      "acceptance": "FR-20-09 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "20-MICRO-fr-010",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/20-投票.md FR-20-10",
+        "RTM status=#11 裁判.md §4.3"
+      ],
+      "outputs": [
+        "02-設計/features/20-投票/slices/fr/fr-20-10.md"
+      ],
+      "acceptance": "FR-20-10 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "20-MICRO-fr-011",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/20-投票.md NFR-20-01",
+        "RTM status=civilization/ProjectRules.md"
+      ],
+      "outputs": [
+        "02-設計/features/20-投票/slices/fr/nfr-20-01.md"
+      ],
+      "acceptance": "NFR-20-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "20-MICRO-fr-012",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/20-投票.md NFR-20-02",
+        "RTM status=libs/ihl/core/event_store.py:write_vote_event"
+      ],
+      "outputs": [
+        "02-設計/features/20-投票/slices/fr/nfr-20-02.md"
+      ],
+      "acceptance": "NFR-20-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "20-MICRO-fr-013",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/20-投票.md NFR-20-03",
+        "RTM status=(economyMasterStore)"
+      ],
+      "outputs": [
+        "02-設計/features/20-投票/slices/fr/nfr-20-03.md"
+      ],
+      "acceptance": "NFR-20-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "20-MICRO-fr-014",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/20-投票.md NFR-20-04",
+        "RTM status=rag/market_governance.csv"
+      ],
+      "outputs": [
+        "02-設計/features/20-投票/slices/fr/nfr-20-04.md"
+      ],
+      "acceptance": "NFR-20-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "20-MICRO-fr-015",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/20-投票.md NFR-20-05",
+        "RTM status=apps/web/src/app/vote/page.tsx"
+      ],
+      "outputs": [
+        "02-設計/features/20-投票/slices/fr/nfr-20-05.md"
+      ],
+      "acceptance": "NFR-20-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "20-MICRO-fr-016",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/20-投票.md NFR-20-06",
+        "RTM status=P0-NEXT-GMO-LIVE-EXEC"
+      ],
+      "outputs": [
+        "02-設計/features/20-投票/slices/fr/nfr-20-06.md"
+      ],
+      "acceptance": "NFR-20-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    }
+  ]
+}

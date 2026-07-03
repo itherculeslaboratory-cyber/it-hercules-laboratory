@@ -1,0 +1,291 @@
+{
+  "feature_id": "08",
+  "feature_name": "カルマ",
+  "mode": "MICRO",
+  "generated": "2026-07-03",
+  "source_workorder": "WorkOrder-08.json",
+  "target_range": "60-150",
+  "paths": {
+    "req": ".\\01-要件\\08-カルマシステム.md",
+    "detV3": ".\\02-設計\\features\\08-カルマ\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\08-カルマ\\RTM-v1.csv",
+    "route_files": []
+  },
+  "slice_counts": {
+    "total": 20,
+    "by_type": {
+      "reverse-rtm": 4,
+      "fr-1id": 16
+    },
+    "by_owner": {
+      "auto": 20
+    }
+  },
+  "fr_slices_truncated": 0,
+  "slices": [
+    {
+      "slice_id": "08-MICRO-revrtm-001",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM unit",
+        "0 行",
+        "UT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/08-カルマ/逆RTM-v1.csv"
+      ],
+      "acceptance": "UT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "08-MICRO-revrtm-002",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM integration",
+        "0 行",
+        "IT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/08-カルマ/逆RTM-v1.csv"
+      ],
+      "acceptance": "IT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "08-MICRO-revrtm-003",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM system",
+        "0 行",
+        "ST-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/08-カルマ/逆RTM-v1.csv"
+      ],
+      "acceptance": "ST-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "08-MICRO-revrtm-004",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM acceptance",
+        "0 行",
+        "UAT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/08-カルマ/逆RTM-v1.csv"
+      ],
+      "acceptance": "UAT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "08-MICRO-fr-001",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/08-カルマ.md FR-KRM-01",
+        "RTM status=libs/ihl/economy/economy_logic.py"
+      ],
+      "outputs": [
+        "02-設計/features/08-カルマ/slices/fr/fr-krm-01.md"
+      ],
+      "acceptance": "FR-KRM-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "08-MICRO-fr-002",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/08-カルマ.md FR-KRM-02",
+        "RTM status=libs/ihl/economy/economy_logic.py"
+      ],
+      "outputs": [
+        "02-設計/features/08-カルマ/slices/fr/fr-krm-02.md"
+      ],
+      "acceptance": "FR-KRM-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "08-MICRO-fr-003",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/08-カルマ.md FR-KRM-03",
+        "RTM status=libs/ihl/economy/economy_logic.py:fib_tier_delta"
+      ],
+      "outputs": [
+        "02-設計/features/08-カルマ/slices/fr/fr-krm-03.md"
+      ],
+      "acceptance": "FR-KRM-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "08-MICRO-fr-004",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/08-カルマ.md FR-KRM-04",
+        "RTM status=(batch未配線)"
+      ],
+      "outputs": [
+        "02-設計/features/08-カルマ/slices/fr/fr-krm-04.md"
+      ],
+      "acceptance": "FR-KRM-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "08-MICRO-fr-005",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/08-カルマ.md FR-KRM-05",
+        "RTM status=(batch未配線)"
+      ],
+      "outputs": [
+        "02-設計/features/08-カルマ/slices/fr/fr-krm-05.md"
+      ],
+      "acceptance": "FR-KRM-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "08-MICRO-fr-006",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/08-カルマ.md FR-KRM-06",
+        "RTM status=apps/api/main.py:profile_metrics"
+      ],
+      "outputs": [
+        "02-設計/features/08-カルマ/slices/fr/fr-krm-06.md"
+      ],
+      "acceptance": "FR-KRM-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "08-MICRO-fr-007",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/08-カルマ.md FR-KRM-07",
+        "RTM status=libs/ihl/economy/economy_logic.py:purchase_shop_item"
+      ],
+      "outputs": [
+        "02-設計/features/08-カルマ/slices/fr/fr-krm-07.md"
+      ],
+      "acceptance": "FR-KRM-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "08-MICRO-fr-008",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/08-カルマ.md FR-KRM-08",
+        "RTM status=libs/ihl/economy/economy_logic.py:record_fee_unpaid"
+      ],
+      "outputs": [
+        "02-設計/features/08-カルマ/slices/fr/fr-krm-08.md"
+      ],
+      "acceptance": "FR-KRM-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "08-MICRO-fr-009",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/08-カルマ.md FR-KRM-09",
+        "RTM status=libs/ihl/economy/economy_logic.py:write_karma_event"
+      ],
+      "outputs": [
+        "02-設計/features/08-カルマ/slices/fr/fr-krm-09.md"
+      ],
+      "acceptance": "FR-KRM-09 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "08-MICRO-fr-010",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/08-カルマ.md FR-KRM-10",
+        "RTM status=apps/api/main.py:profile_metrics"
+      ],
+      "outputs": [
+        "02-設計/features/08-カルマ/slices/fr/fr-krm-10.md"
+      ],
+      "acceptance": "FR-KRM-10 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "08-MICRO-fr-011",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/08-カルマ.md NF-KRM-01",
+        "RTM status=libs/event_store.py"
+      ],
+      "outputs": [
+        "02-設計/features/08-カルマ/slices/fr/nf-krm-01.md"
+      ],
+      "acceptance": "NF-KRM-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "08-MICRO-fr-012",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/08-カルマ.md NF-KRM-02",
+        "RTM status=(TBD)"
+      ],
+      "outputs": [
+        "02-設計/features/08-カルマ/slices/fr/nf-krm-02.md"
+      ],
+      "acceptance": "NF-KRM-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "08-MICRO-fr-013",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/08-カルマ.md NF-KRM-03",
+        "RTM status=libs/ihl/economy/economy_logic.py:fib_tier_delta"
+      ],
+      "outputs": [
+        "02-設計/features/08-カルマ/slices/fr/nf-krm-03.md"
+      ],
+      "acceptance": "NF-KRM-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "08-MICRO-fr-014",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/08-カルマ.md NF-KRM-04",
+        "RTM status=apps/api/main.py"
+      ],
+      "outputs": [
+        "02-設計/features/08-カルマ/slices/fr/nf-krm-04.md"
+      ],
+      "acceptance": "NF-KRM-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "08-MICRO-fr-015",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/08-カルマ.md NF-KRM-05",
+        "RTM status=(frontend)"
+      ],
+      "outputs": [
+        "02-設計/features/08-カルマ/slices/fr/nf-krm-05.md"
+      ],
+      "acceptance": "NF-KRM-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "08-MICRO-fr-016",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/08-カルマ.md NF-KRM-06",
+        "RTM status=01-要件/08-カルマシステム.md §12"
+      ],
+      "outputs": [
+        "02-設計/features/08-カルマ/slices/fr/nf-krm-06.md"
+      ],
+      "acceptance": "NF-KRM-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    }
+  ]
+}

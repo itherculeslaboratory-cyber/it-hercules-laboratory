@@ -1,0 +1,421 @@
+{
+  "feature_id": "09",
+  "feature_name": "論文",
+  "mode": "MICRO",
+  "generated": "2026-07-03",
+  "source_workorder": "WorkOrder-09.json",
+  "target_range": "60-150",
+  "paths": {
+    "req": ".\\01-要件\\09-論文.md",
+    "detV3": ".\\02-設計\\features\\09-論文\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\09-論文\\RTM-v1.csv",
+    "route_files": []
+  },
+  "slice_counts": {
+    "total": 30,
+    "by_type": {
+      "reverse-rtm": 4,
+      "fr-1id": 26
+    },
+    "by_owner": {
+      "auto": 30
+    }
+  },
+  "fr_slices_truncated": 0,
+  "slices": [
+    {
+      "slice_id": "09-MICRO-revrtm-001",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM unit",
+        "0 行",
+        "UT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/09-論文/逆RTM-v1.csv"
+      ],
+      "acceptance": "UT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "09-MICRO-revrtm-002",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM integration",
+        "0 行",
+        "IT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/09-論文/逆RTM-v1.csv"
+      ],
+      "acceptance": "IT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "09-MICRO-revrtm-003",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM system",
+        "0 行",
+        "ST-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/09-論文/逆RTM-v1.csv"
+      ],
+      "acceptance": "ST-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "09-MICRO-revrtm-004",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM acceptance",
+        "0 行",
+        "UAT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/09-論文/逆RTM-v1.csv"
+      ],
+      "acceptance": "UAT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "09-MICRO-fr-001",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PPR-01",
+        "RTM status=apps/api/routes/research.py:research_match"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-ppr-01.md"
+      ],
+      "acceptance": "FR-PPR-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-002",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PPR-02",
+        "RTM status=apps/api/routes/research.py:research_match"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-ppr-02.md"
+      ],
+      "acceptance": "FR-PPR-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-003",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PPR-03",
+        "RTM status=apps/api/routes/research.py"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-ppr-03.md"
+      ],
+      "acceptance": "FR-PPR-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-004",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PPR-04",
+        "RTM status=(未移植)"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-ppr-04.md"
+      ],
+      "acceptance": "FR-PPR-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-005",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PPR-05",
+        "RTM status=(未移植)"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-ppr-05.md"
+      ],
+      "acceptance": "FR-PPR-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-006",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PPR-06",
+        "RTM status=(LLM境界)"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-ppr-06.md"
+      ],
+      "acceptance": "FR-PPR-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-007",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PPR-07",
+        "RTM status=(任意鍵)"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-ppr-07.md"
+      ],
+      "acceptance": "FR-PPR-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-008",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PPR-08",
+        "RTM status=(未移植)"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-ppr-08.md"
+      ],
+      "acceptance": "FR-PPR-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-009",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PPR-09",
+        "RTM status=(未配線)"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-ppr-09.md"
+      ],
+      "acceptance": "FR-PPR-09 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-010",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PPR-10",
+        "RTM status=apps/api/routes/research.py"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-ppr-10.md"
+      ],
+      "acceptance": "FR-PPR-10 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-011",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PPR-11",
+        "RTM status=apps/api/routes/research.py:research_papers"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-ppr-11.md"
+      ],
+      "acceptance": "FR-PPR-11 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-012",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md NFR-PPR-01",
+        "RTM status=01-要件/09-論文.md §13"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/nfr-ppr-01.md"
+      ],
+      "acceptance": "NFR-PPR-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-013",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md NFR-PPR-02",
+        "RTM status=(frontend)"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/nfr-ppr-02.md"
+      ],
+      "acceptance": "NFR-PPR-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-014",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md NFR-PPR-03",
+        "RTM status=apps/api/routes/research.py"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/nfr-ppr-03.md"
+      ],
+      "acceptance": "NFR-PPR-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-015",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md NFR-PPR-04",
+        "RTM status=apps/api/routes/research.py"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/nfr-ppr-04.md"
+      ],
+      "acceptance": "NFR-PPR-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-016",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md NFR-PPR-05",
+        "RTM status=tests/unit/test_research_match.py"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/nfr-ppr-05.md"
+      ],
+      "acceptance": "NFR-PPR-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-017",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PAPER-04",
+        "RTM status=apps/api/routes/research.py:research_papers"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-paper-04.md"
+      ],
+      "acceptance": "FR-PAPER-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-018",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PAPER-03",
+        "RTM status=(未着手)"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-paper-03.md"
+      ],
+      "acceptance": "FR-PAPER-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-019",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PAPER-05",
+        "RTM status=(デモキー)"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-paper-05.md"
+      ],
+      "acceptance": "FR-PAPER-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-020",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PAPER-06",
+        "RTM status=(1段落仮説)"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-paper-06.md"
+      ],
+      "acceptance": "FR-PAPER-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-021",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PAPER-07",
+        "RTM status=(テンプレのみ)"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-paper-07.md"
+      ],
+      "acceptance": "FR-PAPER-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-022",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PAPER-08",
+        "RTM status=(PoC)"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-paper-08.md"
+      ],
+      "acceptance": "FR-PAPER-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-023",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PAPER-01",
+        "RTM status=(07連携)"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-paper-01.md"
+      ],
+      "acceptance": "FR-PAPER-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-024",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PAPER-02",
+        "RTM status=(10連携)"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-paper-02.md"
+      ],
+      "acceptance": "FR-PAPER-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-025",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PAPER-09",
+        "RTM status=(検索基盤)"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-paper-09.md"
+      ],
+      "acceptance": "FR-PAPER-09 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "09-MICRO-fr-026",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/09-論文.md FR-PAPER-11",
+        "RTM status=(デモDEFAULT_P)"
+      ],
+      "outputs": [
+        "02-設計/features/09-論文/slices/fr/fr-paper-11.md"
+      ],
+      "acceptance": "FR-PAPER-11 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    }
+  ]
+}

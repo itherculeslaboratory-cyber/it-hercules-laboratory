@@ -1,0 +1,22 @@
+{
+  "_note": "契約オラクル golden fixture（プレースホルダ v0）— POST /api/solid-observation/commit",
+  "endpoint": { "method": "POST", "path": "/api/solid-observation/commit", "auth": "session", "success_status": 201 },
+  "request": {
+    "species": "Dynastes hercules hercules",
+    "stage_name": "adult",
+    "sex": "male",
+    "actor_id": "u_demo",
+    "rows": [
+      { "item": "体長", "value": "78", "unit": "mm", "method": "manual_entry" }
+    ]
+  },
+  "response_shape": {
+    "status": "committed",
+    "sessionId": "cap_dyn_deadbeef",
+    "r2Key": "truth/capture/capture/cap_dyn_deadbeef.json",
+    "captureId": "cap_dyn_deadbeef",
+    "individualId": "ind_deadbeef",
+    "measurementIds": ["meas_deadbeef"],
+    "clientContentDigest": "sha256:PLACEHOLDER"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "feature_id": "14",
+  "feature_name": "貢献度",
+  "generated": "2026-07-03",
+  "slices_root": "02-設計/features/14-貢献度/slices",
+  "total": 19,
+  "categories": {
+    "api": {
+      "count": 0,
+      "files": []
+    },
+    "schema": {
+      "count": 0,
+      "files": []
+    },
+    "errors": {
+      "count": 0,
+      "files": []
+    },
+    "screens": {
+      "count": 0,
+      "files": []
+    },
+    "reverse-rtm": {
+      "count": 4,
+      "files": [
+        "revrtm-001-unit-layer.md",
+        "revrtm-002-integration-layer.md",
+        "revrtm-003-system-layer.md",
+        "revrtm-004-acceptance-layer.md"
+      ]
+    },
+    "fr": {
+      "count": 15,
+      "files": [
+        "fr-contrib-01.md",
+        "fr-contrib-02.md",
+        "fr-contrib-03.md",
+        "fr-contrib-04.md",
+        "fr-contrib-05.md",
+        "fr-contrib-06.md",
+        "fr-contrib-07.md",
+        "fr-contrib-08.md",
+        "fr-contrib-09.md",
+        "fr-contrib-10.md",
+        "nfr-contrib-01.md",
+        "nfr-contrib-02.md",
+        "nfr-contrib-03.md",
+        "nfr-contrib-04.md",
+        "nfr-contrib-05.md"
+      ]
+    }
+  }
+}

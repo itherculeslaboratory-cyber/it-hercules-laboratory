@@ -1,0 +1,53 @@
+# IHL 契約レジスタ v0 — 自動生成（正本: apps/api/routes/*.py）
+# 生成: node scripts/ihl-contract-oracle.mjs --feature 06 --write
+# 検証: node scripts/ihl-contract-oracle.mjs --feature 06 --check
+# 手編集禁止（DET §3.9 表と DET diff GATE で突き合わせる）
+feature_id: "06"
+feature_name: "マーケット"
+generated: "2026-07-03"
+oracle_version: "v0"
+source_files:
+  - "apps/api/routes/market.py"
+golden_fixtures_dir: "fixtures/oracle/"
+route_count: 5
+routes:
+  - method: GET
+    path: "/api/v1/market/listings"
+    path_normalized: "/api/v1/market/listings"
+    handler: market_listings
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/market.py"
+  - method: GET
+    path: "/api/v1/market/listings/{listing_id}"
+    path_normalized: "/api/v1/market/listings/{param}"
+    handler: market_listing_detail
+    auth: public
+    success_status: 200
+    errors: [404]
+    source_file: "apps/api/routes/market.py"
+  - method: GET
+    path: "/api/v1/market/transfer/{listing_id}"
+    path_normalized: "/api/v1/market/transfer/{param}"
+    handler: gmo_transfer
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/market.py"
+  - method: POST
+    path: "/api/v1/market/listings/{listing_id}/match"
+    path_normalized: "/api/v1/market/listings/{param}/match"
+    handler: market_listing_match
+    auth: public
+    success_status: 200
+    errors: [409]
+    source_file: "apps/api/routes/market.py"
+  - method: POST
+    path: "/api/v1/market/listings/{listing_id}/transition"
+    path_normalized: "/api/v1/market/listings/{param}/transition"
+    handler: market_listing_transition
+    auth: public
+    success_status: 200
+    errors: [409]
+    source_file: "apps/api/routes/market.py"

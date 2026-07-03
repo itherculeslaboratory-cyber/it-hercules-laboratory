@@ -1,0 +1,64 @@
+# 逆RTM v1 — feature #05 観測（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 05 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UT-05-01,unit,pytest,3,OBS-SOL-01 OBS-SOL-07 OBS-QR-04,existing planned
+UT-05-02,unit,pytest,5,OBS-SOL-02 OBS-R2-04 OBS-REP-08 OBS-REP-IHL-01 OBS-RX-REP-05,existing review
+UT-05-03,unit,pytest,4,OBS-SOL-04 OBS-TAX-07 OBS-CTX-02 OBS-TGT-09,planned deferred
+UT-05-04,unit,pytest,2,OBS-TPL-06 OBS-RX-REP-07,existing
+UT-05-05,unit,pytest,2,OBS-ENV-06 OBS-TPL-04,planned
+UT-05-06,unit,pytest,1,OBS-TPL-03,planned
+UT-05-07,unit,pytest,2,OBS-DIG-03 OBS-NF-04,planned
+UT-05-08,unit,pytest,1,OBS-TAX-01,gap
+UT-05-09,unit,pytest,1,OBS-TPL-17,planned
+UT-05-10,unit,pytest,1,OBS-TPL-05,planned
+UT-05-12,unit,pytest,1,OBS-FUP-05,planned
+UT-05-13,unit,pytest,1,OBS-FUP-02,planned
+UT-05-14,unit,pytest,2,OBS-FUP-09 OBS-RX-RD-11,planned
+UT-05-16,unit,pytest,1,OBS-FUP-04,planned
+UT-05-17,unit,pytest,1,OBS-RX-RD-01,planned
+UT-05-18,unit,pytest,1,OBS-TPL-23,planned
+UT-05-19,unit,pytest,2,OBS-RX-RD-02 OBS-GAP-02,planned existing
+UT-05-20,unit,pytest,1,OBS-RX-RD-10,planned
+IT-05-01,integration,pytest,2,OBS-ENV-03 OBS-ENV-05,xref existing
+IT-05-02,integration,pytest,2,OBS-ENV-01 OBS-ENV-02,existing
+IT-05-03,integration,pytest,1,OBS-TAG-01,existing
+IT-05-06,integration,pytest,2,OBS-TAX-04 OBS-IMG-04,review planned
+IT-05-07,integration,pytest,3,OBS-FUP-08 OBS-RX-RD-03 OBS-RX-RD-07,planned
+IT-05-08,integration,pytest,1,OBS-RX-RD-08,planned
+IT-05-09,integration,pytest,1,OBS-FUP-07,planned
+IT-05-10,integration,pytest,1,OBS-RX-RD-05,planned
+IT-05-12,integration,pytest,1,OBS-IND-01,planned
+IT-05-13,integration,pytest,1,OBS-RX-RD-09,planned
+IT-05-14,integration,pytest,1,OBS-TPL-22,planned
+IT-05-20,integration,pytest,1,OBS-GAP-01,existing
+IT-05-21,integration,pytest,1,OBS-GAP-03,existing
+ST-05-01,system,pytest,2,OBS-SOL-03 OBS-DIG-04,existing review
+ST-05-03,system,pytest,4,OBS-R2-01 OBS-R2-02 OBS-R2-03 OBS-NF-01,planned
+ST-05-04,system,pytest,1,OBS-REP-IHL-02,planned
+ST-05-06,system,manual,1,OBS-NF-03,review
+ST-05-07,system,pytest,1,OBS-NF-02,planned
+ST-05-08,system,pytest,1,OBS-FUP-01,planned
+ST-05-09,system,pytest,1,OBS-RX-UX-07,planned
+ST-05-10,system,pytest,2,OBS-FUP-11 OBS-RX-UX-11,planned
+ST-05-11,system,pytest,1,OBS-RX-RD-06,planned
+UAT-05-01,acceptance,review,6,OBS-SOL-06 OBS-SOL-08 OBS-DIG-01 OBS-DIG-02 OBS-CTX-01 OBS-NF-05,review gap deferred
+UAT-05-02,acceptance,review,2,OBS-TAX-06 OBS-TGT-04,review deferred
+UAT-05-03,acceptance,review,2,OBS-ENV-04 OBS-FUP-10,xref deferred
+UAT-05-05,acceptance,review,5,OBS-R2-05 OBS-REP-05 OBS-RAG-01 OBS-IMG-05 OBS-NF-08,deferred xref
+UAT-05-06,acceptance,review,2,OBS-REP-04 OBS-TPL-16,deferred review
+UAT-05-07,acceptance,review,10,OBS-SOL-05 OBS-TAX-02 OBS-TAX-03 OBS-TAX-05 OBS-REP-01 OBS-REP-02 OBS-REP-06 OBS-DRV-01 OBS-INPUT-06 OBS-INPUT-07,gap deferred
+UAT-05-08,acceptance,manual,1,OBS-NF-09,human
+UAT-05-09,acceptance,playwright,4,OBS-FUP-03 OBS-RX-UX-03 OBS-RX-UX-09 OBS-QR-03,planned
+UAT-05-10,acceptance,playwright,3,OBS-RX-UX-05 OBS-MVP-01 OBS-MVP-02,planned
+UAT-05-11,acceptance,playwright,1,OBS-RX-UX-08,planned
+UAT-05-12,acceptance,playwright,1,OBS-RX-UX-10,planned
+UAT-05-13,acceptance,manual,1,OBS-RX-UX-02,review
+UAT-05-14,acceptance,playwright,3,OBS-FUP-06 OBS-RX-UX-01 OBS-RX-UX-04,planned review
+UAT-05-15,acceptance,playwright,10,OBS-RX-RD-04 OBS-RX-REP-04 OBS-INPUT-01 OBS-INPUT-02 OBS-INPUT-03 OBS-INPUT-04 OBS-INPUT-05 OBS-PHOTO-01 OBS-TPL-18 OBS-TPL-19,planned existing
+UAT-05-16,acceptance,playwright,1,OBS-IND-02,planned
+UAT-05-17,acceptance,playwright,1,OBS-RX-UX-06,planned
+# AUDIT 2026-07-03 revrtm-001..004 — slices/reverse-rtm/ · orphan-impl: UT-05-12/13/16/17/18/20 · IT-05-08/10/14 · UAT playwright 全件
+# AUDIT orphan-test: test_ut_wave_b_target_catalog · test_ut_wave_c_dictionary — RTM TC 未割当（Wave B/C smoke）
+# GAP-VITEST: UT-05-19 OBS-GAP-02 — RTM automation=vitest · apps/web AuthenticatedImage.test.ts 無 · pytest proxy test_it_01_14_* のみ（status=existing 維持 · vitest 層は planned 扱い）
+# GAP-PLAN: ST-05-02 システム計画にあるが逆RTM 未登録 — IT-05-02 xref 提案（existing 捏造禁止）

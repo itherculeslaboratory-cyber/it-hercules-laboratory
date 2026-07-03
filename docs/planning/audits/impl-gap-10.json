@@ -1,0 +1,23 @@
+{
+  "id": "10",
+  "name": "マチアプ",
+  "reqIdCount": 43,
+  "apiRoutes": [
+    "/api/v1/match/pair",
+    "/api/v1/match/vote"
+  ],
+  "webRoutes": [
+    "/observation",
+    "/observation/[id]",
+    "/observation/context",
+    "/observation/done",
+    "/observation/input",
+    "/observation/input/confirm",
+    "/observation/solid",
+    "/observation/templates",
+    "/observation/templates/[id]",
+    "/observation/templates/[id]/fork"
+  ],
+  "implGaps": [],
+  "gapCount": 0
+}

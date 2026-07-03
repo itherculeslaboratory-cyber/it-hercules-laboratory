@@ -1,0 +1,31 @@
+{
+  "id": "18",
+  "name": "写真解析",
+  "reqIdCount": 18,
+  "apiRoutes": [
+    "/api/v1/pipeline/embedding",
+    "/api/v1/photo-analysis/result",
+    "/api/v1/photo-analysis/approve"
+  ],
+  "webRoutes": [
+    "/observation",
+    "/observation/[id]",
+    "/observation/context",
+    "/observation/done",
+    "/observation/input",
+    "/observation/input/confirm",
+    "/observation/solid",
+    "/observation/templates",
+    "/observation/templates/[id]",
+    "/observation/templates/[id]/fork"
+  ],
+  "implGaps": [
+    {
+      "id": "IMPL-GAP-18-API-1",
+      "kind": "api_route",
+      "surface": "/api/v1/photo-analysis/approve",
+      "suggest": "DET-v3-§3"
+    }
+  ],
+  "gapCount": 1
+}

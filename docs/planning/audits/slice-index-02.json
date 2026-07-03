@@ -1,0 +1,85 @@
+{
+  "feature_id": "02",
+  "feature_name": "利用規約",
+  "generated": "2026-07-03",
+  "slices_root": "02-設計/features/02-利用規約/slices",
+  "total": 50,
+  "categories": {
+    "api": {
+      "count": 0,
+      "files": []
+    },
+    "schema": {
+      "count": 0,
+      "files": []
+    },
+    "errors": {
+      "count": 0,
+      "files": []
+    },
+    "screens": {
+      "count": 0,
+      "files": []
+    },
+    "reverse-rtm": {
+      "count": 4,
+      "files": [
+        "revrtm-001-unit-layer.md",
+        "revrtm-002-integration-layer.md",
+        "revrtm-003-system-layer.md",
+        "revrtm-004-acceptance-layer.md"
+      ]
+    },
+    "fr": {
+      "count": 46,
+      "files": [
+        "fr-01.md",
+        "fr-02.md",
+        "fr-03.md",
+        "fr-04.md",
+        "fr-05.md",
+        "fr-06.md",
+        "fr-10.md",
+        "fr-11.md",
+        "fr-12.md",
+        "fr-13.md",
+        "fr-14.md",
+        "fr-15.md",
+        "fr-16.md",
+        "fr-20.md",
+        "fr-21.md",
+        "fr-22.md",
+        "fr-30.md",
+        "fr-31.md",
+        "fr-easy-01.md",
+        "fr-easy-02.md",
+        "fr-easy-03.md",
+        "fr-legal-01.md",
+        "fr-legal-02.md",
+        "fr-legal-03.md",
+        "fr-resolver-01.md",
+        "fr-resolver-02.md",
+        "fr-resolver-03.md",
+        "fr-resolver-04.md",
+        "fr-ux-01.md",
+        "fr-ux-02.md",
+        "fr-ux-03.md",
+        "fr-ux-04.md",
+        "fr-ux-05.md",
+        "fr-video-01.md",
+        "fr-video-02.md",
+        "fr-video-03.md",
+        "nfr-01.md",
+        "nfr-02.md",
+        "nfr-03.md",
+        "nfr-04.md",
+        "nfr-05.md",
+        "nfr-06.md",
+        "nfr-easy-01.md",
+        "nfr-resolver-01.md",
+        "nfr-ux-01.md",
+        "nfr-video-01.md"
+      ]
+    }
+  }
+}

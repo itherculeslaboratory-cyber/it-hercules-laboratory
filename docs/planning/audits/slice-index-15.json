@@ -1,0 +1,59 @@
+{
+  "feature_id": "15",
+  "feature_name": "データ設計",
+  "generated": "2026-07-03",
+  "slices_root": "02-設計/features/15-データ設計/slices",
+  "total": 24,
+  "categories": {
+    "api": {
+      "count": 0,
+      "files": []
+    },
+    "schema": {
+      "count": 0,
+      "files": []
+    },
+    "errors": {
+      "count": 0,
+      "files": []
+    },
+    "screens": {
+      "count": 0,
+      "files": []
+    },
+    "reverse-rtm": {
+      "count": 4,
+      "files": [
+        "revrtm-001-unit-layer.md",
+        "revrtm-002-integration-layer.md",
+        "revrtm-003-system-layer.md",
+        "revrtm-004-acceptance-layer.md"
+      ]
+    },
+    "fr": {
+      "count": 20,
+      "files": [
+        "fr-data-01.md",
+        "fr-data-02.md",
+        "fr-data-03.md",
+        "fr-data-04.md",
+        "fr-data-05.md",
+        "fr-data-06.md",
+        "fr-data-07.md",
+        "fr-data-08.md",
+        "fr-data-09.md",
+        "fr-data-10.md",
+        "fr-data-11.md",
+        "fr-data-12.md",
+        "fr-data-13.md",
+        "fr-data-14.md",
+        "fr-data-15.md",
+        "nfr-data-01.md",
+        "nfr-data-02.md",
+        "nfr-data-03.md",
+        "nfr-data-04.md",
+        "nfr-data-05.md"
+      ]
+    }
+  }
+}

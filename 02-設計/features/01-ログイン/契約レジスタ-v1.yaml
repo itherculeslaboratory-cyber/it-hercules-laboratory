@@ -1,0 +1,45 @@
+# IHL 契約レジスタ v0 — 自動生成（正本: apps/api/routes/*.py）
+# 生成: node scripts/ihl-contract-oracle.mjs --feature 01 --write
+# 検証: node scripts/ihl-contract-oracle.mjs --feature 01 --check
+# 手編集禁止（DET §3.9 表と DET diff GATE で突き合わせる）
+feature_id: "01"
+feature_name: "ログイン"
+generated: "2026-07-03"
+oracle_version: "v0"
+source_files:
+  - "apps/api/routes/auth.py"
+golden_fixtures_dir: "fixtures/oracle/"
+route_count: 4
+routes:
+  - method: GET
+    path: "/api/v1/auth/session"
+    path_normalized: "/api/v1/auth/session"
+    handler: auth_session
+    auth: public
+    success_status: 200
+    errors: [401]
+    source_file: "apps/api/routes/auth.py"
+  - method: POST
+    path: "/api/v1/auth/magic-link"
+    path_normalized: "/api/v1/auth/magic-link"
+    handler: auth_magic_link
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/auth.py"
+  - method: POST
+    path: "/api/v1/auth/register"
+    path_normalized: "/api/v1/auth/register"
+    handler: auth_register
+    auth: public
+    success_status: 200
+    errors: [400]
+    source_file: "apps/api/routes/auth.py"
+  - method: POST
+    path: "/api/v1/auth/verify"
+    path_normalized: "/api/v1/auth/verify"
+    handler: auth_verify
+    auth: public
+    success_status: 200
+    errors: [401]
+    source_file: "apps/api/routes/auth.py"

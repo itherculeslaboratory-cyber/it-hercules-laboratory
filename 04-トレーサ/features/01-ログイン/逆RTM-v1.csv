@@ -1,0 +1,40 @@
+# 逆RTM v1 — feature #01 ログイン（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 01 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UT-01-01,unit,pytest,1,FR-LOGIN-02,planned
+UT-01-02,unit,pytest,1,NFR-LOGIN-01,planned
+UT-01-03,unit,pytest,1,FR-LOGIN-02,planned
+UT-01-04,unit,pytest,1,FR-LOGIN-04,planned
+UT-01-05,unit,pytest,1,NFR-LOGIN-02,planned
+UT-01-06,unit,pytest,1,NFR-LOGIN-02,planned
+UT-01-08,unit,pytest,1,FR-LOGIN-06,planned
+UT-01-09,unit,pytest,1,FR-LOGIN-08,planned
+UT-01-10,unit,pytest,1,NFR-LOGIN-01,existing
+UT-01-11,unit,pytest,1,NFR-LOGIN-04,planned
+IT-01-01,integration,pytest,2,FR-LOGIN-03 NFR-LOGIN-03,existing
+IT-01-02,integration,pytest,1,FR-LOGIN-04,existing
+IT-01-03,integration,pytest,1,NFR-LOGIN-06,planned
+IT-01-04,integration,pytest,1,FR-LOGIN-04,planned
+IT-01-05,integration,pytest,1,NFR-LOGIN-02,planned
+IT-01-06,integration,pytest,1,FR-LOGIN-01,existing
+IT-01-07,integration,pytest,1,FR-LOGIN-01,planned
+IT-01-08,integration,pytest,1,NFR-LOGIN-01,planned
+IT-01-09,integration,pytest,1,NFR-LOGIN-01,planned
+IT-01-10,integration,pytest,1,FR-LOGIN-09,gap
+ST-01-01,system,pytest,2,FR-LOGIN-04 FR-LOGIN-05,existing
+ST-01-02,system,pytest,1,FR-LOGIN-07,xref
+ST-01-03,system,pytest,1,NFR-LOGIN-02,existing
+ST-01-04,system,node,1,NFR-LOGIN-04,existing
+ST-01-05,system,grep,1,NFR-LOGIN-01,review
+UAT-01-01,acceptance,review,1,FR-LOGIN-01,review
+UAT-01-02,acceptance,review,1,FR-LOGIN-03,review
+UAT-01-03,acceptance,review,1,FR-LOGIN-04,review
+UAT-01-04,acceptance,review,2,FR-LOGIN-05 FR-LOGIN-10,review
+UAT-01-05,acceptance,review,3,FR-LOGIN-06 FR-LOGIN-11 NFR-LOGIN-07,review
+UAT-01-06,acceptance,review,2,FR-LOGIN-07 FR-LOGIN-08,review
+UAT-01-07,acceptance,review,3,FR-LOGIN-10 NFR-LOGIN-05 NFR-LOGIN-08,review
+UAT-01-08,acceptance,review,1,NFR-LOGIN-01,review
+UAT-01-09,acceptance,review,1,NFR-LOGIN-03,review
+UAT-01-10,acceptance,human,1,NFR-LOGIN-06,human
+UAT-01-11,acceptance,review,1,FR-LOGIN-09,gap

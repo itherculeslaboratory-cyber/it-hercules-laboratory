@@ -1,0 +1,134 @@
+{
+  "id": "20",
+  "name": "投票",
+  "prefix": "20-投票",
+  "paths": {
+    "req": ".\\01-要件\\20-投票-プラチナコイン-自然淘汰.md",
+    "detV2": ".\\02-設計\\features\\20-投票\\詳細設計-v2.md",
+    "detV3": ".\\02-設計\\features\\20-投票\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\20-投票\\RTM-v1.csv"
+  },
+  "lineCounts": {
+    "req": 238,
+    "detV2": 192,
+    "detV3": 0,
+    "testPlans": 126,
+    "rtmRows": 16
+  },
+  "reqDetPatternScore": {
+    "api_paths": 1,
+    "data_testid": 1,
+    "apps_paths": 0,
+    "pytest_refs": 0,
+    "impl_sections": 0,
+    "schema_fields": 0,
+    "total": 2
+  },
+  "depthRatio": 0.807,
+  "reqIdCount": 18,
+  "tcIdCount": 21,
+  "rtm": {
+    "statusDist": {
+      "apps/api/main.py:votes_list": 1,
+      "apps/api/main.py:cast_vote": 1,
+      "(PlatinumCoinRules §3)": 1,
+      "(legacy contributionEconomy.ts)": 1,
+      "Governance.md §10": 1,
+      "ProjectRules.md §6": 1,
+      "ADR-H-21": 1,
+      "(legacy C-Sync)": 1,
+      "#22 economy/shop": 1,
+      "#11 裁判.md §4.3": 1,
+      "civilization/ProjectRules.md": 1,
+      "libs/ihl/core/event_store.py:write_vote_event": 1,
+      "(economyMasterStore)": 1,
+      "rag/market_governance.csv": 1,
+      "apps/web/src/app/vote/page.tsx": 1,
+      "P0-NEXT-GMO-LIVE-EXEC": 1
+    },
+    "issueCount": 16,
+    "issues": [
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-20-01",
+        "test_case_id": "詳細設計-v2 §2.2/§4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-20-02",
+        "test_case_id": "詳細設計-v2 §3.2/§3.3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-20-03",
+        "test_case_id": "詳細設計-v2 §1.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-20-04",
+        "test_case_id": "詳細設計-v2 §2.4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-20-05",
+        "test_case_id": "詳細設計-v2 §4/§5"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-20-06",
+        "test_case_id": "詳細設計-v2 §1.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-20-07",
+        "test_case_id": "詳細設計-v2 §1.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-20-08",
+        "test_case_id": "詳細設計-v2 §1.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-20-09",
+        "test_case_id": "詳細設計-v2 §2.4/§4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-20-10",
+        "test_case_id": "詳細設計-v2 §2.4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-20-01",
+        "test_case_id": "詳細設計-v2 §6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-20-02",
+        "test_case_id": "詳細設計-v2 §2.1/§6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-20-03",
+        "test_case_id": "詳細設計-v2 §6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-20-04",
+        "test_case_id": "詳細設計-v2 §6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-20-05",
+        "test_case_id": "詳細設計-v2 §6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-20-06",
+        "test_case_id": "詳細設計-v2 §6"
+      }
+    ]
+  },
+  "priority": "P1"
+}

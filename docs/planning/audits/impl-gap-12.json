@@ -1,0 +1,73 @@
+{
+  "id": "12",
+  "name": "設定",
+  "reqIdCount": 27,
+  "apiRoutes": [
+    "/api/v1/me/preferences",
+    "/api/v1/settings",
+    "/api/v1/individuals/search",
+    "/api/v1/individuals/{individual_id}/parents",
+    "new_name",
+    "/api/captures",
+    "/api/measurements",
+    "/api/solid-observation/commit",
+    "owner_user_id"
+  ],
+  "webRoutes": [
+    "/observation",
+    "/observation/[id]",
+    "/observation/context",
+    "/observation/done",
+    "/observation/input",
+    "/observation/input/confirm",
+    "/observation/solid",
+    "/observation/templates",
+    "/observation/templates/[id]",
+    "/observation/templates/[id]/fork"
+  ],
+  "implGaps": [
+    {
+      "id": "IMPL-GAP-12-API-1",
+      "kind": "api_route",
+      "surface": "/api/v1/individuals/search",
+      "suggest": "DET-v3-§3"
+    },
+    {
+      "id": "IMPL-GAP-12-API-2",
+      "kind": "api_route",
+      "surface": "/api/v1/individuals/{individual_id}/parents",
+      "suggest": "DET-v3-§3"
+    },
+    {
+      "id": "IMPL-GAP-12-API-3",
+      "kind": "api_route",
+      "surface": "new_name",
+      "suggest": "DET-v3-§3"
+    },
+    {
+      "id": "IMPL-GAP-12-API-4",
+      "kind": "api_route",
+      "surface": "/api/captures",
+      "suggest": "DET-v3-§3"
+    },
+    {
+      "id": "IMPL-GAP-12-API-5",
+      "kind": "api_route",
+      "surface": "/api/measurements",
+      "suggest": "DET-v3-§3"
+    },
+    {
+      "id": "IMPL-GAP-12-API-6",
+      "kind": "api_route",
+      "surface": "/api/solid-observation/commit",
+      "suggest": "DET-v3-§3"
+    },
+    {
+      "id": "IMPL-GAP-12-API-7",
+      "kind": "api_route",
+      "surface": "owner_user_id",
+      "suggest": "DET-v3-§3"
+    }
+  ],
+  "gapCount": 7
+}

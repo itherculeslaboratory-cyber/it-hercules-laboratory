@@ -1,0 +1,330 @@
+{
+  "feature_id": "13",
+  "feature_name": "データ取得元",
+  "mode": "MICRO",
+  "generated": "2026-07-03",
+  "source_workorder": "WorkOrder-13.json",
+  "target_range": "60-150",
+  "paths": {
+    "req": ".\\01-要件\\13-データ取得元管理.md",
+    "detV3": ".\\02-設計\\features\\13-データ取得元\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\13-データ取得元\\RTM-v1.csv",
+    "route_files": []
+  },
+  "slice_counts": {
+    "total": 23,
+    "by_type": {
+      "reverse-rtm": 4,
+      "fr-1id": 19
+    },
+    "by_owner": {
+      "auto": 23
+    }
+  },
+  "fr_slices_truncated": 0,
+  "slices": [
+    {
+      "slice_id": "13-MICRO-revrtm-001",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM unit",
+        "0 行",
+        "UT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/13-データ取得元/逆RTM-v1.csv"
+      ],
+      "acceptance": "UT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "13-MICRO-revrtm-002",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM integration",
+        "0 行",
+        "IT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/13-データ取得元/逆RTM-v1.csv"
+      ],
+      "acceptance": "IT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "13-MICRO-revrtm-003",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM system",
+        "0 行",
+        "ST-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/13-データ取得元/逆RTM-v1.csv"
+      ],
+      "acceptance": "ST-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "13-MICRO-revrtm-004",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM acceptance",
+        "0 行",
+        "UAT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/13-データ取得元/逆RTM-v1.csv"
+      ],
+      "acceptance": "UAT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "13-MICRO-fr-001",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md FR-ENV-01",
+        "RTM status=libs/placement_store.py:create_placement"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/fr-env-01.md"
+      ],
+      "acceptance": "FR-ENV-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "13-MICRO-fr-002",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md FR-ENV-02",
+        "RTM status=(binding routes)"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/fr-env-02.md"
+      ],
+      "acceptance": "FR-ENV-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "13-MICRO-fr-003",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md FR-ENV-03",
+        "RTM status=libs/placement_store.py:start_occupancy"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/fr-env-03.md"
+      ],
+      "acceptance": "FR-ENV-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "13-MICRO-fr-004",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md FR-ENV-04",
+        "RTM status=(telemetry.placement.resolved)"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/fr-env-04.md"
+      ],
+      "acceptance": "FR-ENV-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "13-MICRO-fr-005",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md FR-ENV-05",
+        "RTM status=libs/placement_store.py:create_qr_token"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/fr-env-05.md"
+      ],
+      "acceptance": "FR-ENV-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "13-MICRO-fr-006",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md FR-ENV-06",
+        "RTM status=tests/integration/test_observation_solid.py"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/fr-env-06.md"
+      ],
+      "acceptance": "FR-ENV-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "13-MICRO-fr-007",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md FR-ENV-07",
+        "RTM status=apps/api/routes/env.py:env_ingest"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/fr-env-07.md"
+      ],
+      "acceptance": "FR-ENV-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "13-MICRO-fr-008",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md FR-ENV-08",
+        "RTM status=libs/env_telemetry.py"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/fr-env-08.md"
+      ],
+      "acceptance": "FR-ENV-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "13-MICRO-fr-009",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md FR-ENV-09",
+        "RTM status=apps/api/routes/env.py:env_history"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/fr-env-09.md"
+      ],
+      "acceptance": "FR-ENV-09 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "13-MICRO-fr-010",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md FR-ENV-10",
+        "RTM status=components/env_ingest/run.py"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/fr-env-10.md"
+      ],
+      "acceptance": "FR-ENV-10 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "13-MICRO-fr-011",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md NFR-ENV-01",
+        "RTM status=libs/placement_store.py"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/nfr-env-01.md"
+      ],
+      "acceptance": "NFR-ENV-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "13-MICRO-fr-012",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md NFR-ENV-02",
+        "RTM status=collector/.env.example"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/nfr-env-02.md"
+      ],
+      "acceptance": "NFR-ENV-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "13-MICRO-fr-013",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md NFR-ENV-03",
+        "RTM status=collector/.env.example"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/nfr-env-03.md"
+      ],
+      "acceptance": "NFR-ENV-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "13-MICRO-fr-014",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md NFR-ENV-04",
+        "RTM status=libs/placement_store.py:new_qr_token"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/nfr-env-04.md"
+      ],
+      "acceptance": "NFR-ENV-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "13-MICRO-fr-015",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md NFR-ENV-05",
+        "RTM status=apps/api/routes/env.py"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/nfr-env-05.md"
+      ],
+      "acceptance": "NFR-ENV-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "13-MICRO-fr-016",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md OBS-FUP-04",
+        "RTM status=unknown"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/obs-fup-04.md"
+      ],
+      "acceptance": "OBS-FUP-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "13-MICRO-fr-017",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md OBS-RX-RD-03",
+        "RTM status=unknown"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/obs-rx-rd-03.md"
+      ],
+      "acceptance": "OBS-RX-RD-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "13-MICRO-fr-018",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md OBS-RX-RD-08",
+        "RTM status=unknown"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/obs-rx-rd-08.md"
+      ],
+      "acceptance": "OBS-RX-RD-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "13-MICRO-fr-019",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/13-データ取得元.md OBS-RX-RD-07",
+        "RTM status=unknown"
+      ],
+      "outputs": [
+        "02-設計/features/13-データ取得元/slices/fr/obs-rx-rd-07.md"
+      ],
+      "acceptance": "OBS-RX-RD-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    }
+  ]
+}

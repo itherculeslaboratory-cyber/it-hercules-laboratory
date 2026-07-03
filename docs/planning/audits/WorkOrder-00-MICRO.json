@@ -1,0 +1,487 @@
+{
+  "feature_id": "00",
+  "feature_name": "土台",
+  "mode": "MICRO",
+  "generated": "2026-07-03",
+  "source_workorder": "WorkOrder-00.json",
+  "target_range": "60-150",
+  "paths": {
+    "req": ".\\01-要件\\00-土台-MiniKernel-C-USB-コンポーネント.md",
+    "detV3": ".\\02-設計\\features\\00-土台-MiniKernel-C-USB-コンポーネント\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\00-土台-MiniKernel-C-USB-コンポーネント\\RTM-v1.csv",
+    "route_files": []
+  },
+  "slice_counts": {
+    "total": 35,
+    "by_type": {
+      "reverse-rtm": 4,
+      "fr-1id": 31
+    },
+    "by_owner": {
+      "auto": 10,
+      "tier-a": 25
+    }
+  },
+  "fr_slices_truncated": 0,
+  "slices": [
+    {
+      "slice_id": "00-MICRO-revrtm-001",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM unit",
+        "13 行",
+        "UT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/00-土台-MiniKernel-C-USB-コンポーネント/逆RTM-v1.csv"
+      ],
+      "acceptance": "UT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "00-MICRO-revrtm-002",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM integration",
+        "9 行",
+        "IT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/00-土台-MiniKernel-C-USB-コンポーネント/逆RTM-v1.csv"
+      ],
+      "acceptance": "IT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "00-MICRO-revrtm-003",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM system",
+        "16 行",
+        "ST-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/00-土台-MiniKernel-C-USB-コンポーネント/逆RTM-v1.csv"
+      ],
+      "acceptance": "ST-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "00-MICRO-revrtm-004",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM acceptance",
+        "24 行",
+        "UAT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/00-土台-MiniKernel-C-USB-コンポーネント/逆RTM-v1.csv"
+      ],
+      "acceptance": "UAT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "00-MICRO-fr-001",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-S01",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-s01.md"
+      ],
+      "acceptance": "FOUND-S01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-002",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-S02",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-s02.md"
+      ],
+      "acceptance": "FOUND-S02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-003",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-S03",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-s03.md"
+      ],
+      "acceptance": "FOUND-S03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-004",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-S04",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-s04.md"
+      ],
+      "acceptance": "FOUND-S04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-005",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-S05",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-s05.md"
+      ],
+      "acceptance": "FOUND-S05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-006",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-S06",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-s06.md"
+      ],
+      "acceptance": "FOUND-S06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-007",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-S07",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-s07.md"
+      ],
+      "acceptance": "FOUND-S07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-008",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-S08",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-s08.md"
+      ],
+      "acceptance": "FOUND-S08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-009",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-S09",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-s09.md"
+      ],
+      "acceptance": "FOUND-S09 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-010",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-S10",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-s10.md"
+      ],
+      "acceptance": "FOUND-S10 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-011",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-D01",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-d01.md"
+      ],
+      "acceptance": "FOUND-D01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-012",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-D02",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-d02.md"
+      ],
+      "acceptance": "FOUND-D02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-013",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-D03",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-d03.md"
+      ],
+      "acceptance": "FOUND-D03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-014",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-D04",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-d04.md"
+      ],
+      "acceptance": "FOUND-D04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-015",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-D05",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-d05.md"
+      ],
+      "acceptance": "FOUND-D05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-016",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-D06",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-d06.md"
+      ],
+      "acceptance": "FOUND-D06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-017",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-D07",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-d07.md"
+      ],
+      "acceptance": "FOUND-D07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-018",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-D08",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-d08.md"
+      ],
+      "acceptance": "FOUND-D08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-019",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-N01",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-n01.md"
+      ],
+      "acceptance": "FOUND-N01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-020",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-N02",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-n02.md"
+      ],
+      "acceptance": "FOUND-N02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-021",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-N03",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-n03.md"
+      ],
+      "acceptance": "FOUND-N03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-022",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-N04",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-n04.md"
+      ],
+      "acceptance": "FOUND-N04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-023",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-N05",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-n05.md"
+      ],
+      "acceptance": "FOUND-N05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-024",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-N06",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-n06.md"
+      ],
+      "acceptance": "FOUND-N06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-025",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-N07",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-n07.md"
+      ],
+      "acceptance": "FOUND-N07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-026",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-N08",
+        "RTM status=xref"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-n08.md"
+      ],
+      "acceptance": "FOUND-N08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-027",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-M01",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-m01.md"
+      ],
+      "acceptance": "FOUND-M01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-028",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-M02",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-m02.md"
+      ],
+      "acceptance": "FOUND-M02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-029",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-M03",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-m03.md"
+      ],
+      "acceptance": "FOUND-M03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-030",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-M04",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-m04.md"
+      ],
+      "acceptance": "FOUND-M04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "00-MICRO-fr-031",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント.md FOUND-M05",
+        "RTM status=human"
+      ],
+      "outputs": [
+        "02-設計/features/00-土台-MiniKernel-C-USB-コンポーネント/slices/fr/found-m05.md"
+      ],
+      "acceptance": "FOUND-M05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    }
+  ]
+}

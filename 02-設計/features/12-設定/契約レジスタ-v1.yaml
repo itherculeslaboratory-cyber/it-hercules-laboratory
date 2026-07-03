@@ -1,0 +1,54 @@
+# IHL 契約レジスタ v0 — 自動生成（正本: apps/api/routes/*.py）
+# 生成: node scripts/ihl-contract-oracle.mjs --feature 12 --write
+# 検証: node scripts/ihl-contract-oracle.mjs --feature 12 --check
+# 手編集禁止（DET §3.9 表と DET diff GATE で突き合わせる）
+feature_id: "12"
+feature_name: "設定"
+generated: "2026-07-03"
+oracle_version: "v0"
+source_files:
+  - "apps/api/routes/me.py"
+  - "apps/api/main.py"
+golden_fixtures_dir: "fixtures/oracle/"
+route_count: 5
+routes:
+  - method: GET
+    path: "/api/v1/me/preferences"
+    path_normalized: "/api/v1/me/preferences"
+    handler: get_preferences
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/me.py"
+  - method: GET
+    path: "/api/v1/me/settings"
+    path_normalized: "/api/v1/me/settings"
+    handler: get_settings
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/me.py"
+  - method: GET
+    path: "/api/v1/settings"
+    path_normalized: "/api/v1/settings"
+    handler: settings_get
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/main.py"
+  - method: PATCH
+    path: "/api/v1/me/preferences"
+    path_normalized: "/api/v1/me/preferences"
+    handler: patch_preferences
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/me.py"
+  - method: POST
+    path: "/api/v1/settings/pii-session"
+    path_normalized: "/api/v1/settings/pii-session"
+    handler: settings_pii_session
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/main.py"

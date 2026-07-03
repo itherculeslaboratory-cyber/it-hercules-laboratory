@@ -1,0 +1,65 @@
+{
+  "feature_id": "03",
+  "feature_name": "新規登録",
+  "version": "v1",
+  "note": "route × auth × status の骨格（MAD-WAVE-REPLICATE-03）。web 画面状態は UI/遷移正本参照。契約正本は 契約レジスタ-v1.yaml。",
+  "generated": "2026-07-03",
+  "auth_model": {
+    "session_token": "opaque (#01)",
+    "onboarding_store": "event_store onboarding/v1/{actor_id}/completed.json"
+  },
+  "web_routes": [
+    {
+      "route": "/onboarding",
+      "kind": "form",
+      "states": [
+        "pending",
+        "submitting",
+        "complete",
+        "error"
+      ],
+      "primary_action": "文明人格を確定",
+      "api": [
+        "GET /api/v1/onboarding/status",
+        "POST /api/v1/onboarding/complete"
+      ]
+    }
+  ],
+  "api_transitions": [
+    {
+      "method": "GET",
+      "path": "/api/v1/onboarding/status",
+      "auth": "public",
+      "success": 200,
+      "errors": [],
+      "on_success": "pending or complete + handle"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/onboarding/complete",
+      "auth": "public",
+      "success": 201,
+      "errors": [
+        400,
+        409
+      ],
+      "on_error": {
+        "400": "HANDLE_REQUIRED → 再入力",
+        "409": "ONBOARDING_ALREADY_COMPLETE → ホームへ"
+      },
+      "on_success": "complete 201 → #04 home"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/register",
+      "auth": "public",
+      "success": 200,
+      "errors": [
+        400
+      ],
+      "on_error": {
+        "400": "規約未同意 → チェックボックス強調"
+      }
+    }
+  ]
+}

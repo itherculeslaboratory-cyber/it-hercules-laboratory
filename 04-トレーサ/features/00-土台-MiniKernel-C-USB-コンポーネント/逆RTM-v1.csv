@@ -1,0 +1,46 @@
+# 逆RTM v1 — feature #00 土台（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 00 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UT-00-01,unit,pytest,1,FOUND-S03,existing
+UT-00-03,unit,pytest,1,FOUND-N02,existing
+UT-00-04,unit,pytest,1,FOUND-N01,existing
+UT-00-08,unit,pytest,1,FOUND-D02,existing
+UT-00-09,unit,pytest,1,FOUND-D02,existing
+UT-00-10,unit,pytest,1,FOUND-D06,existing
+UT-00-11,unit,pytest,1,FOUND-D01,existing
+UT-00-12,unit,pytest,1,FOUND-D01,existing
+UT-00-13,unit,pytest,1,FOUND-N05,planned
+UT-00-14,unit,pytest,1,FOUND-N05,planned
+UT-00-16,unit,pytest,1,FOUND-S03,existing
+UT-00-17,unit,pytest,1,FOUND-N02,existing
+UT-00-18,unit,pytest,1,FOUND-D04,planned
+IT-00-01,integration,pytest,1,FOUND-S09,existing
+IT-00-03,integration,pytest,1,FOUND-D06,existing
+IT-00-04,integration,pytest,1,FOUND-D07,planned
+IT-00-05,integration,pytest,1,FOUND-N07,existing
+IT-00-06,integration,pytest,1,FOUND-S03,existing
+IT-00-07,integration,pytest,1,FOUND-D01,planned
+IT-00-08,integration,pytest,2,FOUND-D08 FOUND-N08,planned xref
+IT-00-09,integration,pytest,1,FOUND-N02,planned
+ST-00-01,system,pytest,3,FOUND-S09 FOUND-D01 FOUND-D05,existing
+ST-00-02,system,pytest,2,FOUND-D02 FOUND-D06,existing
+ST-00-03,system,node,2,FOUND-S03 FOUND-N02,existing
+ST-00-04,system,node,1,FOUND-N05,existing
+ST-00-06,system,pytest,1,FOUND-N06,planned
+ST-00-07,system,pytest,2,FOUND-D07 FOUND-N06,planned
+ST-00-LINT-05,system,grep,5,FOUND-S01 FOUND-S02 FOUND-S04 FOUND-S08 FOUND-D03,review
+UAT-00-01,acceptance,review,1,FOUND-S01,review
+UAT-00-02,acceptance,grep,2,FOUND-S02 FOUND-S10,review
+UAT-00-03,acceptance,review,1,FOUND-S03,review
+UAT-00-04,acceptance,review,3,FOUND-S04 FOUND-S05 FOUND-S06,review
+UAT-00-05,acceptance,review,1,FOUND-S07,review
+UAT-00-06,acceptance,review,1,FOUND-S08,review
+UAT-00-07,acceptance,review,3,FOUND-D01 FOUND-D02 FOUND-D05,review
+UAT-00-08,acceptance,review,3,FOUND-D04 FOUND-D07 FOUND-N01,review
+UAT-00-09,acceptance,review,1,FOUND-D08,review
+UAT-00-10,acceptance,review,1,FOUND-N02,review
+UAT-00-11,acceptance,review,2,FOUND-N03 FOUND-N04,review
+UAT-00-12,acceptance,review,2,FOUND-M01 FOUND-M02,review
+UAT-00-13,acceptance,review,2,FOUND-M03 FOUND-M04,review
+UAT-00-14,acceptance,human,1,FOUND-M05,human

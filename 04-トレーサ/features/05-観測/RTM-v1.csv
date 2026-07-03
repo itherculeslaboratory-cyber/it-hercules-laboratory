@@ -117,3 +117,6 @@ OBS-QR-03,§3 プリフィル,UAT-05-09,acceptance,playwright,planned
 OBS-QR-04,§9.1 entry_mode qr,UT-05-01,unit,pytest,planned
 OBS-MVP-01,§2 stage時系列,UAT-05-10,acceptance,playwright,planned
 OBS-MVP-02,§3 プリフィル,UAT-05-10,acceptance,playwright,planned
+OBS-GAP-01,§補遺 Scope A 検索 READ 公開,IT-05-20,integration,pytest,existing
+OBS-GAP-02,§補遺 AuthenticatedImage,UT-05-19,unit,vitest,existing
+OBS-GAP-03,§補遺 READ/WRITE auth 分離,IT-05-21,integration,pytest,existing

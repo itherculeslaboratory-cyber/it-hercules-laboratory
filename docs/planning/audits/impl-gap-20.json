@@ -1,0 +1,36 @@
+{
+  "id": "20",
+  "name": "投票",
+  "reqIdCount": 18,
+  "apiRoutes": [
+    "/api/v1/votes",
+    "/api/v1/votes/{vote_id}/ballot"
+  ],
+  "webRoutes": [
+    "/observation",
+    "/observation/[id]",
+    "/observation/context",
+    "/observation/done",
+    "/observation/input",
+    "/observation/input/confirm",
+    "/observation/solid",
+    "/observation/templates",
+    "/observation/templates/[id]",
+    "/observation/templates/[id]/fork"
+  ],
+  "implGaps": [
+    {
+      "id": "IMPL-GAP-20-API-1",
+      "kind": "api_route",
+      "surface": "/api/v1/votes",
+      "suggest": "DET-v3-§3"
+    },
+    {
+      "id": "IMPL-GAP-20-API-2",
+      "kind": "api_route",
+      "surface": "/api/v1/votes/{vote_id}/ballot",
+      "suggest": "DET-v3-§3"
+    }
+  ],
+  "gapCount": 2
+}

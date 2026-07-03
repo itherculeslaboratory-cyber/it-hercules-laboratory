@@ -1,0 +1,69 @@
+{
+  "feature_id": "07",
+  "feature_name": "掲示板",
+  "generated": "2026-07-03",
+  "slices_root": "02-設計/features/07-掲示板/slices",
+  "total": 32,
+  "categories": {
+    "api": {
+      "count": 5,
+      "files": [
+        "get-api-v1-board-categories.md",
+        "get-api-v1-board-category-threads.md",
+        "get-api-v1-component-board.md",
+        "post-api-v1-board-category-threads-thread-id-posts.md",
+        "post-api-v1-board-category-threads.md"
+      ]
+    },
+    "schema": {
+      "count": 2,
+      "files": [
+        "boardpostcreate.md",
+        "boardthreadcreate.md"
+      ]
+    },
+    "errors": {
+      "count": 0,
+      "files": []
+    },
+    "screens": {
+      "count": 0,
+      "files": []
+    },
+    "reverse-rtm": {
+      "count": 4,
+      "files": [
+        "revrtm-001-unit-layer.md",
+        "revrtm-002-integration-layer.md",
+        "revrtm-003-system-layer.md",
+        "revrtm-004-acceptance-layer.md"
+      ]
+    },
+    "fr": {
+      "count": 21,
+      "files": [
+        "fr-bbs-01.md",
+        "fr-bbs-02.md",
+        "fr-bbs-03.md",
+        "fr-bbs-04.md",
+        "fr-bbs-05.md",
+        "fr-bbs-06.md",
+        "fr-bbs-07.md",
+        "fr-bbs-08.md",
+        "fr-bbs-09.md",
+        "fr-bbs-10.md",
+        "fr-bbs-11.md",
+        "fr-bbs-12.md",
+        "fr-bbs-13.md",
+        "fr-bbs-14.md",
+        "fr-bbs-15.md",
+        "fr-bbs-16.md",
+        "nfr-bbs-01.md",
+        "nfr-bbs-02.md",
+        "nfr-bbs-03.md",
+        "nfr-bbs-04.md",
+        "nfr-bbs-05.md"
+      ]
+    }
+  }
+}

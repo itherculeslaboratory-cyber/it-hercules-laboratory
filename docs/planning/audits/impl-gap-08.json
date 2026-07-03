@@ -1,0 +1,29 @@
+{
+  "id": "08",
+  "name": "カルマ",
+  "reqIdCount": 24,
+  "apiRoutes": [
+    "/api/v1/profile/metrics"
+  ],
+  "webRoutes": [
+    "/observation",
+    "/observation/[id]",
+    "/observation/context",
+    "/observation/done",
+    "/observation/input",
+    "/observation/input/confirm",
+    "/observation/solid",
+    "/observation/templates",
+    "/observation/templates/[id]",
+    "/observation/templates/[id]/fork"
+  ],
+  "implGaps": [
+    {
+      "id": "IMPL-GAP-08-API-1",
+      "kind": "api_route",
+      "surface": "/api/v1/profile/metrics",
+      "suggest": "DET-v3-§3"
+    }
+  ],
+  "gapCount": 1
+}

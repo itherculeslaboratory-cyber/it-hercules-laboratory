@@ -1,0 +1,20 @@
+# 逆RTM v1 — feature #10 マチアプ（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 10 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+ST-10-03,unit,pytest,1,NFR-MCH-02,existing
+UT-10-01,unit,pytest,1,NFR-MCH-03,existing
+UT-10-02,unit,pytest,2,FR-MCH-05 NFR-MCH-03,existing
+UT-10-03,unit,pytest,1,NFR-MCH-02,existing
+UT-10-05,unit,pytest,1,FR-MCH-02,partial
+IT-10-02,integration,pytest,1,FR-MCH-05,existing
+IT-10-05,integration,pytest,3,FR-MCH-07 FR-MCH-15 FR-MCH-16,xref partial
+UT-10-04,integration,pytest,1,NFR-MCH-02,existing
+IT-10-03,system,pytest,1,NFR-MCH-02,existing
+ST-10-02,system,pytest,3,FR-MCH-06 FR-MCH-08 NFR-MCH-01,xref existing
+ST-10-04,system,pytest,2,FR-MCH-05 FR-MCH-16,existing partial
+ST-10-05,system,pytest,3,FR-MCH-13 FR-MCH-14 NFR-MCH-04,gap
+ST-10-06,system,pytest,1,NFR-MCH-06,gap
+UAT-10-05,uat,pytest,2,FR-MCH-14 NFR-MCH-04,gap
+UAT-10-06,uat,pytest,4,FR-MCH-01 FR-MCH-03 FR-MCH-04 FR-MCH-09,gap
+UAT-10-07,uat,pytest,4,FR-MCH-10 FR-MCH-11 FR-MCH-12 NFR-MCH-05,deferred doc

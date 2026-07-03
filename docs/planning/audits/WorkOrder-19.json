@@ -1,0 +1,74 @@
+{
+  "feature_id": "19",
+  "feature_name": "コンポ掲示板",
+  "priority": "P1",
+  "generated": "2026-07-03",
+  "paths": {
+    "req": ".\\01-要件\\19-コンポーネント掲示板.md",
+    "detV2": ".\\02-設計\\features\\19-コンポーネント掲示板\\詳細設計-v2.md",
+    "detV3": ".\\02-設計\\features\\19-コンポーネント掲示板\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\19-コンポーネント掲示板\\RTM-v1.csv"
+  },
+  "slices": [
+    {
+      "slice_id": "19-DET-s2-schema",
+      "owner": "auto",
+      "inputs": [
+        "01-要件/19-*.md データ契約節",
+        "02-設計/features/*コンポ掲示板*/詳細設計-v2.md §2"
+      ],
+      "outputs": [
+        "02-設計/features/*/19-*/詳細設計-v3-slices/s2-schema.md"
+      ],
+      "acceptance": "§2 フィールド表 · enum · INSERT ONLY 注記"
+    },
+    {
+      "slice_id": "19-DET-s3-api",
+      "owner": "auto",
+      "inputs": [
+        "apps/api/routes/*.py",
+        "REQ API 節 → DET へ移行"
+      ],
+      "outputs": [
+        "02-設計/features/*/19-*/詳細設計-v3-slices/s3-api.md"
+      ],
+      "acceptance": "§3 route 表: method/path/auth/errors"
+    },
+    {
+      "slice_id": "19-DET-s7-gap",
+      "owner": "auto",
+      "inputs": [
+        "impl-gap-NN.json",
+        "詳細設計-v2.md §7"
+      ],
+      "outputs": [
+        "02-設計/features/*/19-*/詳細設計-v3-slices/s7-gap.md"
+      ],
+      "acceptance": "§7 retrofit/gap 表 · IMPL-GAP 反映"
+    },
+    {
+      "slice_id": "19-TD-ut",
+      "owner": "auto",
+      "inputs": [
+        "03-テスト計画/features/*/単体テスト計画-v1.md",
+        "RTM planned rows"
+      ],
+      "outputs": [
+        "単体テスト計画-v1.md 拡充"
+      ],
+      "acceptance": "planned RTM 行に対応する UT-NN-xx 行"
+    },
+    {
+      "slice_id": "19-RTM",
+      "owner": "auto",
+      "inputs": [
+        "04-トレーサ/features/*/RTM-v1.csv",
+        "DET v3 §参照"
+      ],
+      "outputs": [
+        "RTM-v1.csv design_section 更新"
+      ],
+      "acceptance": "全 req_id に test_case_id · TC が 4層 MD に存在"
+    }
+  ]
+}

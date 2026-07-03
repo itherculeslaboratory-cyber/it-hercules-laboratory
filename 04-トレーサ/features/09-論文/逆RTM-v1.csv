@@ -1,0 +1,23 @@
+# 逆RTM v1 — feature #09 論文（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 09 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+IT-09-01,unit,pytest,1,FR-PPR-11,existing
+ST-09-01,unit,pytest,1,FR-PPR-01,existing
+ST-09-02,unit,pytest,1,NFR-PPR-03,existing
+UT-09-01,unit,pytest,2,FR-PPR-11 NFR-PPR-05,existing
+UT-09-02,unit,pytest,3,FR-PPR-01 FR-PPR-03 NFR-PPR-05,existing partial
+UT-09-04,unit,pytest,1,FR-PPR-02,partial
+UT-09-05,unit,pytest,1,NFR-PPR-03,existing
+IT-09-03,integration,pytest,1,FR-PPR-02,partial
+IT-09-04,integration,pytest,1,NFR-PPR-03,existing
+IT-09-06,integration,pytest,1,FR-PPR-10,existing
+UT-09-03,integration,pytest,1,FR-PPR-01,existing
+UT-09-06,integration,pytest,1,FR-PPR-11,existing
+IT-09-02,system,pytest,1,FR-PPR-01,existing
+IT-09-05,system,pytest,1,NFR-PPR-03,existing
+ST-09-03,system,pytest,1,FR-PPR-02,partial
+ST-09-04,system,pytest,1,FR-PPR-10,existing
+ST-09-05,system,pytest,1,FR-PAPER-04,partial
+ST-09-06,system,pytest,3,FR-PPR-06 FR-PPR-07 NFR-PPR-04,gap existing
+UAT-09-06,uat,review,10,NFR-PPR-01 FR-PAPER-03 FR-PAPER-05 FR-PAPER-06 FR-PAPER-07 FR-PAPER-08 FR-PAPER-01 FR-PAPER-02 FR-PAPER-09 FR-PAPER-11,doc deferred xref gap

@@ -1,0 +1,44 @@
+{
+  "id": "05",
+  "name": "観測",
+  "prefix": "05-観測",
+  "paths": {
+    "req": ".\\01-要件\\05-観測.md",
+    "detV2": ".\\02-設計\\features\\05-観測\\詳細設計-v2.md",
+    "detV3": ".\\02-設計\\features\\05-観測\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\05-観測\\RTM-v1.csv"
+  },
+  "lineCounts": {
+    "req": 1286,
+    "detV2": 501,
+    "detV3": 561,
+    "testPlans": 269,
+    "rtmRows": 117
+  },
+  "reqDetPatternScore": {
+    "api_paths": 19,
+    "data_testid": 2,
+    "apps_paths": 2,
+    "pytest_refs": 2,
+    "impl_sections": 1,
+    "schema_fields": 0,
+    "total": 26
+  },
+  "depthRatio": 0.39,
+  "reqIdCount": 229,
+  "tcIdCount": 61,
+  "rtm": {
+    "statusDist": {
+      "existing": 23,
+      "planned": 55,
+      "gap": 9,
+      "review": 11,
+      "xref": 3,
+      "deferred": 15,
+      "human": 1
+    },
+    "issueCount": 0,
+    "issues": []
+  },
+  "priority": "P0"
+}

@@ -1,0 +1,21 @@
+# 逆RTM v1 — feature #19 コンポ掲示板（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 19 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UT-19-01,unit,pytest,1,FR-19-01,existing
+UT-19-02,unit,review,1,FR-19-05,doc
+UT-19-03,unit,pytest,1,NFR-19-01,existing
+UT-19-04,unit,pytest,1,FR-19-02,gap
+UT-19-05,unit,pytest,1,NFR-19-02,partial
+IT-19-01,integration,pytest,1,FR-19-01,existing
+IT-19-02,integration,pytest,1,FR-19-03,existing
+IT-19-03,integration,pytest,1,FR-19-04,gap
+IT-19-04,integration,pytest,1,NFR-19-06,partial
+ST-19-01,system,pytest,1,NFR-19-01,existing
+ST-19-04,system,review,2,NFR-19-03 NFR-19-04,doc gap
+ST-19-03,uat,pytest,1,FR-19-06,partial
+UAT-19-01,uat,pytest,1,FR-19-01,existing
+UAT-19-03,uat,pytest,1,FR-19-03,existing
+UAT-19-04,uat,review,2,FR-19-05 NFR-19-05,doc
+UAT-19-05,uat,pytest,1,FR-19-07,gap
+UAT-19-06,uat,pytest,1,FR-19-04,gap

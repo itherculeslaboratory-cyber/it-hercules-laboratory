@@ -1,0 +1,317 @@
+{
+  "feature_id": "18",
+  "feature_name": "写真解析",
+  "mode": "MICRO",
+  "generated": "2026-07-03",
+  "source_workorder": "WorkOrder-18.json",
+  "target_range": "60-150",
+  "paths": {
+    "req": ".\\01-要件\\18-写真解析.md",
+    "detV3": ".\\02-設計\\features\\18-写真解析\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\18-写真解析\\RTM-v1.csv",
+    "route_files": []
+  },
+  "slice_counts": {
+    "total": 22,
+    "by_type": {
+      "reverse-rtm": 4,
+      "fr-1id": 18
+    },
+    "by_owner": {
+      "auto": 22
+    }
+  },
+  "fr_slices_truncated": 0,
+  "slices": [
+    {
+      "slice_id": "18-MICRO-revrtm-001",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM unit",
+        "0 行",
+        "UT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/18-写真解析/逆RTM-v1.csv"
+      ],
+      "acceptance": "UT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "18-MICRO-revrtm-002",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM integration",
+        "0 行",
+        "IT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/18-写真解析/逆RTM-v1.csv"
+      ],
+      "acceptance": "IT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "18-MICRO-revrtm-003",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM system",
+        "0 行",
+        "ST-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/18-写真解析/逆RTM-v1.csv"
+      ],
+      "acceptance": "ST-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "18-MICRO-revrtm-004",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM acceptance",
+        "0 行",
+        "UAT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/18-写真解析/逆RTM-v1.csv"
+      ],
+      "acceptance": "UAT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "18-MICRO-fr-001",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/18-写真解析.md FR-18-01",
+        "RTM status=(solidObservation.ts)"
+      ],
+      "outputs": [
+        "02-設計/features/18-写真解析/slices/fr/fr-18-01.md"
+      ],
+      "acceptance": "FR-18-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "18-MICRO-fr-002",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/18-写真解析.md FR-18-02",
+        "RTM status=apps/api/main.py:photo_analysis_result"
+      ],
+      "outputs": [
+        "02-設計/features/18-写真解析/slices/fr/fr-18-02.md"
+      ],
+      "acceptance": "FR-18-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "18-MICRO-fr-003",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/18-写真解析.md FR-18-03",
+        "RTM status=apps/api/main.py:photo_analysis_approve"
+      ],
+      "outputs": [
+        "02-設計/features/18-写真解析/slices/fr/fr-18-03.md"
+      ],
+      "acceptance": "FR-18-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "18-MICRO-fr-004",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/18-写真解析.md FR-18-04",
+        "RTM status=(solidObservation LabelMe)"
+      ],
+      "outputs": [
+        "02-設計/features/18-写真解析/slices/fr/fr-18-04.md"
+      ],
+      "acceptance": "FR-18-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "18-MICRO-fr-005",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/18-写真解析.md FR-18-05",
+        "RTM status=(buildSolidObservationReanalysisManifest)"
+      ],
+      "outputs": [
+        "02-設計/features/18-写真解析/slices/fr/fr-18-05.md"
+      ],
+      "acceptance": "FR-18-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "18-MICRO-fr-006",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/18-写真解析.md FR-18-06",
+        "RTM status=(thumbnail_builder)"
+      ],
+      "outputs": [
+        "02-設計/features/18-写真解析/slices/fr/fr-18-06.md"
+      ],
+      "acceptance": "FR-18-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "18-MICRO-fr-007",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/18-写真解析.md FR-18-07",
+        "RTM status=components/embedding_builder/run.py"
+      ],
+      "outputs": [
+        "02-設計/features/18-写真解析/slices/fr/fr-18-07.md"
+      ],
+      "acceptance": "FR-18-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "18-MICRO-fr-008",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/18-写真解析.md FR-18-08",
+        "RTM status=(qc_builder)"
+      ],
+      "outputs": [
+        "02-設計/features/18-写真解析/slices/fr/fr-18-08.md"
+      ],
+      "acceptance": "FR-18-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "18-MICRO-fr-009",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/18-写真解析.md FR-18-09",
+        "RTM status=apps/search/app.py"
+      ],
+      "outputs": [
+        "02-設計/features/18-写真解析/slices/fr/fr-18-09.md"
+      ],
+      "acceptance": "FR-18-09 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "18-MICRO-fr-010",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/18-写真解析.md FR-18-10",
+        "RTM status=libs/ihl/observation/scoring.py"
+      ],
+      "outputs": [
+        "02-設計/features/18-写真解析/slices/fr/fr-18-10.md"
+      ],
+      "acceptance": "FR-18-10 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "18-MICRO-fr-011",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/18-写真解析.md FR-18-11",
+        "RTM status=libs/ihl/core/event_store.py:write_tag_event"
+      ],
+      "outputs": [
+        "02-設計/features/18-写真解析/slices/fr/fr-18-11.md"
+      ],
+      "acceptance": "FR-18-11 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "18-MICRO-fr-012",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/18-写真解析.md NFR-18-01",
+        "RTM status=libs/r2_io.py"
+      ],
+      "outputs": [
+        "02-設計/features/18-写真解析/slices/fr/nfr-18-01.md"
+      ],
+      "acceptance": "NFR-18-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "18-MICRO-fr-013",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/18-写真解析.md NFR-18-02",
+        "RTM status=apps/api/main.py:photo_analysis_result"
+      ],
+      "outputs": [
+        "02-設計/features/18-写真解析/slices/fr/nfr-18-02.md"
+      ],
+      "acceptance": "NFR-18-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "18-MICRO-fr-014",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/18-写真解析.md NFR-18-03",
+        "RTM status=schema-pack-v1.md"
+      ],
+      "outputs": [
+        "02-設計/features/18-写真解析/slices/fr/nfr-18-03.md"
+      ],
+      "acceptance": "NFR-18-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "18-MICRO-fr-015",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/18-写真解析.md NFR-18-04",
+        "RTM status=components/embedding_builder/run.py"
+      ],
+      "outputs": [
+        "02-設計/features/18-写真解析/slices/fr/nfr-18-04.md"
+      ],
+      "acceptance": "NFR-18-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "18-MICRO-fr-016",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/18-写真解析.md NFR-18-05",
+        "RTM status=apps/web/src/app/component/photo-analysis"
+      ],
+      "outputs": [
+        "02-設計/features/18-写真解析/slices/fr/nfr-18-05.md"
+      ],
+      "acceptance": "NFR-18-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "18-MICRO-fr-017",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/18-写真解析.md NFR-18-06",
+        "RTM status=docs/solid-vision-backends.md"
+      ],
+      "outputs": [
+        "02-設計/features/18-写真解析/slices/fr/nfr-18-06.md"
+      ],
+      "acceptance": "NFR-18-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "18-MICRO-fr-018",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/18-写真解析.md NFR-18-07",
+        "RTM status=tests/unit/test_embedding_builder.py"
+      ],
+      "outputs": [
+        "02-設計/features/18-写真解析/slices/fr/nfr-18-07.md"
+      ],
+      "acceptance": "NFR-18-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+# 逆RTM v1 — feature #12 設定（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 12 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UT-12-01,unit,pytest,1,FR-SET-11,existing
+UT-12-02,unit,pytest,1,FR-SET-15,existing
+UT-12-03,unit,pytest,1,FR-SET-09,existing
+UT-12-05,unit,pytest,1,FR-SET-17,planned
+UT-12-06,unit,pytest,1,NFR-SET-01,existing
+UT-12-07,unit,pytest,2,FR-SET-02 FR-SET-03,gap
+UT-12-08,unit,pytest,3,FR-SET-04 FR-SET-05 NFR-SET-02,gap
+IT-12-01,integration,pytest,1,FR-SET-15,existing
+IT-12-02,integration,pytest,1,FR-SET-09,existing
+IT-12-03,integration,pytest,1,FR-SET-17,planned
+IT-12-04,integration,pytest,1,FR-SET-16,gap
+IT-12-05,integration,pytest,1,FR-SET-19,xref
+ST-12-02,system,pytest,1,NFR-SET-01,existing
+ST-12-05,system,pytest,1,NFR-SET-04,gap
+UAT-12-01,acceptance,review,6,FR-SET-01 FR-SET-11 FR-SET-12 FR-SET-13 FR-SET-14 NFR-SET-03,planned existing gap review
+UAT-12-02,acceptance,review,1,FR-SET-07,gap
+UAT-12-05,acceptance,review,1,FR-SET-19,xref
+UAT-12-08,acceptance,review,1,FR-SET-18,gap
+UAT-12-09,acceptance,review,2,FR-SET-06 FR-SET-08,gap review
+UAT-12-10,acceptance,review,2,FR-SET-10 NFR-SET-05,review deferred

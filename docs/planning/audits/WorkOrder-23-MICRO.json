@@ -1,0 +1,424 @@
+{
+  "feature_id": "23",
+  "feature_name": "GMO 振込",
+  "mode": "MICRO",
+  "generated": "2026-07-03",
+  "source_workorder": "WorkOrder-23.json",
+  "target_range": "60-150",
+  "paths": {
+    "req": ".\\01-要件\\23-GMO銀行振込判定.md",
+    "detV3": ".\\02-設計\\features\\23-GMO銀行振込判定\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\23-GMO銀行振込判定\\RTM-v1.csv",
+    "route_files": [
+      "apps/api/routes/gmo.py"
+    ]
+  },
+  "slice_counts": {
+    "total": 29,
+    "by_type": {
+      "api-1route": 6,
+      "schema-field": 2,
+      "error-code": 3,
+      "reverse-rtm": 4,
+      "fr-1id": 14
+    },
+    "by_owner": {
+      "auto": 22,
+      "tier-a": 7
+    }
+  },
+  "fr_slices_truncated": 0,
+  "slices": [
+    {
+      "slice_id": "23-MICRO-api-001",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/gmo.py",
+        "GET /api/v1/gmo/reconciliation/meta",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/api/get-api-v1-gmo-reconciliation-meta.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "23-MICRO-api-002",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/gmo.py",
+        "GET /api/v1/gmo/transfer-code",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/api/get-api-v1-gmo-transfer-code.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "23-MICRO-api-003",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/gmo.py",
+        "GET /api/v1/gmo/va-deposit/unsent",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/api/get-api-v1-gmo-va-deposit-unsent.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[502,503]"
+    },
+    {
+      "slice_id": "23-MICRO-api-004",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/gmo.py",
+        "POST /api/v1/gmo/expected-payment",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/api/post-api-v1-gmo-expected-payment.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "23-MICRO-api-005",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/gmo.py",
+        "POST /api/v1/gmo/va-deposit/subscribe",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/api/post-api-v1-gmo-va-deposit-subscribe.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[502,503]"
+    },
+    {
+      "slice_id": "23-MICRO-api-006",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/gmo.py",
+        "POST /api/v1/gmo/webhook",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/api/post-api-v1-gmo-webhook.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[401]"
+    },
+    {
+      "slice_id": "23-MICRO-schema-001",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/gmo.py",
+        "class ExpectedPaymentRequest(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/schema/expectedpaymentrequest.md"
+      ],
+      "acceptance": "5 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "23-MICRO-schema-002",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/gmo.py",
+        "class SubscribeRequest(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/schema/subscriberequest.md"
+      ],
+      "acceptance": "1 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "23-MICRO-error-001",
+      "owner": "auto",
+      "type": "error-code",
+      "inputs": [
+        "HTTP 401",
+        "POST /api/v1/gmo/webhook"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/errors/401.md"
+      ],
+      "acceptance": "401 の発生条件 · detail メッセージ · UI 導線 · エラーカタログ行"
+    },
+    {
+      "slice_id": "23-MICRO-error-002",
+      "owner": "auto",
+      "type": "error-code",
+      "inputs": [
+        "HTTP 502",
+        "GET /api/v1/gmo/va-deposit/unsent",
+        "POST /api/v1/gmo/va-deposit/subscribe"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/errors/502.md"
+      ],
+      "acceptance": "502 の発生条件 · detail メッセージ · UI 導線 · エラーカタログ行"
+    },
+    {
+      "slice_id": "23-MICRO-error-003",
+      "owner": "auto",
+      "type": "error-code",
+      "inputs": [
+        "HTTP 503",
+        "GET /api/v1/gmo/va-deposit/unsent",
+        "POST /api/v1/gmo/va-deposit/subscribe"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/errors/503.md"
+      ],
+      "acceptance": "503 の発生条件 · detail メッセージ · UI 導線 · エラーカタログ行"
+    },
+    {
+      "slice_id": "23-MICRO-revrtm-001",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM unit",
+        "5 行",
+        "UT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/23-GMO銀行振込判定/逆RTM-v1.csv"
+      ],
+      "acceptance": "UT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "23-MICRO-revrtm-002",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM integration",
+        "2 行",
+        "IT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/23-GMO銀行振込判定/逆RTM-v1.csv"
+      ],
+      "acceptance": "IT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "23-MICRO-revrtm-003",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM system",
+        "4 行",
+        "ST-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/23-GMO銀行振込判定/逆RTM-v1.csv"
+      ],
+      "acceptance": "ST-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "23-MICRO-revrtm-004",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM acceptance",
+        "3 行",
+        "UAT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/23-GMO銀行振込判定/逆RTM-v1.csv"
+      ],
+      "acceptance": "UAT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "23-MICRO-fr-001",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/23-GMO銀行振込判定.md FR-GMO-01",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/fr/fr-gmo-01.md"
+      ],
+      "acceptance": "FR-GMO-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "23-MICRO-fr-002",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/23-GMO銀行振込判定.md FR-GMO-02",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/fr/fr-gmo-02.md"
+      ],
+      "acceptance": "FR-GMO-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "23-MICRO-fr-003",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/23-GMO銀行振込判定.md FR-GMO-03",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/fr/fr-gmo-03.md"
+      ],
+      "acceptance": "FR-GMO-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "23-MICRO-fr-004",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/23-GMO銀行振込判定.md FR-GMO-04",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/fr/fr-gmo-04.md"
+      ],
+      "acceptance": "FR-GMO-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "23-MICRO-fr-005",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/23-GMO銀行振込判定.md FR-GMO-05",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/fr/fr-gmo-05.md"
+      ],
+      "acceptance": "FR-GMO-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "23-MICRO-fr-006",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/23-GMO銀行振込判定.md FR-GMO-06",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/fr/fr-gmo-06.md"
+      ],
+      "acceptance": "FR-GMO-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "23-MICRO-fr-007",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/23-GMO銀行振込判定.md FR-GMO-07",
+        "RTM status=human"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/fr/fr-gmo-07.md"
+      ],
+      "acceptance": "FR-GMO-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "23-MICRO-fr-008",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/23-GMO銀行振込判定.md FR-GMO-08",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/fr/fr-gmo-08.md"
+      ],
+      "acceptance": "FR-GMO-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "23-MICRO-fr-009",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/23-GMO銀行振込判定.md FR-GMO-09",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/fr/fr-gmo-09.md"
+      ],
+      "acceptance": "FR-GMO-09 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "23-MICRO-fr-010",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/23-GMO銀行振込判定.md FR-GMO-10",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/fr/fr-gmo-10.md"
+      ],
+      "acceptance": "FR-GMO-10 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "23-MICRO-fr-011",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/23-GMO銀行振込判定.md NFR-GMO-01",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/fr/nfr-gmo-01.md"
+      ],
+      "acceptance": "NFR-GMO-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "23-MICRO-fr-012",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/23-GMO銀行振込判定.md NFR-GMO-02",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/fr/nfr-gmo-02.md"
+      ],
+      "acceptance": "NFR-GMO-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "23-MICRO-fr-013",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/23-GMO銀行振込判定.md NFR-GMO-03",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/fr/nfr-gmo-03.md"
+      ],
+      "acceptance": "NFR-GMO-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "23-MICRO-fr-014",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/23-GMO銀行振込判定.md NFR-GMO-04",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/23-GMO銀行振込判定/slices/fr/nfr-gmo-04.md"
+      ],
+      "acceptance": "NFR-GMO-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    }
+  ]
+}

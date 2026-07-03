@@ -1,0 +1,90 @@
+{
+  "feature_id": "03",
+  "feature_name": "新規登録",
+  "generated": "2026-07-03",
+  "slices_root": "02-設計/features/03-新規登録/slices",
+  "total": 52,
+  "categories": {
+    "api": {
+      "count": 6,
+      "files": [
+        "get-api-v1-auth-session.md",
+        "get-api-v1-onboarding-status.md",
+        "post-api-v1-auth-magic-link.md",
+        "post-api-v1-auth-register.md",
+        "post-api-v1-auth-verify.md",
+        "post-api-v1-onboarding-complete.md"
+      ]
+    },
+    "schema": {
+      "count": 4,
+      "files": [
+        "magiclinkrequest.md",
+        "magiclinkverifyrequest.md",
+        "onboardingcompletebody.md",
+        "registerrequest.md"
+      ]
+    },
+    "errors": {
+      "count": 3,
+      "files": [
+        "400.md",
+        "401.md",
+        "409.md"
+      ]
+    },
+    "screens": {
+      "count": 0,
+      "files": []
+    },
+    "reverse-rtm": {
+      "count": 4,
+      "files": [
+        "revrtm-001-unit-layer.md",
+        "revrtm-002-integration-layer.md",
+        "revrtm-003-system-layer.md",
+        "revrtm-004-acceptance-layer.md"
+      ]
+    },
+    "fr": {
+      "count": 35,
+      "files": [
+        "fr-reg-01.md",
+        "fr-reg-02.md",
+        "fr-reg-03.md",
+        "fr-reg-04.md",
+        "fr-reg-05.md",
+        "fr-reg-06.md",
+        "fr-reg-06a.md",
+        "fr-reg-07.md",
+        "fr-reg-08.md",
+        "fr-reg-09.md",
+        "fr-reg-10.md",
+        "fr-reg-11.md",
+        "fr-reg-12.md",
+        "fr-reg-13.md",
+        "fr-reg-14.md",
+        "fr-reg-15.md",
+        "fr-reg-16.md",
+        "fr-reg-17.md",
+        "fr-reg-18.md",
+        "fr-reg-19.md",
+        "fr-reg-20.md",
+        "fr-reg-21.md",
+        "fr-reg-22.md",
+        "fr-reg-23.md",
+        "fr-reg-24.md",
+        "fr-reg-25.md",
+        "fr-reg-26.md",
+        "fr-reg-27.md",
+        "nfr-reg-01.md",
+        "nfr-reg-02.md",
+        "nfr-reg-03.md",
+        "nfr-reg-04.md",
+        "nfr-reg-05.md",
+        "nfr-reg-06.md",
+        "nfr-reg-07.md"
+      ]
+    }
+  }
+}

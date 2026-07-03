@@ -1,0 +1,31 @@
+# 逆RTM v1 — feature #02 利用規約（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 02 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UT-02-01,unit,pytest,1,FR-LEGAL-02,existing
+UT-02-02,unit,pytest,1,FR-LEGAL-03,planned
+UT-02-03,unit,pytest,1,FR-14,planned
+UT-02-04,unit,pytest,1,FR-LEGAL-03,planned
+UT-02-05,unit,pytest,1,FR-LEGAL-02,planned
+UT-02-06,unit,pytest,1,NFR-05,planned
+IT-02-01,integration,pytest,2,FR-10 FR-UX-03,existing
+IT-02-02,integration,pytest,2,FR-01 FR-LEGAL-02,planned
+IT-02-03,integration,pytest,2,FR-13 FR-21,existing
+IT-02-04,integration,pytest,2,FR-14 NFR-05,planned
+IT-02-06,integration,pytest,1,FR-11,xref
+IT-02-07,integration,pytest,1,FR-RESOLVER-04,gap
+ST-02-03,system,node,1,NFR-04,existing
+ST-02-04,system,pytest,1,NFR-05,planned
+UAT-02-01,acceptance,review,3,FR-01 FR-10 FR-UX-03,review
+UAT-02-02,acceptance,review,1,FR-11,xref
+UAT-02-03,acceptance,review,2,FR-12 FR-UX-04,review
+UAT-02-04,acceptance,review,3,FR-13 FR-20 FR-22,xref
+UAT-02-05,acceptance,review,1,FR-14,review
+UAT-02-06,acceptance,review,1,NFR-02,review
+UAT-02-07,acceptance,review,1,NFR-03,review
+UAT-02-08,acceptance,grep,3,FR-02 FR-30 NFR-01,review
+UAT-02-09,acceptance,review,5,FR-03 FR-06 FR-15 NFR-04 NFR-06,review deferred
+UAT-02-10,acceptance,human,4,FR-04 FR-05 FR-31 FR-LEGAL-03,human
+UAT-02-11,acceptance,review,6,FR-16 FR-LEGAL-01 FR-EASY-01 FR-EASY-02 FR-EASY-03 NFR-EASY-01,deferred gap
+UAT-02-12,acceptance,review,9,FR-VIDEO-01 FR-VIDEO-02 FR-VIDEO-03 FR-RESOLVER-01 FR-RESOLVER-02 FR-RESOLVER-03 FR-UX-05 NFR-VIDEO-01 NFR-RESOLVER-01,gap
+UAT-02-13,acceptance,review,3,FR-UX-01 FR-UX-02 NFR-UX-01,xref gap

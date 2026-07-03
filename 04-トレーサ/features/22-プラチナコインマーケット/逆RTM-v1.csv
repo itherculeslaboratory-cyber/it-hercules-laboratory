@@ -1,0 +1,19 @@
+# 逆RTM v1 — feature #22 PT ショップ（test → req 逆引き · 機械生成）
+# 生成: node scripts/ihl-reverse-rtm.mjs --feature 22 --write
+# 列: test_case_id,test_layer,automation,req_count,req_ids,statuses
+test_case_id,test_layer,automation,req_count,req_ids,statuses
+UAT-22-02,unit,pytest,1,FR-PTMKT-01,existing
+UT-22-02,unit,pytest,1,FR-PTMKT-03,existing
+UT-22-03,unit,pytest,1,FR-PTMKT-01,existing
+UT-22-05,unit,pytest,1,FR-PTMKT-05,gap
+IT-22-02,integration,pytest,1,FR-PTMKT-04,partial
+IT-22-03,integration,pytest,1,FR-PTMKT-02,gap
+ST-22-01,system,pytest,1,FR-PTMKT-03,existing
+ST-22-02,system,pytest,1,FR-PTMKT-06,partial
+ST-22-03,system,pytest,2,FR-PTMKT-05 FR-PTMKT-08,gap
+ST-22-04,system,review,2,NFR-PTMKT-01 NFR-PTMKT-03,doc existing
+UAT-22-01,uat,pytest,4,FR-PTMKT-06 FR-PTMKT-07 NFR-PTMKT-02 NFR-PTMKT-04,partial existing doc xref
+UAT-22-03,uat,pytest,2,FR-PTMKT-05 FR-PTMKT-08,gap
+UAT-22-04,uat,pytest,1,FR-PTMKT-02,gap
+UAT-22-05,uat,pytest,1,FR-PTMKT-04,partial
+UT-22-04,uat,pytest,1,FR-PTMKT-01,existing

@@ -1,0 +1,44 @@
+{
+  "id": "02",
+  "name": "利用規約",
+  "prefix": "02-利用規約",
+  "paths": {
+    "req": ".\\01-要件\\02-利用規約.md",
+    "detV2": ".\\02-設計\\features\\02-利用規約\\詳細設計-v2.md",
+    "detV3": ".\\02-設計\\features\\02-利用規約\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\02-利用規約\\RTM-v1.csv"
+  },
+  "lineCounts": {
+    "req": 453,
+    "detV2": 257,
+    "detV3": 267,
+    "testPlans": 293,
+    "rtmRows": 60
+  },
+  "reqDetPatternScore": {
+    "api_paths": 10,
+    "data_testid": 1,
+    "apps_paths": 0,
+    "pytest_refs": 0,
+    "impl_sections": 1,
+    "schema_fields": 0,
+    "total": 12
+  },
+  "depthRatio": 0.567,
+  "reqIdCount": 47,
+  "tcIdCount": 30,
+  "rtm": {
+    "statusDist": {
+      "planned": 10,
+      "review": 15,
+      "human": 4,
+      "existing": 6,
+      "xref": 6,
+      "deferred": 3,
+      "gap": 16
+    },
+    "issueCount": 0,
+    "issues": []
+  },
+  "priority": "P2"
+}

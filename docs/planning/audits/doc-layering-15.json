@@ -1,0 +1,155 @@
+{
+  "id": "15",
+  "name": "データ設計",
+  "prefix": "15-データ設計",
+  "paths": {
+    "req": ".\\01-要件\\15-データ設計.md",
+    "detV2": ".\\02-設計\\features\\15-データ設計\\詳細設計-v2.md",
+    "detV3": ".\\02-設計\\features\\15-データ設計\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\15-データ設計\\RTM-v1.csv"
+  },
+  "lineCounts": {
+    "req": 178,
+    "detV2": 176,
+    "detV3": 0,
+    "testPlans": 140,
+    "rtmRows": 20
+  },
+  "reqDetPatternScore": {
+    "api_paths": 0,
+    "data_testid": 0,
+    "apps_paths": 0,
+    "pytest_refs": 0,
+    "impl_sections": 0,
+    "schema_fields": 0,
+    "total": 0
+  },
+  "depthRatio": 0.989,
+  "reqIdCount": 20,
+  "tcIdCount": 24,
+  "rtm": {
+    "statusDist": {
+      "schemas/common/core_subset.schema.yaml": 1,
+      "catalog/components.yaml": 1,
+      "libs/ihl/core/r2_io.py": 3,
+      "civilization/R2Engine.md": 1,
+      "schemas/capture/searchable_capture_set.schema.yaml": 1,
+      "schemas/lineage/*.schema.yaml": 1,
+      "civilization/ProjectRules.md": 1,
+      "schema-pack-v1.md §2": 1,
+      "schemas/manifest/*.schema.yaml": 1,
+      "schemas/manifest/run_info.schema.yaml": 1,
+      "schema-pack-v1.md": 2,
+      "schemas/manifest/pointer.schema.yaml": 1,
+      "各entity schema pattern": 1,
+      "schemas/events/tag_event.schema.yaml": 1,
+      "libs/schema_validator.py": 1,
+      "schemas/manifest/embedding_manifest.schema.yaml": 1,
+      "02-設計/_横断/schema/": 1
+    },
+    "issueCount": 20,
+    "issues": [
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-DATA-01",
+        "test_case_id": "詳細設計-v2 §2.1"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-DATA-02",
+        "test_case_id": "詳細設計-v2 §2.1"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-DATA-03",
+        "test_case_id": "詳細設計-v2 §2.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-DATA-04",
+        "test_case_id": "詳細設計-v2 §2.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-DATA-05",
+        "test_case_id": "詳細設計-v2 §2.4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-DATA-06",
+        "test_case_id": "詳細設計-v2 §2.1"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-DATA-07",
+        "test_case_id": "詳細設計-v2 §2.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-DATA-08",
+        "test_case_id": "詳細設計-v2 §2.1"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-DATA-09",
+        "test_case_id": "詳細設計-v2 §2.3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-DATA-10",
+        "test_case_id": "詳細設計-v2 §2.3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-DATA-11",
+        "test_case_id": "詳細設計-v2 §2.3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-DATA-12",
+        "test_case_id": "詳細設計-v2 §2.3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-DATA-13",
+        "test_case_id": "詳細設計-v2 §2.3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-DATA-14",
+        "test_case_id": "詳細設計-v2 §2.3"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "FR-DATA-15",
+        "test_case_id": "詳細設計-v2 §2.3/§6"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-DATA-01",
+        "test_case_id": "詳細設計-v2 §5"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-DATA-02",
+        "test_case_id": "詳細設計-v2 §4"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-DATA-03",
+        "test_case_id": "詳細設計-v2 §3.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-DATA-04",
+        "test_case_id": "詳細設計-v2 §3.2"
+      },
+      {
+        "type": "tc_not_in_plans",
+        "req_id": "NFR-DATA-05",
+        "test_case_id": "詳細設計-v2 §3.3"
+      }
+    ]
+  },
+  "priority": "P1"
+}

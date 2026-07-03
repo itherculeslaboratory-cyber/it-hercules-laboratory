@@ -1,0 +1,94 @@
+{
+  "feature_id": "12",
+  "feature_name": "設定",
+  "version": "v1",
+  "note": "route × auth × status の骨格（MAD-WAVE-REPLICATE-12）。web 画面状態は UI/遷移正本参照。契約正本は 契約レジスタ-v1.yaml。",
+  "generated": "2026-07-03",
+  "auth_model": {
+    "settings_hub": "認証済みユーザーのみ `/settings`（FR-SET-01 · #01 xref）",
+    "api_dev": "actor_id クエリ（テスト用）· 本番 auth middleware は #01 連携 gap"
+  },
+  "web_routes": [
+    {
+      "route": "/settings",
+      "kind": "hub",
+      "states": ["load", "hub_ready", "section_edit", "saving", "save_ok", "save_error"],
+      "primary_action": "preferences PATCH",
+      "api": ["GET /api/v1/settings", "PATCH /api/v1/me/preferences"]
+    },
+    {
+      "route": "/settings/devices",
+      "kind": "section",
+      "states": ["load", "hub_ready", "saving", "save_ok", "save_error"],
+      "primary_action": "default_device_id 更新",
+      "api": ["PATCH /api/v1/me/preferences"]
+    }
+  ],
+  "api_transitions": [
+    {
+      "method": "GET",
+      "path": "/api/v1/me/preferences",
+      "auth": "public",
+      "success": 200,
+      "errors": [],
+      "on_success": "preferences 投影全文",
+      "on_error": "—"
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/me/preferences",
+      "auth": "public",
+      "success": 200,
+      "errors": [],
+      "on_success": "更新後 preferences · allowed frozenset のみ",
+      "on_error": "—"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/me/settings",
+      "auth": "public",
+      "success": 200,
+      "errors": [],
+      "on_success": "preferences 読取エイリアス",
+      "on_error": "—"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/settings",
+      "auth": "public",
+      "success": 200,
+      "errors": [],
+      "on_success": "Web /settings load",
+      "on_error": "—"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/settings/pii-session",
+      "auth": "public",
+      "success": 200,
+      "errors": [],
+      "on_success": "TradePiiSession · mode session_only",
+      "on_error": "—"
+    }
+  ],
+  "client_transitions": [
+    {
+      "from": "load",
+      "event": "GET 200",
+      "to": "hub_ready",
+      "next": "セクション選択 → section_edit"
+    },
+    {
+      "from": "section_edit",
+      "event": "PATCH 200",
+      "to": "save_ok",
+      "next": "hub_ready（locale 即時切替は UI gap · FR-SET-12）"
+    },
+    {
+      "from": "section_edit",
+      "event": "PATCH fail",
+      "to": "save_error",
+      "next": "retry → saving"
+    }
+  ]
+}

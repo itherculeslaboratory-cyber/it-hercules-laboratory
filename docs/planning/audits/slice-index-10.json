@@ -1,0 +1,61 @@
+{
+  "feature_id": "10",
+  "feature_name": "マチアプ",
+  "generated": "2026-07-03",
+  "slices_root": "02-設計/features/10-マチアプ/slices",
+  "total": 26,
+  "categories": {
+    "api": {
+      "count": 0,
+      "files": []
+    },
+    "schema": {
+      "count": 0,
+      "files": []
+    },
+    "errors": {
+      "count": 0,
+      "files": []
+    },
+    "screens": {
+      "count": 0,
+      "files": []
+    },
+    "reverse-rtm": {
+      "count": 4,
+      "files": [
+        "revrtm-001-unit-layer.md",
+        "revrtm-002-integration-layer.md",
+        "revrtm-003-system-layer.md",
+        "revrtm-004-acceptance-layer.md"
+      ]
+    },
+    "fr": {
+      "count": 22,
+      "files": [
+        "fr-mch-01.md",
+        "fr-mch-02.md",
+        "fr-mch-03.md",
+        "fr-mch-04.md",
+        "fr-mch-05.md",
+        "fr-mch-06.md",
+        "fr-mch-07.md",
+        "fr-mch-08.md",
+        "fr-mch-09.md",
+        "fr-mch-10.md",
+        "fr-mch-11.md",
+        "fr-mch-12.md",
+        "fr-mch-13.md",
+        "fr-mch-14.md",
+        "fr-mch-15.md",
+        "fr-mch-16.md",
+        "nfr-mch-01.md",
+        "nfr-mch-02.md",
+        "nfr-mch-03.md",
+        "nfr-mch-04.md",
+        "nfr-mch-05.md",
+        "nfr-mch-06.md"
+      ]
+    }
+  }
+}

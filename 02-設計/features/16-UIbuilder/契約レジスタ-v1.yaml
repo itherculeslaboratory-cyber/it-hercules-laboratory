@@ -1,0 +1,45 @@
+# IHL 契約レジスタ v0 — 自動生成（正本: apps/api/routes/*.py）
+# 生成: node scripts/ihl-contract-oracle.mjs --feature 16 --write
+# 検証: node scripts/ihl-contract-oracle.mjs --feature 16 --check
+# 手編集禁止（DET §3.9 表と DET diff GATE で突き合わせる）
+feature_id: "16"
+feature_name: "UIbuilder"
+generated: "2026-07-03"
+oracle_version: "v0"
+source_files:
+  - "apps/api/main.py"
+golden_fixtures_dir: "fixtures/oracle/"
+route_count: 4
+routes:
+  - method: GET
+    path: "/api/v1/theme-packs"
+    path_normalized: "/api/v1/theme-packs"
+    handler: theme_packs
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/main.py"
+  - method: GET
+    path: "/api/v1/theme-packs/{pack_id}"
+    path_normalized: "/api/v1/theme-packs/{param}"
+    handler: theme_pack_detail
+    auth: public
+    success_status: 200
+    errors: [404]
+    source_file: "apps/api/main.py"
+  - method: POST
+    path: "/api/v1/builder/canvas"
+    path_normalized: "/api/v1/builder/canvas"
+    handler: builder_canvas_save
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/main.py"
+  - method: POST
+    path: "/api/v1/theme-packs"
+    path_normalized: "/api/v1/theme-packs"
+    handler: theme_pack_save
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/main.py"

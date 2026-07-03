@@ -1,0 +1,57 @@
+{
+  "feature_id": "17",
+  "feature_name": "UI選択",
+  "generated": "2026-07-03",
+  "slices_root": "02-設計/features/17-UI選択画面改善/slices",
+  "total": 20,
+  "categories": {
+    "api": {
+      "count": 2,
+      "files": [
+        "get-api-v1-settings.md",
+        "patch-api-v1-me-preferences.md"
+      ]
+    },
+    "schema": {
+      "count": 1,
+      "files": [
+        "preferencespatchbody.md"
+      ]
+    },
+    "errors": {
+      "count": 0,
+      "files": []
+    },
+    "screens": {
+      "count": 0,
+      "files": []
+    },
+    "reverse-rtm": {
+      "count": 4,
+      "files": [
+        "revrtm-001-unit-layer.md",
+        "revrtm-002-integration-layer.md",
+        "revrtm-003-system-layer.md",
+        "revrtm-004-acceptance-layer.md"
+      ]
+    },
+    "fr": {
+      "count": 13,
+      "files": [
+        "fr-17-01.md",
+        "fr-17-02.md",
+        "fr-17-03.md",
+        "fr-17-04.md",
+        "fr-17-05.md",
+        "fr-17-06.md",
+        "fr-17-07.md",
+        "meta-17-ihl.md",
+        "nfr-17-01.md",
+        "nfr-17-02.md",
+        "nfr-17-03.md",
+        "nfr-17-04.md",
+        "nfr-17-05.md"
+      ]
+    }
+  }
+}

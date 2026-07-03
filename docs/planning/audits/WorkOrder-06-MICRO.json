@@ -1,0 +1,487 @@
+{
+  "feature_id": "06",
+  "feature_name": "マーケット",
+  "mode": "MICRO",
+  "generated": "2026-07-03",
+  "source_workorder": "WorkOrder-06.json",
+  "target_range": "60-150",
+  "paths": {
+    "req": ".\\01-要件\\06-マーケット.md",
+    "detV3": ".\\02-設計\\features\\06-マーケット\\詳細設計-v3.md",
+    "rtm": ".\\04-トレーサ\\features\\06-マーケット\\RTM-v1.csv",
+    "route_files": [
+      "apps/api/routes/market.py"
+    ]
+  },
+  "slice_counts": {
+    "total": 34,
+    "by_type": {
+      "api-1route": 5,
+      "schema-field": 2,
+      "error-code": 2,
+      "reverse-rtm": 4,
+      "fr-1id": 21
+    },
+    "by_owner": {
+      "auto": 24,
+      "tier-a": 10
+    }
+  },
+  "fr_slices_truncated": 0,
+  "slices": [
+    {
+      "slice_id": "06-MICRO-api-001",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/market.py",
+        "GET /api/v1/market/listings",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/api/get-api-v1-market-listings.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "06-MICRO-api-002",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/market.py",
+        "GET /api/v1/market/listings/{listing_id}",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/api/get-api-v1-market-listings-listing-id.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[404]"
+    },
+    {
+      "slice_id": "06-MICRO-api-003",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/market.py",
+        "GET /api/v1/market/transfer/{listing_id}",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/api/get-api-v1-market-transfer-listing-id.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[]"
+    },
+    {
+      "slice_id": "06-MICRO-api-004",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/market.py",
+        "POST /api/v1/market/listings/{listing_id}/match",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/api/post-api-v1-market-listings-listing-id-match.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[409]"
+    },
+    {
+      "slice_id": "06-MICRO-api-005",
+      "owner": "auto",
+      "type": "api-1route",
+      "inputs": [
+        "apps/api/routes/market.py",
+        "POST /api/v1/market/listings/{listing_id}/transition",
+        "DET §3.9 認証境界"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/api/post-api-v1-market-listings-listing-id-transition.md"
+      ],
+      "acceptance": "method/path/auth/request/response/errors 各1行以上 · auth=public · errors=[409]"
+    },
+    {
+      "slice_id": "06-MICRO-schema-001",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/market.py",
+        "class ListingTransitionRequest(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/schema/listingtransitionrequest.md"
+      ],
+      "acceptance": "2 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "06-MICRO-schema-002",
+      "owner": "auto",
+      "type": "schema-field",
+      "inputs": [
+        "apps/api/routes/market.py",
+        "class TradeMatchRequest(BaseModel)",
+        "DET §2 データ契約"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/schema/tradematchrequest.md"
+      ],
+      "acceptance": "1 フィールドの name/type/default/必須 · enum 明記"
+    },
+    {
+      "slice_id": "06-MICRO-error-001",
+      "owner": "auto",
+      "type": "error-code",
+      "inputs": [
+        "HTTP 404",
+        "GET /api/v1/market/listings/{listing_id}"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/errors/404.md"
+      ],
+      "acceptance": "404 の発生条件 · detail メッセージ · UI 導線 · エラーカタログ行"
+    },
+    {
+      "slice_id": "06-MICRO-error-002",
+      "owner": "auto",
+      "type": "error-code",
+      "inputs": [
+        "HTTP 409",
+        "POST /api/v1/market/listings/{listing_id}/match",
+        "POST /api/v1/market/listings/{listing_id}/transition"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/errors/409.md"
+      ],
+      "acceptance": "409 の発生条件 · detail メッセージ · UI 導線 · エラーカタログ行"
+    },
+    {
+      "slice_id": "06-MICRO-revrtm-001",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM unit",
+        "4 行",
+        "UT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/06-マーケット/逆RTM-v1.csv"
+      ],
+      "acceptance": "UT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "06-MICRO-revrtm-002",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM integration",
+        "6 行",
+        "IT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/06-マーケット/逆RTM-v1.csv"
+      ],
+      "acceptance": "IT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "06-MICRO-revrtm-003",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM system",
+        "3 行",
+        "ST-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/06-マーケット/逆RTM-v1.csv"
+      ],
+      "acceptance": "ST-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "06-MICRO-revrtm-004",
+      "owner": "auto",
+      "type": "reverse-rtm",
+      "inputs": [
+        "RTM acceptance",
+        "8 行",
+        "UAT-*"
+      ],
+      "outputs": [
+        "04-トレーサ/features/06-マーケット/逆RTM-v1.csv"
+      ],
+      "acceptance": "UAT-* test_case_id → req_id 逆引き · 孤立TC 0"
+    },
+    {
+      "slice_id": "06-MICRO-fr-001",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md FR-MKT-01",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/fr-mkt-01.md"
+      ],
+      "acceptance": "FR-MKT-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-002",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md FR-MKT-02",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/fr-mkt-02.md"
+      ],
+      "acceptance": "FR-MKT-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-003",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md FR-MKT-03",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/fr-mkt-03.md"
+      ],
+      "acceptance": "FR-MKT-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-004",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md FR-MKT-04",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/fr-mkt-04.md"
+      ],
+      "acceptance": "FR-MKT-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-005",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md FR-MKT-05",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/fr-mkt-05.md"
+      ],
+      "acceptance": "FR-MKT-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-006",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md FR-MKT-06",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/fr-mkt-06.md"
+      ],
+      "acceptance": "FR-MKT-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-007",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md FR-MKT-07",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/fr-mkt-07.md"
+      ],
+      "acceptance": "FR-MKT-07 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-008",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md FR-MKT-08",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/fr-mkt-08.md"
+      ],
+      "acceptance": "FR-MKT-08 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-009",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md FR-MKT-09",
+        "RTM status=human"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/fr-mkt-09.md"
+      ],
+      "acceptance": "FR-MKT-09 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-010",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md FR-MKT-10",
+        "RTM status=deferred"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/fr-mkt-10.md"
+      ],
+      "acceptance": "FR-MKT-10 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-011",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md FR-MKT-11",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/fr-mkt-11.md"
+      ],
+      "acceptance": "FR-MKT-11 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-012",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md FR-MKT-12",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/fr-mkt-12.md"
+      ],
+      "acceptance": "FR-MKT-12 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-013",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md FR-MKT-13",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/fr-mkt-13.md"
+      ],
+      "acceptance": "FR-MKT-13 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-014",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md FR-MKT-14",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/fr-mkt-14.md"
+      ],
+      "acceptance": "FR-MKT-14 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-015",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md FR-MKT-15",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/fr-mkt-15.md"
+      ],
+      "acceptance": "FR-MKT-15 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-016",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md NFR-MKT-01",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/nfr-mkt-01.md"
+      ],
+      "acceptance": "NFR-MKT-01 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-017",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md NFR-MKT-02",
+        "RTM status=planned"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/nfr-mkt-02.md"
+      ],
+      "acceptance": "NFR-MKT-02 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-018",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md NFR-MKT-03",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/nfr-mkt-03.md"
+      ],
+      "acceptance": "NFR-MKT-03 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-019",
+      "owner": "auto",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md NFR-MKT-04",
+        "RTM status=existing"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/nfr-mkt-04.md"
+      ],
+      "acceptance": "NFR-MKT-04 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-020",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md NFR-MKT-05",
+        "RTM status=review"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/nfr-mkt-05.md"
+      ],
+      "acceptance": "NFR-MKT-05 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    },
+    {
+      "slice_id": "06-MICRO-fr-021",
+      "owner": "tier-a",
+      "type": "fr-1id",
+      "inputs": [
+        "01-要件/06-マーケット.md NFR-MKT-06",
+        "RTM status=gap"
+      ],
+      "outputs": [
+        "02-設計/features/06-マーケット/slices/fr/nfr-mkt-06.md"
+      ],
+      "acceptance": "NFR-MKT-06 の1文正規化（IN→Transform→OUT）· 受入基準 · RTM 行整合"
+    }
+  ]
+}

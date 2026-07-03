@@ -1,0 +1,67 @@
+{
+  "feature_id": "23",
+  "feature_name": "GMO 振込",
+  "generated": "2026-07-03",
+  "slices_root": "02-設計/features/23-GMO銀行振込判定/slices",
+  "total": 29,
+  "categories": {
+    "api": {
+      "count": 6,
+      "files": [
+        "get-api-v1-gmo-reconciliation-meta.md",
+        "get-api-v1-gmo-transfer-code.md",
+        "get-api-v1-gmo-va-deposit-unsent.md",
+        "post-api-v1-gmo-expected-payment.md",
+        "post-api-v1-gmo-va-deposit-subscribe.md",
+        "post-api-v1-gmo-webhook.md"
+      ]
+    },
+    "schema": {
+      "count": 2,
+      "files": [
+        "expectedpaymentrequest.md",
+        "subscriberequest.md"
+      ]
+    },
+    "errors": {
+      "count": 3,
+      "files": [
+        "401.md",
+        "502.md",
+        "503.md"
+      ]
+    },
+    "screens": {
+      "count": 0,
+      "files": []
+    },
+    "reverse-rtm": {
+      "count": 4,
+      "files": [
+        "revrtm-001-unit-layer.md",
+        "revrtm-002-integration-layer.md",
+        "revrtm-003-system-layer.md",
+        "revrtm-004-acceptance-layer.md"
+      ]
+    },
+    "fr": {
+      "count": 14,
+      "files": [
+        "fr-gmo-01.md",
+        "fr-gmo-02.md",
+        "fr-gmo-03.md",
+        "fr-gmo-04.md",
+        "fr-gmo-05.md",
+        "fr-gmo-06.md",
+        "fr-gmo-07.md",
+        "fr-gmo-08.md",
+        "fr-gmo-09.md",
+        "fr-gmo-10.md",
+        "nfr-gmo-01.md",
+        "nfr-gmo-02.md",
+        "nfr-gmo-03.md",
+        "nfr-gmo-04.md"
+      ]
+    }
+  }
+}

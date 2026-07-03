@@ -1,0 +1,82 @@
+{
+  "feature_id": "04",
+  "feature_name": "ホーム",
+  "generated": "2026-07-03",
+  "slices_root": "02-設計/features/04-ホーム画面/slices",
+  "total": 45,
+  "categories": {
+    "api": {
+      "count": 1,
+      "files": [
+        "get-api-v1-home-summary.md"
+      ]
+    },
+    "schema": {
+      "count": 3,
+      "files": [
+        "homecard.md",
+        "homeprimarycta.md",
+        "homesummaryresponse.md"
+      ]
+    },
+    "errors": {
+      "count": 0,
+      "files": []
+    },
+    "screens": {
+      "count": 0,
+      "files": []
+    },
+    "reverse-rtm": {
+      "count": 4,
+      "files": [
+        "revrtm-001-unit-layer.md",
+        "revrtm-002-integration-layer.md",
+        "revrtm-003-system-layer.md",
+        "revrtm-004-acceptance-layer.md"
+      ]
+    },
+    "fr": {
+      "count": 37,
+      "files": [
+        "h-001.md",
+        "h-002.md",
+        "h-010.md",
+        "h-011.md",
+        "h-012.md",
+        "h-013.md",
+        "h-014.md",
+        "h-020.md",
+        "h-021.md",
+        "h-022.md",
+        "h-030.md",
+        "h-031.md",
+        "h-032.md",
+        "h-033.md",
+        "h-040.md",
+        "h-041.md",
+        "h-042.md",
+        "h-043.md",
+        "h-044.md",
+        "h-050.md",
+        "h-051.md",
+        "h-060.md",
+        "h-061.md",
+        "h-070.md",
+        "h-071.md",
+        "h-072.md",
+        "nf-h-01.md",
+        "nf-h-02.md",
+        "nf-h-03.md",
+        "nf-h-04.md",
+        "nf-h-05.md",
+        "nf-h-06.md",
+        "nf-h-07.md",
+        "nf-h-08.md",
+        "nf-h-09.md",
+        "obs-fup-11.md",
+        "obs-rx-ux-11.md"
+      ]
+    }
+  }
+}

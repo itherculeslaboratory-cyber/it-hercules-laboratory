@@ -1,0 +1,23 @@
+{
+  "id": "21",
+  "name": "翻訳",
+  "reqIdCount": 25,
+  "apiRoutes": [
+    "/api/v1/i18n/messages",
+    "/api/v1/me/preferences"
+  ],
+  "webRoutes": [
+    "/observation",
+    "/observation/[id]",
+    "/observation/context",
+    "/observation/done",
+    "/observation/input",
+    "/observation/input/confirm",
+    "/observation/solid",
+    "/observation/templates",
+    "/observation/templates/[id]",
+    "/observation/templates/[id]/fork"
+  ],
+  "implGaps": [],
+  "gapCount": 0
+}

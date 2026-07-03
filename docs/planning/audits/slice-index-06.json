@@ -1,0 +1,72 @@
+{
+  "feature_id": "06",
+  "feature_name": "マーケット",
+  "generated": "2026-07-03",
+  "slices_root": "02-設計/features/06-マーケット/slices",
+  "total": 34,
+  "categories": {
+    "api": {
+      "count": 5,
+      "files": [
+        "get-api-v1-market-listings-listing-id.md",
+        "get-api-v1-market-listings.md",
+        "get-api-v1-market-transfer-listing-id.md",
+        "post-api-v1-market-listings-listing-id-match.md",
+        "post-api-v1-market-listings-listing-id-transition.md"
+      ]
+    },
+    "schema": {
+      "count": 2,
+      "files": [
+        "listingtransitionrequest.md",
+        "tradematchrequest.md"
+      ]
+    },
+    "errors": {
+      "count": 2,
+      "files": [
+        "404.md",
+        "409.md"
+      ]
+    },
+    "screens": {
+      "count": 0,
+      "files": []
+    },
+    "reverse-rtm": {
+      "count": 4,
+      "files": [
+        "revrtm-001-unit-layer.md",
+        "revrtm-002-integration-layer.md",
+        "revrtm-003-system-layer.md",
+        "revrtm-004-acceptance-layer.md"
+      ]
+    },
+    "fr": {
+      "count": 21,
+      "files": [
+        "fr-mkt-01.md",
+        "fr-mkt-02.md",
+        "fr-mkt-03.md",
+        "fr-mkt-04.md",
+        "fr-mkt-05.md",
+        "fr-mkt-06.md",
+        "fr-mkt-07.md",
+        "fr-mkt-08.md",
+        "fr-mkt-09.md",
+        "fr-mkt-10.md",
+        "fr-mkt-11.md",
+        "fr-mkt-12.md",
+        "fr-mkt-13.md",
+        "fr-mkt-14.md",
+        "fr-mkt-15.md",
+        "nfr-mkt-01.md",
+        "nfr-mkt-02.md",
+        "nfr-mkt-03.md",
+        "nfr-mkt-04.md",
+        "nfr-mkt-05.md",
+        "nfr-mkt-06.md"
+      ]
+    }
+  }
+}

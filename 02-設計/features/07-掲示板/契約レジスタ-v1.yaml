@@ -1,0 +1,53 @@
+# IHL 契約レジスタ v0 — 自動生成（正本: apps/api/routes/*.py）
+# 生成: node scripts/ihl-contract-oracle.mjs --feature 07 --write
+# 検証: node scripts/ihl-contract-oracle.mjs --feature 07 --check
+# 手編集禁止（DET §3.9 表と DET diff GATE で突き合わせる）
+feature_id: "07"
+feature_name: "掲示板"
+generated: "2026-07-03"
+oracle_version: "v0"
+source_files:
+  - "apps/api/routes/board.py"
+golden_fixtures_dir: "fixtures/oracle/"
+route_count: 5
+routes:
+  - method: GET
+    path: "/api/v1/board/{category}/threads"
+    path_normalized: "/api/v1/board/{param}/threads"
+    handler: board_threads
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/board.py"
+  - method: GET
+    path: "/api/v1/board/categories"
+    path_normalized: "/api/v1/board/categories"
+    handler: board_categories
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/board.py"
+  - method: GET
+    path: "/api/v1/component-board"
+    path_normalized: "/api/v1/component-board"
+    handler: component_board
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/board.py"
+  - method: POST
+    path: "/api/v1/board/{category}/threads"
+    path_normalized: "/api/v1/board/{param}/threads"
+    handler: board_create_thread
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/board.py"
+  - method: POST
+    path: "/api/v1/board/{category}/threads/{thread_id}/posts"
+    path_normalized: "/api/v1/board/{param}/threads/{param}/posts"
+    handler: board_append_post
+    auth: public
+    success_status: 200
+    errors: []
+    source_file: "apps/api/routes/board.py"

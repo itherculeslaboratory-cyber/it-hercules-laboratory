@@ -1,0 +1,34 @@
+{
+  "id": "09",
+  "name": "論文",
+  "reqIdCount": 38,
+  "apiRoutes": [
+    "/api/v1/research/papers",
+    "/api/v1/research/match",
+    "/api/v1/board/categories",
+    "/api/v1/board/{category}/threads",
+    "/api/v1/board/{category}/threads/{thread_id}/posts",
+    "/api/v1/component-board"
+  ],
+  "webRoutes": [
+    "/observation",
+    "/observation/[id]",
+    "/observation/context",
+    "/observation/done",
+    "/observation/input",
+    "/observation/input/confirm",
+    "/observation/solid",
+    "/observation/templates",
+    "/observation/templates/[id]",
+    "/observation/templates/[id]/fork"
+  ],
+  "implGaps": [
+    {
+      "id": "IMPL-GAP-09-API-1",
+      "kind": "api_route",
+      "surface": "/api/v1/component-board",
+      "suggest": "DET-v3-§3"
+    }
+  ],
+  "gapCount": 1
+}

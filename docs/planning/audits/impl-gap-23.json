@@ -1,0 +1,34 @@
+{
+  "id": "23",
+  "name": "GMO 振込",
+  "reqIdCount": 23,
+  "apiRoutes": [
+    "/api/v1/gmo/reconciliation/meta",
+    "/api/v1/gmo/transfer-code",
+    "/api/v1/gmo/expected-payment",
+    "/api/v1/gmo/webhook",
+    "/api/v1/gmo/va-deposit/subscribe",
+    "/api/v1/gmo/va-deposit/unsent"
+  ],
+  "webRoutes": [
+    "/observation",
+    "/observation/[id]",
+    "/observation/context",
+    "/observation/done",
+    "/observation/input",
+    "/observation/input/confirm",
+    "/observation/solid",
+    "/observation/templates",
+    "/observation/templates/[id]",
+    "/observation/templates/[id]/fork"
+  ],
+  "implGaps": [
+    {
+      "id": "IMPL-GAP-23-API-1",
+      "kind": "api_route",
+      "surface": "/api/v1/gmo/transfer-code",
+      "suggest": "DET-v3-§3"
+    }
+  ],
+  "gapCount": 1
+}

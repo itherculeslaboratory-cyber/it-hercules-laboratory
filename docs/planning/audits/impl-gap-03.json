@@ -1,0 +1,29 @@
+{
+  "id": "03",
+  "name": "新規登録",
+  "reqIdCount": 43,
+  "apiRoutes": [
+    "/api/v1/onboarding/complete",
+    "/api/v1/onboarding/status",
+    "/api/v1/auth/register",
+    "/api/v1/auth",
+    "/magic-link",
+    "/register",
+    "/session",
+    "/verify"
+  ],
+  "webRoutes": [
+    "/observation",
+    "/observation/[id]",
+    "/observation/context",
+    "/observation/done",
+    "/observation/input",
+    "/observation/input/confirm",
+    "/observation/solid",
+    "/observation/templates",
+    "/observation/templates/[id]",
+    "/observation/templates/[id]/fork"
+  ],
+  "implGaps": [],
+  "gapCount": 0
+}

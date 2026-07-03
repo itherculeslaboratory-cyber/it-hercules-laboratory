@@ -1,0 +1,21 @@
+{
+  "feature_id": "02",
+  "web_routes": [
+    {
+      "route": "/terms",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
+    }
+  ],
+  "api_transitions": [],
+  "client_transitions": [],
+  "quantum_updated": "2026-07-03"
+}

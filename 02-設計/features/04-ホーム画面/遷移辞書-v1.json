@@ -12,16 +12,28 @@
     {
       "route": "/",
       "kind": "hub",
-      "states": ["loading", "home", "fallback"],
+      "states": [
+        "loading",
+        "home",
+        "fallback"
+      ],
       "primary_action": "観測登録開始",
-      "api": ["GET /api/v1/home/summary"]
+      "api": [
+        "GET /api/v1/home/summary"
+      ]
     },
     {
       "route": "/home",
       "kind": "hub",
-      "states": ["loading", "home", "fallback"],
+      "states": [
+        "loading",
+        "home",
+        "fallback"
+      ],
       "primary_action": "観測登録開始",
-      "api": ["GET /api/v1/home/summary"]
+      "api": [
+        "GET /api/v1/home/summary"
+      ]
     }
   ],
   "api_transitions": [
@@ -48,5 +60,6 @@
       "to": "fallback",
       "next": "近似表示 + 全機能/インボックス直接導線"
     }
-  ]
+  ],
+  "quantum_updated": "2026-07-03"
 }

@@ -4,17 +4,40 @@
   "version": "v1",
   "note": "暫定入口 — #12 settings 共有（MAD-WAVE-2）。world-templates は gap。",
   "generated": "2026-07-03",
-  "auth_model": { "settings": "認証済み · dev actor_id クエリ" },
+  "auth_model": {
+    "settings": "認証済み · dev actor_id クエリ"
+  },
   "web_routes": [
     {
       "route": "/settings",
       "kind": "hub",
-      "states": ["load", "hub_ready", "save_ok", "save_error"],
-      "api": ["GET /api/v1/settings", "PATCH /api/v1/me/preferences"]
+      "states": [
+        "load",
+        "hub_ready",
+        "save_ok",
+        "save_error"
+      ],
+      "api": [
+        "GET /api/v1/settings",
+        "PATCH /api/v1/me/preferences"
+      ]
     }
   ],
   "api_transitions": [
-    { "method": "GET", "path": "/api/v1/settings", "auth": "public", "success": 200, "errors": [] },
-    { "method": "PATCH", "path": "/api/v1/me/preferences", "auth": "public", "success": 200, "errors": [] }
-  ]
+    {
+      "method": "GET",
+      "path": "/api/v1/settings",
+      "auth": "public",
+      "success": 200,
+      "errors": []
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/me/preferences",
+      "auth": "public",
+      "success": 200,
+      "errors": []
+    }
+  ],
+  "quantum_updated": "2026-07-03"
 }

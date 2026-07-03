@@ -1,0 +1,7 @@
+{
+  "description": "GMO webhook idempotent deposit",
+  "event_id": "gmo_evt_demo_001",
+  "transfer_code": "IHL-EXAMPLE-8PCT",
+  "amount_yen": 800,
+  "status": "matched"
+}

@@ -76,3 +76,25 @@ node scripts/ihl-doc-micro-workorder.mjs --all
 出力: `docs/planning/audits/WorkOrder-NN-MICRO.json`（`slice_counts.by_type` / `by_owner` / `fr_slices_truncated` を含む）。
 
 > **truncation**: スライスが `MAX_SLICES=150` を超える場合、fr-1id を打ち切り `fr_slices_truncated` に記録する。打ち切り分は次段 Wave または `--feature` 再実行時に MAX 引き上げで拾う。
+
+---
+
+## QUANTUM 拡張種（`IHL-DOC-QUANTUM`）
+
+| type | 単位 | 生成 |
+|------|------|------|
+| `mock-region` | 1 PNG × 1 矩形 | `ihl-quantum-shard-gen.mjs` |
+| `component-part` | 1 部品 | 同上 |
+| `pixel-spec` | 1 部品 × 1 状態 | 同上 |
+| `screen-assembly` | 1 Web ルート | 同上 |
+| `route-state` | 1 ルート遷移 | 同上 |
+| `payload-oracle` | 1 API schema | 同上 |
+| `docker-bridge` | 1 手順 | 同上 |
+| `infra-route` | 1 API 移行 | 同上 |
+| `gmo-gap` | 1 GMO gap | 同上 |
+
+```bash
+node scripts/ihl-quantum-shard-gen.mjs --write-shards
+node scripts/ihl-quantum-merge.mjs
+node scripts/ihl-quantum-preflight.mjs
+```

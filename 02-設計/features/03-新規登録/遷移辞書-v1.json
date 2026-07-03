@@ -23,6 +23,19 @@
         "GET /api/v1/onboarding/status",
         "POST /api/v1/onboarding/complete"
       ]
+    },
+    {
+      "route": "/register",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
     }
   ],
   "api_transitions": [
@@ -61,5 +74,6 @@
         "400": "規約未同意 → チェックボックス強調"
       }
     }
-  ]
+  ],
+  "quantum_updated": "2026-07-03"
 }

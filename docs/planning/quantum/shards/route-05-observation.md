@@ -1,0 +1,25 @@
+---
+shard_id: route-05-observation
+type: route-state
+phase: QUANTUM
+owner: auto
+---
+
+# route-state: /observation
+
+| 項目 | 値 |
+|------|-----|
+| feature | 05 |
+| route | `/observation` |
+| kind | list |
+| auth | public |
+| primary_action | 観測を追加 |
+| states | loading|empty|error|ok |
+
+## 遷移
+- error_exit: AppShell ホーム or 親 hub
+- loading: StatePanel
+
+## 受入
+- [ ] 遷移辞書-v1.json に反映（merge 後）
+

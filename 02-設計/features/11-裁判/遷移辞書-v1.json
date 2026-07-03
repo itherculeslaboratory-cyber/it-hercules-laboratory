@@ -4,20 +4,50 @@
   "version": "v1",
   "note": "route × auth × status の骨格（MAD-WAVE-5）。web 画面状態は UI/遷移正本参照。契約正本は 契約レジスタ-v1.yaml。",
   "generated": "2026-07-03",
-  "auth_model": { "dispute": "public · dev actor_id 明示可 · 本番 #01 連携予定" },
+  "auth_model": {
+    "dispute": "public · dev actor_id 明示可 · 本番 #01 連携予定"
+  },
   "web_routes": [
     {
       "route": "/board/[category]/dispute",
       "kind": "room",
       "auth": "public",
       "primary_action": "メッセージ投稿",
-      "states": ["loading", "messages_ready", "posting", "error", "not_found"],
-      "api": ["GET /api/v1/dispute/{thread_id}", "POST /api/v1/dispute/{thread_id}/messages"]
+      "states": [
+        "loading",
+        "messages_ready",
+        "posting",
+        "error",
+        "not_found"
+      ],
+      "api": [
+        "GET /api/v1/dispute/{thread_id}",
+        "POST /api/v1/dispute/{thread_id}/messages"
+      ]
     }
   ],
   "api_transitions": [
-    { "method": "GET", "path": "/api/v1/dispute/{thread_id}", "auth": "public", "success": 200, "errors": [] },
-    { "method": "POST", "path": "/api/v1/dispute/{thread_id}/messages", "auth": "public", "success": 200, "errors": [] },
-    { "method": "POST", "path": "/api/v1/dispute/{thread_id}/open-market", "auth": "public", "success": 200, "errors": [] }
-  ]
+    {
+      "method": "GET",
+      "path": "/api/v1/dispute/{thread_id}",
+      "auth": "public",
+      "success": 200,
+      "errors": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/dispute/{thread_id}/messages",
+      "auth": "public",
+      "success": 200,
+      "errors": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/dispute/{thread_id}/open-market",
+      "auth": "public",
+      "success": 200,
+      "errors": []
+    }
+  ],
+  "quantum_updated": "2026-07-03"
 }

@@ -1,0 +1,1055 @@
+# composed-parts v1 — QUANTUM · UIbuilder 正本
+schema_version: 1
+parts:
+  - id: ihl-00-onboarding-login__AppShell
+    label_ja: ihl-00-onboarding-login__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-00-onboarding-login__AppShell.md
+  - id: ihl-00-onboarding-login__ContentArea
+    label_ja: ihl-00-onboarding-login__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-00-onboarding-login__ContentArea.md
+  - id: ihl-00-onboarding-login__PageHeader
+    label_ja: ihl-00-onboarding-login__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-00-onboarding-login__PageHeader.md
+  - id: ihl-00-onboarding-login__PrimaryAction
+    label_ja: ihl-00-onboarding-login__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-00-onboarding-login__PrimaryAction.md
+  - id: ihl-00-onboarding-login__StatePanel
+    label_ja: ihl-00-onboarding-login__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-00-onboarding-login__StatePanel.md
+  - id: ihl-00-onboarding-signup__AppShell
+    label_ja: ihl-00-onboarding-signup__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-00-onboarding-signup__AppShell.md
+  - id: ihl-00-onboarding-signup__ContentArea
+    label_ja: ihl-00-onboarding-signup__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-00-onboarding-signup__ContentArea.md
+  - id: ihl-00-onboarding-signup__PageHeader
+    label_ja: ihl-00-onboarding-signup__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-00-onboarding-signup__PageHeader.md
+  - id: ihl-00-onboarding-signup__PrimaryAction
+    label_ja: ihl-00-onboarding-signup__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-00-onboarding-signup__PrimaryAction.md
+  - id: ihl-00-onboarding-signup__StatePanel
+    label_ja: ihl-00-onboarding-signup__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-00-onboarding-signup__StatePanel.md
+  - id: ihl-00-terms__AppShell
+    label_ja: ihl-00-terms__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-00-terms__AppShell.md
+  - id: ihl-00-terms__ContentArea
+    label_ja: ihl-00-terms__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-00-terms__ContentArea.md
+  - id: ihl-00-terms__PageHeader
+    label_ja: ihl-00-terms__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-00-terms__PageHeader.md
+  - id: ihl-00-terms__PrimaryAction
+    label_ja: ihl-00-terms__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-00-terms__PrimaryAction.md
+  - id: ihl-00-terms__StatePanel
+    label_ja: ihl-00-terms__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-00-terms__StatePanel.md
+  - id: ihl-01-nav-home__AppShell
+    label_ja: ihl-01-nav-home__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-01-nav-home__AppShell.md
+  - id: ihl-01-nav-home__ContentArea
+    label_ja: ihl-01-nav-home__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-01-nav-home__ContentArea.md
+  - id: ihl-01-nav-home__PageHeader
+    label_ja: ihl-01-nav-home__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-01-nav-home__PageHeader.md
+  - id: ihl-01-nav-home__PrimaryAction
+    label_ja: ihl-01-nav-home__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-01-nav-home__PrimaryAction.md
+  - id: ihl-01-nav-home__StatePanel
+    label_ja: ihl-01-nav-home__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-01-nav-home__StatePanel.md
+  - id: ihl-03-lineage-cross__AppShell
+    label_ja: ihl-03-lineage-cross__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-cross__AppShell.md
+  - id: ihl-03-lineage-cross__ContentArea
+    label_ja: ihl-03-lineage-cross__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-cross__ContentArea.md
+  - id: ihl-03-lineage-cross__PageHeader
+    label_ja: ihl-03-lineage-cross__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-cross__PageHeader.md
+  - id: ihl-03-lineage-cross__PrimaryAction
+    label_ja: ihl-03-lineage-cross__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-cross__PrimaryAction.md
+  - id: ihl-03-lineage-cross__StatePanel
+    label_ja: ihl-03-lineage-cross__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-cross__StatePanel.md
+  - id: ihl-03-lineage-growth-detail__AppShell
+    label_ja: ihl-03-lineage-growth-detail__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-growth-detail__AppShell.md
+  - id: ihl-03-lineage-growth-detail__ContentArea
+    label_ja: ihl-03-lineage-growth-detail__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-growth-detail__ContentArea.md
+  - id: ihl-03-lineage-growth-detail__PageHeader
+    label_ja: ihl-03-lineage-growth-detail__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-growth-detail__PageHeader.md
+  - id: ihl-03-lineage-growth-detail__PrimaryAction
+    label_ja: ihl-03-lineage-growth-detail__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-growth-detail__PrimaryAction.md
+  - id: ihl-03-lineage-growth-detail__StatePanel
+    label_ja: ihl-03-lineage-growth-detail__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-growth-detail__StatePanel.md
+  - id: ihl-03-lineage-metrics-detail__AppShell
+    label_ja: ihl-03-lineage-metrics-detail__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-metrics-detail__AppShell.md
+  - id: ihl-03-lineage-metrics-detail__ContentArea
+    label_ja: ihl-03-lineage-metrics-detail__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-metrics-detail__ContentArea.md
+  - id: ihl-03-lineage-metrics-detail__PageHeader
+    label_ja: ihl-03-lineage-metrics-detail__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-metrics-detail__PageHeader.md
+  - id: ihl-03-lineage-metrics-detail__PrimaryAction
+    label_ja: ihl-03-lineage-metrics-detail__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-metrics-detail__PrimaryAction.md
+  - id: ihl-03-lineage-metrics-detail__StatePanel
+    label_ja: ihl-03-lineage-metrics-detail__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-metrics-detail__StatePanel.md
+  - id: ihl-03-lineage-mortality-detail__AppShell
+    label_ja: ihl-03-lineage-mortality-detail__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-mortality-detail__AppShell.md
+  - id: ihl-03-lineage-mortality-detail__ContentArea
+    label_ja: ihl-03-lineage-mortality-detail__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-mortality-detail__ContentArea.md
+  - id: ihl-03-lineage-mortality-detail__PageHeader
+    label_ja: ihl-03-lineage-mortality-detail__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-mortality-detail__PageHeader.md
+  - id: ihl-03-lineage-mortality-detail__PrimaryAction
+    label_ja: ihl-03-lineage-mortality-detail__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-mortality-detail__PrimaryAction.md
+  - id: ihl-03-lineage-mortality-detail__StatePanel
+    label_ja: ihl-03-lineage-mortality-detail__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-03-lineage-mortality-detail__StatePanel.md
+  - id: ihl-05-obs-context-picker__AppShell
+    label_ja: ihl-05-obs-context-picker__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-context-picker__AppShell.md
+  - id: ihl-05-obs-context-picker__ContentArea
+    label_ja: ihl-05-obs-context-picker__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-context-picker__ContentArea.md
+  - id: ihl-05-obs-context-picker__PageHeader
+    label_ja: ihl-05-obs-context-picker__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-context-picker__PageHeader.md
+  - id: ihl-05-obs-context-picker__PrimaryAction
+    label_ja: ihl-05-obs-context-picker__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-context-picker__PrimaryAction.md
+  - id: ihl-05-obs-context-picker__StatePanel
+    label_ja: ihl-05-obs-context-picker__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-context-picker__StatePanel.md
+  - id: ihl-05-obs-detail-similar__AppShell
+    label_ja: ihl-05-obs-detail-similar__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-detail-similar__AppShell.md
+  - id: ihl-05-obs-detail-similar__ContentArea
+    label_ja: ihl-05-obs-detail-similar__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-detail-similar__ContentArea.md
+  - id: ihl-05-obs-detail-similar__PageHeader
+    label_ja: ihl-05-obs-detail-similar__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-detail-similar__PageHeader.md
+  - id: ihl-05-obs-detail-similar__PrimaryAction
+    label_ja: ihl-05-obs-detail-similar__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-detail-similar__PrimaryAction.md
+  - id: ihl-05-obs-detail-similar__StatePanel
+    label_ja: ihl-05-obs-detail-similar__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-detail-similar__StatePanel.md
+  - id: ihl-05-obs-device-link__AppShell
+    label_ja: ihl-05-obs-device-link__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-device-link__AppShell.md
+  - id: ihl-05-obs-device-link__ContentArea
+    label_ja: ihl-05-obs-device-link__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-device-link__ContentArea.md
+  - id: ihl-05-obs-device-link__PageHeader
+    label_ja: ihl-05-obs-device-link__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-device-link__PageHeader.md
+  - id: ihl-05-obs-device-link__PrimaryAction
+    label_ja: ihl-05-obs-device-link__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-device-link__PrimaryAction.md
+  - id: ihl-05-obs-device-link__StatePanel
+    label_ja: ihl-05-obs-device-link__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-device-link__StatePanel.md
+  - id: ihl-05-obs-input-female__AppShell
+    label_ja: ihl-05-obs-input-female__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-input-female__AppShell.md
+  - id: ihl-05-obs-input-female__ContentArea
+    label_ja: ihl-05-obs-input-female__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-input-female__ContentArea.md
+  - id: ihl-05-obs-input-female__PageHeader
+    label_ja: ihl-05-obs-input-female__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-input-female__PageHeader.md
+  - id: ihl-05-obs-input-female__PrimaryAction
+    label_ja: ihl-05-obs-input-female__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-input-female__PrimaryAction.md
+  - id: ihl-05-obs-input-female__StatePanel
+    label_ja: ihl-05-obs-input-female__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-input-female__StatePanel.md
+  - id: ihl-05-obs-input-male__AppShell
+    label_ja: ihl-05-obs-input-male__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-input-male__AppShell.md
+  - id: ihl-05-obs-input-male__ContentArea
+    label_ja: ihl-05-obs-input-male__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-input-male__ContentArea.md
+  - id: ihl-05-obs-input-male__PageHeader
+    label_ja: ihl-05-obs-input-male__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-input-male__PageHeader.md
+  - id: ihl-05-obs-input-male__PrimaryAction
+    label_ja: ihl-05-obs-input-male__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-input-male__PrimaryAction.md
+  - id: ihl-05-obs-input-male__StatePanel
+    label_ja: ihl-05-obs-input-male__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-input-male__StatePanel.md
+  - id: ihl-05-obs-input-row__AppShell
+    label_ja: ihl-05-obs-input-row__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-input-row__AppShell.md
+  - id: ihl-05-obs-input-row__ContentArea
+    label_ja: ihl-05-obs-input-row__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-input-row__ContentArea.md
+  - id: ihl-05-obs-input-row__PageHeader
+    label_ja: ihl-05-obs-input-row__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-input-row__PageHeader.md
+  - id: ihl-05-obs-input-row__PrimaryAction
+    label_ja: ihl-05-obs-input-row__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-input-row__PrimaryAction.md
+  - id: ihl-05-obs-input-row__StatePanel
+    label_ja: ihl-05-obs-input-row__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-input-row__StatePanel.md
+  - id: ihl-05-obs-search-grid__AppShell
+    label_ja: ihl-05-obs-search-grid__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-search-grid__AppShell.md
+  - id: ihl-05-obs-search-grid__EmptyState
+    label_ja: ihl-05-obs-search-grid__EmptyState
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-search-grid__EmptyState.md
+  - id: ihl-05-obs-search-grid__Pagination
+    label_ja: ihl-05-obs-search-grid__Pagination
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-search-grid__Pagination.md
+  - id: ihl-05-obs-search-grid__ResultGridCard
+    label_ja: ihl-05-obs-search-grid__ResultGridCard
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-search-grid__ResultGridCard.md
+  - id: ihl-05-obs-search-grid__SearchFilterBar
+    label_ja: ihl-05-obs-search-grid__SearchFilterBar
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-search-grid__SearchFilterBar.md
+  - id: ihl-05-obs-template-detail__AppShell
+    label_ja: ihl-05-obs-template-detail__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-template-detail__AppShell.md
+  - id: ihl-05-obs-template-detail__ContentArea
+    label_ja: ihl-05-obs-template-detail__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-template-detail__ContentArea.md
+  - id: ihl-05-obs-template-detail__PageHeader
+    label_ja: ihl-05-obs-template-detail__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-template-detail__PageHeader.md
+  - id: ihl-05-obs-template-detail__PrimaryAction
+    label_ja: ihl-05-obs-template-detail__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-template-detail__PrimaryAction.md
+  - id: ihl-05-obs-template-detail__StatePanel
+    label_ja: ihl-05-obs-template-detail__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-template-detail__StatePanel.md
+  - id: ihl-05-obs-template-fork__AppShell
+    label_ja: ihl-05-obs-template-fork__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-template-fork__AppShell.md
+  - id: ihl-05-obs-template-fork__ContentArea
+    label_ja: ihl-05-obs-template-fork__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-template-fork__ContentArea.md
+  - id: ihl-05-obs-template-fork__PageHeader
+    label_ja: ihl-05-obs-template-fork__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-template-fork__PageHeader.md
+  - id: ihl-05-obs-template-fork__PrimaryAction
+    label_ja: ihl-05-obs-template-fork__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-template-fork__PrimaryAction.md
+  - id: ihl-05-obs-template-fork__StatePanel
+    label_ja: ihl-05-obs-template-fork__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-template-fork__StatePanel.md
+  - id: ihl-05-obs-template-list__AppShell
+    label_ja: ihl-05-obs-template-list__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-template-list__AppShell.md
+  - id: ihl-05-obs-template-list__ContentArea
+    label_ja: ihl-05-obs-template-list__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-template-list__ContentArea.md
+  - id: ihl-05-obs-template-list__PageHeader
+    label_ja: ihl-05-obs-template-list__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-template-list__PageHeader.md
+  - id: ihl-05-obs-template-list__PrimaryAction
+    label_ja: ihl-05-obs-template-list__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-template-list__PrimaryAction.md
+  - id: ihl-05-obs-template-list__StatePanel
+    label_ja: ihl-05-obs-template-list__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-05-obs-template-list__StatePanel.md
+  - id: ihl-06-market-auction-bid__AppShell
+    label_ja: ihl-06-market-auction-bid__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-auction-bid__AppShell.md
+  - id: ihl-06-market-auction-bid__ContentArea
+    label_ja: ihl-06-market-auction-bid__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-auction-bid__ContentArea.md
+  - id: ihl-06-market-auction-bid__PageHeader
+    label_ja: ihl-06-market-auction-bid__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-auction-bid__PageHeader.md
+  - id: ihl-06-market-auction-bid__PrimaryAction
+    label_ja: ihl-06-market-auction-bid__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-auction-bid__PrimaryAction.md
+  - id: ihl-06-market-auction-bid__StatePanel
+    label_ja: ihl-06-market-auction-bid__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-auction-bid__StatePanel.md
+  - id: ihl-06-market-browse__AppShell
+    label_ja: ihl-06-market-browse__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-browse__AppShell.md
+  - id: ihl-06-market-browse__ContentArea
+    label_ja: ihl-06-market-browse__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-browse__ContentArea.md
+  - id: ihl-06-market-browse__PageHeader
+    label_ja: ihl-06-market-browse__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-browse__PageHeader.md
+  - id: ihl-06-market-browse__PrimaryAction
+    label_ja: ihl-06-market-browse__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-browse__PrimaryAction.md
+  - id: ihl-06-market-browse__StatePanel
+    label_ja: ihl-06-market-browse__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-browse__StatePanel.md
+  - id: ihl-06-market-detail-board-stage2__AppShell
+    label_ja: ihl-06-market-detail-board-stage2__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-detail-board-stage2__AppShell.md
+  - id: ihl-06-market-detail-board-stage2__ContentArea
+    label_ja: ihl-06-market-detail-board-stage2__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-detail-board-stage2__ContentArea.md
+  - id: ihl-06-market-detail-board-stage2__PageHeader
+    label_ja: ihl-06-market-detail-board-stage2__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-detail-board-stage2__PageHeader.md
+  - id: ihl-06-market-detail-board-stage2__PrimaryAction
+    label_ja: ihl-06-market-detail-board-stage2__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-detail-board-stage2__PrimaryAction.md
+  - id: ihl-06-market-detail-board-stage2__StatePanel
+    label_ja: ihl-06-market-detail-board-stage2__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-detail-board-stage2__StatePanel.md
+  - id: ihl-06-market-detail-board-stage3__AppShell
+    label_ja: ihl-06-market-detail-board-stage3__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-detail-board-stage3__AppShell.md
+  - id: ihl-06-market-detail-board-stage3__ContentArea
+    label_ja: ihl-06-market-detail-board-stage3__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-detail-board-stage3__ContentArea.md
+  - id: ihl-06-market-detail-board-stage3__PageHeader
+    label_ja: ihl-06-market-detail-board-stage3__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-detail-board-stage3__PageHeader.md
+  - id: ihl-06-market-detail-board-stage3__PrimaryAction
+    label_ja: ihl-06-market-detail-board-stage3__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-detail-board-stage3__PrimaryAction.md
+  - id: ihl-06-market-detail-board-stage3__StatePanel
+    label_ja: ihl-06-market-detail-board-stage3__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-detail-board-stage3__StatePanel.md
+  - id: ihl-06-market-detail-board__AppShell
+    label_ja: ihl-06-market-detail-board__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-detail-board__AppShell.md
+  - id: ihl-06-market-detail-board__ContentArea
+    label_ja: ihl-06-market-detail-board__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-detail-board__ContentArea.md
+  - id: ihl-06-market-detail-board__PageHeader
+    label_ja: ihl-06-market-detail-board__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-detail-board__PageHeader.md
+  - id: ihl-06-market-detail-board__PrimaryAction
+    label_ja: ihl-06-market-detail-board__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-detail-board__PrimaryAction.md
+  - id: ihl-06-market-detail-board__StatePanel
+    label_ja: ihl-06-market-detail-board__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-detail-board__StatePanel.md
+  - id: ihl-06-market-listing-create__AppShell
+    label_ja: ihl-06-market-listing-create__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-listing-create__AppShell.md
+  - id: ihl-06-market-listing-create__ContentArea
+    label_ja: ihl-06-market-listing-create__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-listing-create__ContentArea.md
+  - id: ihl-06-market-listing-create__PageHeader
+    label_ja: ihl-06-market-listing-create__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-listing-create__PageHeader.md
+  - id: ihl-06-market-listing-create__PrimaryAction
+    label_ja: ihl-06-market-listing-create__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-listing-create__PrimaryAction.md
+  - id: ihl-06-market-listing-create__StatePanel
+    label_ja: ihl-06-market-listing-create__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-listing-create__StatePanel.md
+  - id: ihl-06-market-lottery-apply__AppShell
+    label_ja: ihl-06-market-lottery-apply__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-apply__AppShell.md
+  - id: ihl-06-market-lottery-apply__ContentArea
+    label_ja: ihl-06-market-lottery-apply__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-apply__ContentArea.md
+  - id: ihl-06-market-lottery-apply__PageHeader
+    label_ja: ihl-06-market-lottery-apply__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-apply__PageHeader.md
+  - id: ihl-06-market-lottery-apply__PrimaryAction
+    label_ja: ihl-06-market-lottery-apply__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-apply__PrimaryAction.md
+  - id: ihl-06-market-lottery-apply__StatePanel
+    label_ja: ihl-06-market-lottery-apply__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-apply__StatePanel.md
+  - id: ihl-06-market-lottery-result-lose__AppShell
+    label_ja: ihl-06-market-lottery-result-lose__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-result-lose__AppShell.md
+  - id: ihl-06-market-lottery-result-lose__ContentArea
+    label_ja: ihl-06-market-lottery-result-lose__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-result-lose__ContentArea.md
+  - id: ihl-06-market-lottery-result-lose__PageHeader
+    label_ja: ihl-06-market-lottery-result-lose__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-result-lose__PageHeader.md
+  - id: ihl-06-market-lottery-result-lose__PrimaryAction
+    label_ja: ihl-06-market-lottery-result-lose__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-result-lose__PrimaryAction.md
+  - id: ihl-06-market-lottery-result-lose__StatePanel
+    label_ja: ihl-06-market-lottery-result-lose__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-result-lose__StatePanel.md
+  - id: ihl-06-market-lottery-result__AppShell
+    label_ja: ihl-06-market-lottery-result__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-result__AppShell.md
+  - id: ihl-06-market-lottery-result__ContentArea
+    label_ja: ihl-06-market-lottery-result__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-result__ContentArea.md
+  - id: ihl-06-market-lottery-result__PageHeader
+    label_ja: ihl-06-market-lottery-result__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-result__PageHeader.md
+  - id: ihl-06-market-lottery-result__PrimaryAction
+    label_ja: ihl-06-market-lottery-result__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-result__PrimaryAction.md
+  - id: ihl-06-market-lottery-result__StatePanel
+    label_ja: ihl-06-market-lottery-result__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-result__StatePanel.md
+  - id: ihl-06-market-lottery-tab__AppShell
+    label_ja: ihl-06-market-lottery-tab__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-tab__AppShell.md
+  - id: ihl-06-market-lottery-tab__ContentArea
+    label_ja: ihl-06-market-lottery-tab__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-tab__ContentArea.md
+  - id: ihl-06-market-lottery-tab__PageHeader
+    label_ja: ihl-06-market-lottery-tab__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-tab__PageHeader.md
+  - id: ihl-06-market-lottery-tab__PrimaryAction
+    label_ja: ihl-06-market-lottery-tab__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-tab__PrimaryAction.md
+  - id: ihl-06-market-lottery-tab__StatePanel
+    label_ja: ihl-06-market-lottery-tab__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-lottery-tab__StatePanel.md
+  - id: ihl-06-market-priority-queue-lose__AppShell
+    label_ja: ihl-06-market-priority-queue-lose__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-priority-queue-lose__AppShell.md
+  - id: ihl-06-market-priority-queue-lose__ContentArea
+    label_ja: ihl-06-market-priority-queue-lose__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-priority-queue-lose__ContentArea.md
+  - id: ihl-06-market-priority-queue-lose__PageHeader
+    label_ja: ihl-06-market-priority-queue-lose__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-priority-queue-lose__PageHeader.md
+  - id: ihl-06-market-priority-queue-lose__PrimaryAction
+    label_ja: ihl-06-market-priority-queue-lose__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-priority-queue-lose__PrimaryAction.md
+  - id: ihl-06-market-priority-queue-lose__StatePanel
+    label_ja: ihl-06-market-priority-queue-lose__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-priority-queue-lose__StatePanel.md
+  - id: ihl-06-market-priority-queue__AppShell
+    label_ja: ihl-06-market-priority-queue__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-priority-queue__AppShell.md
+  - id: ihl-06-market-priority-queue__ContentArea
+    label_ja: ihl-06-market-priority-queue__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-priority-queue__ContentArea.md
+  - id: ihl-06-market-priority-queue__PageHeader
+    label_ja: ihl-06-market-priority-queue__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-priority-queue__PageHeader.md
+  - id: ihl-06-market-priority-queue__PrimaryAction
+    label_ja: ihl-06-market-priority-queue__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-priority-queue__PrimaryAction.md
+  - id: ihl-06-market-priority-queue__StatePanel
+    label_ja: ihl-06-market-priority-queue__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-priority-queue__StatePanel.md
+  - id: ihl-06-market-priority-tab__AppShell
+    label_ja: ihl-06-market-priority-tab__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-priority-tab__AppShell.md
+  - id: ihl-06-market-priority-tab__ContentArea
+    label_ja: ihl-06-market-priority-tab__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-priority-tab__ContentArea.md
+  - id: ihl-06-market-priority-tab__PageHeader
+    label_ja: ihl-06-market-priority-tab__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-priority-tab__PageHeader.md
+  - id: ihl-06-market-priority-tab__PrimaryAction
+    label_ja: ihl-06-market-priority-tab__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-priority-tab__PrimaryAction.md
+  - id: ihl-06-market-priority-tab__StatePanel
+    label_ja: ihl-06-market-priority-tab__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-priority-tab__StatePanel.md
+  - id: ihl-06-market-social__AppShell
+    label_ja: ihl-06-market-social__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-social__AppShell.md
+  - id: ihl-06-market-social__ContentArea
+    label_ja: ihl-06-market-social__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-social__ContentArea.md
+  - id: ihl-06-market-social__PageHeader
+    label_ja: ihl-06-market-social__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-social__PageHeader.md
+  - id: ihl-06-market-social__PrimaryAction
+    label_ja: ihl-06-market-social__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-social__PrimaryAction.md
+  - id: ihl-06-market-social__StatePanel
+    label_ja: ihl-06-market-social__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-06-market-social__StatePanel.md
+  - id: ihl-07-board-hub__AppShell
+    label_ja: ihl-07-board-hub__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-07-board-hub__AppShell.md
+  - id: ihl-07-board-hub__ContentArea
+    label_ja: ihl-07-board-hub__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-07-board-hub__ContentArea.md
+  - id: ihl-07-board-hub__PageHeader
+    label_ja: ihl-07-board-hub__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-07-board-hub__PageHeader.md
+  - id: ihl-07-board-hub__PrimaryAction
+    label_ja: ihl-07-board-hub__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-07-board-hub__PrimaryAction.md
+  - id: ihl-07-board-hub__StatePanel
+    label_ja: ihl-07-board-hub__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-07-board-hub__StatePanel.md
+  - id: ihl-07-board-post-愚痴__AppShell
+    label_ja: ihl-07-board-post-愚痴__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-07-board-post-愚痴__AppShell.md
+  - id: ihl-07-board-post-愚痴__ContentArea
+    label_ja: ihl-07-board-post-愚痴__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-07-board-post-愚痴__ContentArea.md
+  - id: ihl-07-board-post-愚痴__PageHeader
+    label_ja: ihl-07-board-post-愚痴__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-07-board-post-愚痴__PageHeader.md
+  - id: ihl-07-board-post-愚痴__PrimaryAction
+    label_ja: ihl-07-board-post-愚痴__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-07-board-post-愚痴__PrimaryAction.md
+  - id: ihl-07-board-post-愚痴__StatePanel
+    label_ja: ihl-07-board-post-愚痴__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-07-board-post-愚痴__StatePanel.md
+  - id: ihl-07-board-thread-post__AppShell
+    label_ja: ihl-07-board-thread-post__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-07-board-thread-post__AppShell.md
+  - id: ihl-07-board-thread-post__ContentArea
+    label_ja: ihl-07-board-thread-post__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-07-board-thread-post__ContentArea.md
+  - id: ihl-07-board-thread-post__PageHeader
+    label_ja: ihl-07-board-thread-post__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-07-board-thread-post__PageHeader.md
+  - id: ihl-07-board-thread-post__PrimaryAction
+    label_ja: ihl-07-board-thread-post__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-07-board-thread-post__PrimaryAction.md
+  - id: ihl-07-board-thread-post__StatePanel
+    label_ja: ihl-07-board-thread-post__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-07-board-thread-post__StatePanel.md
+  - id: ihl-08-karma-summary__AppShell
+    label_ja: ihl-08-karma-summary__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-08-karma-summary__AppShell.md
+  - id: ihl-08-karma-summary__ContentArea
+    label_ja: ihl-08-karma-summary__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-08-karma-summary__ContentArea.md
+  - id: ihl-08-karma-summary__PageHeader
+    label_ja: ihl-08-karma-summary__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-08-karma-summary__PageHeader.md
+  - id: ihl-08-karma-summary__PrimaryAction
+    label_ja: ihl-08-karma-summary__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-08-karma-summary__PrimaryAction.md
+  - id: ihl-08-karma-summary__StatePanel
+    label_ja: ihl-08-karma-summary__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-08-karma-summary__StatePanel.md
+  - id: ihl-09-paper-in-progress__AppShell
+    label_ja: ihl-09-paper-in-progress__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-09-paper-in-progress__AppShell.md
+  - id: ihl-09-paper-in-progress__ContentArea
+    label_ja: ihl-09-paper-in-progress__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-09-paper-in-progress__ContentArea.md
+  - id: ihl-09-paper-in-progress__PageHeader
+    label_ja: ihl-09-paper-in-progress__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-09-paper-in-progress__PageHeader.md
+  - id: ihl-09-paper-in-progress__PrimaryAction
+    label_ja: ihl-09-paper-in-progress__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-09-paper-in-progress__PrimaryAction.md
+  - id: ihl-09-paper-in-progress__StatePanel
+    label_ja: ihl-09-paper-in-progress__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-09-paper-in-progress__StatePanel.md
+  - id: ihl-09-paper-template-fill__AppShell
+    label_ja: ihl-09-paper-template-fill__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-09-paper-template-fill__AppShell.md
+  - id: ihl-09-paper-template-fill__ContentArea
+    label_ja: ihl-09-paper-template-fill__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-09-paper-template-fill__ContentArea.md
+  - id: ihl-09-paper-template-fill__PageHeader
+    label_ja: ihl-09-paper-template-fill__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-09-paper-template-fill__PageHeader.md
+  - id: ihl-09-paper-template-fill__PrimaryAction
+    label_ja: ihl-09-paper-template-fill__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-09-paper-template-fill__PrimaryAction.md
+  - id: ihl-09-paper-template-fill__StatePanel
+    label_ja: ihl-09-paper-template-fill__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-09-paper-template-fill__StatePanel.md
+  - id: ihl-10-preference-pairwise__AppShell
+    label_ja: ihl-10-preference-pairwise__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-10-preference-pairwise__AppShell.md
+  - id: ihl-10-preference-pairwise__ContentArea
+    label_ja: ihl-10-preference-pairwise__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-10-preference-pairwise__ContentArea.md
+  - id: ihl-10-preference-pairwise__PageHeader
+    label_ja: ihl-10-preference-pairwise__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-10-preference-pairwise__PageHeader.md
+  - id: ihl-10-preference-pairwise__PrimaryAction
+    label_ja: ihl-10-preference-pairwise__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-10-preference-pairwise__PrimaryAction.md
+  - id: ihl-10-preference-pairwise__StatePanel
+    label_ja: ihl-10-preference-pairwise__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-10-preference-pairwise__StatePanel.md
+  - id: ihl-11-dispute-tworoom__AppShell
+    label_ja: ihl-11-dispute-tworoom__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-11-dispute-tworoom__AppShell.md
+  - id: ihl-11-dispute-tworoom__ContentArea
+    label_ja: ihl-11-dispute-tworoom__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-11-dispute-tworoom__ContentArea.md
+  - id: ihl-11-dispute-tworoom__PageHeader
+    label_ja: ihl-11-dispute-tworoom__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-11-dispute-tworoom__PageHeader.md
+  - id: ihl-11-dispute-tworoom__PrimaryAction
+    label_ja: ihl-11-dispute-tworoom__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-11-dispute-tworoom__PrimaryAction.md
+  - id: ihl-11-dispute-tworoom__StatePanel
+    label_ja: ihl-11-dispute-tworoom__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-11-dispute-tworoom__StatePanel.md
+  - id: ihl-12-settings-hub__AppShell
+    label_ja: ihl-12-settings-hub__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-12-settings-hub__AppShell.md
+  - id: ihl-12-settings-hub__ContentArea
+    label_ja: ihl-12-settings-hub__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-12-settings-hub__ContentArea.md
+  - id: ihl-12-settings-hub__PageHeader
+    label_ja: ihl-12-settings-hub__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-12-settings-hub__PageHeader.md
+  - id: ihl-12-settings-hub__PrimaryAction
+    label_ja: ihl-12-settings-hub__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-12-settings-hub__PrimaryAction.md
+  - id: ihl-12-settings-hub__StatePanel
+    label_ja: ihl-12-settings-hub__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-12-settings-hub__StatePanel.md
+  - id: ihl-12-settings-pii__AppShell
+    label_ja: ihl-12-settings-pii__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-12-settings-pii__AppShell.md
+  - id: ihl-12-settings-pii__ContentArea
+    label_ja: ihl-12-settings-pii__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-12-settings-pii__ContentArea.md
+  - id: ihl-12-settings-pii__PageHeader
+    label_ja: ihl-12-settings-pii__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-12-settings-pii__PageHeader.md
+  - id: ihl-12-settings-pii__PrimaryAction
+    label_ja: ihl-12-settings-pii__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-12-settings-pii__PrimaryAction.md
+  - id: ihl-12-settings-pii__StatePanel
+    label_ja: ihl-12-settings-pii__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-12-settings-pii__StatePanel.md
+  - id: ihl-13-device-registry__CollectorSetupBanner
+    label_ja: ihl-13-device-registry__CollectorSetupBanner
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-13-device-registry__CollectorSetupBanner.md
+  - id: ihl-13-device-registry__CsvImportBlock
+    label_ja: ihl-13-device-registry__CsvImportBlock
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-13-device-registry__CsvImportBlock.md
+  - id: ihl-13-device-registry__DeviceListCard
+    label_ja: ihl-13-device-registry__DeviceListCard
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-13-device-registry__DeviceListCard.md
+  - id: ihl-13-device-registry__ManualRegisterForm
+    label_ja: ihl-13-device-registry__ManualRegisterForm
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-13-device-registry__ManualRegisterForm.md
+  - id: ihl-14-contribution-badge__AppShell
+    label_ja: ihl-14-contribution-badge__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-14-contribution-badge__AppShell.md
+  - id: ihl-14-contribution-badge__ContentArea
+    label_ja: ihl-14-contribution-badge__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-14-contribution-badge__ContentArea.md
+  - id: ihl-14-contribution-badge__PageHeader
+    label_ja: ihl-14-contribution-badge__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-14-contribution-badge__PageHeader.md
+  - id: ihl-14-contribution-badge__PrimaryAction
+    label_ja: ihl-14-contribution-badge__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-14-contribution-badge__PrimaryAction.md
+  - id: ihl-14-contribution-badge__StatePanel
+    label_ja: ihl-14-contribution-badge__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-14-contribution-badge__StatePanel.md
+  - id: ihl-16-edit-this-screen-entry__AppShell
+    label_ja: ihl-16-edit-this-screen-entry__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-16-edit-this-screen-entry__AppShell.md
+  - id: ihl-16-edit-this-screen-entry__ContentArea
+    label_ja: ihl-16-edit-this-screen-entry__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-16-edit-this-screen-entry__ContentArea.md
+  - id: ihl-16-edit-this-screen-entry__PageHeader
+    label_ja: ihl-16-edit-this-screen-entry__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-16-edit-this-screen-entry__PageHeader.md
+  - id: ihl-16-edit-this-screen-entry__PrimaryAction
+    label_ja: ihl-16-edit-this-screen-entry__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-16-edit-this-screen-entry__PrimaryAction.md
+  - id: ihl-16-edit-this-screen-entry__StatePanel
+    label_ja: ihl-16-edit-this-screen-entry__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-16-edit-this-screen-entry__StatePanel.md
+  - id: ihl-16-uibuilder-canvas__BuilderShell
+    label_ja: ihl-16-uibuilder-canvas__BuilderShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-16-uibuilder-canvas__BuilderShell.md
+  - id: ihl-16-uibuilder-canvas__CanvasDropZone
+    label_ja: ihl-16-uibuilder-canvas__CanvasDropZone
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-16-uibuilder-canvas__CanvasDropZone.md
+  - id: ihl-16-uibuilder-canvas__LintPanel
+    label_ja: ihl-16-uibuilder-canvas__LintPanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-16-uibuilder-canvas__LintPanel.md
+  - id: ihl-16-uibuilder-canvas__PartsPalette
+    label_ja: ihl-16-uibuilder-canvas__PartsPalette
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-16-uibuilder-canvas__PartsPalette.md
+  - id: ihl-16-uibuilder-canvas__SaveBar
+    label_ja: ihl-16-uibuilder-canvas__SaveBar
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-16-uibuilder-canvas__SaveBar.md
+  - id: ihl-17-world-template-picker__AppShell
+    label_ja: ihl-17-world-template-picker__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-17-world-template-picker__AppShell.md
+  - id: ihl-17-world-template-picker__ContentArea
+    label_ja: ihl-17-world-template-picker__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-17-world-template-picker__ContentArea.md
+  - id: ihl-17-world-template-picker__PageHeader
+    label_ja: ihl-17-world-template-picker__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-17-world-template-picker__PageHeader.md
+  - id: ihl-17-world-template-picker__PrimaryAction
+    label_ja: ihl-17-world-template-picker__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-17-world-template-picker__PrimaryAction.md
+  - id: ihl-17-world-template-picker__StatePanel
+    label_ja: ihl-17-world-template-picker__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-17-world-template-picker__StatePanel.md
+  - id: ihl-18-photo-analysis-result__AppShell
+    label_ja: ihl-18-photo-analysis-result__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-18-photo-analysis-result__AppShell.md
+  - id: ihl-18-photo-analysis-result__ContentArea
+    label_ja: ihl-18-photo-analysis-result__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-18-photo-analysis-result__ContentArea.md
+  - id: ihl-18-photo-analysis-result__PageHeader
+    label_ja: ihl-18-photo-analysis-result__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-18-photo-analysis-result__PageHeader.md
+  - id: ihl-18-photo-analysis-result__PrimaryAction
+    label_ja: ihl-18-photo-analysis-result__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-18-photo-analysis-result__PrimaryAction.md
+  - id: ihl-18-photo-analysis-result__StatePanel
+    label_ja: ihl-18-photo-analysis-result__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-18-photo-analysis-result__StatePanel.md
+  - id: ihl-19-component-board__AppShell
+    label_ja: ihl-19-component-board__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-19-component-board__AppShell.md
+  - id: ihl-19-component-board__ContentArea
+    label_ja: ihl-19-component-board__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-19-component-board__ContentArea.md
+  - id: ihl-19-component-board__PageHeader
+    label_ja: ihl-19-component-board__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-19-component-board__PageHeader.md
+  - id: ihl-19-component-board__PrimaryAction
+    label_ja: ihl-19-component-board__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-19-component-board__PrimaryAction.md
+  - id: ihl-19-component-board__StatePanel
+    label_ja: ihl-19-component-board__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-19-component-board__StatePanel.md
+  - id: ihl-20-vote-general__AppShell
+    label_ja: ihl-20-vote-general__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-20-vote-general__AppShell.md
+  - id: ihl-20-vote-general__ContentArea
+    label_ja: ihl-20-vote-general__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-20-vote-general__ContentArea.md
+  - id: ihl-20-vote-general__PageHeader
+    label_ja: ihl-20-vote-general__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-20-vote-general__PageHeader.md
+  - id: ihl-20-vote-general__PrimaryAction
+    label_ja: ihl-20-vote-general__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-20-vote-general__PrimaryAction.md
+  - id: ihl-20-vote-general__StatePanel
+    label_ja: ihl-20-vote-general__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-20-vote-general__StatePanel.md
+  - id: ihl-22-pt-shop__AppShell
+    label_ja: ihl-22-pt-shop__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-22-pt-shop__AppShell.md
+  - id: ihl-22-pt-shop__ContentArea
+    label_ja: ihl-22-pt-shop__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-22-pt-shop__ContentArea.md
+  - id: ihl-22-pt-shop__PageHeader
+    label_ja: ihl-22-pt-shop__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-22-pt-shop__PageHeader.md
+  - id: ihl-22-pt-shop__PrimaryAction
+    label_ja: ihl-22-pt-shop__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-22-pt-shop__PrimaryAction.md
+  - id: ihl-22-pt-shop__StatePanel
+    label_ja: ihl-22-pt-shop__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-22-pt-shop__StatePanel.md
+  - id: ihl-23-gmo-transfer__FeeBreakdown
+    label_ja: ihl-23-gmo-transfer__FeeBreakdown
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-23-gmo-transfer__FeeBreakdown.md
+  - id: ihl-23-gmo-transfer__GmoTransferPanel
+    label_ja: ihl-23-gmo-transfer__GmoTransferPanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-23-gmo-transfer__GmoTransferPanel.md
+  - id: ihl-23-gmo-transfer__StatusChip
+    label_ja: ihl-23-gmo-transfer__StatusChip
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-23-gmo-transfer__StatusChip.md
+  - id: ihl-23-gmo-transfer__TransferCodeDisplay
+    label_ja: ihl-23-gmo-transfer__TransferCodeDisplay
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-23-gmo-transfer__TransferCodeDisplay.md
+  - id: ihl-profile-three-metrics__AppShell
+    label_ja: ihl-profile-three-metrics__AppShell
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-profile-three-metrics__AppShell.md
+  - id: ihl-profile-three-metrics__ContentArea
+    label_ja: ihl-profile-three-metrics__ContentArea
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-profile-three-metrics__ContentArea.md
+  - id: ihl-profile-three-metrics__PageHeader
+    label_ja: ihl-profile-three-metrics__PageHeader
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-profile-three-metrics__PageHeader.md
+  - id: ihl-profile-three-metrics__PrimaryAction
+    label_ja: ihl-profile-three-metrics__PrimaryAction
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-profile-three-metrics__PrimaryAction.md
+  - id: ihl-profile-three-metrics__StatePanel
+    label_ja: ihl-profile-three-metrics__StatePanel
+    reuse: required
+    source: docs/planning/quantum/shards/comp-ihl-profile-three-metrics__StatePanel.md

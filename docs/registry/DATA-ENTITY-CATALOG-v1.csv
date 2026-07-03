@@ -1,0 +1,11 @@
+# DATA-ENTITY-CATALOG v1 — QUANTUM seed
+# expand: schema-pack-v1.md
+entity,primary_key,feature,note
+capture,capture_id,05,observation commit spine
+device_registry,device_id,13,settings devices
+theme_pack,pack_id,16,UIbuilder
+gmo_expected_payment,payment_id,23,GMO reconciliation
+env_tier_b,device_id+ts,13,parquet ingest
+session,session_token,01,auth opaque
+preferences,actor_id,12,user settings
+home_summary,actor_id,04,hub projection

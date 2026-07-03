@@ -1,0 +1,190 @@
+{
+  "feature_id": "00",
+  "web_routes": [
+    {
+      "route": "/admin/gmo",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
+    },
+    {
+      "route": "/admin/karma",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
+    },
+    {
+      "route": "/component/photo-analysis",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
+    },
+    {
+      "route": "/contribution",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
+    },
+    {
+      "route": "/cross/[id]",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
+    },
+    {
+      "route": "/cross/[id]/mortality",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
+    },
+    {
+      "route": "/economy/shop",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
+    },
+    {
+      "route": "/env/shelf",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
+    },
+    {
+      "route": "/individuals/[id]",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
+    },
+    {
+      "route": "/individuals/[id]/qr",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
+    },
+    {
+      "route": "/language",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
+    },
+    {
+      "route": "/match",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
+    },
+    {
+      "route": "/me/profile",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
+    },
+    {
+      "route": "/scan",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
+    }
+  ],
+  "api_transitions": [],
+  "client_transitions": [],
+  "quantum_updated": "2026-07-03"
+}

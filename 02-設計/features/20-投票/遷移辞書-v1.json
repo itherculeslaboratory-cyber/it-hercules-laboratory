@@ -1,0 +1,21 @@
+{
+  "feature_id": "20",
+  "web_routes": [
+    {
+      "route": "/vote",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
+    }
+  ],
+  "api_transitions": [],
+  "client_transitions": [],
+  "quantum_updated": "2026-07-03"
+}

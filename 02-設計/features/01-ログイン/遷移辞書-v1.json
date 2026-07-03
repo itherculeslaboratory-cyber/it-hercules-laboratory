@@ -11,12 +11,71 @@
     "session_header": "Authorization: Bearer | X-IHL-Session"
   },
   "web_routes": [
-    { "route": "/login", "kind": "form", "states": ["idle", "sending", "sent", "send_error", "verifying", "verify_error", "authenticated"], "primary_action": "ログインリンクを送信", "api": ["POST /api/v1/auth/magic-link", "POST /api/v1/auth/verify"] }
+    {
+      "route": "/login",
+      "kind": "form",
+      "states": [
+        "idle",
+        "sending",
+        "sent",
+        "send_error",
+        "verifying",
+        "verify_error",
+        "authenticated"
+      ],
+      "primary_action": "ログインリンクを送信",
+      "api": [
+        "POST /api/v1/auth/magic-link",
+        "POST /api/v1/auth/verify"
+      ]
+    }
   ],
   "api_transitions": [
-    { "method": "POST", "path": "/api/v1/auth/magic-link", "auth": "public", "success": 200, "errors": [], "on_success": "sent 状態 · dev_token あれば UI 表示" },
-    { "method": "POST", "path": "/api/v1/auth/verify", "auth": "public", "success": 200, "errors": [401], "on_error": { "401": "INVALID_OR_EXPIRED_TOKEN → verify_error → 再送信導線" }, "on_success": "session_token 保存 → authenticated → #03 or #04" },
-    { "method": "POST", "path": "/api/v1/auth/register", "auth": "public", "success": 200, "errors": [400], "on_error": { "400": "規約未同意 → チェックボックス強調" } },
-    { "method": "GET", "path": "/api/v1/auth/session", "auth": "token header", "success": 200, "errors": [401], "on_error": { "401": "AUTH_REQUIRED → /login へ" } }
-  ]
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/magic-link",
+      "auth": "public",
+      "success": 200,
+      "errors": [],
+      "on_success": "sent 状態 · dev_token あれば UI 表示"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/verify",
+      "auth": "public",
+      "success": 200,
+      "errors": [
+        401
+      ],
+      "on_error": {
+        "401": "INVALID_OR_EXPIRED_TOKEN → verify_error → 再送信導線"
+      },
+      "on_success": "session_token 保存 → authenticated → #03 or #04"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/register",
+      "auth": "public",
+      "success": 200,
+      "errors": [
+        400
+      ],
+      "on_error": {
+        "400": "規約未同意 → チェックボックス強調"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/session",
+      "auth": "token header",
+      "success": 200,
+      "errors": [
+        401
+      ],
+      "on_error": {
+        "401": "AUTH_REQUIRED → /login へ"
+      }
+    }
+  ],
+  "quantum_updated": "2026-07-03"
 }

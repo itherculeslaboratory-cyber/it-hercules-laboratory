@@ -147,6 +147,8 @@ ver3 初回 Web リリースは **コア機能の internet 公開**が目的で�
 | ドキュメント | 用途 |
 |--------------|------|
 | [`ver3-deploy-runbook.md`](./ver3-deploy-runbook.md) | ver3 暫定デプロイ · CF Pages + VPS API · DNS · R2 |
+| [`docs/planning/quantum/VER4-VPS-MINIMAL-SPEC.md`](./planning/quantum/VER4-VPS-MINIMAL-SPEC.md) | **QUANTUM** ver4 VPS 最小プロセス · cutover |
+| [`docs/registry/INFRA-ROUTE-MATRIX-v1.csv`](./registry/INFRA-ROUTE-MATRIX-v1.csv) | 57 API × ver4 移行 wave |
 | [`docs/runbooks/production-deploy.md`](../../../docs/runbooks/production-deploy.md) | civ-os legacy 本番手順（R2 → Workers → API → UI 依存順） |
 | [`ADR-H-33-ver4-Workers-VPS-役割分離-v1.md`](../02-設計/_横断/adr/ADR-H-33-ver4-Workers-VPS-役割分離-v1.md) | 決定記録（短縮版） |
 | [`IHL-段階リリース計画-ver1-4+.md`](../02-設計/_横断/IHL-段階リリース計画-ver1-4+.md) | ver3 / ver4+ 機能マイルストーン |

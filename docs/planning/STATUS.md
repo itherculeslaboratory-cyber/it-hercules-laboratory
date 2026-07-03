@@ -28,8 +28,9 @@
 
 | **DOC-REMED** 文書リメディエーション | **🟢 Wave 1 完了（2026-07-03）** — #01–#05・#12 の REQ-slim/TD/RTM/GATE 完了 · 全 GATE（rtm・parity・layering）PASS · GATE ツール 3 バグ修正（TC/req-ID 抽出 · 横断 ID 免除）· 次段 Wave 2 精緻化 |
 | **DOC-REMED-MAD** 狂気モード基盤 | **🟢 MAD-COMPLETE（2026-07-03）** — 全 **24** 機能 GOLDEN · 累計 **816** MICRO slices · 横断レジストリ実データ化 · #02 は **HUMAN-02-LEGAL** 条文不変更 · [`MAD-COMPLETE-REPORT.md`](./MAD-COMPLETE-REPORT.md) |
+| **DOC-REMED-QUANTUM** 量子粒設計 | **🟢 QUANTUM-COMPLETE（2026-07-03）** — **1813** GPU shards · 53 mock PNG · ver4 INFRA 設計 · UI 部品 263 · [`QUANTUM-COMPLETE-REPORT.md`](./QUANTUM-COMPLETE-REPORT.md) |
 
-詳細: [`docs/planning/audits/DOC-AUDIT-INDEX.md`](./audits/DOC-AUDIT-INDEX.md) · 黄金: [`docs/planning/golden/GOLDEN-05-MANIFEST.md`](./golden/GOLDEN-05-MANIFEST.md) · Skill: `.cursor/skills/ihl-doc-remediation/SKILL.md` · 合図: `IHL-DOC-AUDIT` / `IHL-DOC-REMED` / `IHL-DOC-REMED MAD`
+詳細: [`docs/planning/audits/DOC-AUDIT-INDEX.md`](./audits/DOC-AUDIT-INDEX.md) · 黄金: [`docs/planning/golden/GOLDEN-05-MANIFEST.md`](./golden/GOLDEN-05-MANIFEST.md) · Skill: `.cursor/skills/ihl-doc-remediation/SKILL.md` · 合図: `IHL-DOC-AUDIT` / `IHL-DOC-REMED` / `IHL-DOC-REMED MAD` / **`IHL-DOC-QUANTUM`**
 
 ---
 

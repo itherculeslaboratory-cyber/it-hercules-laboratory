@@ -12,16 +12,53 @@
     {
       "route": "/settings",
       "kind": "hub",
-      "states": ["load", "hub_ready", "section_edit", "saving", "save_ok", "save_error"],
+      "states": [
+        "load",
+        "hub_ready",
+        "section_edit",
+        "saving",
+        "save_ok",
+        "save_error"
+      ],
       "primary_action": "preferences PATCH",
-      "api": ["GET /api/v1/settings", "PATCH /api/v1/me/preferences"]
+      "api": [
+        "GET /api/v1/settings",
+        "PATCH /api/v1/me/preferences"
+      ]
     },
     {
       "route": "/settings/devices",
       "kind": "section",
-      "states": ["load", "hub_ready", "saving", "save_ok", "save_error"],
-      "primary_action": "default_device_id 更新",
-      "api": ["PATCH /api/v1/me/preferences"]
+      "states": [
+        "load",
+        "empty",
+        "hub_ready",
+        "collector_wizard",
+        "csv_import",
+        "saving",
+        "save_ok",
+        "save_error"
+      ],
+      "primary_action": "機器登録 · Collector セットアップ · CSV 取込",
+      "api": [
+        "GET /api/v1/devices",
+        "POST /api/v1/devices",
+        "POST /api/env/import/device-csv"
+      ],
+      "note": "QUANTUM · ADR-H-36 — SWITCHBOT_TOKEN サーバ案内禁止"
+    },
+    {
+      "route": "/settings/ui-template",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
     }
   ],
   "api_transitions": [
@@ -90,5 +127,6 @@
       "to": "save_error",
       "next": "retry → saving"
     }
-  ]
+  ],
+  "quantum_updated": "2026-07-03"
 }

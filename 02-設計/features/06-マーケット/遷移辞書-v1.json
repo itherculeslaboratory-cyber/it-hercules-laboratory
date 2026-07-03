@@ -12,23 +12,103 @@
     {
       "route": "/market",
       "kind": "list",
-      "states": ["load", "list_ready", "empty", "error"],
+      "states": [
+        "load",
+        "list_ready",
+        "empty",
+        "error"
+      ],
       "primary_action": "listing 詳細へ",
-      "api": ["GET /api/v1/market/listings"]
+      "api": [
+        "GET /api/v1/market/listings"
+      ]
     },
     {
       "route": "/market/[listing_id]",
       "kind": "detail",
-      "states": ["load", "detail_ready", "transition", "matched", "error"],
+      "states": [
+        "load",
+        "detail_ready",
+        "transition",
+        "matched",
+        "error"
+      ],
       "primary_action": "transition / match",
-      "api": ["GET /api/v1/market/listings/{id}", "POST .../transition", "POST .../match"]
+      "api": [
+        "GET /api/v1/market/listings/{id}",
+        "POST .../transition",
+        "POST .../match"
+      ]
+    },
+    {
+      "route": "/market/[id]",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
+    },
+    {
+      "route": "/market/[id]/transfer",
+      "kind": "page",
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "ok"
+      ],
+      "primary_action": "—",
+      "api": [],
+      "quantum": true
     }
   ],
   "api_transitions": [
-    { "method": "GET", "path": "/api/v1/market/listings", "auth": "public", "success": 200, "errors": [] },
-    { "method": "GET", "path": "/api/v1/market/listings/{listing_id}", "auth": "public", "success": 200, "errors": [404] },
-    { "method": "POST", "path": "/api/v1/market/listings/{listing_id}/transition", "auth": "public", "success": 200, "errors": [409] },
-    { "method": "POST", "path": "/api/v1/market/listings/{listing_id}/match", "auth": "public", "success": 200, "errors": [409] },
-    { "method": "GET", "path": "/api/v1/market/transfer/{listing_id}", "auth": "public", "success": 200, "errors": [] }
-  ]
+    {
+      "method": "GET",
+      "path": "/api/v1/market/listings",
+      "auth": "public",
+      "success": 200,
+      "errors": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/market/listings/{listing_id}",
+      "auth": "public",
+      "success": 200,
+      "errors": [
+        404
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/market/listings/{listing_id}/transition",
+      "auth": "public",
+      "success": 200,
+      "errors": [
+        409
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/market/listings/{listing_id}/match",
+      "auth": "public",
+      "success": 200,
+      "errors": [
+        409
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/market/transfer/{listing_id}",
+      "auth": "public",
+      "success": 200,
+      "errors": []
+    }
+  ],
+  "quantum_updated": "2026-07-03"
 }

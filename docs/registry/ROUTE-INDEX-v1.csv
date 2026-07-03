@@ -3,51 +3,51 @@
 # 生成: node scripts/ihl-registry-route-index.mjs
 # 列: feature,route,kind,auth,primary_action,states,note
 feature,route,kind,auth,primary_action,states,note
-—,/admin/gmo,page,public,—,—,apps/web App Router（辞書未登録）
-—,/admin/karma,page,public,—,—,apps/web App Router（辞書未登録）
-—,/component/photo-analysis,page,public,—,—,apps/web App Router（辞書未登録）
-—,/contribution,page,public,—,—,apps/web App Router（辞書未登録）
-—,/cross/[id],page,public,—,—,apps/web App Router（辞書未登録）
-—,/cross/[id]/mortality,page,public,—,—,apps/web App Router（辞書未登録）
-—,/economy/shop,page,public,—,—,apps/web App Router（辞書未登録）
-—,/env/shelf,page,public,—,—,apps/web App Router（辞書未登録）
-—,/individuals/[id],page,public,—,—,apps/web App Router（辞書未登録）
-—,/individuals/[id]/qr,page,public,—,—,apps/web App Router（辞書未登録）
-—,/language,page,public,—,—,apps/web App Router（辞書未登録）
-—,/match,page,public,—,—,apps/web App Router（辞書未登録）
-—,/me/profile,page,public,—,—,apps/web App Router（辞書未登録）
-—,/scan,page,public,—,—,apps/web App Router（辞書未登録）
-01,/login,form,public,ログインリンクを送信,idle|sending|sent|send_error|verifying|verify_error|authenticated,遷移辞書-v1.json · ログイン
-02,/terms,page,public,—,—,apps/web App Router（辞書未登録）
-03,/onboarding,form,public,文明人格を確定,pending|submitting|complete|error,遷移辞書-v1.json · 新規登録
-03,/register,page,public,—,—,apps/web App Router（辞書未登録）
-04,/,hub,public,観測登録開始,loading|home|fallback,遷移辞書-v1.json · ホーム
-04,/home,hub,public,観測登録開始,loading|home|fallback,遷移辞書-v1.json · ホーム
-05,/observation,list,public,観測を追加,loading|empty|error|ok,遷移辞書-v1.json · 観測
-05,/observation/[capture_id],detail,public,再解析マニフェスト,loading|not_found|ok,遷移辞書-v1.json · 観測
-05,/observation/[id],page,public,—,—,apps/web App Router（辞書未登録）
-05,/observation/confirm,confirm,public,確定（commit）,review|submitting|commit_error|committed,遷移辞書-v1.json · 観測
-05,/observation/context,page,public,—,—,apps/web App Router（辞書未登録）
-05,/observation/done,page,public,—,—,apps/web App Router（辞書未登録）
-05,/observation/input,form,public,確認へ,draft|validation_error|ready,遷移辞書-v1.json · 観測
-05,/observation/input/confirm,page,public,—,—,apps/web App Router（辞書未登録）
-05,/observation/solid,page,public,—,—,apps/web App Router（辞書未登録）
-05,/observation/templates,page,public,—,—,apps/web App Router（辞書未登録）
-05,/observation/templates/[id],page,public,—,—,apps/web App Router（辞書未登録）
-05,/observation/templates/[id]/fork,page,public,—,—,apps/web App Router（辞書未登録）
-06,/market,list,public,listing 詳細へ,load|list_ready|empty|error,遷移辞書-v1.json · マーケット
-06,/market/[id],page,public,—,—,apps/web App Router（辞書未登録）
-06,/market/[id]/transfer,page,public,—,—,apps/web App Router（辞書未登録）
-06,/market/[listing_id],detail,public,transition / match,load|detail_ready|transition|matched|error,遷移辞書-v1.json · マーケット
-07,/board,hub,public,—,load|categories_ready|empty|error,遷移辞書-v1.json · 掲示板
-07,/board/[category],list,public,—,load|threads_ready|create|posted|error,遷移辞書-v1.json · 掲示板
-07,/board/component,page,public,—,—,apps/web App Router（辞書未登録）
-07,/board/paper,page,public,—,—,apps/web App Router（辞書未登録）
-07,/board/paper/template,page,public,—,—,apps/web App Router（辞書未登録）
-11,/board/[category]/dispute,room,public,メッセージ投稿,loading|messages_ready|posting|error|not_found,遷移辞書-v1.json · 裁判
-12,/settings,hub,public,preferences PATCH,load|hub_ready|section_edit|saving|save_ok|save_error,遷移辞書-v1.json · 設定
-12,/settings/devices,section,public,default_device_id 更新,load|hub_ready|saving|save_ok|save_error,遷移辞書-v1.json · 設定
-12,/settings/ui-template,page,session,—,—,apps/web App Router（辞書未登録）
-16,/builder,editor,public,—,draft|lint|saved|preview|lint_error,遷移辞書-v1.json · UIbuilder
-17,/settings,hub,public,—,load|hub_ready|save_ok|save_error,遷移辞書-v1.json · UI選択
-20,/vote,page,public,—,—,apps/web App Router（辞書未登録）
+00,/admin/gmo,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+00,/admin/karma,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+00,/component/photo-analysis,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+00,/contribution,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+00,/cross/[id],page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+00,/cross/[id]/mortality,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+00,/economy/shop,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+00,/env/shelf,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+00,/individuals/[id],page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+00,/individuals/[id]/qr,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+00,/language,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+00,/match,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+00,/me/profile,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+00,/scan,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+01,/login,form,public,ログインリンクを送信,idle|sending|sent|send_error|verifying|verify_error|authenticated,QUANTUM route-state merge
+02,/terms,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+03,/onboarding,form,public,文明人格を確定,pending|submitting|complete|error,QUANTUM route-state merge
+03,/register,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+04,/,hub,public,観測登録開始,loading|home|fallback,QUANTUM route-state merge
+04,/home,hub,public,観測登録開始,loading|home|fallback,QUANTUM route-state merge
+05,/observation,list,public,観測を追加,loading|empty|error|ok,QUANTUM route-state merge
+05,/observation/[capture_id],detail,public,再解析マニフェスト,loading|not_found|ok,QUANTUM route-state merge
+05,/observation/[id],page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+05,/observation/confirm,confirm,public,確定（commit）,review|submitting|commit_error|committed,QUANTUM route-state merge
+05,/observation/context,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+05,/observation/done,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+05,/observation/input,form,public,確認へ,draft|validation_error|ready,QUANTUM route-state merge
+05,/observation/input/confirm,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+05,/observation/solid,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+05,/observation/templates,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+05,/observation/templates/[id],page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+05,/observation/templates/[id]/fork,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+06,/market,list,public,listing 詳細へ,load|list_ready|empty|error,QUANTUM route-state merge
+06,/market/[id],page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+06,/market/[id]/transfer,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+06,/market/[listing_id],detail,public,transition / match,load|detail_ready|transition|matched|error,QUANTUM route-state merge
+07,/board,hub,public,—,load|categories_ready|empty|error,QUANTUM route-state merge
+07,/board/[category],list,public,—,load|threads_ready|create|posted|error,QUANTUM route-state merge
+07,/board/component,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+07,/board/paper,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+07,/board/paper/template,page,public,—,loading|empty|error|ok,QUANTUM route-state merge
+11,/board/[category]/dispute,room,public,メッセージ投稿,loading|messages_ready|posting|error|not_found,QUANTUM route-state merge
+12,/settings,hub,public,preferences PATCH,load|hub_ready|section_edit|saving|save_ok|save_error,QUANTUM route-state merge
+12,/settings/devices,section,public,default_device_id 更新,load|hub_ready|saving|save_ok|save_error,QUANTUM route-state merge
+12,/settings/ui-template,page,session,—,loading|empty|error|ok,QUANTUM route-state merge
+16,/builder,editor,public,—,draft|lint|saved|preview|lint_error,QUANTUM route-state merge
+17,/settings,hub,public,—,load|hub_ready|save_ok|save_error,QUANTUM route-state merge
+20,/vote,page,public,—,loading|empty|error|ok,QUANTUM route-state merge

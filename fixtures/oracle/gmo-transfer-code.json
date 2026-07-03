@@ -1,0 +1,7 @@
+{
+  "description": "GMO transfer-code stub response",
+  "transfer_code": "IHL-EXAMPLE-8PCT",
+  "listing_id": "lst_demo_001",
+  "amount_yen": 800,
+  "fee_percent": 8
+}

@@ -2,6 +2,7 @@
   "name": "it-hercules-laboratory",
   "private": true,
   "scripts": {
+    "ui-parts-lab": "npm run dev --prefix apps/ui-parts-lab",
     "test:e2e": "playwright test",
     "test:e2e:smoke": "playwright test e2e/ihl-smoke.spec.ts",
     "test:e2e:ver2": "playwright test e2e/ihl-observation-ver2.spec.ts"

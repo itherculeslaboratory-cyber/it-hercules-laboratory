@@ -1,5 +1,6 @@
 # IT Hercules Laboratory — 設計ドキュメント索引（たたき台・非正本）
 
+> **運用・バックログ入口**: [`docs/planning/README.md`](./docs/planning/README.md)（現状 · 直近タスク · ver/フェーズ索引）  
 > **メインリポジトリ（確定 · 唯一の正本）**: [itherculeslaboratory-cyber/it-hercules-laboratory](https://github.com/itherculeslaboratory-cyber/it-hercules-laboratory.git)  
 > **legacy / archive**: [itherculeslaboratory-cyber/civilization-os](https://github.com/itherculeslaboratory-cyber/civilization-os) — 参照 + salvage のみ。並行製品ではない  
 > **現状の正本**: `civilization-os/指示/it-hercules-laboratory/`（設計+実装+collector · Strategy B）  

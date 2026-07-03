@@ -12,6 +12,7 @@
 | **所有者** | ユーザー（ロゴ・コイン・免罪符等の最終判断） |
 | **AI** | 生成しない。一覧への id・パス追記のみ |
 | **モック** | `mockups/` の PNG とは別。本番 UI 用アセットの正本 |
+| **ブランド採用4枚** | ユーザー PC `D:\mockups\`（`ロゴ採用.png` 等）— [`ihl-brand-assets.mdc`](../../../.cursor/rules/ihl-brand-assets.mdc) · `node scripts/sync-brand-assets.mjs` |
 
 ---
 

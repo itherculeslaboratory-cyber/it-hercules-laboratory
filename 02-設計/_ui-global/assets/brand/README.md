@@ -2,19 +2,21 @@
 
 > **配置者**: ユーザー  
 > **仕様**: [`../../00-世界観アセット一覧-v1.md`](../../00-世界観アセット一覧-v1.md) — `brand-*` id  
-> **ステータス**: **user_placed**（2026-06-26 — ユーザー提供 PNG 正本）
+> **ステータス**: **user_placed**（2026-06-14 採用 · 2026-07-03 `D:\mockups` 同期）  
+> **ルール**: [`.cursor/rules/ihl-brand-assets.mdc`](../../../../.cursor/rules/ihl-brand-assets.mdc)
 
 ---
 
 ## 配置済みファイル
 
-| ファイル | id | 形式 | 用途 |
-|----------|-----|------|------|
-| `logo-primary.png` | `brand-logo-primary` | PNG（ユーザー提供） | ヘッダ・ログインの主ロゴ（H + wordmark + 甲虫） |
-| `logo-mark.png` | `brand-logo-mark` | PNG（favicon 甲虫シルエット） | 狭いヘッダ・マーク |
-| `favicon.png` | — | PNG（ユーザー提供） | 甲虫単体 favicon 正本 |
+| ファイル | id | 採用ソース（`D:\mockups\`） | 用途 |
+|----------|-----|---------------------------|------|
+| `logo-primary.png` | `brand-logo-primary` | `ロゴ採用.png` | ヘッダ・ログインの主ロゴ（H + wordmark + 甲虫） |
+| `logo-mark.png` | `brand-logo-mark` | `favicon .png` | 狭いヘッダ・マーク |
+| `favicon.png` | — | `favicon .png` | 甲虫単体 favicon 正本 |
 
-**配信**: `apps/web/public/brand/` · `apps/web/public/favicon.png` · `apps/web/src/app/icon.png`
+**同期**: `node scripts/sync-brand-assets.mjs`  
+**配信**: `apps/web/public/brand/` · `apps/web/public/favicon.png`
 
 ---
 

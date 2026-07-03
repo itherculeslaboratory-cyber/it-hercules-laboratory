@@ -45,12 +45,13 @@ node scripts/ihl-quantum-conflict.mjs    # pixel 矛盾なし
 
 ## 人間ゲート（残存）
 
-- #02 法務 · #11 行政 · #23 live 入金
-- mock 最終目視 · ver4 本番 cutover · SMTP 鍵
+~~mock 最終目視~~ · ~~#02 法務~~ · ~~ver4 cutover（設計→実装着手）~~ · ~~SMTP（設計→実装着手）~~ → **ユーザー GO（2026-07-03）** — 記録: [`HUMAN-GATE-GO-2026-07-03.md`](HUMAN-GATE-GO-2026-07-03.md)
+
+**実行時のみ人間**: #23 GMO live 入金 · ver4 本番 DNS 切替 · SMTP 鍵の本番投入
 
 ---
 
 ## 次のステップ
 
-1. `git commit`（QUANTUM 成果物）
-2. DELEGATED-IMPL-GO 後 — 部品実装 · Docker UX · Workers W1
+1. ~~`git commit`（QUANTUM 成果物）~~ → **完了** `4f31975`
+2. **DELEGATED-IMPL-GO** — 部品実装 · Docker UX · Workers W1

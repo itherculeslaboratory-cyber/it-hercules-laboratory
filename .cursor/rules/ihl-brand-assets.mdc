@@ -1,0 +1,58 @@
+---
+description: IHL ブランド正本 — D:\mockups 採用4枚 · logo/mark/favicon · PT · 免罪符
+globs:
+  - apps/web/**
+  - 02-設計/_ui-global/assets/**
+  - 02-設計/_ui-global/mockups/**
+alwaysApply: true
+---
+
+# IHL ブランド統一 — 採用4枚（正本）
+
+**ユーザー採用確定（2026-06-14）**。別ロゴ・別コイン・AI 生成差し替え **禁止**。
+
+## 正本ソース（ユーザー PC）
+
+| 採用ファイル（`D:\mockups\`） | asset id | 配置名 | 用途 |
+|------------------------------|----------|--------|------|
+| `ロゴ採用.png` | `brand-logo-primary` | `logo-primary.png` | ヘッダ・ログイン横並びロゴ（H + wordmark + 甲虫） |
+| `favicon .png` | `brand-logo-mark` | `logo-mark.png` · `favicon.png` | 狭幅マーク · タブ favicon · 甲虫シルエット単体 |
+| `免罪符採用.png` | `econ-indulgence-token` | `indulgence-token.png` | カルマ免罪符（羊皮紙・月桂冠・IHL・赤蝋封） |
+| `プラチナコイン採用.png` | `econ-pt-coin` | `pt-coin.png` | PT 通貨メダル（月桂冠 · PT · 開いた書） |
+
+提案メモ（採用理由）: 同フォルダの `ロゴ提案メモ.md` · `免罪符提案メモ.md` · `プラチナコイン提案メモ.md`
+
+## repo 内の正本パス
+
+| 層 | パス |
+|----|------|
+| **設計正本** | `02-設計/_ui-global/assets/brand/` · `assets/economy/` |
+| **Web 配信** | `apps/web/public/brand/` · `public/economy/` · `public/favicon.png` |
+| **コード参照** | `apps/web/src/lib/brand-assets.ts` → `BRAND_ASSETS` のみ（直パス禁止） |
+| **台帳** | `02-設計/_ui-global/00-世界観アセット一覧-v1.md` |
+
+## 同期コマンド
+
+```bash
+node scripts/sync-brand-assets.mjs
+```
+
+`D:\mockups` 以外から取り込むときは `IHL_BRAND_SOURCE` を指定。
+
+## 配色・トーン（全4枚共通）
+
+- 金アクセント `#C9A227`（近似可）· UI 背景 `#0D0D0D`
+- 甲虫は **ヘラクレスオオカブト** · **脚なし** · 色は意味のみ（`ui-reference/preferences.md` §A）
+- 観測標本・mock 画面 PNG に **色補正をかけない**（ブランド PNG も再トーン禁止）
+
+## 禁止
+
+- `ihl-*.png` 画面 mock をロゴ/経済アイコンに流用
+- `BRAND_ASSETS` 外の独自ロゴ URL · プレースホルダ SVG の新規追加（採用 PNG 正本）
+- 黒矩形背景 PNG をライトサーフェスに直載せ（要ダークパネル or 透過エクスポート — `00-世界観アセット一覧` §3.1）
+
+## UI 実装
+
+- ロゴ: `BrandLogo`（`variant`: `primary` | `mark` | `responsive`）
+- 経済: `EconIcon` + `BRAND_ASSETS.ptCoin` / `.indulgence`
+- mock ウォークスルー: 画面 mock は `mockups/ihl-*.png` のみ — ブランド4枚は載せない

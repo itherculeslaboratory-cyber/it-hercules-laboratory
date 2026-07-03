@@ -28,7 +28,7 @@
 
 | **DOC-REMED** 文書リメディエーション | **🟢 Wave 1 完了（2026-07-03）** — #01–#05・#12 の REQ-slim/TD/RTM/GATE 完了 · 全 GATE（rtm・parity・layering）PASS · GATE ツール 3 バグ修正（TC/req-ID 抽出 · 横断 ID 免除）· 次段 Wave 2 精緻化 |
 | **DOC-REMED-MAD** 狂気モード基盤 | **🟢 MAD-COMPLETE（2026-07-03）** — 全 **24** 機能 GOLDEN · 累計 **816** MICRO slices · 横断レジストリ実データ化 · #02 は **HUMAN-02-LEGAL** 条文不変更 · [`MAD-COMPLETE-REPORT.md`](./MAD-COMPLETE-REPORT.md) |
-| **DOC-REMED-QUANTUM** 量子粒設計 | **🟢 QUANTUM-COMPLETE（2026-07-03）** — **1813** GPU shards · 53 mock PNG · ver4 INFRA 設計 · UI 部品 263 · [`QUANTUM-COMPLETE-REPORT.md`](./QUANTUM-COMPLETE-REPORT.md) |
+| **DOC-REMED-QUANTUM** 量子粒設計 | **🟢 QUANTUM-COMPLETE（2026-07-03）** — **1813** GPU shards · 53 mock PNG · ver4 INFRA 設計 · UI 部品 263 · 人間 GO [`HUMAN-GATE-GO-2026-07-03.md`](./HUMAN-GATE-GO-2026-07-03.md) · [`QUANTUM-COMPLETE-REPORT.md`](./QUANTUM-COMPLETE-REPORT.md) |
 
 詳細: [`docs/planning/audits/DOC-AUDIT-INDEX.md`](./audits/DOC-AUDIT-INDEX.md) · 黄金: [`docs/planning/golden/GOLDEN-05-MANIFEST.md`](./golden/GOLDEN-05-MANIFEST.md) · Skill: `.cursor/skills/ihl-doc-remediation/SKILL.md` · 合図: `IHL-DOC-AUDIT` / `IHL-DOC-REMED` / `IHL-DOC-REMED MAD` / **`IHL-DOC-QUANTUM`**
 
@@ -76,7 +76,7 @@
 |------|------|
 | ~~未ログイン観測検索 401~~ | **修正済み（2026-07-03）** — [`backlog/2026-06-27-tomorrow.md`](./backlog/2026-06-27-tomorrow.md) |
 | **parity C4 README** | ~~12 mismatch~~ → **PASS**（claims パス修正済み） |
-| **magic link メール** | 本番 SMTP 未配線（人間ゲート） |
+| **magic link メール** | 設計 GO（2026-07-03）— 本番 SMTP 鍵投入は未実施 |
 | **PT ショップ UI polish** | 意図的延期 |
 | **mine/public UI チップ** | Scope A 確定済み · 将来 `visibility` 列追加時に再検討 |
 | **観測画像 性能・コスト** | 表示は動作するが **遅い**（N+1 blob fetch · フルサイズ · キャッシュなし）— 改善計画: [`backlog/image-perf-and-cost.md`](./backlog/image-perf-and-cost.md) |
@@ -96,9 +96,13 @@
 | ゲート | 内容 | 参照 |
 |--------|------|------|
 | **GMO 本番入金** | 実入金・本番証跡 | civ-os `P0-NEXT-GMO-LIVE-EXEC` |
-| **magic link SMTP** | VPS または外部 SMTP の鍵・送信ドメイン設定 | [`ver3-deploy-runbook.md`](../ver3-deploy-runbook.md) |
+| ~~**mock 最終目視**~~ | UX ウォークスルー | **GO 2026-07-03** — [`HUMAN-GATE-GO-2026-07-03.md`](./HUMAN-GATE-GO-2026-07-03.md) |
+| ~~**#02 法務（設計進行）**~~ | 条文正本は人間 · 設計→IMPL は GO | 同上 |
+| ~~**ver4 設計→IMPL**~~ | Workers 主 API 実装波着手可 · **本番 cutover 未** | [`ver4-infra-agreement.md`](../ver4-infra-agreement.md) |
+| ~~**SMTP 設計→IMPL**~~ | magic link 実装波着手可 · **本番鍵未** | [`ver3-deploy-runbook.md`](../ver3-deploy-runbook.md) |
+| **magic link SMTP 本番** | VPS または外部 SMTP の鍵・送信ドメイン設定 | 同上 |
 | **certbot / nginx 上書き** | 既存 `ihl-api.conf` を certbot が置換する際の手動確認 | [`vps-api-deploy.md`](../vps-api-deploy.md) |
-| **ver4 インフラ移行** | Workers 主 API への切替（未着手） | [`ver4-infra-agreement.md`](../ver4-infra-agreement.md) |
+| **ver4 本番 cutover** | DNS · ロールバック実行 | [`VER4-VPS-MINIMAL-SPEC.md`](./quantum/VER4-VPS-MINIMAL-SPEC.md) |
 
 ~~検索スコープ方針~~ → **Scope A 確定（2026-07-03）** · [`backlog/2026-06-27-tomorrow.md`](./backlog/2026-06-27-tomorrow.md)
 

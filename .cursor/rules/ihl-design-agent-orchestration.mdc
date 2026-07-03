@@ -1,0 +1,92 @@
+---
+description: IHL 設計フェーズのモデル振り分け・Skill 起動・背景サブエージェント実行（ブレ防止）
+alwaysApply: true
+---
+
+# IHL 設計エージェント編成（Orchestration）
+
+**優先**: `design-before-implementation-gate.mdc` と矛盾時は **実装禁止ゲートが勝つ**。本ルールは **設計・ドキュメント・レビュー** の実行方法を固定する。
+
+**モデル選択の詳細**: [`ihl-ai-model-routing.mdc`](./ihl-ai-model-routing.mdc) — **Auto 既定・高性能は必要時のみ**（クォータ節約）。
+
+## 適用トリガー
+
+次のいずれかなら **必ず本ルールに従う**:
+
+- `` 配下の設計作業
+- ユーザーが **Phase / 設計ゲート / OSS 選定 / 遷移設計 / UI 設計 / テスト設計 / CI 設計** を明示
+- **Multitask Mode** で長時間の調査・ドキュメント作成を依頼されたとき
+
+**除外**: civ-os の単発バグ修正・1 ファイル以内の軽微変更（ユーザーが設計フェーズと言っていない限り）。
+
+---
+
+## 1. モデル振り分け（Task ツール `model` 引数）
+
+> **正本**: [`ihl-ai-model-routing.mdc`](./ihl-ai-model-routing.mdc) のティア表。以下は要約。
+
+| ティア | モデル slug | 用途 |
+|--------|-------------|------|
+| **Auto（既定）** | `composer-2.5-fast` / 既定 | archive · walkthrough 配線 · README · grep 監査 · チェックリスト · ユーザー Go 記録 · **mock 生成（高性能明示なし）** |
+| **Standard** | `claude-4.6-sonnet-medium-thinking` / `gpt-5.5-medium` | ルーティン設計 doc · 単一 FR · 遷移表 1 機能 · PASS/FAIL レビュー（[`11-裁判-AIレビュー依頼.md`](02-設計/features/11-裁判/sub/AIレビュー依頼.md) 同型） |
+| **High** | `claude-opus-4-8-thinking-high` | ADR 新設 · 横断アーキ · 監査統合 · 10+ ファイル waterfall |
+| **実装** | `gpt-5.3-codex` | **設計ゲート 4 点が人間確定 or 明示 Go の後のみ** — コード · CI · テスト |
+
+**禁止**: 機械作業に Opus を使う · ゲート未通過で Codex を実装に使う · ユーザー指定モデルが利用不可リスト外なら **代替を勝手に選ばず** 利用可能モデルを提示。
+
+**設計フェーズの推奨順**: Phase 0 ADR → Phase 1 OSS/構成 → Phase 2 詳細 → Phase 3 遷移 → Phase 4 UI → Phase 5 テスト/CI（[`00-高性能AI-設計引き継ぎ-05-07-10-14-16-23.md`](05-運用/queues/00-高性能AI-設計引き継ぎ-05-07-10-14-16-23.md) §3）。
+
+---
+
+## 2. Skill 起動（フェーズ対応 · 着手前に SKILL.md を読む）
+
+| フェーズ | Skill | パス |
+|----------|-------|------|
+| UI 設計 · UX レビュー | **ui-design-review** | `.cursor/skills/ui-design-review/SKILL.md` |
+| **実装完了 · POST-OSS · 伴走監査** | **ihl-design-impl-audit** | `.cursor/skills/ihl-design-impl-audit/SKILL.md` |
+| OSS 選定表 · 画面一覧 · 遷移図 · 採点表 | **canvas** | `~/.cursor/skills-cursor/canvas/SKILL.md` |
+| UX 禁止事項の恒久化 | **create-rule** | `~/.cursor/skills-cursor/create-rule/SKILL.md` |
+| 設計 doc 定期チェック（Cursor Automation） | **automate** | `~/.cursor/skills-cursor/automate/SKILL.md` |
+| **IHL 伴走監査 Automation** | **ihl-design-impl-audit** + automate | [`IHL-伴走監査-週次.md`](05-運用/automation/IHL-伴走監査-週次.md) |
+| Figma ワイヤー（任意） | **figma-generate-design** | Figma plugin skills |
+
+**UI 固定 NFR**（Skill と併用）: 主要導線 **3 クリック以内** · **1 画面 1 主ボタン** · **30 分迷子 UI 禁止** · `ui-reference/preferences.md` §A。
+
+---
+
+## 3. 背景実行（サブエージェント）
+
+次は **親が直列で長時間作業せず**、`Task` + `run_in_background: true` + **既定モデル（Auto）** で委譲する（アーキ判断時のみ High を指定 · [`ihl-ai-model-routing.mdc`](./ihl-ai-model-routing.mdc) §2）:
+
+- 複数ファイルの要件/詳細/遷移/UI **ドキュメント作成** → `generalPurpose` + 既定
+- 2026.06,06 と IHL 要件の **横断監査** → `explore` + `readonly: true`
+- OSS 選定表 · フォルダ構成 ADR · 全画面インベントリ → アーキ判断ありなら High
+- serve · archive スクリプト → `shell`
+- PASS/FAIL レビュー結果の **新規 md 作成** → Standard
+
+**委譲しない**: 人間ゲート判断 · ユーザーへの Phase Go 確認 · 1 行 cross-ref だけの修正。
+
+**完了後**: 親はサブエージェント結果を **再掲しない**（ユーザーが求めたときのみ統合）。`00-AI-HANDOFF-BRIEF.md` · `README.md` 索引は必要なら **1 行リンク追記**。
+
+---
+
+## 4. 起動時必読（設計セッション）
+
+1. [`00-AI-HANDOFF-BRIEF.md`](00-AI-HANDOFF-BRIEF.md) §2.1
+2. [`00-Phase0前-人間ToDoとAuto下準備.md`](05-運用/queues/00-Phase0前-人間ToDoとAuto下準備.md) — Phase 0 / 高性能 AI 着手前の人間判断チェック
+3. [`00-高性能AI-設計引き継ぎ-05-07-10-14-16-23.md`](05-運用/queues/00-高性能AI-設計引き継ぎ-05-07-10-14-16-23.md)
+4. 対象機能の要件 md + 変更禁止 C1–C11（引き継ぎ §5）
+
+---
+
+## 5. 自己チェック（毎ターン）
+
+```
+[ ] ihl-ai-model-routing のティアに従ったか（機械=Auto · アーキ=High · 実装=Codex はゲート後）
+[ ] POST-OSS / [x] 前に ihl-design-impl-audit を読んだか
+[ ] UI 作業なら ui-design-review を読んだか
+[ ] 表・画面一覧・遷移図なら Canvas を検討したか
+[ ] 長時間 doc 作業を Task 背景委譲したか（既定モデル優先）
+[ ] mock 差し替え前に archive したか
+[ ] 実装コードを書いていないか（ゲート未通過時）
+```

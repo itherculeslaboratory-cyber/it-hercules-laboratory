@@ -1,0 +1,76 @@
+---
+description: IHL 設計作業の AI モデル振り分け — Auto 既定・高性能は必要時のみ（クォータ節約）
+globs:
+  - **
+alwaysApply: false
+---
+
+# IHL AI モデル振り分け（Model Routing）
+
+**原則**: ユーザーに Auto クォータ余裕あり。**機械的作業は Auto（composer-2.5-fast / 既定）を優先**。Opus / thinking / Codex は **アーキ判断が要るときだけ**。
+
+**優先**: `design-before-implementation-gate.mdc`（実装禁止）> `ihl-design-agent-orchestration.mdc`（編成）> 本ルール（モデル選択）。
+
+---
+
+## 1. ティア表
+
+| ティア | モデル / エージェント | 使う場面 |
+|--------|----------------------|----------|
+| **Auto** | `composer-2.5-fast` / Cursor 既定 | `archive-mock.mjs` · walkthrough hotspot % · README · 索引リンク · grep 監査 · serve スクリプト · チェックリスト `[x]` 更新 · typo 修正 · cross-ref 表 · SPECS 状態 · ギャップマトリクス同期 · ユーザー Go の md 記録 |
+| **Standard** | `claude-4.6-sonnet-medium-thinking` / `gpt-5.5-medium` | ルーティン設計 doc 更新 · 単一 FR 追加 · 遷移表 1 機能 · mock 生成（ユーザーが **高性能** と明示しない限り） |
+| **High** | `claude-opus-4-8-thinking-high` / `gpt-5.3-codex` | ADR 新設 · 横断アーキ（H-15/H-16 等）· 監査統合 · 複数機能矛盾解消 · **10+ ファイル**にまたがる waterfall 設計判断 |
+| **High（mock 例外）** | 上記 High | ユーザーが **高性能** と明示した mock のみ。それ以外の mock は **Auto OK** |
+
+**Codex 制限**: 設計ゲート 4 点が人間確定 or 明示 **実装 Go** の後のみ（`ihl-design-agent-orchestration.mdc` §1）。
+
+---
+
+## 2. サブエージェント委譲
+
+| 種別 | `subagent_type` | モデル | 用途 |
+|------|-----------------|--------|------|
+| バッチ doc | `generalPurpose` | **既定（Auto）** | 複数ファイルの索引・同期・追記 |
+| 監査 | `explore` | **既定** · `readonly: true` | grep 横断・ギャップ洗い出し |
+| 実行 | `shell` | **既定** | serve · archive · スクリプト |
+
+**Multitask Mode**: 1 ユーザーメッセージ = **1 本の coherent worker**（独立ストリームが明確なときのみ並列）。
+
+---
+
+## 3. Opus / High を **起動しない**
+
+- mock アーカイブ・上書き配線
+- walkthrough の hotspot 微調整
+- ステータスレポート・チェックリスト `[x]`
+- 1 行 cross-ref · README 索引
+- ユーザー Go の md 追記（本タスク同型）
+
+---
+
+## 4. Opus / High を **起動する**
+
+- ADR 新設（例: ADR-H-17）
+- taxonomy / ナビゲータ級の横断設計
+- H-15 / H-16 級の矛盾解消・契約統合
+- 10+ ファイルにまたがるアーキ決定バッチ
+
+---
+
+## 5. Mock 生成
+
+1. **差し替え前に必ずアーカイブ** — `node 02-設計/_ui-global/mockups/scripts/archive-mock.mjs <filename>`（`ihl-mock-versioning.mdc`）
+2. **既存 PNG を削除しない**
+3. **既定は Auto** で mock 生成可（ユーザーが一度「高性能 AI」と言っていても、現方針は Auto OK）
+4. **High に上げる条件**: ユーザーが **高性能** と明示、または品質問題で再生成を指摘されたとき
+
+---
+
+## 6. 自己チェック
+
+```
+[ ] 機械作業に Opus を使っていないか
+[ ] mock 差し替え前に archive したか
+[ ] 実装コードを書いていないか（ゲート未通過時）
+[ ] ユーザー指定モデルが利用不可なら代替を勝手に選んでいないか
+```

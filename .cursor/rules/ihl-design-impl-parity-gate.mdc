@@ -1,0 +1,75 @@
+---
+description: IHL — 設計↔実装パリティ必須。POST-B8/POST-OSS [x] と DoD ✓ は parity PASS のみ
+globs:
+  - **
+alwaysApply: false
+---
+
+# IHL 設計実装パリティゲート（Design↔Implementation Parity）
+
+> **正本**: [`00-監査役-設計実装伴走ゲート-v1.md`](02-設計/_横断/00-監査役-設計実装伴走ゲート-v1.md)  
+> **Skill（着手前必読）**: [`.cursor/skills/ihl-design-impl-audit/SKILL.md`](./skills/ihl-design-impl-audit/SKILL.md)  
+> **機械検証**: `node scripts/ihl-design-impl-parity-check.mjs`  
+> **遡及ギャップ**: [`AUDIT-RETROACTIVE-GAPS-2026-06-10.md`](02-設計/_横断/AUDIT-RETROACTIVE-GAPS-2026-06-10.md)
+
+---
+
+## 監査役の役割（honor system 廃止）
+
+監査役 = **機械スクリプト + C1–C4 チェックリスト**。設計 doc 存在だけでは **PASS にならない**。
+
+**`[x]` / DoD `✓` の直前に MUST**: [ihl-design-impl-audit](./skills/ihl-design-impl-audit/SKILL.md) を読み、parity script を実行する。
+
+---
+
+## MUST（POST-B8 / POST-OSS の `[x]` または DoD `✓` 前）
+
+1. **ihl-design-impl-audit Skill を読む** → 手順 C1–C4 に従う
+2. **parity script 実行**（exit 1 = 即停止）:
+   ```bash
+   node scripts/ihl-design-impl-parity-check.mjs --feature NN
+   ```
+3. **C1–C4 全 PASS**（機能ごと）:
+   - **C1**: 設計主張が `指示/` に存在（grep 証跡）
+   - **C2**: 実装一致（GitHub 主張 → 当該 route に `get_mock_store()` 禁止 · ADR-H-21 → `test_stays_verification` のみ禁止）
+   - **C3**: テストが主張を assert（200 OK のみ不可）
+   - **C4**: 両層 README（component 機能）
+4. **「実装済み」宣言時** — 必ず **設計行 + コード行 + テスト行** を引用（パス:行）
+5. **DELEGATED-IMPL-GO** ログに `c1` `c2` `c3` `c4` `parity_script=PASS` を追記
+
+---
+
+## MUST NOT
+
+- parity script **FAIL** 中にキュー `[x]` · DoD `✓` を付ける
+- pytest 緑のみで「GitHub 連携完了」等の設計主張を満たしたと報告する
+- `DELEGATED-IMPL-GO` を C1–C4 なしでログのみ追記する
+- 遡及ギャップ（#19 · stays 機能等）を `[x]` でクローズする（修復は POST-OSS 実装後）
+
+---
+
+## FAIL 時
+
+1. `[x]` / `✓` は **付けない**
+2. `05-運用/queues/AUDIT-FAIL-<id>.md` を起票（ギャップ · 修復 POST-OSS ID）
+3. 完了報告に **FAIL 件数と feature ID** を記載（[`ihl-completion-reporting.mdc`](./ihl-completion-reporting.mdc) ブロック 2）
+
+---
+
+## CI
+
+- [`.github/workflows/ihl-parity-gate.yml`](../.github/workflows/ihl-parity-gate.yml) — PR/push で `--ci`（baseline 許容 · 回帰のみ FAIL）
+- ローカル厳格: `node scripts/ihl-design-impl-parity-check.mjs`（全 FAIL で exit 1）
+- POST-OSS `[x]` 前は **厳格モード** · CI は **回帰検知モード**
+
+---
+
+## 自己チェック
+
+```
+[ ] ihl-design-impl-audit Skill を読んだか
+[ ] parity script を実行したか（--feature NN または全体）
+[ ] exit 1 なら [x] を付けていないか
+[ ] 実装済みと言うなら設計行+コード行を引用したか
+[ ] POST-OSS 項目を勝手に [x] にしていないか（本ルール追加セッション含む）
+```

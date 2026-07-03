@@ -1,17 +1,16 @@
 ---
 description: IHL ver4 インフラ — Workers 主 API + VPS 薄 SMTP/magic-link（VPS-only / Workers-only 禁止）
 globs:
+  - **
   - apps/**
   - deploy/**
-  - docs/**
-  - 02-設計/**
 alwaysApply: false
 ---
 
 # IHL ver4 ハイブリッドインフラ（Workers × VPS）
 
-**正本**: [`docs/ver4-infra-agreement.md`](../docs/ver4-infra-agreement.md)  
-**ADR**: [`02-設計/_横断/adr/ADR-H-33-ver4-Workers-VPS-役割分離-v1.md`](../02-設計/_横断/adr/ADR-H-33-ver4-Workers-VPS-役割分離-v1.md)
+**正本**: [`docs/ver4-infra-agreement.md`](docs/ver4-infra-agreement.md)  
+**ADR**: [`ADR-H-33-ver4-Workers-VPS-役割分離-v1.md`](02-設計/_横断/adr/ADR-H-33-ver4-Workers-VPS-役割分離-v1.md)
 
 > **ver4 インフラは未完了**。本ルールは **設計コミットメント**と **実装時の禁止**を固定する。
 
@@ -42,7 +41,7 @@ alwaysApply: false
 
 ver4 インフラ移行が **未完了**の間は次を **許容**:
 
-- **FastAPI 全量 on Sakura VPS 512MB**（[`docs/ver3-deploy-runbook.md`](../docs/ver3-deploy-runbook.md)）
+- **FastAPI 全量 on Sakura VPS 512MB**（[`ver3-deploy-runbook.md`](docs/ver3-deploy-runbook.md)）
 - CF Pages + `api.it-hercules.uk` rewrite → VPS
 
 **MUST NOT**: ver3 暫定を「最終アーキテクチャ」と doc・runbook に記載する。
@@ -62,5 +61,6 @@ ver4 インフラ移行が **未完了**の間は次を **許容**:
 
 ## 参照
 
-- [`docs/ver3-deploy-runbook.md`](../docs/ver3-deploy-runbook.md) — ver3 暫定
-- [`02-設計/_横断/IHL-段階リリース計画-ver1-4+.md`](../02-設計/_横断/IHL-段階リリース計画-ver1-4+.md) — ver3/ver4+ 機能計画
+- [`ver3-deploy-runbook.md`](docs/ver3-deploy-runbook.md) — ver3 暫定
+- [`docs/runbooks/production-deploy.md`](../../docs/runbooks/production-deploy.md) — civ-os legacy 依存順
+- [`IHL-段階リリース計画-ver1-4+.md`](02-設計/_横断/IHL-段階リリース計画-ver1-4+.md) — ver3/ver4+ 機能計画

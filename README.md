@@ -1,12 +1,10 @@
-# IT Hercules Laboratory — 設計ドキュメント索引（たたき台・非正本）
+# IT Hercules Laboratory
 
-> **運用・バックログ入口**: [`docs/planning/README.md`](./docs/planning/README.md)（現状 · 直近タスク · ver/フェーズ索引）  
-> **メインリポジトリ（確定 · 唯一の正本）**: [itherculeslaboratory-cyber/it-hercules-laboratory](https://github.com/itherculeslaboratory-cyber/it-hercules-laboratory.git)  
-> **legacy / archive**: [itherculeslaboratory-cyber/civilization-os](https://github.com/itherculeslaboratory-cyber/civilization-os) — 参照 + salvage のみ。並行製品ではない  
-> **現状の正本**: `civilization-os/指示/it-hercules-laboratory/`（設計+実装+collector · Strategy B）  
-> **将来の正本**: IHL repo 内 `docs/`  
-> **作成日**: 2026-06-07 · **方針改訂**: 2026-06-07（単一 IHL · C-Sync 不採用 · R2 本番）
-
+> **運用・バックログ入口**: [`docs/planning/README.md`](./docs/planning/README.md) · [`docs/planning/STATUS.md`](./docs/planning/STATUS.md)  
+> **ワークスペース（Cursor / Claude Code）**: 本リポジトリルートのみ — [`CLAUDE.md`](./CLAUDE.md)  
+> **正本（GitHub）**: [itherculeslaboratory-cyber/it-hercules-laboratory](https://github.com/itherculeslaboratory-cyber/it-hercules-laboratory.git)  
+> **legacy 参照**: [civilization-os](https://github.com/itherculeslaboratory-cyber/civilization-os) — salvage のみ · 並行製品ではない  
+> **作成日**: 2026-06-07 · **単一 repo 正本化**: 2026-07-03
 ## 2026-06-07 追記（実装方針）
 
 - **H2**: 観測登録は commit 契約（`/api/solid-observation/commit`）を正とする。

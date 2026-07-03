@@ -1,0 +1,45 @@
+---
+description: IHL UI mock PNG — archive-before-overwrite policy (mock deletion forbidden)
+globs:
+  - 02-設計/_ui-global/mockups/**
+  - 02-設計/_ui-global/ux-walkthrough/**
+alwaysApply: false
+---
+
+# IHL Mock Versioning — Mock Deletion FORBIDDEN
+
+## 原則
+
+1. **既存 PNG を削除しない**（`git rm` · エクスプローラー削除 · 上書き前の無断削除すべて禁止）。
+2. **上書き・差し替えの直前**に必ずアーカイブする。
+3. **正本（最新）**は常に `02-設計/_ui-global/mockups/ihl-*.png`（ルート直下）。ウォークスルーは junction 経由でここを参照。
+
+## アーカイブ構造
+
+```text
+02-設計/_ui-global/mockups/
+  ihl-XX-name.png          ← 常に最新（walkthrough 参照）
+  archive/
+    YYYYMMDD-HHMM/
+      ihl-XX-name.png      ← 上書き直前のコピー
+  scripts/archive-mock.mjs
+  README.md
+```
+
+## 手順（必須）
+
+1. `node 02-設計/_ui-global/mockups/scripts/archive-mock.mjs ihl-XX-name.png`
+2. 新 PNG を同じファイル名で `mockups/` に配置（または生成ツールで上書き）
+3. `walkthrough.js` の `hotspots` を微調整
+4. 変更理由を設計 doc または AI レビュー追記に 1 行記録
+
+## 新規 mock
+
+- ファイル名は `ihl-` プレフィックス + [`00-画面一覧-全体像.md`](02-設計/_ui-global/00-画面一覧-全体像.md) と整合。
+- `walkthrough.js` に画面 ID · `mock` パス · `hotspots` を追加。
+- スタイルは `ui-reference/preferences.md` §A/§B（`#0D0D0D` · 意味色のみ · 影なし）。
+
+## 参照
+
+- [`mockups/README.md`](02-設計/_ui-global/mockups/README.md)
+- [`00-UXレビュー手順書-v1.md`](02-設計/_ui-global/00-UXレビュー手順書-v1.md) §E.3

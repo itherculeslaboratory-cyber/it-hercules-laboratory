@@ -92,6 +92,9 @@ export default function RegisterPage() {
             </Button>
           </form>
         </Card>
+        <p className="text-sm text-civ-muted">
+          アカウントをお持ちの方は <Link href="/login">ログイン</Link>
+        </p>
       </Stack>
     </PageColumn>
   );

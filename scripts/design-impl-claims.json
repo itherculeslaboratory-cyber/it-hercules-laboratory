@@ -2,9 +2,9 @@
   "$schema": "ihl-design-impl-claims-v1",
   "updated": "2026-06-10-post-oss-23",
   "sources": [
-    "指示/it-hercules-laboratory/02-設計/_横断/00-機能別実装DoD-マトリクス-v1.md",
-    "指示/it-hercules-laboratory/02-設計/_横断/00-OSS機能ギャップ表-v1.md",
-    "指示/it-hercules-laboratory/02-設計/_横断/adr/ADR-H-21-OSS公開スコープ-全機能IHL正本-v1.md"
+    "02-設計/_横断/00-機能別実装DoD-マトリクス-v1.md",
+    "02-設計/_横断/00-OSS機能ギャップ表-v1.md",
+    "02-設計/_横断/adr/ADR-H-21-OSS公開スコープ-全機能IHL正本-v1.md"
   ],
   "features": [
     {
@@ -13,8 +13,8 @@
       "persistence": "event_store",
       "design_claims": ["C-USB", "schema", "MiniKernel"],
       "design_grep_paths": [
-        "指示/it-hercules-laboratory/01-要件/00-土台-MiniKernel-C-USB-コンポーネント",
-        "指示/it-hercules-laboratory/02-設計/_横断/schema"
+        "01-要件/00-土台-MiniKernel-C-USB-コンポーネント",
+        "02-設計/_横断/schema"
       ],
       "tests": [
         "tests/unit/test_event_store.py",
@@ -22,8 +22,8 @@
         "tests/unit/test_schema_registry.py"
       ],
       "readme": {
-        "design": "指示/it-hercules-laboratory/02-設計/_横断/schema",
-        "impl": "指示/it-hercules-laboratory/libs"
+        "design": "02-設計/_横断/schema",
+        "impl": "libs"
       },
       "oss_ready": true
     },
@@ -33,7 +33,7 @@
       "routes": ["/api/v1/auth/magic-link", "/api/v1/auth/verify"],
       "persistence": "event_store",
       "design_claims": ["auth", "verify", "magic"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/01-ログイン"],
+      "design_grep_paths": ["01-要件/01-ログイン"],
       "tests": ["tests/unit/test_auth.py"],
       "test_must_assert": ["authenticated", "session_token"],
       "forbid_mock_store_on_routes": ["/api/v1/auth/"],
@@ -45,7 +45,7 @@
       "routes": ["/api/v1/terms", "/api/v1/legal/agree"],
       "persistence": "event_store",
       "design_claims": ["利用規約", "agree", "terms"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/02-利用規約"],
+      "design_grep_paths": ["01-要件/02-利用規約"],
       "tests": ["tests/unit/test_terms.py"],
       "test_must_assert": ["agreed", "terms"],
       "forbid_mock_store_on_routes": ["/api/v1/terms", "/api/v1/legal/"],
@@ -57,7 +57,7 @@
       "routes": ["/api/v1/onboarding/complete", "/api/v1/onboarding/status", "/api/v1/auth/register"],
       "persistence": "event_store",
       "design_claims": ["onboarding", "handle", "register"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/03-新規登録"],
+      "design_grep_paths": ["01-要件/03-新規登録"],
       "tests": ["tests/unit/test_onboarding.py", "tests/unit/test_auth.py"],
       "test_must_assert": ["complete", "handle"],
       "forbid_mock_store_on_routes": ["/api/v1/onboarding/", "/api/v1/auth/register"],
@@ -69,7 +69,7 @@
       "routes": ["/api/v1/home/summary"],
       "persistence": "event_store",
       "design_claims": ["CTA", "ホーム", "dashboard"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/04-ホーム画面"],
+      "design_grep_paths": ["01-要件/04-ホーム画面"],
       "tests": ["tests/unit/test_home_summary.py"],
       "test_must_assert": ["primary_cta", "cards"],
       "forbid_mock_store_on_routes": ["/api/v1/home/"],
@@ -82,12 +82,12 @@
       "routes": ["/api/v1/market/listings"],
       "persistence": "event_store",
       "design_claims": ["salvage-adapt", "listing", "market"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/06-マーケット"],
+      "design_grep_paths": ["01-要件/06-マーケット"],
       "tests": ["tests/unit/test_market_state.py", "tests/unit/test_market_routes.py"],
       "test_must_assert": ["listing", "trade"],
       "forbid_stays_only": true,
       "oss_ready": true,
-      "readme": { "design": "指示/it-hercules-laboratory/機能一覧/component分解", "impl": "指示/it-hercules-laboratory/components" }
+      "readme": { "design": "機能一覧/component分解", "impl": "components" }
     },
     {
       "id": "07",
@@ -96,13 +96,13 @@
       "routes": ["/api/v1/board/{category}/threads"],
       "persistence": "event_store",
       "design_claims": ["board", "掲示板"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/07-掲示板"],
+      "design_grep_paths": ["01-要件/07-掲示板"],
       "tests": ["tests/unit/test_board_store.py", "tests/unit/test_board_routes.py"],
       "test_must_assert": ["thread", "board"],
       "forbid_mock_store_on_routes": ["/api/v1/board/"],
       "forbid_stays_only": true,
       "oss_ready": true,
-      "readme": { "design": "指示/it-hercules-laboratory/機能一覧/component分解", "impl": "指示/it-hercules-laboratory/components" }
+      "readme": { "design": "機能一覧/component分解", "impl": "components" }
     },
     {
       "id": "14",
@@ -111,7 +111,7 @@
       "routes": ["/api/v1/contribution"],
       "persistence": "event_store",
       "design_claims": ["contribution", "貢献度"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/14-貢献度"],
+      "design_grep_paths": ["01-要件/14-貢献度"],
       "tests": ["tests/unit/test_contribution.py"],
       "forbid_stays_only": true,
       "oss_ready": true
@@ -122,8 +122,8 @@
       "persistence": "schema",
       "design_claims": ["schema", "CoreEntityBase", "manifest"],
       "design_grep_paths": [
-        "指示/it-hercules-laboratory/01-要件/15-データ設計",
-        "指示/it-hercules-laboratory/02-設計/_横断/schema-pack-v1.md"
+        "01-要件/15-データ設計",
+        "02-設計/_横断/schema-pack-v1.md"
       ],
       "tests": [
         "tests/contract/test_schema_validator.py",
@@ -131,8 +131,8 @@
       ],
       "test_must_assert": ["core_subset", "schema"],
       "readme": {
-        "design": "指示/it-hercules-laboratory/02-設計/_横断/schema",
-        "impl": "指示/it-hercules-laboratory/libs"
+        "design": "02-設計/_横断/schema",
+        "impl": "libs"
       },
       "oss_ready": true
     },
@@ -146,7 +146,7 @@
       ],
       "persistence": "event_store",
       "design_claims": ["embedding", "photo", "tag_event"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/18-写真解析"],
+      "design_grep_paths": ["01-要件/18-写真解析"],
       "tests": [
         "tests/unit/test_embedding_builder.py",
         "tests/integration/test_api_events.py"
@@ -154,8 +154,8 @@
       "test_must_assert": ["embedding_builder", "tag_event"],
       "forbid_mock_store_on_routes": ["/api/v1/photo-analysis/", "/api/v1/pipeline/"],
       "readme": {
-        "design": "指示/it-hercules-laboratory/機能一覧/component分解",
-        "impl": "指示/it-hercules-laboratory/components"
+        "design": "機能一覧/component分解",
+        "impl": "components"
       },
       "oss_ready": true
     },
@@ -166,7 +166,7 @@
       "routes": ["/api/v1/theme-packs", "/api/v1/builder/canvas"],
       "persistence": "event_store",
       "design_claims": ["builder", "theme"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/16-UIbuilder"],
+      "design_grep_paths": ["01-要件/16-UIbuilder"],
       "tests": ["tests/unit/test_theme_pack.py"],
       "test_must_assert": ["theme_pack", "builder"],
       "forbid_mock_store_on_routes": ["/api/v1/theme-packs", "/api/v1/builder/"],
@@ -180,7 +180,7 @@
       "routes": ["/api/v1/settings"],
       "persistence": "event_store",
       "design_claims": ["routing", "UI選択"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/17-UI選択"],
+      "design_grep_paths": ["01-要件/17-UI選択"],
       "tests": ["tests/unit/test_preferences_api.py"],
       "test_must_assert": ["language", "settings"],
       "forbid_stays_only": true,
@@ -193,7 +193,7 @@
       "routes": ["/api/v1/component-board"],
       "persistence": "GitHub",
       "design_claims": ["GitHub", "BOARD", "component BBS"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/19-コンポーネント掲示板"],
+      "design_grep_paths": ["01-要件/19-コンポーネント掲示板"],
       "tests": ["tests/unit/test_board_store.py", "tests/unit/test_component_board_github.py"],
       "forbid_mock_store_on_routes": ["/api/v1/component-board"],
       "test_must_assert": ["github", "GitHub"],
@@ -205,7 +205,7 @@
       "routes": ["/api/v1/profile/metrics"],
       "persistence": "event_store",
       "design_claims": ["karma", "Fibonacci", "fee_unpaid"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/08-カルマ"],
+      "design_grep_paths": ["01-要件/08-カルマ"],
       "tests": ["tests/unit/test_economy_logic.py"],
       "test_must_assert": ["karma_event", "fib_delta"],
       "forbid_mock_store_on_routes": ["/api/v1/profile/metrics"],
@@ -217,7 +217,7 @@
       "routes": ["/api/v1/research/papers", "/api/v1/research/match"],
       "persistence": "event_store",
       "design_claims": ["Paper", "research", "match"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/09-論文"],
+      "design_grep_paths": ["01-要件/09-論文"],
       "tests": ["tests/unit/test_research_match.py"],
       "test_must_assert": ["match_id", "paper"],
       "forbid_mock_store_on_routes": ["/api/v1/research/"],
@@ -229,7 +229,7 @@
       "routes": ["/api/v1/match/pair", "/api/v1/match/vote"],
       "persistence": "event_store",
       "design_claims": ["pairwise", "preference_event", "ValueCheck"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/10-マチアプ"],
+      "design_grep_paths": ["01-要件/10-マチアプ"],
       "tests": ["tests/unit/test_match.py"],
       "test_must_assert": ["preference_event"],
       "forbid_mock_store_on_routes": ["/api/v1/match/"],
@@ -241,7 +241,7 @@
       "routes": ["/api/captures", "/api/measurements", "/api/v1/observation/measurements"],
       "persistence": "event_store",
       "design_claims": ["solid commit", "capture", "measurement"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/05-観測"],
+      "design_grep_paths": ["01-要件/05-観測"],
       "tests": ["tests/integration/test_observation_e2e.py", "tests/integration/test_observation_solid.py"],
       "test_must_assert": ["committed", "solid_commit"],
       "forbid_mock_store_on_routes": ["/api/captures", "/api/measurements"],
@@ -253,7 +253,7 @@
       "routes": ["/api/v1/dispute/{thread_id}"],
       "persistence": "event_store",
       "design_claims": ["裁判", "二人部屋", "dispute_event"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/11-裁判"],
+      "design_grep_paths": ["01-要件/11-裁判"],
       "tests": ["tests/unit/test_dispute_flow.py", "tests/unit/test_dispute_service.py"],
       "test_must_assert": ["public_view", "dispute_event"],
       "forbid_mock_store_on_routes": ["/api/v1/dispute/"],
@@ -265,7 +265,7 @@
       "routes": ["/api/v1/me/preferences", "/api/v1/settings"],
       "persistence": "event_store",
       "design_claims": ["preferences", "設定", "device"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/12-設定"],
+      "design_grep_paths": ["01-要件/12-設定"],
       "tests": ["tests/unit/test_preferences_api.py", "tests/unit/test_device_registry.py"],
       "test_must_assert": ["language", "device_id"],
       "forbid_mock_store_on_routes": ["/api/v1/me/", "/api/v1/settings"],
@@ -278,8 +278,8 @@
       "persistence": "series.parquet",
       "design_claims": ["ingest", "placement", "SwitchBot"],
       "design_grep_paths": [
-        "指示/it-hercules-laboratory/02-設計/features/13-データ取得元/詳細設計-v2.md",
-        "指示/it-hercules-laboratory/02-設計/features/13-データ取得元/sub/13-データ取得元-実装設計-v1.md"
+        "02-設計/features/13-データ取得元/詳細設計-v2.md",
+        "02-設計/features/13-データ取得元/sub/13-データ取得元-実装設計-v1.md"
       ],
       "tests": [
         "tests/unit/test_env_ingest_component.py",
@@ -300,7 +300,7 @@
       "routes": ["/api/v1/votes", "/api/v1/votes/{vote_id}/ballot"],
       "persistence": "event_store",
       "design_claims": ["vote", "vote_event", "自然淘汰"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/20-投票"],
+      "design_grep_paths": ["01-要件/20-投票"],
       "tests": ["tests/unit/test_vote.py"],
       "test_must_assert": ["vote_event"],
       "forbid_mock_store_on_routes": ["/api/v1/votes"],
@@ -312,7 +312,7 @@
       "routes": ["/api/v1/i18n/messages", "/api/v1/me/preferences"],
       "persistence": "event_store",
       "design_claims": ["locale", "i18n", "翻訳"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/21-翻訳"],
+      "design_grep_paths": ["01-要件/21-翻訳"],
       "tests": ["tests/unit/test_i18n.py", "tests/unit/test_preferences_api.py"],
       "test_must_assert": ["locale", "i18n"],
       "forbid_mock_store_on_routes": ["/api/v1/i18n/", "/api/v1/me/"],
@@ -324,7 +324,7 @@
       "routes": ["/api/v1/economy/shop", "/api/v1/economy/shop/purchase"],
       "persistence": "event_store",
       "design_claims": ["shop", "pt_event", "免罪符"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/22-プラチナコインマーケット"],
+      "design_grep_paths": ["01-要件/22-プラチナコインマーケット"],
       "tests": ["tests/unit/test_pt_shop.py"],
       "test_must_assert": ["pt_event"],
       "forbid_mock_store_on_routes": ["/api/v1/economy/shop"],
@@ -341,13 +341,13 @@
       ],
       "persistence": "event_store",
       "design_claims": ["GMO", "transfer_code", "webhook", "照合"],
-      "design_grep_paths": ["指示/it-hercules-laboratory/01-要件/23-GMO銀行振込判定"],
+      "design_grep_paths": ["01-要件/23-GMO銀行振込判定"],
       "tests": ["tests/unit/test_gmo_stub.py", "tests/unit/test_gmo_connector.py"],
       "test_must_assert": ["transfer_code", "matched_expected_ids", "tier"],
       "forbid_mock_store_on_routes": ["/api/v1/gmo/"],
       "readme": {
-        "design": "指示/it-hercules-laboratory/機能一覧/component分解",
-        "impl": "指示/it-hercules-laboratory/libs"
+        "design": "機能一覧/component分解",
+        "impl": "libs"
       },
       "oss_ready": true
     }

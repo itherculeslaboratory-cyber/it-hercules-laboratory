@@ -1,0 +1,161 @@
+---
+description: IHL — IHL-QUEUE-DRAIN / 続けて 全部 セマンティクスでキューを確認なし自律消化
+globs:
+  - **
+alwaysApply: false
+---
+
+# IHL キュー自律完走（Queue Auto-Continue）
+
+> **Automation 正本**: [`IHL-キュー自律完走.md`](05-運用/automation/IHL-キュー自律完走.md)  
+> **キュー正本**: [`00-完成定義と実行キュー-v1.md`](05-運用/queues/00-完成定義と実行キュー-v1.md) · **V-model 移行後**: [`00-Vモデル実行計画-v1.md`](05-運用/queues/00-Vモデル実行計画-v1.md)  
+> **V-model ゲート**: [`.cursor/rules/ihl-waterfall-v-model-gate.mdc`](./ihl-waterfall-v-model-gate.mdc)  
+> **報告**: [`.cursor/rules/ihl-completion-reporting.mdc`](./ihl-completion-reporting.mdc)  
+> **V-model DRAIN レビュー**: [`IHL-V-MODEL-DRAIN-レビュー-v1.md`](05-運用/automation/IHL-V-MODEL-DRAIN-レビュー-v1.md)（preflight 手順の根拠）  
+
+---
+
+## トリガー（いずれかで **auto-continue** ON）
+
+| 条件 | 動作 |
+|------|------|
+| メッセージが **`IHL-QUEUE-DRAIN`**（先頭一致 · 大文字小文字区別） | Phase A: POST-B8 → POST-OSS · POST-OSS 空後 **Phase B** へ切替 |
+| メッセージが **`IHL-V-MODEL-DRAIN`**（先頭一致） | **Phase B のみ** — [`00-Vモデル-Waveキュー-v1.md`](05-運用/queues/00-Vモデル-Waveキュー-v1.md) 先頭から |
+| **Cursor Automation** コンテキスト（スケジュール / 手動 Run / main push IHL paths） | プロンプト先頭語に従う |
+| 同一セッションでユーザーが **`続けて 全部`** / **`続けて V-model`** と言った後 | 以降のターンも auto-continue（確認不要） |
+
+**ユーザーは「続けて 全部」を繰り返す必要はない** — Automation が `IHL-QUEUE-DRAIN` / `IHL-V-MODEL-DRAIN` を送る。
+
+---
+
+## MUST（auto-continue 時）
+
+1. **Phase B / V-WAVE 着手前（必須）** — `IHL-V-MODEL-DRAIN` · POST-OSS 空後の Phase B · `IHL-QUEUE-DRAIN` が V-WAVE 先頭へ切替えるランでは、**Wave 作業より先に**:
+   ```bash
+   node scripts/ihl-vmodel-preflight.mjs
+   ```
+   - 末尾 `PREFLIGHT_RESULT=FAIL` → **停止**（ブロッカーを報告 · **実装禁止**）
+   - `PREFLIGHT_RESULT=WARN` → 警告を報告し、**人手ゲート（HUMAN-ONLY / PHYSICALLY-BLOCKED 等）のみ**が原因のときだけ継続
+   - `PREFLIGHT_RESULT=PASS` → 次項へ（[`IHL-V-MODEL-DRAIN-レビュー-v1.md`](05-運用/automation/IHL-V-MODEL-DRAIN-レビュー-v1.md)）
+2. **先頭未完了 ID** を機械取得:
+   ```bash
+   node scripts/ihl-queue-head.mjs                    # Phase A
+   node scripts/ihl-vmodel-wave-head.mjs             # Phase B（preflight PASS/WARN 後）
+   ```
+3. **順序**:
+   - **Phase A（`IHL-QUEUE-DRAIN`）**: POST-B8-* → POST-OSS-*（[`00-完成定義と実行キュー-v1.md`](05-運用/queues/00-完成定義と実行キュー-v1.md) §8）· **batch_default: 3**
+   - **Phase B（POST-OSS 空 · `IHL-V-MODEL-DRAIN`）**: [`00-Vモデル-Waveキュー-v1.md`](05-運用/queues/00-Vモデル-Waveキュー-v1.md) §8 · **V-WAVE-01-00** から · **batch_default: 1**（1 Wave 項目 / ラン）
+   - **`IHL-QUEUE-DRAIN` が POST-OSS 空を検知したら** 次ランから **V-WAVE 先頭**へ（追加のユーザー入力不要）
+4. **1 ラン上限**: Phase A **3 件** · Phase B **1 件** — プロンプトに **drain all** / **45 分** 明記時のみ例外
+5. **各 `[x]` 前**: [ihl-design-impl-audit](../skills/ihl-design-impl-audit/SKILL.md) · parity PASS（POST-OSS）· **V-model 時**: DELEGATED-TEST-DESIGN-GO + RTM PASS
+6. **バッチ末尾**: `pytest`
+7. **報告**: [ihl-completion-reporting](./ihl-completion-reporting.mdc) **6 ブロック** · ブロッカーのみ列挙
+8. **残件あり・ブロッカーなし**: 「次回トリガーで自動継続」と記載（スケジュール Automation が繰り返す）
+
+---
+
+## 停止条件（ONLY）
+
+| 分類 | 例 | AI 動作 |
+|------|-----|---------|
+| **PREFLIGHT-FAIL** | `ihl-vmodel-preflight.mjs` が `PREFLIGHT_RESULT=FAIL` | ブロッカー報告のみ · V-WAVE 実装禁止 |
+| **HUMAN-ONLY** | POST-B8-GMO-05 · Tier D 証跡 · V-model 計画 Go | 報告のみ · `[x]` 捏造禁止 |
+| **PHYSICALLY-BLOCKED** | GMO 鍵未投入 · `collector/.env` 未配置 | 変数名のみ報告 · 鍵投入後は質問せず再開 |
+| **TEST-DESIGN-MISSING** | 対象 `#NN` の **4 層テスト計画** または **`NN-RTM-v1.csv`** 欠落 | **V-WAVE 停止** · 欠落パス列挙 · doc 作成のみ継続可 |
+| **45 分 no progress** | 同一 ID で実装不能が続く | 当該 ID + 理由を報告して停止 |
+
+### TEST-DESIGN-MISSING 判定（V-model フェーズ）
+
+対象機能 `#NN` で **いずれか欠落**なら当該 V-WAVE 項目を `[x]` にせず停止:
+
+```
+03-テスト計画/features/NN-*/単体テスト計画-v1.md
+03-テスト計画/features/NN-*/結合テスト計画-v1.md
+03-テスト計画/features/NN-*/システムテスト計画-v1.md
+03-テスト計画/features/NN-*/受入テスト計画-v1.md
+04-トレーサ/features/NN-*/RTM-v1.csv
+```
+
+> **注**: 旧称 `NN-テスト設計-v1.md` は **4 層計画への分割**を正とする。単一ファイル運用は不可。
+
+**それ以外でユーザーへ確認・完了質問をしてはならない**（「完成しましたか？」禁止）。
+
+---
+
+## MUST NOT
+
+- auto-continue 中に「続けてよろしいですか？」等の **マイクロ確認**
+- parity FAIL 中の POST-OSS / V-WAVE `[x]`
+- HUMAN-* / PHYSICALLY-BLOCKED / TEST-DESIGN-MISSING の `[x]` 捏造
+- テスト設計未完了の **新規実装**（[ihl-waterfall-v-model-gate.mdc](./ihl-waterfall-v-model-gate.mdc)）
+- 秘密値の出力
+
+---
+
+## モデル選定（正式 · 2026-06-10 v2）
+
+> **正本（Automation）**: [`IHL-Vモデル自律完走.md`](05-運用/automation/IHL-Vモデル自律完走.md) · [`IHL-V-MODEL-DRAIN-レビュー-v1.md`](05-運用/automation/IHL-V-MODEL-DRAIN-レビュー-v1.md) §モデル選定  
+> **選定基準**: **Wave 番号ではなくトリガー**（監査 / 障害 / 高難度 / 連続 FAIL）。`#00`/`#01` テンプレ確立後も **Tier B 既定**。  
+> **固定モデル禁止** — 親エージェントは Task 委譲ごとに Tier A/B/C と `model` を選ぶ（一括固定は不可）。
+
+| ティア | モデル / エージェント | 使う場面 |
+|--------|----------------------|----------|
+| **A — 高性能** | `claude-opus-4-8-thinking-high`（またはユーザー指定 High モデル） | **監査** · **障害** · **初回・高難度設計** · **機械ゲート連続 FAIL**（下記） |
+| **B — 既定** | `composer-2.5-fast` | **`IHL-V-MODEL-DRAIN` 量産** — テンプレ設計 + 4 層テスト計画 + RTM + retrofit IMPL |
+| **C — shell** | `shell` サブエージェント（**LLM 推論なし**） | preflight · pytest · git commit のみ |
+
+### Tier A トリガー（詳細）
+
+| 分類 | 条件 |
+|------|------|
+| **監査** | DRAIN **機構**の変更（preflight・ルール・スクリプト）· **定期監査** · ユーザー **「監査」** / **「Opus」** 明示 |
+| **障害** | `PREFLIGHT_RESULT=FAIL` · **pytest 回帰** · parity / RTM **連続 FAIL** |
+| **初回・高難度設計** | `#00`/`#01` テンプレ確立後も、**法務 (#02)** · **GMO** · **観測** · **決済** 等、境界が濃い機能の **初回 DET** — ユーザー指定または Wave キュー注記で Tier A 検討可 |
+| **機械ゲート連続 FAIL** | 下記 **昇格ルール** |
+
+### 昇格ルール（MUST）
+
+**Tier B 進行中**に、同一機能 `#NN` で **機械ゲート**（`ihl-four-point-inventory` / `ihl-rtm-coverage-check` / `ihl-design-impl-parity-check`）が **2 回連続 FAIL** したら:
+
+1. **Tier A に昇格** — `claude-opus-4-8-thinking-high` で根本原因調査
+2. 当該ゲートが **PASS** したら **Tier B に復帰**
+3. 昇格・復帰を監査ログ / セッション報告に 1 行記録
+
+### Task 委譲例
+
+```yaml
+# Tier B — IHL-V-MODEL-DRAIN 量産（既定）
+Task:
+  subagent_type: generalPurpose
+  model: composer-2.5-fast
+  description: "V-WAVE DET+TD+RTM"
+  prompt: |
+    IHL-V-MODEL-DRAIN — 先頭 Wave 1 件。ihl-queue-auto-continue MUST 順守。
+
+# Tier A — 監査 / 障害 / 高難度 / 連続 FAIL 昇格
+Task:
+  subagent_type: generalPurpose
+  model: claude-opus-4-8-thinking-high
+  description: "Tier A root-cause"
+  prompt: |
+    機能 #NN — 機械ゲート 2 連続 FAIL。根本原因調査のみ。PASS 後 Tier B 復帰。
+
+# Tier C — 機械のみ（LLM 推論不要）
+Task:
+  subagent_type: shell
+  description: "preflight+pytest+commit"
+  prompt: |
+    node scripts/ihl-vmodel-preflight.mjs
+    pytest
+    git status
+```
+
+**`IHL-V-MODEL-DRAIN` 委譲時の既定**: Cursor Task / Automation では **`model: composer-2.5-fast`**（Tier B）。Tier A トリガーに該当するときのみ Opus。
+
+---
+
+## 関連
+
+- V-model: [`.cursor/rules/ihl-waterfall-v-model-gate.mdc`](./ihl-waterfall-v-model-gate.mdc) · [`.cursor/rules/ihl-delegated-design-go-strict.mdc`](./ihl-delegated-design-go-strict.mdc)
+- 伴走監査（読取専用）: [`IHL-伴走監査-週次.md`](05-運用/automation/IHL-伴走監査-週次.md)
+- civ-os 全体キュー: `.cursor/rules/autonomous-full-delivery.mdc` · `docs/CONTINUE_QUEUE.md`（IHL スコープ外）

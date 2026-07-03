@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { PageColumn, Stack } from "@/components/layout/page-column";
+import { useActorId } from "@/hooks/useAuthSession";
 import { api, ApiError } from "@/lib/api";
 
 interface IndividualOption {
@@ -24,6 +25,7 @@ interface ParentResponse {
 export default function IndividualDetailPage() {
   const params = useParams();
   const id = String(params.id);
+  const { actorId } = useActorId();
   const [options, setOptions] = useState<IndividualOption[]>([]);
   const [sireId, setSireId] = useState("");
   const [damId, setDamId] = useState("");
@@ -32,7 +34,9 @@ export default function IndividualDetailPage() {
 
   useEffect(() => {
     api
-      .get<{ status: string; items: IndividualOption[] }>("/api/v1/individuals/search?owner_user_id=u_demo")
+      .get<{ status: string; items: IndividualOption[] }>(
+        `/api/v1/individuals/search?owner_user_id=${encodeURIComponent(actorId)}`,
+      )
       .then((res) => setOptions(res.items))
       .catch(() => setOptions([]));
     api
@@ -45,14 +49,14 @@ export default function IndividualDetailPage() {
         setSireId("");
         setDamId("");
       });
-  }, [id]);
+  }, [id, actorId]);
 
   const saveParents = async () => {
     setMessage("");
     setSaving(true);
     try {
       await api.put(`/api/v1/individuals/${id}/parents`, {
-        owner_user_id: "u_demo",
+        owner_user_id: actorId,
         sire_id: sireId || undefined,
         dam_id: damId || undefined,
       });

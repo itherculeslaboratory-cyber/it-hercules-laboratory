@@ -1,0 +1,140 @@
+---
+description: IHL — Vモデル5点ゲート。キュー/続けてより優先。RTM必須。既存実装はretrofit扱い
+globs:
+  - **
+alwaysApply: false
+---
+
+# IHL Vモデル・ウォーターフォールゲート（5 点）
+
+> **正本**: [`00-Vモデル実行計画-v1.md`](05-運用/queues/00-Vモデル実行計画-v1.md)  
+> **上位**: `.cursor/rules/design-before-implementation-gate.mdc`（5 点目 = テスト設計）  
+> **委任 Go**: [`.cursor/rules/ihl-delegated-design-go-strict.mdc`](./ihl-delegated-design-go-strict.mdc)  
+> **キュー**: [`.cursor/rules/ihl-queue-auto-continue.mdc`](./ihl-queue-auto-continue.mdc) · [`00-完成定義と実行キュー-v1.md`](05-運用/queues/00-完成定義と実行キュー-v1.md)  
+> **DRAIN モデル選定（正式 v2 · Tier B 既定 / トリガー昇格）**: [`.cursor/rules/ihl-queue-auto-continue.mdc`](./ihl-queue-auto-continue.mdc) §モデル選定 — Tier A = 監査/障害/高難度/2連続FAIL · Tier C = shell
+
+---
+
+## 優先順位（MUST）
+
+本ゲートは以下より **常に優先**する:
+
+1. `autonomous-full-delivery.mdc` の「続けて」
+2. `docs/CONTINUE_QUEUE.md` の civ-os バックログ
+3. `IHL-QUEUE-DRAIN` / POST-B8 / POST-OSS 自律消化（**V-model フェーズ移行後**は V-WAVE キューを正とする）
+
+**矛盾時**: V-model 5 点未通過の機能に対する **新規実装・テスト追加・POST-OSS `[x]`** は禁止。
+
+---
+
+## 5 点ゲート（左腕 · 設計）
+
+| # | 成果物 | 合格基準（概要） |
+|---|--------|------------------|
+| 1 | **要件定義** | `01-要件/NN-*.md` — **#00–#23 凍結**（変更は CR のみ） |
+| 2 | **詳細設計 v2** | `02-設計/features/NN-*/詳細設計-v2.md` — schema/API/契約を **v1 から厚く** |
+| 3 | **遷移設計** | `02-設計/features/NN-*/遷移設計-v1.md` または v2 昇格 — 全主要 state に入口/出口/エラー |
+| 4 | **UI 設計** | `02-設計/features/NN-*/ui/` + `_ui-global/mockups/` · 空/エラー/ローディング · [`ihl-mock-versioning.mdc`](./ihl-mock-versioning.mdc) |
+| 5 | **テスト設計** | 4 層計画 + RTM — 下記「右腕」 |
+
+### 成果物パス（v1 レイアウト · 2026-06-10）
+
+正本: [`00-フォルダ構成-v1.md`](05-運用/queues/00-フォルダ構成-v1.md)
+
+| # | 成果物 | 正本（v1） | 移行中フォールバック |
+|---|--------|------------|---------------------|
+| 1 | 要件 | `01-要件/NN-*.md` | `01-要件/NN-*.md` |
+| 2 | 詳細 v2 | `02-設計/features/NN-*/詳細設計-v2.md` | `05-運用/queues/features/NN-詳細設計-v2.md` |
+| 3 | 遷移 | `02-設計/features/NN-*/遷移設計-v1.md` | `01-要件/NN-*-遷移設計-v1.md` |
+| 4 | UI | `02-設計/features/NN-*/ui/` + `_ui-global/mockups/` | `02-設計/_ui-global/` · `01-要件/NN-*-UI設計-v1.md` |
+| 5 | テスト計画 | `03-テスト計画/features/NN-*/` | `05-運用/queues/features/NN-*テスト計画-v1.md` |
+| RTM | | `04-トレーサ/features/NN-*/RTM-v1.csv` | `05-運用/queues/features/NN-RTM-v1.csv` |
+
+**チェッカー**: Phase 1 まで新旧両方を `--layout auto` で解決（`ihl-four-point-inventory.mjs` · `ihl-rtm-coverage-check.mjs`）。
+
+**`HUMAN-IMPL-SIGNOFF`（2026-06-09）は #5 を免除しない** — 既存実装は **retrofit**（下記）。
+
+---
+
+## 右腕（テスト計画 · 実装前に文書化）
+
+機能 `#NN` ごとに **すべて存在**すること（パス規約は実行計画 §2 · §2.1）:
+
+| 層 | ファイル（v1 正本） | 移行中フォールバック |
+|----|---------------------|---------------------|
+| 単体 | `03-テスト計画/features/NN-*/単体テスト計画-v1.md` | `05-運用/queues/features/NN-単体テスト計画-v1.md` |
+| 結合 | `03-テスト計画/features/NN-*/結合テスト計画-v1.md` | `05-運用/queues/features/NN-結合テスト計画-v1.md` |
+| システム | `03-テスト計画/features/NN-*/システムテスト計画-v1.md` | `05-運用/queues/features/NN-システムテスト計画-v1.md` |
+| 受入/UAT | `03-テスト計画/features/NN-*/受入テスト計画-v1.md` | `05-運用/queues/features/NN-受入テスト計画-v1.md` |
+| RTM | `04-トレーサ/features/NN-*/RTM-v1.csv` | `05-運用/queues/features/NN-RTM-v1.csv` |
+
+---
+
+## RTM（Requirements Traceability Matrix）
+
+- **列（最低限）**: `req_id` · `design_section` · `test_case_id` · `test_layer` · `automation` · `status`
+- **カバレッジ**: 機能 FR/NFR の **100% が RTM 行に紐づく**（機械チェック stub: `ihl-rtm-coverage-check.mjs` — 計画 §機械検査）
+- **報告**: [`.cursor/rules/ihl-completion-reporting.mdc`](./ihl-completion-reporting.mdc) ブロック 6
+
+---
+
+## Retrofit（実装先行ラベル）
+
+`` に **既に存在するコード**は:
+
+| ラベル | 意味 |
+|--------|------|
+| **`retrofit: impl-ahead`** | POST-B8 / HUMAN-IMPL-SIGNOFF 下の実装先行。V-model 右腕は **テスト差分のみ** |
+| **再実装条件** | TC 設計と **C2 不一致**（parity FAIL）のときのみ。それ以外は doc + test のみ |
+
+**禁止**: retrofit ラベルなしに「設計 v1 草案のみ」で `[x]` · `DELEGATED-IMPL-GO` · POST-OSS 完了。
+
+---
+
+## 委任 Go チェーン（3 段）
+
+```
+DELEGATED-DESIGN-GO (#2–4 v2 厚み)
+        ↓
+DELEGATED-TEST-DESIGN-GO (#5 + 4 層計画 + RTM)
+        ↓
+DELEGATED-IMPL-GO (C1–C4 + parity · retrofit 時は test 差分)
+        ↓
+結合 → システム → UAT 実行（計画の V-WAVE 右側）
+```
+
+詳細: [`.cursor/rules/ihl-delegated-design-go-strict.mdc`](./ihl-delegated-design-go-strict.mdc)
+
+---
+
+## V-model フェーズキュー
+
+POST-OSS exhaust 完了後:
+
+- **正本キュー**: `00-Vモデル実行計画-v1.md` §自律キュー（**V-WAVE-01** から）
+- **`IHL-QUEUE-DRAIN`**: POST-OSS 空 → **V-WAVE 先頭**へ切替（[`ihl-queue-auto-continue.mdc`](./ihl-queue-auto-continue.mdc)）
+- **Phase B 着手前**: `node scripts/ihl-vmodel-preflight.mjs` — FAIL で V-WAVE 実装禁止（[`ihl-queue-auto-continue.mdc`](./ihl-queue-auto-continue.mdc) MUST 項 1）
+
+---
+
+## エージェント向けチェック
+
+```
+[ ] 要件定義 #NN は凍結（CR なし改訂していないか）
+[ ] NN-詳細設計-v2.md が「確定」または DELEGATED-DESIGN-GO 済みか
+[ ] NN-テスト設計-v1.md または 4 層計画 + RTM が揃っているか
+[ ] 草案-only（ステータスに「草案」のみ）で Go を付けていないか
+[ ] 既存コードに retrofit 方針を適用しているか（無差別再実装していないか）
+[ ] RTM が FR と 1:1 で追えるか
+— 1 つでも NO → 設計/テスト計画 doc のみ。実装・POST-OSS [x] 禁止
+```
+
+---
+
+## 関連
+
+| パス | 用途 |
+|------|------|
+| [`00-Vモデル実行計画-v1.md`](05-運用/queues/00-Vモデル実行計画-v1.md) | 実行順 · マッピング表 · ユーザー判断タイミング |
+| [`.cursor/rules/design-before-implementation-gate.mdc`](./design-before-implementation-gate.mdc) | civ-os + IHL 共通 5 点 |
+| [`.cursor/rules/ihl-design-impl-parity-gate.mdc`](./ihl-design-impl-parity-gate.mdc) | DELEGATED-IMPL-GO · C1–C4 |

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { PageColumn, Stack } from "@/components/layout/page-column";
+import { useActorId } from "@/hooks/useAuthSession";
 import { api, ApiError } from "@/lib/api";
 import { StructuredRow } from "@/components/observation/StructuredRow";
 import {
@@ -197,6 +198,7 @@ function normalizeDraft(draft: ObservationDraft): ObservationDraft {
 
 export default function ObservationInputPage() {
   const router = useRouter();
+  const { actorId } = useActorId();
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const cameraVideoRef = useRef<HTMLVideoElement | null>(null);
   const cameraStreamRef = useRef<MediaStream | null>(null);
@@ -258,7 +260,7 @@ export default function ObservationInputPage() {
   const loadTemplates = async (): Promise<NamingTemplateItem[]> => {
     try {
       const res = await api.get<{ status: string; items: NamingTemplateItem[] }>(
-        "/api/v1/naming/templates?owner_user_id=u_demo",
+        `/api/v1/naming/templates?owner_user_id=${encodeURIComponent(actorId)}`,
       );
       setTemplates(res.items);
       return res.items;
@@ -296,7 +298,7 @@ export default function ObservationInputPage() {
 
   const loadPlacements = async (): Promise<PlacementItem[]> => {
     try {
-      const res = await api.get<{ items: PlacementItem[] }>("/api/env/placements?actor_id=u_demo");
+      const res = await api.get<{ items: PlacementItem[] }>(`/api/env/placements?actor_id=${encodeURIComponent(actorId)}`);
       setPlacements(res.items);
       return res.items;
     } catch {
@@ -315,7 +317,7 @@ export default function ObservationInputPage() {
     setPlacementCreating(true);
     try {
       const res = await api.post<{ placement: PlacementItem }>("/api/env/placements", {
-        actor_id: "u_demo",
+        actor_id: actorId,
         label,
       });
       const created = res.placement;
@@ -375,7 +377,7 @@ export default function ObservationInputPage() {
   const loadIndividuals = async (query = "") => {
     try {
       const q = new URLSearchParams();
-      q.set("owner_user_id", "u_demo");
+      q.set("owner_user_id", actorId);
       if (query.trim()) {
         q.set("query", query.trim());
       }
@@ -474,12 +476,12 @@ export default function ObservationInputPage() {
 
   const fetchSwitchBotStatus = async (deviceId: string) => {
     const safeId = encodeURIComponent(deviceId);
-    return api.post<DeviceSyncResponse>(`/api/v1/devices/${safeId}/sync?actor_id=u_demo`, {});
+    return api.post<DeviceSyncResponse>(`/api/v1/devices/${safeId}/sync?actor_id=${encodeURIComponent(actorId)}`, {});
   };
 
   const fetchIngestLatest = async (deviceId: string) => {
     const safeId = encodeURIComponent(deviceId);
-    return api.get<IngestLatestResponse>(`/api/env/devices/${safeId}/latest?actor_id=u_demo`);
+    return api.get<IngestLatestResponse>(`/api/env/devices/${safeId}/latest?actor_id=${encodeURIComponent(actorId)}`);
   };
 
   const photoConditionMethodChoices = (item: string) => resolvePhotoConditionMethodChoices(item);
@@ -884,7 +886,7 @@ export default function ObservationInputPage() {
       const created = await api.post<{ status: string; template_id: string }>(
         "/api/v1/naming/templates",
         {
-          owner_user_id: "u_demo",
+          owner_user_id: actorId,
           template_name: newTemplateName.trim() || `${newTemplateSeries.trim()}テンプレ`,
           pattern: newTemplatePattern.trim() || "{series}-{year}-{seq}",
           series: newTemplateSeries.trim(),
@@ -1231,7 +1233,7 @@ export default function ObservationInputPage() {
                 setTemplateError("");
                 try {
                   const preview = await api.get<{ status: string; display_name: string }>(
-                    `/api/v1/naming/preview?owner_user_id=u_demo&template_id=${encodeURIComponent(selectedTemplateId)}`,
+                    `/api/v1/naming/preview?owner_user_id=${encodeURIComponent(actorId)}&template_id=${encodeURIComponent(selectedTemplateId)}`,
                   );
                   setDraft((prev) => ({ ...prev, displayName: preview.display_name }));
                 } catch (e) {

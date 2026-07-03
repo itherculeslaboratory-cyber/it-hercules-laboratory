@@ -1,0 +1,100 @@
+---
+description: IHL — DELEGATED-DESIGN-GO → TEST-DESIGN-GO → IMPL-GO。草案-onlyはBLOCK
+globs:
+  - **
+alwaysApply: false
+---
+
+# IHL 委任 Go 厳格チェーン（Delegated Go Strict）
+
+> **背景**: Batch 0–7 の `DELEGATED-DESIGN-GO` は 4 点 **存在**中心。V-model 移行後は **v2 厚み + テスト設計** を必須化。  
+> **V-model ゲート**: [`.cursor/rules/ihl-waterfall-v-model-gate.mdc`](./ihl-waterfall-v-model-gate.mdc)  
+> **実装禁止**: [`.cursor/rules/design-before-implementation-gate.mdc`](./design-before-implementation-gate.mdc)  
+> **伴走**: [`.cursor/rules/ihl-design-impl-parity-gate.mdc`](./ihl-design-impl-parity-gate.mdc) · [`00-AI監査役-Goチャーター-v1.md`](05-運用/queues/00-AI監査役-Goチャーター-v1.md)
+
+---
+
+## 3 段チェーン（MUST 順守）
+
+| 段 | ゲート名 | 付与者 | 前提 |
+|----|----------|--------|------|
+| **1** | `DELEGATED-DESIGN-GO` | AI 監査役 | #2 詳細設計 **v2 厚み** + #3 遷移 + #4 UI · 機械 trace PASS |
+| **2** | `DELEGATED-TEST-DESIGN-GO` | AI 監査役 | #5 テスト設計 + **4 層計画** + **`NN-RTM-v1.csv`** · RTM カバレッジ PASS |
+| **3** | `DELEGATED-IMPL-GO` | AI 監査役 | C1–C4 + parity script PASS · **retrofit** 時は test 差分中心 |
+
+**飛ばし禁止**: 1 → 3 直接 · 2 なしの 3 · 草案-only からの 1/2/3 すべて **BLOCK**。
+
+---
+
+## BLOCK 条件（草案-only）
+
+次のいずれかなら **Go を付けない**（`gate=BLOCK` を監査ログに記録）:
+
+| 条件 | 例 |
+|------|-----|
+| ステータスが **草案のみ** | 見出し/フロントマターに「草案」「たたき台」「人間レビュー待ち」のみで **確定/v2/Go 記載なし** |
+| v1 のみで v2 未作成 | `NN-*-詳細設計-v1.md` のみ · `05-運用/queues/features/NN-詳細設計-v2.md` 欠落 |
+| テスト計画欠落 | `NN-単体/結合/システム/受入テスト計画-v1.md` または RTM のいずれか欠落 |
+| RTM 未カバー FR | `req_id` が RTM に無い |
+| 機械 FAIL | `ihl-four-point-inventory.mjs --strict-v2` FAIL · RTM checker FAIL |
+
+---
+
+## `HUMAN-IMPL-SIGNOFF` との関係
+
+| 項目 | ルール |
+|------|--------|
+| **2026-06-09 実装 Go** | **#5 テスト設計を免除しない** |
+| **既存 `` コード** | **`retrofit: impl-ahead`** — 新規大規模実装より **テスト計画 → テスト差分** |
+| **civ-os `frontend/` `backend/`** | 引き続き新機能 **禁止**（IHL 正本） |
+
+---
+
+## 監査証跡（追記列）
+
+[`00-監査役-実装前ゲート-v1.md`](05-運用/queues/00-監査役-実装前ゲート-v1.md) に **1 判定 = 1 行**。V-model 移行後は列を拡張:
+
+| 列 | 例 |
+|----|-----|
+| `gate` | `DELEGATED-DESIGN-GO` / `DELEGATED-TEST-DESIGN-GO` / `DELEGATED-IMPL-GO` / `BLOCK` |
+| `five_point` | `req,detail_v2,transition,ui,test_design` |
+| `rtm_coverage` | `PASS(ihl-rtm-coverage-check.mjs)` / `FAIL` |
+| `retrofit` | `impl-ahead` / `greenfield` / `N/A` |
+
+**記録例**:
+
+```text
+2026-06-10T12:00:00+09:00 | agent=composer-2.5-fast | feature=00-土台 | gate=DELEGATED-TEST-DESIGN-GO | five_point=req,detail_v2,transition,ui,test_design | rtm_coverage=PASS | retrofit=impl-ahead | evidence=05-運用/queues/features/00-RTM-v1.csv | human_action=none
+```
+
+---
+
+## 人間が `[x]` を付けるもの（変更なし）
+
+- **`HUMAN-IMPL-SIGNOFF`** — 全体実装方針（済 2026-06-09）· **#5 免除不可**
+- **GMO live** · **法務最終文** · **Tier D 鍵** — チャーター §3 同様
+- **V-model 計画 Go** — [`00-Vモデル実行計画-v1.md`](05-運用/queues/00-Vモデル実行計画-v1.md) §ユーザー判断
+
+---
+
+## エージェント MUST / MUST NOT
+
+**MUST**
+
+1. Go 付与前に `ihl-four-point-inventory.mjs`（v2 strict）と RTM checker を実行
+2. BLOCK 時は不足ファイルパスを **列挙**（秘密値なし）
+3. retrofit 機能では **再実装よりテスト計画**を先に完成
+
+**MUST NOT**
+
+- 「草案 · 人間レビュー待ち」の doc に `DELEGATED-*-GO`
+- `DELEGATED-TEST-DESIGN-GO` なしの POST-OSS `[x]`（V-model フェーズ）
+- parity FAIL 中の `DELEGATED-IMPL-GO`
+
+---
+
+## 関連
+
+- [`.cursor/rules/ihl-waterfall-v-model-gate.mdc`](./ihl-waterfall-v-model-gate.mdc)
+- [`.cursor/rules/ihl-completion-reporting.mdc`](./ihl-completion-reporting.mdc) — RTM ブロック
+- [`.cursor/rules/ihl-queue-auto-continue.mdc`](./ihl-queue-auto-continue.mdc) — テスト設計欠落で停止

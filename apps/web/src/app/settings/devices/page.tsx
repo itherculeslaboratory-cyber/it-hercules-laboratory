@@ -7,6 +7,7 @@ import { Card, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { StatePanel } from "@/components/ui/state-panel";
 import { PageColumn, Stack } from "@/components/layout/page-column";
+import { useActorId } from "@/hooks/useAuthSession";
 import { api, ApiError } from "@/lib/api";
 
 interface DeviceItem {
@@ -45,7 +46,7 @@ function formatCsvImportSummary(res: CsvImportResponse): string {
   return parts.join(" · ");
 }
 
-function CsvImportBlock({ deviceId }: { deviceId: string }) {
+function CsvImportBlock({ deviceId, actorId }: { deviceId: string; actorId: string }) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [importing, setImporting] = useState(false);
@@ -70,7 +71,7 @@ function CsvImportBlock({ deviceId }: { deviceId: string }) {
       const form = new FormData();
       form.append("file", selectedFile);
       form.append("device_id", deviceId);
-      form.append("actor_id", "u_demo");
+      form.append("actor_id", actorId);
       const res = await api.postForm<CsvImportResponse>("/api/env/import/device-csv", form);
       setSuccessMessage(`取り込み完了: ${formatCsvImportSummary(res)}`);
     } catch (e) {
@@ -137,6 +138,7 @@ function CsvImportBlock({ deviceId }: { deviceId: string }) {
 }
 
 export default function SettingsDevicesPage() {
+  const { actorId } = useActorId();
   const [items, setItems] = useState<DeviceItem[]>([]);
   const [switchbotConfigured, setSwitchbotConfigured] = useState(false);
   const [switchbotError, setSwitchbotError] = useState("");
@@ -186,7 +188,7 @@ export default function SettingsDevicesPage() {
     try {
       await api.put(`/api/v1/devices/${encodeURIComponent(deviceId)}/display-name`, {
         display_name: displayName,
-        actor_id: "u_demo",
+        actor_id: actorId,
       });
       setSaveMessage((prev) => ({ ...prev, [deviceId]: "管理用名称を保存しました" }));
       await loadDevices();
@@ -256,7 +258,7 @@ export default function SettingsDevicesPage() {
                 {saveMessage[device.device_id] ? (
                   <p className="mt-2 text-xs text-civ-muted">{saveMessage[device.device_id]}</p>
                 ) : null}
-                <CsvImportBlock deviceId={device.device_id} />
+                <CsvImportBlock deviceId={device.device_id} actorId={actorId} />
               </Card>
             ))
           : null}

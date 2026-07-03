@@ -1,0 +1,148 @@
+---
+description: IHL — 完了報告は機械検証のみ。ユーザーへ「完成しましたか？」と聞かない
+globs:
+  - **
+alwaysApply: false
+---
+
+# IHL 完了報告（Completion Reporting）
+
+> **背景**: ユーザーは繰り返しの「完成しましたか？」「全部完了？」確認に疲れている。  
+> **正本**: [`05-運用/queues/00-完成定義と実行キュー-v1.md`](05-運用/queues/00-完成定義と実行キュー-v1.md) · **V-model**: [`00-Vモデル実行計画-v1.md`](05-運用/queues/00-Vモデル実行計画-v1.md)  
+> **OSS スコープ**: [`ADR-H-21-OSS公開スコープ-全機能IHL正本-v1.md`](02-設計/_横断/adr/ADR-H-21-OSS公開スコープ-全機能IHL正本-v1.md)  
+> **USER-DONE**: §0 — POST-B8 exhaust + POST-OSS exhaust  
+> **V-model USER-DONE**: POST-OSS exhaust + **V-WAVE exhaust** + RTM 100%  
+> **自律完走 Automation**: トリガー語 **`IHL-QUEUE-DRAIN`** — [`IHL-キュー自律完走.md`](05-運用/automation/IHL-キュー自律完走.md) · [`.cursor/rules/ihl-queue-auto-continue.mdc`](./ihl-queue-auto-continue.mdc)  
+> **V-model ゲート**: [`.cursor/rules/ihl-waterfall-v-model-gate.mdc`](./ihl-waterfall-v-model-gate.mdc)
+
+---
+
+## 禁止（MUST NOT）
+
+1. **ユーザーへ完了確認を促す質問をしない**
+   - 例（禁止）: 「完成しましたか？」「全部完了？」「ここまででよろしいですか？」「確認お願いします」
+   - セッション終了時・ステータス報告時も同様
+2. **曖昧な「Done」「完了しました」だけで終わらない**（下記の機械検証なし）
+3. **人手ゲートを `[x]` に捏造しない**（鍵・法務・Tier D 証跡 · V-model 計画 Go）
+
+---
+
+## 報告フォーマット（ステータス依頼・セッション終了・「続けて」後）
+
+次の **6 ブロック** を必ず出す（不足時は「未実行」と明記）:
+
+### 1. キュー残件（machine-checkable）
+
+```bash
+# Phase A（POST-*）
+grep '^\- \[ \]' 05-運用/queues/00-完成定義と実行キュー-v1.md
+# Phase B（V-WAVE-*）— 機械正本は Wave キュー（実行計画 §9 の一覧は依存図・参照用）
+grep '^\- \[ \]' 05-運用/queues/00-Vモデル-Waveキュー-v1.md
+# 先頭 ID は機械スクリプトでも取得可
+node scripts/ihl-queue-head.mjs
+node scripts/ihl-vmodel-wave-head.mjs
+```
+
+- **先頭の未完了 ID** を 1 行で示す（例: `POST-OSS-03` または `V-WAVE-01-00-DET`）
+- **POST-B8** · **POST-OSS** · **V-WAVE** の未完了件数を分けて数えるとよい
+- civ-os 側作業時は追加で `docs/CONTINUE_QUEUE.md` の AI 完走可能 `[ ]` も grep 可
+
+### 2. テスト + パリティ（machine-checkable）
+
+**pytest**（IHL スコープ正本）:
+
+```bash
+pytest
+```
+
+**設計↔実装パリティ**（Batch 8+ / POST-OSS 必須）:
+
+```bash
+node scripts/ihl-design-impl-parity-check.mjs
+```
+
+- pytest 実行時: **PASS/FAIL 件数** を数値で記載
+- parity 実行時: **FAIL 件数** · **影響 feature ID 一覧**（例: `#19 C2-mock-store` · `#06 C2-stays-only`）を記載
+- parity **PASS 0 FAIL** でない限り POST-OSS `[x]` は不可（[`ihl-design-impl-parity-gate.mdc`](./ihl-design-impl-parity-gate.mdc)）
+- 未実行: 「pytest / parity 未実行」と理由（例: ドキュメントのみ変更）
+
+### 3. route-matrix ギャップ（利用可能時）
+
+- `docs/generated/route-matrix.csv` または IHL 側同等物が存在する場合: **未カバー path 件数** を報告
+- 存在しない場合: 「route-matrix 未生成」と [`00-OSS機能ギャップ表-v1.md`](02-設計/_横断/00-OSS機能ギャップ表-v1.md) の L-PATH 行を参照
+- N/A 理由付き行はカバー済みとみなす
+
+### 4. HUMAN-ONLY（ユーザー待ち · ID 列挙）
+
+キュー正本の **HUMAN-*** / **USER-WAIVED** / **PHYSICALLY-BLOCKED** 節から **ID のみ**列挙し、**何が足りないか 1 行**（鍵名・ファイルパス · 秘密値は書かない）
+
+| 分類 | 意味 |
+|------|------|
+| **HUMAN-ONLY** | 人間判断・サインオフのみで AI が `[x]` 不可 |
+| **USER-WAIVED** | ユーザーが明示免除 — 再確認不要 |
+| **PHYSICALLY-BLOCKED** | 物理鍵・`.env` 未配置等 — **鍵投入後は AI が質問せず完走** |
+
+### 5. 「Done」と言ってよい条件
+
+| レベル | 条件 |
+|--------|------|
+| **Batch 技術 Done** | POST-B8 の AI 完走可能 `- [ ]` が 0 件 · pytest 緑 |
+| **USER-DONE（OSS Ready）** | 上記 + **POST-OSS の `- [ ]` が 0 件** + L-PATH 未カバー 0（または N/A 理由付き全行） |
+| **V-model Done** | 上記 + **V-WAVE の `- [ ]` が 0 件** + RTM カバレッジ 100%（ブロック 6） |
+| 共通 | 残りは **HUMAN-ONLY / PHYSICALLY-BLOCKED** として ID 列挙済み |
+
+### 6. RTM カバレッジ（V-model · machine-checkable）
+
+**対象**: 作業した機能 `#NN` または V-WAVE バッチ全体
+
+```bash
+# 計画 stub（未実装時は手動 grep で代替）
+node scripts/ihl-rtm-coverage-check.mjs --feature NN
+# 代替: FR ID 数 vs RTM 行数
+grep -E '^FR-' 01-要件/NN-*.md | wc -l
+grep -E '^[^#]' 05-運用/queues/features/NN-RTM-v1.csv | tail -n +2 | wc -l
+```
+
+**報告項目**:
+
+| 項目 | 内容 |
+|------|------|
+| `feature_id` | `#NN` |
+| `rtm_path` | `05-運用/queues/features/NN-RTM-v1.csv` |
+| `fr_count` | 要件 FR/NFR 数 |
+| `rtm_rows` | RTM 行数（ヘッダ除く） |
+| `uncovered_req_ids` | 未紐づき FR ID 一覧（あれば） |
+| `test_layers` | 単体/結合/システム/UAT 計画ファイル存在（4/4 または欠落列挙） |
+| `DELEGATED-TEST-DESIGN-GO` | 済 / 未 / BLOCK 理由 |
+
+**PASS 条件**: `uncovered_req_ids` が空 · 4 層計画ファイル 4/4 · RTM checker exit 0（実装後）
+
+---
+
+## 「続けて 全部」の解釈（IHL）
+
+- **Phase A 正本**: `00-完成定義と実行キュー-v1.md`
+- **Phase B 正本**: `00-Vモデル実行計画-v1.md`（POST-OSS exhaust 後）
+- **順序**: **POST-B8-*** exhaust → **POST-OSS-00** exhaust → **V-WAVE-01** exhaust
+- **止まる条件**: HUMAN-ONLY · PHYSICALLY-BLOCKED · **TEST-DESIGN-MISSING**（[ihl-queue-auto-continue.mdc](./ihl-queue-auto-continue.mdc)）
+- **ブロッカー報告**: 「次に必要なのは ○○（変数名のみ）」— **完了確認の質問はしない**
+- **「続けて OSS」**: POST-OSS-00 優先（POST-B8 未完があれば先頭 ID を報告）
+- **「続けて V-model」**: V-WAVE-01 優先（POST-OSS 未完があれば先頭 ID を報告）
+- **Automation 等価**: **`IHL-QUEUE-DRAIN`** — 1 ラン最大 3 件 · 残件ありブロッカーなし → 「次回トリガーで自動継続」
+
+---
+
+## GMO (#23) 特例
+
+- **鍵なし**: stub / stg テストのみ。live API・実入金 **禁止**
+- **`GMO_AOZORA_CLIENT_ID` + `GMO_AOZORA_CLIENT_SECRET` が `.env` に存在** → エージェントは runbook に従い **質問せず** POST-B8-GMO-* を完走（live 証跡は `P0-NEXT-GMO-LIVE-EXEC` 人間ゲートまで別）
+
+---
+
+## 関連ルール
+
+- **V-model**: [`.cursor/rules/ihl-waterfall-v-model-gate.mdc`](./ihl-waterfall-v-model-gate.mdc) · [`.cursor/rules/ihl-delegated-design-go-strict.mdc`](./ihl-delegated-design-go-strict.mdc)
+- **キュー自律完走**: [`IHL-キュー自律完走.md`](05-運用/automation/IHL-キュー自律完走.md) · `.cursor/rules/ihl-queue-auto-continue.mdc`
+- civ-os 全体: `.cursor/rules/autonomous-full-delivery.mdc`（IHL 以外の `docs/CONTINUE_QUEUE.md`）
+- 実装禁止ゲート: `.cursor/rules/design-before-implementation-gate.mdc`（5 点 · HUMAN-IMPL-SIGNOFF は #5 免除不可）
+- OSS オンボーディング: [`OSS-CONTRIBUTOR-ONBOARDING-v1.md`](docs/OSS-CONTRIBUTOR-ONBOARDING-v1.md)

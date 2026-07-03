@@ -13,11 +13,11 @@
 import { readFileSync, existsSync, readdirSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { reqDir } from '../../../scripts/ihl-path-resolve.mjs';
+import { reqDir, REPO_ROOT as _REPO_ROOT, IHL_ROOT as _IHL_ROOT } from './ihl-path-resolve.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const IHL_ROOT = join(__dirname, '..');
-const REPO_ROOT = join(IHL_ROOT, '..', '..');
+const IHL_ROOT = _IHL_ROOT;
+const REPO_ROOT = _REPO_ROOT;
 const CLAIMS_PATH = join(__dirname, 'design-impl-claims.json');
 const BASELINE_PATH = join(__dirname, 'parity-baseline.json');
 const API_DIR = join(IHL_ROOT, 'apps/api');

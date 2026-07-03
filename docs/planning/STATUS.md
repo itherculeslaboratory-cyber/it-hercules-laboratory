@@ -30,11 +30,12 @@
 
 | 項目 | 内容 |
 |------|------|
-| **観測画像表示** | コミット `dafdd53` — `AuthenticatedImage.tsx` · `api.fetchBlob` · `IHL_AUTH_REQUIRED=1` 本番で blob 認証付き表示 |
-| **API ルーティング** | Pages `/api/*` rewrite → VPS · 直叩き修正（`664d8f2` 系列） |
-| **HTTPS / nginx** | `api.it-hercules.uk` · certbot · `deploy/nginx/ihl-api.conf` |
-| **CORS** | `test_cors.py` 追加 · 本番オリジン整合 |
-| **計画ハブ** | `docs/planning/` 新設（本ファイル含む） |
+| **計画ハブ** | `docs/planning/` 新設（`44304f3`） |
+| **Claude / OSS 監査** | `CLAUDE.md` · `DESIGN-IMPL-AUDIT.md` · `OSS-READINESS.md` · drift-inventory |
+| **AppShell 認証導線** | 未認証: ログイン/新規登録 Link · 認証済み: actor 表示 + ログアウト · `useAuthSession` |
+| **actor_id 連携** | 観測入力/confirm · 個体 · 設定デバイス — `u_demo` → session `actor_id`（未ログイン時 dev フォールバック） |
+| **観測画像表示** | `dafdd53` — `AuthenticatedImage.tsx` · blob 認証付き表示 |
+| **API / CORS / nginx** | `api.it-hercules.uk` 直叩き · `test_cors.py` |
 
 ---
 
@@ -42,18 +43,18 @@
 
 | 問題 | 詳細 |
 |------|------|
-| **ログイン / 新規登録導線なし** | `/login` · `/register` は実装済みだが、`AppShell` に Link なし。未認証ユーザーが自力で認証画面に辿り着けない |
-| **観測検索スコープ未定** | API は actor で絞らないが、フロントが `u_demo` 固定でデータ分断。プロダクト方針（mine / public / all）未確定 |
+| **観測検索スコープ API** | フロント検索は全件マージのまま · `scope: mine/public/all` は **未実装**（プロダクト方針は人間ゲート） |
+| **parity C4 README** | ~~12 mismatch~~ → **PASS**（claims パス修正済み） |
 | **magic link メール** | 本番 SMTP 未配線（人間ゲート） |
-| **PT ショップ UI polish** | 意図的延期（[`implementation-deferrals.md`](../implementation-deferrals.md) `P2-NEXT-DEFER-IHL-BRAND-SHOP-UI`） |
+| **PT ショップ UI polish** | 意図的延期 |
 
 ---
 
 ## 次の 3 タスク
 
-1. **AppShell 認証導線** — 未認証時 `ログイン` · `新規登録` Link · 認証済み時セッション表示 + ログアウト（[`backlog/2026-06-27-tomorrow.md`](./backlog/2026-06-27-tomorrow.md) §1）
-2. **観測検索スコープ方針確定** — mine / public / all の人間判断 → `u_demo` → session `actor_id` 連携（同 §2）
-3. **本番 env 確認** — `IHL_WEB_AUTH_BYPASS` · `IHL_AUTH_REQUIRED` の意図確認
+1. **本番 env 確認** — `IHL_WEB_AUTH_BYPASS` · `IHL_AUTH_REQUIRED` の意図確認（人間）
+2. **検索スコープ方針確定** — mine/public/all 判断後 · API + UI チップ
+3. **`test_csv_import.py` 修復** — SwitchBot CSV fixture 2 件
 
 ---
 
@@ -69,15 +70,15 @@
 
 ---
 
-## 設計 · キューへのリンク
+## 設計 · 監査へのリンク
 
 | 用途 | パス |
 |------|------|
-| ver1〜4+ 計画 | [`versions/README.md`](./versions/README.md) → [`02-設計/_横断/IHL-段階リリース計画-ver1-4+.md`](../../02-設計/_横断/IHL-段階リリース計画-ver1-4+.md) |
-| V-model · POST-OSS | [`phases/README.md`](./phases/README.md) → [`05-運用/queues/`](../../05-運用/queues/) |
-| OSS ギャップ表 | [`02-設計/_横断/00-OSS機能ギャップ表-v1.md`](../../02-設計/_横断/00-OSS機能ギャップ表-v1.md) |
-| AI 厚い引き継ぎ | [`00-AI-HANDOFF-BRIEF.md`](../../00-AI-HANDOFF-BRIEF.md) |
-| 意図的延期 | [`implementation-deferrals.md`](../implementation-deferrals.md) |
+| 設計↔実装監査 | [`docs/DESIGN-IMPL-AUDIT.md`](../DESIGN-IMPL-AUDIT.md) |
+| OSS readiness | [`docs/OSS-READINESS.md`](../OSS-READINESS.md) |
+| nest/clean ドリフト | [`migrations/drift-inventory.md`](./migrations/drift-inventory.md) |
+| ver1〜4+ 計画 | [`versions/README.md`](./versions/README.md) |
+| V-model · POST-OSS | [`phases/README.md`](./phases/README.md) |
 
 ---
 

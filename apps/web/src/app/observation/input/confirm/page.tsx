@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { PageColumn, Stack } from "@/components/layout/page-column";
+import { useActorId } from "@/hooks/useAuthSession";
 import { api, ApiError } from "@/lib/api";
 import {
   type ObservationDraft,
@@ -26,6 +27,7 @@ import {
 
 export default function ObservationConfirmPage() {
   const router = useRouter();
+  const { actorId } = useActorId();
   const [draft, setDraft] = useState<ObservationDraft | null>(null);
   const [nameHistory, setNameHistory] = useState<Array<{ action?: string; old_name?: string; new_name?: string; created_at?: string }>>([]);
   const [submitting, setSubmitting] = useState(false);
@@ -91,7 +93,7 @@ export default function ObservationConfirmPage() {
         scope_route: draft.scopeRoute,
         sire_id: draft.sireId || undefined,
         dam_id: draft.damId || undefined,
-        owner_user_id: "u_demo",
+        owner_user_id: actorId,
         device_id: draft.deviceId || draft.devices[0]?.deviceId || undefined,
         devices: draft.devices.map((d) => ({
           device_id: d.deviceId,

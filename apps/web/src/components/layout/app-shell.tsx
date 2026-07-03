@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { BrandLogo } from "@/components/brand/brand-logo";
 import { EconIcon } from "@/components/brand/econ-icon";
+import { useAuthSession } from "@/hooks/useAuthSession";
 import { cn } from "@/lib/cn";
 
 const PRIMARY_NAV = [
@@ -43,8 +44,16 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
+function shortenActorId(actorId: string) {
+  if (actorId.length <= 12) {
+    return actorId;
+  }
+  return `${actorId.slice(0, 6)}…${actorId.slice(-4)}`;
+}
+
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const { actorId, isAuthenticated, loading: authLoading, logout } = useAuthSession();
   const shellVariant = resolveShellVariant(pathname);
   const isAuthLite = shellVariant === "auth-lite";
   const isObservationFocus = shellVariant === "observation-focus";
@@ -98,6 +107,47 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               アカウント / 表示
             </summary>
             <div className="absolute right-0 z-20 mt-2 w-56 rounded-card border border-civ-border bg-civ-card p-2 shadow-sm">
+              {!isAuthLite ? (
+                <div className="mb-2 border-b border-civ-border-subtle pb-2">
+                  {authLoading ? (
+                    <p className="px-2 text-xs text-civ-muted" data-testid="shell-auth-loading">
+                      セッション確認中…
+                    </p>
+                  ) : isAuthenticated && actorId ? (
+                    <div className="space-y-2 px-2">
+                      <p className="text-xs text-civ-muted">ログイン中</p>
+                      <p className="truncate text-sm text-civ-fg" data-testid="shell-auth-actor" title={actorId}>
+                        {shortenActorId(actorId)}
+                      </p>
+                      <button
+                        type="button"
+                        onClick={logout}
+                        className="w-full rounded-button border border-civ-border px-2 py-2 text-left text-sm text-civ-muted hover:text-civ-fg"
+                        data-testid="shell-logout-btn"
+                      >
+                        ログアウト
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="flex flex-col gap-1 px-2">
+                      <Link
+                        href="/login"
+                        className="rounded-button px-2 py-2 text-sm text-civ-info no-underline hover:no-underline"
+                        data-testid="shell-login-link"
+                      >
+                        ログイン
+                      </Link>
+                      <Link
+                        href="/register"
+                        className="rounded-button px-2 py-2 text-sm text-civ-muted no-underline hover:no-underline"
+                        data-testid="shell-register-link"
+                      >
+                        新規登録
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              ) : null}
               <p className="px-2 pb-2 text-xs text-civ-muted">ThemePack</p>
               <button
                 type="button"
@@ -182,6 +232,33 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               {item.label}
             </Link>
           ))}
+          {!isAuthLite && !authLoading && !isAuthenticated ? (
+            <>
+              <span className="text-civ-muted" aria-hidden>
+                ·
+              </span>
+              <Link
+                href="/login"
+                className={cn(
+                  "rounded-button px-2 py-1 no-underline hover:no-underline",
+                  isActive(pathname, "/login") ? "bg-civ-card text-civ-info" : "text-civ-muted",
+                )}
+                data-testid="shell-nav-login"
+              >
+                ログイン
+              </Link>
+              <Link
+                href="/register"
+                className={cn(
+                  "rounded-button px-2 py-1 no-underline hover:no-underline",
+                  isActive(pathname, "/register") ? "bg-civ-card text-civ-info" : "text-civ-muted",
+                )}
+                data-testid="shell-nav-register"
+              >
+                新規登録
+              </Link>
+            </>
+          ) : null}
         </div>
       </nav>
 

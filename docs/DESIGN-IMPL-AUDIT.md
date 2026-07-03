@@ -27,7 +27,7 @@
 | **#02 利用規約** | aligned | `/terms` · agree API |
 | **#03 新規登録** | aligned | `/register` · login 逆導線追加 |
 | **#05 観測 ver2** | aligned | 検索 POST · フィルタ · 空状態 |
-| **#05 観測 ver3** | **aligned** | 本番 blob 画像 · API 直叩き OK · **検索 Scope A**（カタログ横断 · 2026-07-03 確定） |
+| **#05 観測 ver3** | **aligned**（性能 **partial**） | 本番 blob 画像 · API 直叩き OK · **検索 Scope A** · 画像遅延は [`planning/backlog/image-perf-and-cost.md`](planning/backlog/image-perf-and-cost.md) |
 | **#05 観測入力** | **partial→改善** | `u_demo` → `useActorId()` 連携（本バッチ）· バックエンド既定 `u_demo` は dev 用のまま |
 | **#06–#23** | partial（OSS ギャップ） | [`02-設計/_横断/00-OSS機能ギャップ表-v1.md`](02-設計/_横断/00-OSS機能ギャップ表-v1.md) 参照 |
 | **ver3 インフラ** | aligned | `api.it-hercules.uk` · CORS · nginx テンプレ |
@@ -56,7 +56,7 @@
 ## 次の監査アクション
 
 1. `test_csv_import.py` 2 件の fixture 修復
-2. 検索スコープ方針確定後 · `observation_search` + UI チップ
+2. 観測画像 性能 Phase 0〜1（[`planning/backlog/image-perf-and-cost.md`](planning/backlog/image-perf-and-cost.md)）
 3. GitHub Actions: pytest + web test/build
 
 ---

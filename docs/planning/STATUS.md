@@ -56,7 +56,7 @@
 | **Claude / OSS 監査** | `CLAUDE.md` · `DESIGN-IMPL-AUDIT.md` · `OSS-READINESS.md` · drift-inventory |
 | **AppShell 認証導線** | 未認証: ログイン/新規登録 Link · 認証済み: actor 表示 + ログアウト · `useAuthSession` |
 | **actor_id 連携** | 観測入力/confirm · 個体 · 設定デバイス — `u_demo` → session `actor_id`（未ログイン時 dev フォールバック） |
-| **観測画像表示** | `dafdd53` — `AuthenticatedImage.tsx` · blob 認証付き表示 |
+| **観測画像表示** | `dafdd53` — `AuthenticatedImage.tsx` · blob 認証付き表示（**性能改善は backlog 化** → [`backlog/image-perf-and-cost.md`](./backlog/image-perf-and-cost.md)） |
 | **ログイン導線** | AppShell ログイン/登録/ログアウト — **本番確認 OK（2026-07-03）** |
 | **未ログイン観測検索 401** | **修正済み** — router 全体 `enforce_auth_when_required` が READ をブロックしていた · WRITE のみ認証 |
 | **API / CORS / nginx** | `api.it-hercules.uk` 直叩き · `test_cors.py` |
@@ -73,14 +73,15 @@
 | **magic link メール** | 本番 SMTP 未配線（人間ゲート） |
 | **PT ショップ UI polish** | 意図的延期 |
 | **mine/public UI チップ** | Scope A 確定済み · 将来 `visibility` 列追加時に再検討 |
+| **観測画像 性能・コスト** | 表示は動作するが **遅い**（N+1 blob fetch · フルサイズ · キャッシュなし）— 改善計画: [`backlog/image-perf-and-cost.md`](./backlog/image-perf-and-cost.md) |
 
 ---
 
 ## 次の 3 タスク
 
-1. **VPS 再デプロイ** — `main` push 後 `docker compose` pull/up（観測 READ 認証免除を本番反映）
+1. **観測画像 性能 Phase 0** — Scope A 公開 READ を活かしネイティブ `<img>` へ（計画: [`backlog/image-perf-and-cost.md`](./backlog/image-perf-and-cost.md)）
 2. **`test_csv_import.py` 修復** — SwitchBot CSV fixture 2 件
-3. **Pages 再デプロイ** — `main` push で CF Pages 自動反映（middleware 観測 READ 公開）
+3. **VPS / Pages 再デプロイ** — `main` push 後 docker compose + CF Pages（観測 READ 認証免除反映）
 
 ---
 

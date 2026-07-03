@@ -14,6 +14,7 @@
 |----|----------|------|
 | 1 | [`STATUS.md`](./STATUS.md) | **引き継ぎ入口** — 本番状態・直近完了・止まり・次 3 件・人間ゲート |
 | 2 | [`backlog/2026-06-27-tomorrow.md`](./backlog/2026-06-27-tomorrow.md) | 直近タスク詳細（ログイン導線 · 観測検索スコープ） |
+| 2b | [`backlog/image-perf-and-cost.md`](./backlog/image-perf-and-cost.md) | 観測画像 性能・コスト改善（Phase 0〜3） |
 | 3 | [`versions/README.md`](./versions/README.md) | ver1〜4+ 段階リリース索引 |
 | 4 | [`phases/README.md`](./phases/README.md) | V-model · Batch8 · POST-OSS 索引 |
 | 5 | [`migrations/single-folder.md`](./migrations/single-folder.md) | 単一フォルダ統合計画 |

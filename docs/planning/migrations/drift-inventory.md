@@ -42,7 +42,7 @@
 node scripts/ihl-design-impl-parity-check.mjs
 ```
 
-- **2026-07-03**: `design-impl-claims.json` パス修正後、C4 README 系は legacy `機能一覧/component分解` · `components/` 参照が残る **6 feature · 12 mismatch**（POST-OSS キュー対象）。詳細は [`docs/DESIGN-IMPL-AUDIT.md`](../../DESIGN-IMPL-AUDIT.md)。
+- **2026-07-03**: `design-impl-claims.json` パス修正後 **PASS（24 features · 0 FAIL）**。詳細は [`docs/DESIGN-IMPL-AUDIT.md`](../../DESIGN-IMPL-AUDIT.md)。
 
 ---
 

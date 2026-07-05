@@ -1,0 +1,56 @@
+{
+  "screen_id": "17picker",
+  "route": "/settings/ui-template",
+  "title": "UI テンプレ選択",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "part-0",
+      "component_id": "ihl-17-world-template-picker__ContentArea",
+      "region": "ContentArea"
+    },
+    {
+      "id": "part-1",
+      "component_id": "ihl-17-world-template-picker__PrimaryAction",
+      "region": "PrimaryAction"
+    },
+    {
+      "id": "part-2",
+      "component_id": "ihl-17-world-template-picker__StatePanel",
+      "region": "StatePanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "17picker",
+      "label": "おすすめタブ"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "17picker",
+      "label": "テンプレカードを選択"
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "01",
+      "label": "適用する"
+    },
+    {
+      "from": "hotspot.3",
+      "to_screen_id": "16",
+      "label": "Builder"
+    },
+    {
+      "from": "hotspot.4",
+      "to_screen_id": "12hub",
+      "label": "設定ハブ"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: ihl-17-world-template-picker.png"
+}

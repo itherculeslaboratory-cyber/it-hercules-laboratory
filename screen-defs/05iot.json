@@ -1,0 +1,26 @@
+{
+  "screen_id": "05iot",
+  "route": "/observation/input",
+  "title": "IoT 機器未登録",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "main",
+      "component_id": "ihl-05-obs-device-link__ContentArea",
+      "region": "ContentArea"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "13",
+      "label": "機器管理へ"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: mockups/ihl-05-obs-device-link.png"
+}

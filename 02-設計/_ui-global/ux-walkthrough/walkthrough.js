@@ -38,20 +38,20 @@ const SCREENS = {
     route: "/", mock: "mockups/ihl-01-nav-home.png",
     breadcrumb: "ホーム",
     hotspots: [
-      { label: "観測対象ナビゲータ → 対象を選ぶ", target: "05ctx", x: 48, y: 60, w: 20, h: 6 },
-      { label: "観測をはじめる → 計測", target: "05i", x: 48, y: 68, w: 20, h: 7 },
-      { label: "検索グリッド", target: "05a", x: 70, y: 68, w: 16, h: 7 },
-      { label: "左ナビ › 血統", target: "03", x: 2, y: 62, w: 12, h: 6 },
-      { label: "左ナビ › 論文", target: "09", x: 2, y: 70, w: 12, h: 6 },
-      { label: "左ナビ › Builder", target: "16", x: 2, y: 78, w: 12, h: 6 },
+      { label: "ヘッダー › 観測対象ナビゲータ → 対象を選ぶ", target: "05ctx", x: 52, y: 10, w: 24, h: 5 },
+      { label: "観測登録を始める → 計測", target: "05i", x: 48, y: 56, w: 20, h: 7 },
+      { label: "検索グリッド", target: "05a", x: 70, y: 62, w: 16, h: 6 },
+      { label: "左ナビ › 論文", target: "09", x: 2, y: 38, w: 12, h: 6 },
+      { label: "フッター › Builder", target: "16", x: 68, y: 93, w: 14, h: 5 },
       { label: "左ナビ › マーケット", target: "06a", x: 2, y: 22, w: 12, h: 6 },
       { label: "左ナビ › 掲示板", target: "07a", x: 2, y: 30, w: 12, h: 6 },
-      { label: "左ナビ › 好み", target: "10", x: 2, y: 38, w: 12, h: 6 },
-      { label: "左ナビ › 貢献度", target: "14", x: 2, y: 46, w: 12, h: 6 },
-      { label: "左ナビ › 設定", target: "12hub", x: 2, y: 54, w: 12, h: 6 },
-      { label: "左ナビ › 投票", target: "20vote", x: 2, y: 86, w: 12, h: 6 },
-      { label: "文脈バー › 愚痴", target: "07g", x: 55, y: 4, w: 10, h: 4 },
-      { label: "文脈バー › 改善提案", target: "07b", x: 66, y: 4, w: 10, h: 4 },
+      { label: "左ナビ › 好み", target: "10", x: 2, y: 46, w: 12, h: 6 },
+      { label: "左ナビ › 貢献度", target: "14", x: 2, y: 54, w: 12, h: 6 },
+      { label: "ヘッダー › 設定", target: "12hub", x: 78, y: 10, w: 10, h: 5 },
+      { label: "左ナビ › 投票", target: "20vote", x: 2, y: 62, w: 12, h: 6 },
+      { label: "左ナビ › 検索", target: "05a", x: 2, y: 14, w: 12, h: 6 },
+      { label: "フッター › 愚痴", target: "07g", x: 46, y: 93, w: 10, h: 5 },
+      { label: "フッター › 改善提案", target: "07b", x: 56, y: 93, w: 12, h: 5 },
     ],
   },
   "05ctx": {
@@ -93,6 +93,7 @@ const SCREENS = {
     hotspots: [
       { label: "計測入力", target: "05i", x: 18, y: 75, w: 16, h: 6 },
       { label: "戻る › 検索", target: "05a", x: 14, y: 6, w: 10, h: 4 },
+      { label: "この個体の血統を見る", target: "03", x: 55, y: 75, w: 22, h: 6 },
     ],
   },
   "05i": {
@@ -180,6 +181,7 @@ const SCREENS = {
       { label: "その場で写真追加", target: "06list", x: 20, y: 52, w: 25, h: 8 },
       { label: "出品する", target: "06b", x: 58, y: 85, w: 18, h: 7 },
       { label: "一覧へ", target: "06a", x: 14, y: 6, w: 10, h: 4 },
+      { label: "ホーム", target: "01", x: 2, y: 8, w: 10, h: 5 },
     ],
   },
   "06lot-tab": {
@@ -198,6 +200,7 @@ const SCREENS = {
     hotspots: [
       { label: "応募する", target: "06lot-result", x: 58, y: 72, w: 18, h: 8 },
       { label: "一覧へ", target: "06lot-tab", x: 14, y: 6, w: 10, h: 4 },
+      { label: "ホーム", target: "01", x: 2, y: 8, w: 10, h: 5 },
     ],
   },
   "06lot-result": {
@@ -207,6 +210,7 @@ const SCREENS = {
     hotspots: [
       { label: "プライベートボード", target: "06b", x: 32, y: 72, w: 35, h: 8 },
       { label: "落選例を見る", target: "06lot-lose", x: 14, y: 72, w: 16, h: 6 },
+      { label: "ホーム", target: "01", x: 2, y: 8, w: 10, h: 5 },
     ],
   },
   "06lot-lose": {
@@ -216,6 +220,7 @@ const SCREENS = {
     hotspots: [
       { label: "他の出品を見る", target: "06lot-tab", x: 35, y: 78, w: 22, h: 7 },
       { label: "当選例を見る", target: "06lot-result", x: 60, y: 78, w: 16, h: 6 },
+      { label: "ホーム", target: "01", x: 2, y: 8, w: 10, h: 5 },
     ],
   },
   "06pri-tab": {
@@ -235,6 +240,7 @@ const SCREENS = {
       { label: "申し込む", target: "06b", x: 58, y: 78, w: 16, h: 7 },
       { label: "落選確定例", target: "06pri-lose", x: 38, y: 78, w: 16, h: 6 },
       { label: "一覧へ", target: "06pri-tab", x: 14, y: 6, w: 10, h: 4 },
+      { label: "ホーム", target: "01", x: 2, y: 8, w: 10, h: 5 },
     ],
   },
   "06pri-lose": {
@@ -244,6 +250,7 @@ const SCREENS = {
     hotspots: [
       { label: "一覧へ戻る", target: "06pri-tab", x: 35, y: 82, w: 20, h: 6 },
       { label: "申込画面へ", target: "06pri-queue", x: 58, y: 82, w: 16, h: 6 },
+      { label: "ホーム", target: "01", x: 2, y: 8, w: 10, h: 5 },
     ],
   },
   "06auc": {
@@ -253,6 +260,7 @@ const SCREENS = {
     hotspots: [
       { label: "入札する（stub: Stage1未配線）", target: "06b", x: 58, y: 68, w: 16, h: 8, stub: true },
       { label: "出品タブ", target: "06a", x: 14, y: 12, w: 10, h: 5 },
+      { label: "ホーム", target: "01", x: 2, y: 8, w: 10, h: 5 },
     ],
   },
   "06b": {
@@ -262,6 +270,7 @@ const SCREENS = {
     hotspots: [
       { label: "ステッパ › 配送（Stage 2）", target: "06b-s2", x: 30, y: 18, w: 14, h: 5 },
       { label: "一覧へ", target: "06a", x: 14, y: 6, w: 10, h: 4 },
+      { label: "ホーム", target: "01", x: 2, y: 8, w: 10, h: 5 },
     ],
   },
   "06b-s2": {
@@ -272,6 +281,7 @@ const SCREENS = {
       { label: "振込確認（取り消し不可）", target: "06b-s2", x: 25, y: 55, w: 22, h: 7 },
       { label: "配達到着確認（取り消し不可）", target: "06b-s3", x: 52, y: 55, w: 24, h: 7 },
       { label: "Stage 1へ", target: "06b", x: 14, y: 6, w: 10, h: 4 },
+      { label: "ホーム", target: "01", x: 2, y: 8, w: 10, h: 5 },
     ],
   },
   "06b-s3": {
@@ -282,6 +292,7 @@ const SCREENS = {
       { label: "評価を確定", target: "06b-s3", x: 55, y: 62, w: 18, h: 7 },
       { label: "振込案内へ（8%）", target: "23", x: 55, y: 78, w: 20, h: 6, stub: true },
       { label: "Stage 2へ", target: "06b-s2", x: 14, y: 6, w: 10, h: 4 },
+      { label: "ホーム", target: "01", x: 2, y: 8, w: 10, h: 5 },
     ],
   },
   "06soc": {
@@ -312,6 +323,7 @@ const SCREENS = {
     breadcrumb: "掲示板 › その他",
     hotspots: [
       { label: "ハブへ", target: "07a", x: 14, y: 6, w: 10, h: 4 },
+      { label: "新規投稿", target: "07o", x: 68, y: 72, w: 16, h: 7 },
     ],
   },
   "07b": {
@@ -413,7 +425,8 @@ const SCREENS = {
     breadcrumb: "血統 › Cross",
     hotspots: [
       { label: "死亡率 詳細", target: "03m", x: 55, y: 62, w: 12, h: 5 },
-      { label: "率 指標 drilldown", target: "03met", x: 68, y: 55, w: 14, h: 5 },
+      { label: "完品率 詳細", target: "03m", x: 68, y: 55, w: 14, h: 5 },
+      { label: "羽化不全率 詳細", target: "03m", x: 78, y: 55, w: 14, h: 5 },
       { label: "成長 詳細", target: "03g", x: 42, y: 48, w: 12, h: 5 },
     ],
   },
@@ -428,9 +441,9 @@ const SCREENS = {
     ],
   },
   "03m": {
-    id: "03m", group: "血統・論文", title: "死亡一覧",
-    route: "/cross/:id/mortality", mock: "mockups/ihl-03-lineage-mortality-detail.png",
-    breadcrumb: "血統 › 死亡一覧",
+    id: "03m", group: "血統・論文", title: "率 詳細一覧",
+    route: "/cross/:id/metrics/:metric", mock: "mockups/ihl-03-lineage-mortality-detail.png",
+    breadcrumb: "血統 › 率 詳細",
     hotspots: [
       { label: "観測詳細へ", target: "05b", x: 72, y: 42, w: 14, h: 5 },
       { label: "Crossへ", target: "03", x: 14, y: 6, w: 10, h: 4 },

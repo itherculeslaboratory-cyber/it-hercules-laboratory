@@ -11,9 +11,9 @@
   "lineCounts": {
     "req": 419,
     "detV2": 192,
-    "detV3": 201,
+    "detV3": 220,
     "testPlans": 137,
-    "rtmRows": 21
+    "rtmRows": 17
   },
   "reqDetPatternScore": {
     "api_paths": 4,
@@ -24,130 +24,19 @@
     "schema_fields": 0,
     "total": 4
   },
-  "depthRatio": 0.458,
+  "depthRatio": 0.525,
   "reqIdCount": 31,
   "tcIdCount": 23,
   "rtm": {
     "statusDist": {
-      "apps/api/main.py:builder_canvas_save": 1,
-      "catalog/components.yaml": 1,
-      "(backend)": 1,
-      "遷移設計-v1": 1,
-      "libs/theme_pack.py": 3,
-      "design_token.yaml": 1,
-      "legacy BuilderShell": 1,
-      "Phase8_builder_universal.md": 1,
-      "builder-capability-boundary.md": 1,
-      "16-UIbuilder.md §12.6": 1,
-      "libs/theme_pack.py;test_theme_pack.py": 1,
-      "dictionaries/design_token.yaml": 1,
-      "ui_primitive_catalog.yaml": 1,
-      "ThemePackStore": 1,
-      "civilization/ProjectRules.md": 1,
-      "(UI)": 1,
-      "ui-reference/preferences.md": 1,
-      "export-route-matrix": 1,
-      "builder-dev-surface.spec.ts": 1
+      "existing": 2,
+      "gap": 7,
+      "review": 2,
+      "planned": 2,
+      "xref": 4
     },
-    "issueCount": 25,
-    "issues": [
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-16-REFRAME-01",
-        "test_case_id": "詳細設計-v2 §1.1/§3.4"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-16-REFRAME-02",
-        "test_case_id": "詳細設計-v2 §2.1"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-16-REFRAME-03",
-        "test_case_id": "詳細設計-v2 §1.2"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-16-REFRAME-04",
-        "test_case_id": "詳細設計-v2 §4"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-16-REFRAME-05",
-        "test_case_id": "詳細設計-v2 §5"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-16-REFRAME-06",
-        "test_case_id": "詳細設計-v2 §2/§6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-16-REFRAME-07",
-        "test_case_id": "詳細設計-v2 §1.2"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-16-REFRAME-08",
-        "test_case_id": "詳細設計-v2 §1.2/§7"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-16-REFRAME-09",
-        "test_case_id": "詳細設計-v2 §7"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-16-REFRAME-10",
-        "test_case_id": "詳細設計-v2 §0"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-DTH-01",
-        "test_case_id": "詳細設計-v2 §2.2"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-DTH-02",
-        "test_case_id": "詳細設計-v2 §2.2"
-      },
-      {
-        "type": "req_id_not_in_req",
-        "req_id": "FR-DTH-02"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-DTH-03",
-        "test_case_id": "詳細設計-v2 §2.2"
-      },
-      {
-        "type": "req_id_not_in_req",
-        "req_id": "FR-DTH-03"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-DTH-04",
-        "test_case_id": "詳細設計-v2 §2.2"
-      },
-      {
-        "type": "req_id_not_in_req",
-        "req_id": "FR-DTH-04"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-DTH-05",
-        "test_case_id": "詳細設計-v2 §2.2"
-      },
-      {
-        "type": "req_id_not_in_req",
-        "req_id": "FR-DTH-05"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-16-01",
-        "test_case_id": "詳細設計-v2 §5/§6"
-      }
-    ]
+    "issueCount": 0,
+    "issues": []
   },
-  "priority": "P1"
+  "priority": "P2"
 }

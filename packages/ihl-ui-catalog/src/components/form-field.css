@@ -1,0 +1,60 @@
+.ihl-form-field {
+  margin-bottom: 20px;
+}
+
+.ihl-form-field__label-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.ihl-form-field__label {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--civ-fg);
+}
+
+.ihl-form-field__required {
+  padding: 2px 6px;
+  font-size: 0.6875rem;
+  color: var(--civ-fg-muted);
+  background: var(--civ-bg-input);
+  border: 1px solid var(--civ-border-input);
+  border-radius: 4px;
+}
+
+.ihl-form-field__hint {
+  margin: 8px 0 0;
+  font-size: 0.8125rem;
+  color: var(--civ-fg-muted);
+  line-height: 1.45;
+}
+
+.ihl-form-control {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--civ-fg);
+  background: var(--civ-bg-input);
+  border: 1px solid var(--civ-border-input);
+  border-radius: var(--civ-radius-button);
+}
+
+.ihl-form-control:focus {
+  outline: none;
+  border-color: var(--civ-border-input-focus);
+}
+
+.ihl-form-control::placeholder {
+  color: var(--civ-fg-placeholder);
+}
+
+.ihl-form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%239a9a9a' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}

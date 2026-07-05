@@ -10,21 +10,21 @@
   },
   "lineCounts": {
     "req": 209,
-    "detV2": 197,
-    "detV3": 212,
+    "detV2": 8,
+    "detV3": 232,
     "testPlans": 186,
     "rtmRows": 30
   },
   "reqDetPatternScore": {
-    "api_paths": 6,
-    "data_testid": 2,
+    "api_paths": 0,
+    "data_testid": 0,
     "apps_paths": 0,
     "pytest_refs": 0,
-    "impl_sections": 1,
+    "impl_sections": 0,
     "schema_fields": 0,
-    "total": 9
+    "total": 0
   },
-  "depthRatio": 0.943,
+  "depthRatio": 1.11,
   "reqIdCount": 27,
   "tcIdCount": 28,
   "rtm": {

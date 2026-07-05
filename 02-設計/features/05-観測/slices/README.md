@@ -19,6 +19,7 @@
 | `screens/` | screen-state | `<route>.md` | `observation-input.md` |
 | `reverse-rtm/` | reverse-rtm | `revrtm-NNN-<layer>.md` | `revrtm-001-unit-layer.md` |
 | `fr/` | fr-1id | `<req_id>.md` | `obs-sol-01.md` |
+| `hooks/` | hook-side-effect | `<trigger>-<effect>.md` | `observation-commit-research-contribution.md` |
 
 > 逆RTM CSV 正本: `04-トレーサ/features/05-観測/逆RTM-v1.csv`（`ihl-reverse-rtm.mjs --write`）。監査スライスは `reverse-rtm/` に層別 md。
 

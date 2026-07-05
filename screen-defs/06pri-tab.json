@@ -1,0 +1,41 @@
+{
+  "screen_id": "06pri-tab",
+  "route": "/market?tab=priority",
+  "title": "マーケット 優先順タブ",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "part-0",
+      "component_id": "ihl-06-market-priority-tab__ContentArea",
+      "region": "ContentArea"
+    },
+    {
+      "id": "part-1",
+      "component_id": "ihl-06-market-priority-tab__PrimaryAction",
+      "region": "PrimaryAction"
+    },
+    {
+      "id": "part-2",
+      "component_id": "ihl-06-market-priority-tab__StatePanel",
+      "region": "StatePanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "06pri-queue",
+      "label": "優先順出品 → 申込"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "06a",
+      "label": "出品タブ"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: ihl-06-market-priority-tab.png"
+}

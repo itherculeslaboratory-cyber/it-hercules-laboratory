@@ -11,9 +11,9 @@
   "lineCounts": {
     "req": 391,
     "detV2": 185,
-    "detV3": 0,
+    "detV3": 198,
     "testPlans": 140,
-    "rtmRows": 26
+    "rtmRows": 33
   },
   "reqDetPatternScore": {
     "api_paths": 1,
@@ -24,134 +24,20 @@
     "schema_fields": 0,
     "total": 1
   },
-  "depthRatio": 0.473,
+  "depthRatio": 0.506,
   "reqIdCount": 38,
   "tcIdCount": 25,
   "rtm": {
     "statusDist": {
-      "apps/api/routes/research.py:research_match": 2,
-      "apps/api/routes/research.py": 4,
-      "(未移植)": 3,
-      "(LLM境界)": 1,
-      "(任意鍵)": 1,
-      "(未配線)": 1,
-      "apps/api/routes/research.py:research_papers": 2,
-      "01-要件/09-論文.md §13": 1,
-      "(frontend)": 1,
-      "tests/unit/test_research_match.py": 1,
-      "(未着手)": 1,
-      "(デモキー)": 1,
-      "(1段落仮説)": 1,
-      "(テンプレのみ)": 1,
-      "(PoC)": 1,
-      "(07連携)": 1,
-      "(10連携)": 1,
-      "(検索基盤)": 1,
-      "(デモDEFAULT_P)": 1
+      "existing": 16,
+      "partial": 5,
+      "gap": 3,
+      "doc": 1,
+      "deferred": 5,
+      "xref": 3
     },
-    "issueCount": 26,
-    "issues": [
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PPR-01",
-        "test_case_id": "詳細設計-v2 §3.2"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PPR-02",
-        "test_case_id": "詳細設計-v2 §2.1/§4"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PPR-03",
-        "test_case_id": "詳細設計-v2 §2"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PPR-04",
-        "test_case_id": "詳細設計-v2 §1.2/§7"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PPR-05",
-        "test_case_id": "詳細設計-v2 §1.2/§7"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PPR-06",
-        "test_case_id": "詳細設計-v2 §6/§7"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PPR-07",
-        "test_case_id": "詳細設計-v2 §6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PPR-08",
-        "test_case_id": "詳細設計-v2 §1.2/§7"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PPR-09",
-        "test_case_id": "詳細設計-v2 §4/§7"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PPR-10",
-        "test_case_id": "詳細設計-v2 §6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PPR-11",
-        "test_case_id": "詳細設計-v2 §3.1"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-PPR-01",
-        "test_case_id": "詳細設計-v2 §6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-PPR-02",
-        "test_case_id": "詳細設計-v2 §6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-PPR-03",
-        "test_case_id": "詳細設計-v2 §2.1"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-PPR-04",
-        "test_case_id": "詳細設計-v2 §6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-PPR-05",
-        "test_case_id": "詳細設計-v2 §7"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PAPER-04",
-        "test_case_id": "詳細設計-v2 §1.2/§7"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PAPER-03",
-        "test_case_id": "詳細設計-v2 §1.2/§7"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PAPER-05",
-        "test_case_id": "詳細設計-v2 §1.2/§7"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PAPER-06",
-        "test_case_id": "詳細設計-v2 §4/§7"
-      }
-    ]
+    "issueCount": 0,
+    "issues": []
   },
-  "priority": "P1"
+  "priority": "P2"
 }

@@ -1,0 +1,26 @@
+{
+  "screen_id": "09t",
+  "route": "/board/paper/template",
+  "title": "論文テンプレート",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "main",
+      "component_id": "ihl-09-paper-template-fill__PaperTemplatePanel",
+      "region": "PaperTemplatePanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "09",
+      "label": "進行中論文"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: mockups/ihl-09-paper-template-fill.png"
+}

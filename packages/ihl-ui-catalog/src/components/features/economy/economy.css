@@ -1,0 +1,113 @@
+.ihl-shop {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.ihl-shop__crumb {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 20px;
+  font-size: 0.8125rem;
+  color: var(--civ-fg-muted);
+}
+
+.ihl-shop__balance {
+  padding: 4px 12px;
+  background: var(--civ-bg-input);
+  border-radius: 999px;
+  color: var(--civ-accent);
+}
+
+.ihl-shop-card {
+  padding: 20px;
+  background: var(--civ-bg-card);
+  border: 1px solid var(--civ-border-card);
+  border-radius: var(--civ-radius-card);
+  margin-bottom: 24px;
+}
+
+.ihl-shop-card__head {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.ihl-shop-card__icon {
+  font-size: 2rem;
+}
+
+.ihl-shop-card__title {
+  margin: 0 0 6px;
+  font-size: 1.125rem;
+}
+
+.ihl-shop-card__desc {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--civ-fg-muted);
+}
+
+.ihl-shop-card__price {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.ihl-shop-card__label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--civ-fg-muted);
+}
+
+.ihl-shop-card__pt {
+  display: block;
+  font-size: 1.75rem;
+  color: var(--civ-link);
+}
+
+.ihl-shop-card__stage {
+  font-size: 0.75rem;
+  color: var(--civ-fg-muted);
+}
+
+.ihl-shop-card__logic {
+  padding: 12px;
+  font-size: 0.75rem;
+  color: var(--civ-fg-muted);
+  border: 1px dashed var(--civ-border-input);
+  border-radius: 6px;
+}
+
+.ihl-shop__subtitle {
+  margin: 0 0 10px;
+  font-size: 0.9375rem;
+}
+
+.ihl-shop-history {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.ihl-shop-history th,
+.ihl-shop-history td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--civ-border-input);
+  text-align: left;
+}
+
+.ihl-shop__link {
+  font-size: 0.8125rem;
+  color: var(--civ-link);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.ihl-shop__footnote {
+  margin-top: 16px;
+  font-size: 0.75rem;
+  color: var(--civ-fg-muted);
+  text-align: center;
+}

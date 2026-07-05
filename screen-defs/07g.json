@@ -1,0 +1,36 @@
+{
+  "screen_id": "07g",
+  "route": "/board/gripe",
+  "title": "掲示板 愚痴板",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "part-0",
+      "component_id": "ihl-07-board-post---__ContentArea",
+      "region": "ContentArea"
+    },
+    {
+      "id": "part-1",
+      "component_id": "ihl-07-board-post---__PrimaryAction",
+      "region": "PrimaryAction"
+    },
+    {
+      "id": "part-2",
+      "component_id": "ihl-07-board-post---__StatePanel",
+      "region": "StatePanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "07a",
+      "label": "ハブへ"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: ihl-07-board-post-愚痴.png"
+}

@@ -1,0 +1,46 @@
+{
+  "screen_id": "06b",
+  "route": "/market/:id",
+  "title": "出品詳細 + プライベートボード（Stage 1）",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "part-0",
+      "component_id": "ihl-06-market-detail-board__ContentArea",
+      "region": "ContentArea"
+    },
+    {
+      "id": "part-1",
+      "component_id": "ihl-06-market-detail-board__PrimaryAction",
+      "region": "PrimaryAction"
+    },
+    {
+      "id": "part-2",
+      "component_id": "ihl-06-market-detail-board__StatePanel",
+      "region": "StatePanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "part-0.hotspot.0",
+      "to_screen_id": "06b-s2",
+      "label": "ステッパ › 配送（Stage 2）"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "06a",
+      "label": "一覧へ"
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "01",
+      "label": "ホーム"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: ihl-06-market-detail-board.png"
+}

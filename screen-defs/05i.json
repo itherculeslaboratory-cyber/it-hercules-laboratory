@@ -1,0 +1,51 @@
+{
+  "screen_id": "05i",
+  "route": "/observation/input",
+  "title": "観測 計測入力",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "main",
+      "component_id": "ihl-05-obs-input-row__ContentArea",
+      "region": "ContentArea"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "05ctx",
+      "label": "対象チップ → 対象ナビゲータ"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "05i-m",
+      "label": "性別 › 雄"
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "05i-f",
+      "label": "性別 › 雌"
+    },
+    {
+      "from": "hotspot.3",
+      "to_screen_id": "05tl",
+      "label": "テンプレから"
+    },
+    {
+      "from": "hotspot.4",
+      "to_screen_id": "05iot",
+      "label": "IoT 未登録バナー"
+    },
+    {
+      "from": "hotspot.5",
+      "to_screen_id": "18photo",
+      "label": "写真解析結果"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: mockups/ihl-05-obs-input-row.png"
+}

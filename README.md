@@ -16,11 +16,13 @@
 ## 読む順（V-model · 2026-06-10〜）
 
 1. [`00-AI-HANDOFF-BRIEF.md`](./00-AI-HANDOFF-BRIEF.md) — フェーズ · ゲート · retrofit
-2. [`05-運用/queues/00-フォルダ構成-v1.md`](./05-運用/queues/00-フォルダ構成-v1.md) — **物理配置の正本**
-3. [`05-運用/queues/00-Vモデル実行計画-v1.md`](./05-運用/queues/00-Vモデル実行計画-v1.md) — V-WAVE キュー
-4. [`01-要件/README.md`](./01-要件/README.md) — 凍結 #00–#23（移行中は `01-要件/` 参照）
-5. 作業対象 `#NN` → [`02-設計/features/NN-*/`](./02-設計/features/README.md) + [`03-テスト計画/features/NN-*/`](./03-テスト計画/features/README.md)
-6. 実装 → 同ツリー直下 [`apps/`](./apps/) · [`libs/`](./libs/) · [`collector/`](./collector/)（Strategy B 統合 · 2026-06-10）
+2. [`05-運用/queues/00-フォルダ構成-v3-OSS.md`](./05-運用/queues/00-フォルダ構成-v3-OSS.md) — **物理配置の正本**（Contributor Spine）
+3. [`docs/reference/V-MODEL-LAYERS-v1.md`](./docs/reference/V-MODEL-LAYERS-v1.md) — 各設計書の深度 · 移動早見表
+4. [`05-運用/queues/00-マスター実行順-v1.md`](./05-運用/queues/00-マスター実行順-v1.md) — 実行順 · ブロック索引
+5. [`05-運用/queues/00-Vモデル実行計画-v1.md`](./05-運用/queues/00-Vモデル実行計画-v1.md) — V-WAVE キュー
+6. [`01-要件/README.md`](./01-要件/README.md) — 凍結 #00–#23
+7. 作業対象 `#NN` → [`02-設計/features/NN-*/`](./02-設計/features/README.md) + [`03-テスト計画/features/NN-*/`](./03-テスト計画/features/README.md)
+8. 実装 → 同 repo 内 [`apps/`](./apps/) · [`libs/`](./libs/) · [`collector/`](./collector/)（Strategy B 統合 · 2026-06-10）
 
 ---
 
@@ -68,19 +70,20 @@
 | 5 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | PR チェックリスト |
 | 6 | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | レイヤー図 · 機能→コード索引 |
 
-**フォルダマップ（OSS）**:
+**フォルダマップ（OSS · 単一 repo）** — 詳細: [`00-フォルダ構成-v3-OSS.md`](./05-運用/queues/00-フォルダ構成-v3-OSS.md)
 
 ```
-指示/it-hercules-laboratory/     設計正本（要件 · 遷移 · UI · ADR）
-├── 01-要件/           01–23 四点設計
-├── 02-設計/_ui-global/                      ワイヤー · mockups
-├── 02-設計/_横断/component/      C-USB 7 分類 · per-feature README
-└── 05-運用/queues/                 ADR · 完成定義 · ギャップ表
-
-it-hercules-laboratory/          実装正本（GitHub OSS publish）
-├── apps/api/ · apps/web/        API + UI routes
-├── components/ · libs/          機能単位の改善境界
-├── tests/                       pytest 契約
+it-hercules-laboratory/          ← 設計 + 実装（GitHub OSS 正本）
+├── 01-要件/                     ← 01–23 要件（FR/NFR）
+├── 02-設計/
+│   ├── features/NN-*/           ← 詳細 · 遷移 · UI · REG
+│   ├── _ui-global/              ← ワイヤー · mockups
+│   └── _横断/                   ← ADR · component · ギャップ表
+├── 03-テスト計画/ · 04-トレーサ/
+├── 05-運用/queues/              ← 完成定義 · マスター実行順
+├── apps/api/ · apps/web/        ← API + UI routes
+├── components/ · libs/          ← 機能単位の改善境界
+├── tests/                       ← pytest 契約
 ├── CONTRIBUTING.md
 └── docs/ARCHITECTURE.md
 ```
@@ -137,14 +140,7 @@ IT Hercules Laboratory（IHL）は、個体画像検索・解析・飼育研究�
 
 ### 移行メモ
 
-```
-現状:  civilization-os/指示/it-hercules-laboratory/  … 設計たたき台（本フォルダ）
-将来:  it-hercules-laboratory/docs/                  … 確定設計の正本
-       it-hercules-laboratory/components/             … Python パイプライン
-       it-hercules-laboratory/02-設計/_横断/schema/                … YAML schema
-```
-
-移行時は **パス参照を一括更新**し、civilization-os 側は **索引 + リンク** のみ残す方針（人間レビュー後）。
+**2026-07-05 確定**: 設計（`01–05/`）と実装（`apps/` `libs/` `components/`）は **本 repo 単体** が正本。civilization-os は **legacy 参照 + salvage のみ**（[ADR-H-21](./02-設計/_横断/adr/ADR-H-21-OSS公開スコープ-全機能IHL正本-v1.md)）。
 
 ---
 
@@ -199,44 +195,29 @@ IT Hercules Laboratory（IHL）は、個体画像検索・解析・飼育研究�
 
 ## 4. フォルダマップ
 
-```
-指示/it-hercules-laboratory/
-├── README.md                          ← 本ファイル（マスター索引 · OSS 30分パス §0）
-├── 00-AI-HANDOFF-BRIEF.md             ← AI 引き継ぎ · USER-DONE ポインタ
-├── 01-USER-INTENT-SUMMARY.md          ← 1 ページ意図
-├── 01-要件/_横断/FEATURE-REQUIREMENTS-INVENTORY.md ← 20 機能横断
-├── 03-CIV-OS-AI-SPEC-統合版.md        ← AI 実装指示統合版
-├── 02-設計/_横断/理想設計-構成マップ.md          ← 理想アーキテクチャ図
-├── 05-GitHub運用-コンポーネント掲示板.md ← GitHub · C-Sync 不採用
-├── 05-運用/_横断/リポジトリ戦略-legacyとIHL.md   ← legacy vs IHL 正本
-├── docs/
-│   ├── automation/                    ← Cursor Automation（キュー自律完走 · 伴走監査）
-│   ├── manual/                        ← 打鍵手順書 · テスト担保一覧（§manual）
-│   ├── OSS-CONTRIBUTOR-ONBOARDING-v1.md  ← OSS 30 分オンボーディング
-│   └── design/
-│       ├── ADR-H-21-OSS公開スコープ-全機能IHL正本-v1.md
-│       ├── 00-完成定義と実行キュー-v1.md   ← POST-B8 + POST-OSS
-│       └── 00-OSS機能ギャップ表-v1.md
-└── 機能一覧/
-    ├── 要件定義/                      ← 00 土台 + 01〜23 機能要件
-    │   ├── README.md
-    │   ├── 00-土台-MiniKernel-C-USB-コンポーネント.md
-    │   └── 01-ログイン.md … 23-GMO-*.md
-    └── component分解/                 ← component 7 分類 · per-feature README
-        ├── README.md
-        ├── 00-マスターcomponent分解表.md
-        └── 05-観測-OSS候補表.md
+> **正本**: [`05-運用/queues/00-フォルダ構成-v3-OSS.md`](./05-運用/queues/00-フォルダ構成-v3-OSS.md) · [`02-設計/features/README.md`](./02-設計/features/README.md)
 
-it-hercules-laboratory/                ← GitHub OSS 実装正本
+```
+it-hercules-laboratory/                ← 単一 repo 正本
+├── README.md · llms.txt · CONTRIBUTING.md
+├── 01-要件/                           ← 凍結 #00–#23
+├── 02-設計/
+│   ├── features/NN-*/                 ← DET · TRN · UI · REG
+│   ├── _横断/adr/                     ← ADR 正本
+│   └── _ui-global/                    ← mock · walkthrough
+├── 03-テスト計画/ · 04-トレーサ/
+├── 05-運用/queues/                    ← マスター実行順 · 完成定義
 ├── apps/ · components/ · libs/ · tests/
-├── CONTRIBUTING.md
-└── docs/ARCHITECTURE.md
+└── docs/
+    ├── OSS-CONTRIBUTOR-ONBOARDING-v1.md
+    ├── ARCHITECTURE.md
+    └── reference/V-MODEL-LAYERS-v1.md
 ```
 
-**外部参照（設計の種）**
+**アーカイブ（設計の種 · legacy）**
 
 ```
-指示/it-hercules-laboratory/99-アーカイブ/2026.06-06-legacy/
+99-アーカイブ/2026.06-06-legacy/
 ├── 要件定義1
 ├── 詳細設計書
 ├── AI実装指示書

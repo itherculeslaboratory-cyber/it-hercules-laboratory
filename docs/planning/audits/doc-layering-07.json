@@ -11,7 +11,7 @@
   "lineCounts": {
     "req": 211,
     "detV2": 197,
-    "detV3": 209,
+    "detV3": 229,
     "testPlans": 199,
     "rtmRows": 21
   },
@@ -24,7 +24,7 @@
     "schema_fields": 0,
     "total": 0
   },
-  "depthRatio": 0.934,
+  "depthRatio": 1.085,
   "reqIdCount": 29,
   "tcIdCount": 25,
   "rtm": {

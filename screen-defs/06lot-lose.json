@@ -1,0 +1,46 @@
+{
+  "screen_id": "06lot-lose",
+  "route": "/market/:id",
+  "title": "抽選結果（落選）",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "part-0",
+      "component_id": "ihl-06-market-lottery-result-lose__ContentArea",
+      "region": "ContentArea"
+    },
+    {
+      "id": "part-1",
+      "component_id": "ihl-06-market-lottery-result-lose__PrimaryAction",
+      "region": "PrimaryAction"
+    },
+    {
+      "id": "part-2",
+      "component_id": "ihl-06-market-lottery-result-lose__StatePanel",
+      "region": "StatePanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "06lot-tab",
+      "label": "他の出品を見る"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "06lot-result",
+      "label": "当選例を見る"
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "01",
+      "label": "ホーム"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: ihl-06-market-lottery-result-lose.png"
+}

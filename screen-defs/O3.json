@@ -1,0 +1,31 @@
+{
+  "screen_id": "O3",
+  "route": "/terms",
+  "title": "利用規約・プライバシー",
+  "layout": "auth",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "form",
+      "component_id": "ihl-00-terms__TermsAgreementForm",
+      "region": "ContentArea"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "form.back",
+      "to_screen_id": "O2",
+      "label": "戻る"
+    },
+    {
+      "from": "form.agree",
+      "to_screen_id": "O2",
+      "label": "同意して続ける"
+    }
+  ],
+  "notes": "W2 auth layout — BrandChrome のみ"
+}

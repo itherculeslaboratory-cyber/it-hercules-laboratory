@@ -1,0 +1,56 @@
+{
+  "screen_id": "16",
+  "route": "/builder",
+  "title": "UIビルダー",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "part-0",
+      "component_id": "ihl-16-uibuilder-canvas__BuilderShell",
+      "region": "BuilderShell"
+    },
+    {
+      "id": "part-1",
+      "component_id": "ihl-16-uibuilder-canvas__CanvasDropZone",
+      "region": "CanvasDropZone"
+    },
+    {
+      "id": "part-2",
+      "component_id": "ihl-16-uibuilder-canvas__LintPanel",
+      "region": "LintPanel"
+    },
+    {
+      "id": "part-3",
+      "component_id": "ihl-16-uibuilder-canvas__PartsPalette",
+      "region": "PartsPalette"
+    },
+    {
+      "id": "part-4",
+      "component_id": "ihl-16-uibuilder-canvas__SaveBar",
+      "region": "SaveBar"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "16e",
+      "label": "入口例"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "17picker",
+      "label": "UI テンプレ選択"
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "18photo",
+      "label": "写真解析"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: ihl-16-uibuilder-canvas.png"
+}

@@ -1,6 +1,6 @@
 # IHL 運用ステータス（引き継ぎ入口）
 
-> **更新**: 2026-07-03  
+> **更新**: 2026-07-05  
 > **正本 repo**: [itherculeslaboratory-cyber/it-hercules-laboratory](https://github.com/itherculeslaboratory-cyber/it-hercules-laboratory)  
 > **計画ハブ**: [`docs/planning/README.md`](./README.md)
 
@@ -28,7 +28,7 @@
 
 | **DOC-REMED** 文書リメディエーション | **🟢 Wave 1 完了（2026-07-03）** — #01–#05・#12 の REQ-slim/TD/RTM/GATE 完了 · 全 GATE（rtm・parity・layering）PASS · GATE ツール 3 バグ修正（TC/req-ID 抽出 · 横断 ID 免除）· 次段 Wave 2 精緻化 |
 | **DOC-REMED-MAD** 狂気モード基盤 | **🟢 MAD-COMPLETE（2026-07-03）** — 全 **24** 機能 GOLDEN · 累計 **816** MICRO slices · 横断レジストリ実データ化 · #02 は **HUMAN-02-LEGAL** 条文不変更 · [`MAD-COMPLETE-REPORT.md`](./MAD-COMPLETE-REPORT.md) |
-| **DOC-REMED-QUANTUM** 量子粒設計 | **🟢 QUANTUM-COMPLETE（2026-07-03）** — **1813** GPU shards · 53 mock PNG · ver4 INFRA 設計 · UI 部品 263 · 人間 GO · **UI Parts Lab** [`apps/ui-parts-lab/`](../../apps/ui-parts-lab/) port **3100** |
+| **DOC-REMED-QUANTUM** 量子粒設計 | **🟡 設計インデックス完了（2026-07-03）** — 1813 md シャード · **UI コード部品は W2 未着手** · [`QUANTUM-W2-IMPL-CATALOG-REMEDIATION.md`](./quantum/QUANTUM-W2-IMPL-CATALOG-REMEDIATION.md) · 遷移 proto: [`apps/ui-parts-lab/`](../apps/ui-parts-lab/) port 3100（**画像のみ**） |
 
 詳細: [`docs/planning/audits/DOC-AUDIT-INDEX.md`](./audits/DOC-AUDIT-INDEX.md) · 黄金: [`docs/planning/golden/GOLDEN-05-MANIFEST.md`](./golden/GOLDEN-05-MANIFEST.md) · Skill: `.cursor/skills/ihl-doc-remediation/SKILL.md` · 合図: `IHL-DOC-AUDIT` / `IHL-DOC-REMED` / `IHL-DOC-REMED MAD` / **`IHL-DOC-QUANTUM`**
 
@@ -77,6 +77,8 @@
 | ~~未ログイン観測検索 401~~ | **修正済み（2026-07-03）** — [`backlog/2026-06-27-tomorrow.md`](./backlog/2026-06-27-tomorrow.md) |
 | **parity C4 README** | ~~12 mismatch~~ → **PASS**（claims パス修正済み） |
 | **magic link メール** | 設計 GO（2026-07-03）— 本番 SMTP 鍵投入は未実施 |
+| ~~**OSS 設計書憲法 v1 · フォルダ v3**~~ | **人間 Go 確定（2026-07-05）** — [`00-設計書憲法-v1.md`](../../05-運用/queues/00-設計書憲法-v1.md) · [`00-フォルダ構成-v3-OSS.md`](../../05-運用/queues/00-フォルダ構成-v3-OSS.md) · 深度正本: [`V-MODEL-LAYERS-v1.md`](../reference/V-MODEL-LAYERS-v1.md) · 次: **M-013** 憲法 v1.1 |
+| **W2 UI（ui-parts-lab）** | **一時停止（2026-07-03）** — P0/P1 完了 · P2 残（screen-def parity · 3-click 簡略化）· 再開: [`apps/ui-parts-lab/README.md`](../apps/ui-parts-lab/README.md) → `npm run ui-parts-lab` · http://localhost:3100/s/01 |
 | **PT ショップ UI polish** | 意図的延期 |
 | **mine/public UI チップ** | Scope A 確定済み · 将来 `visibility` 列追加時に再検討 |
 | **観測画像 性能・コスト** | 表示は動作するが **遅い**（N+1 blob fetch · フルサイズ · キャッシュなし）— 改善計画: [`backlog/image-perf-and-cost.md`](./backlog/image-perf-and-cost.md) |
@@ -84,6 +86,8 @@
 ---
 
 ## 次の 3 タスク
+
+> **設計・DOC 全体順**: [`05-運用/queues/00-マスター実行順-v1.md`](../../05-運用/queues/00-マスター実行順-v1.md)（▶ 今 = **M-013** 憲法 v1.1）
 
 1. **観測画像 性能 Phase 0** — Scope A 公開 READ を活かしネイティブ `<img>` へ（計画: [`backlog/image-perf-and-cost.md`](./backlog/image-perf-and-cost.md)）
 2. **`test_csv_import.py` 修復** — SwitchBot CSV fixture 2 件
@@ -112,6 +116,7 @@
 
 | 用途 | パス |
 |------|------|
+| **マスター実行順（設計・DOC キュー）** | [`05-運用/queues/00-マスター実行順-v1.md`](../../05-運用/queues/00-マスター実行順-v1.md) |
 | 設計↔実装監査 | [`docs/DESIGN-IMPL-AUDIT.md`](../DESIGN-IMPL-AUDIT.md) |
 | OSS readiness | [`docs/OSS-READINESS.md`](../OSS-READINESS.md) |
 | nest/clean ドリフト | [`migrations/drift-inventory.md`](./migrations/drift-inventory.md) |

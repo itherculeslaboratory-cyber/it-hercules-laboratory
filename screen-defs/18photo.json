@@ -1,0 +1,36 @@
+{
+  "screen_id": "18photo",
+  "route": "/component/photo-analysis",
+  "title": "写真解析 結果",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "main",
+      "component_id": "ihl-18-photo-analysis-result__ContentArea",
+      "region": "ContentArea"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "18photo",
+      "label": "タグ提案を承認"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "05i",
+      "label": "計測入力へ"
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "16",
+      "label": "Builder"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: mockups/ihl-18-photo-analysis-result.png"
+}

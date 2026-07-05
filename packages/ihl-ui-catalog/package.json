@@ -1,0 +1,15 @@
+{
+  "name": "@ihl/ui-catalog",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    "./tokens/civ.css": "./src/tokens/civ.css",
+    "./types/w2": "./src/types/w2.ts",
+    "./renderer/ScreenRenderer": "./src/renderer/ScreenRenderer.tsx",
+    "./registry": "./src/registry/index.ts",
+    "./screens/LoginScreen": "./src/screens/LoginScreen.tsx",
+    "./screens/SignupScreen": "./src/screens/SignupScreen.tsx",
+    "./components/*": "./src/components/*.tsx"
+  }
+}

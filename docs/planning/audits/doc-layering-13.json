@@ -9,119 +9,33 @@
     "rtm": ".\\04-トレーサ\\features\\13-データ取得元\\RTM-v1.csv"
   },
   "lineCounts": {
-    "req": 187,
+    "req": 198,
     "detV2": 202,
-    "detV3": 0,
+    "detV3": 215,
     "testPlans": 147,
-    "rtmRows": 15
+    "rtmRows": 26
   },
   "reqDetPatternScore": {
-    "api_paths": 13,
+    "api_paths": 0,
     "data_testid": 0,
     "apps_paths": 0,
     "pytest_refs": 0,
     "impl_sections": 0,
     "schema_fields": 0,
-    "total": 13
+    "total": 0
   },
-  "depthRatio": 1.08,
+  "depthRatio": 1.086,
   "reqIdCount": 27,
   "tcIdCount": 27,
   "rtm": {
     "statusDist": {
-      "libs/placement_store.py:create_placement": 1,
-      "(binding routes)": 1,
-      "libs/placement_store.py:start_occupancy": 1,
-      "(telemetry.placement.resolved)": 1,
-      "libs/placement_store.py:create_qr_token": 1,
-      "tests/integration/test_observation_solid.py": 1,
-      "apps/api/routes/env.py:env_ingest": 1,
-      "libs/env_telemetry.py": 1,
-      "apps/api/routes/env.py:env_history": 1,
-      "components/env_ingest/run.py": 1,
-      "libs/placement_store.py": 1,
-      "collector/.env.example": 2,
-      "libs/placement_store.py:new_qr_token": 1,
-      "apps/api/routes/env.py": 1
+      "existing": 18,
+      "gap": 2,
+      "partial": 4,
+      "doc": 2
     },
-    "issueCount": 15,
-    "issues": [
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-ENV-01",
-        "test_case_id": "詳細設計-v2 §2.1"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-ENV-02",
-        "test_case_id": "詳細設計-v2 §2.2/§7"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-ENV-03",
-        "test_case_id": "詳細設計-v2 §2.3"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-ENV-04",
-        "test_case_id": "詳細設計-v2 §2.4/§7"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-ENV-05",
-        "test_case_id": "詳細設計-v2 §2.5"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-ENV-06",
-        "test_case_id": "詳細設計-v2 §3.4"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-ENV-07",
-        "test_case_id": "詳細設計-v2 §3.1"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-ENV-08",
-        "test_case_id": "詳細設計-v2 §2.4/§6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-ENV-09",
-        "test_case_id": "詳細設計-v2 §3.3/§7"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-ENV-10",
-        "test_case_id": "詳細設計-v2 §5"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-ENV-01",
-        "test_case_id": "詳細設計-v2 §2/§6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-ENV-02",
-        "test_case_id": "詳細設計-v2 §6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-ENV-03",
-        "test_case_id": "詳細設計-v2 §5/§6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-ENV-04",
-        "test_case_id": "詳細設計-v2 §2.5/§6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-ENV-05",
-        "test_case_id": "詳細設計-v2 §6"
-      }
-    ]
+    "issueCount": 0,
+    "issues": []
   },
-  "priority": "P1"
+  "priority": "P2"
 }

@@ -11,9 +11,9 @@
   "lineCounts": {
     "req": 193,
     "detV2": 162,
-    "detV3": 171,
+    "detV3": 188,
     "testPlans": 134,
-    "rtmRows": 13
+    "rtmRows": 12
   },
   "reqDetPatternScore": {
     "api_paths": 0,
@@ -24,95 +24,18 @@
     "schema_fields": 0,
     "total": 0
   },
-  "depthRatio": 0.839,
+  "depthRatio": 0.974,
   "reqIdCount": 12,
   "tcIdCount": 23,
   "rtm": {
     "statusDist": {
-      "apps/api/main.py:settings_get": 2,
-      "(world-templates API)": 1,
-      "WorldRoutingManager.tsx": 1,
-      "詳細設計-v2 §2.1": 1,
-      "LayerSelector.tsx": 1,
-      "#20投票": 1,
-      "frontend/dev/world-routing": 1,
-      "ui/UI設計-v1.md": 2,
-      "(world apply)": 1,
-      "civilization/C-Sync.md": 1,
-      "REQ-024": 1
+      "gap": 7,
+      "planned": 1,
+      "xref": 2,
+      "review": 2
     },
-    "issueCount": 14,
-    "issues": [
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "META-17-IHL",
-        "test_case_id": "詳細設計-v2 §0 §3"
-      },
-      {
-        "type": "req_id_not_in_req",
-        "req_id": "META-17-IHL"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-17-01",
-        "test_case_id": "詳細設計-v2 §2.1"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-17-02",
-        "test_case_id": "詳細設計-v2 §4"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-17-03",
-        "test_case_id": "詳細設計-v2 §2.1"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-17-04",
-        "test_case_id": "詳細設計-v2 §2.2"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-17-05",
-        "test_case_id": "詳細設計-v2 §1.2"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-17-06",
-        "test_case_id": "詳細設計-v2 §7"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-17-07",
-        "test_case_id": "詳細設計-v2 §7"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-17-01",
-        "test_case_id": "詳細設計-v2 §6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-17-02",
-        "test_case_id": "詳細設計-v2 §6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-17-03",
-        "test_case_id": "詳細設計-v2 §6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-17-04",
-        "test_case_id": "詳細設計-v2 §6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-17-05",
-        "test_case_id": "詳細設計-v2 §6"
-      }
-    ]
+    "issueCount": 0,
+    "issues": []
   },
-  "priority": "P1"
+  "priority": "P2"
 }

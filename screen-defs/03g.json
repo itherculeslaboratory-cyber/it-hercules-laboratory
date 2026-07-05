@@ -1,0 +1,26 @@
+{
+  "screen_id": "03g",
+  "route": "/cross/:id/growth",
+  "title": "成長詳細",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "main",
+      "component_id": "ihl-03-lineage-growth-detail__GrowthDetailPanel",
+      "region": "GrowthDetailPanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "03",
+      "label": "Crossへ"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: mockups/ihl-03-lineage-growth-detail.png"
+}

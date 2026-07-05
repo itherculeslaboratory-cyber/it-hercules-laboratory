@@ -11,9 +11,9 @@
   "lineCounts": {
     "req": 402,
     "detV2": 189,
-    "detV3": 0,
+    "detV3": 202,
     "testPlans": 143,
-    "rtmRows": 16
+    "rtmRows": 32
   },
   "reqDetPatternScore": {
     "api_paths": 1,
@@ -24,107 +24,19 @@
     "schema_fields": 0,
     "total": 1
   },
-  "depthRatio": 0.47,
+  "depthRatio": 0.502,
   "reqIdCount": 24,
   "tcIdCount": 27,
   "rtm": {
     "statusDist": {
-      "libs/ihl/economy/economy_logic.py": 2,
-      "libs/ihl/economy/economy_logic.py:fib_tier_delta": 2,
-      "(batch未配線)": 2,
-      "apps/api/main.py:profile_metrics": 2,
-      "libs/ihl/economy/economy_logic.py:purchase_shop_item": 1,
-      "libs/ihl/economy/economy_logic.py:record_fee_unpaid": 1,
-      "libs/ihl/economy/economy_logic.py:write_karma_event": 1,
-      "libs/event_store.py": 1,
-      "(TBD)": 1,
-      "apps/api/main.py": 1,
-      "(frontend)": 1,
-      "01-要件/08-カルマシステム.md §12": 1
+      "partial": 4,
+      "gap": 11,
+      "existing": 15,
+      "xref": 1,
+      "doc": 1
     },
-    "issueCount": 16,
-    "issues": [
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-KRM-01",
-        "test_case_id": "詳細設計-v2 §2.3"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-KRM-02",
-        "test_case_id": "詳細設計-v2 §4"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-KRM-03",
-        "test_case_id": "詳細設計-v2 §2.2"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-KRM-04",
-        "test_case_id": "詳細設計-v2 §4"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-KRM-05",
-        "test_case_id": "詳細設計-v2 §4"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-KRM-06",
-        "test_case_id": "詳細設計-v2 §3.1/§4"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-KRM-07",
-        "test_case_id": "詳細設計-v2 §4"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-KRM-08",
-        "test_case_id": "詳細設計-v2 §1.2/§5"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-KRM-09",
-        "test_case_id": "詳細設計-v2 §2.1"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-KRM-10",
-        "test_case_id": "詳細設計-v2 §3.1"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NF-KRM-01",
-        "test_case_id": "詳細設計-v2 §6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NF-KRM-02",
-        "test_case_id": "詳細設計-v2 §6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NF-KRM-03",
-        "test_case_id": "詳細設計-v2 §6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NF-KRM-04",
-        "test_case_id": "詳細設計-v2 §6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NF-KRM-05",
-        "test_case_id": "詳細設計-v2 §6"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NF-KRM-06",
-        "test_case_id": "詳細設計-v2 §1.4/§6"
-      }
-    ]
+    "issueCount": 0,
+    "issues": []
   },
-  "priority": "P1"
+  "priority": "P2"
 }

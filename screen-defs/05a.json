@@ -1,0 +1,46 @@
+{
+  "screen_id": "05a",
+  "route": "/observation",
+  "title": "観測 検索グリッド",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "main",
+      "component_id": "ihl-05-obs-search-grid__ContentArea",
+      "region": "ContentArea"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "05ctx",
+      "label": "対象チップ → 対象ナビゲータ"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "05b",
+      "label": "個体カード → 詳細"
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "05i",
+      "label": "計測入力へ"
+    },
+    {
+      "from": "hotspot.3",
+      "to_screen_id": "05tl",
+      "label": "テンプレ一覧"
+    },
+    {
+      "from": "hotspot.4",
+      "to_screen_id": "01",
+      "label": "ホーム"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: mockups/ihl-05-obs-search-grid.png"
+}

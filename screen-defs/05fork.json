@@ -1,0 +1,31 @@
+{
+  "screen_id": "05fork",
+  "route": "(詳細内ペイン)",
+  "title": "テンプレ Fork",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "main",
+      "component_id": "ihl-05-obs-template-fork__ContentArea",
+      "region": "ContentArea"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "05iot",
+      "label": "IoT 未登録"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "05td",
+      "label": "詳細へ戻る"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: mockups/ihl-05-obs-template-fork.png"
+}

@@ -1,0 +1,526 @@
+{
+  "version": 1,
+  "generated": "2026-07-03",
+  "collisionStrategy": "one-file-per-componentPrefix",
+  "totalScreens": 55,
+  "uniqueOverrideFiles": 53,
+  "statusCounts": {
+    "done": 55,
+    "scaffold": 0
+  },
+  "sharedMockAliases": [
+    {
+      "componentPrefix": "ihl-07-board-thread-post",
+      "walkIds": [
+        "07b",
+        "07o"
+      ],
+      "ownerWalkId": "07b"
+    },
+    {
+      "componentPrefix": "ihl-profile-three-metrics",
+      "walkIds": [
+        "PR",
+        "PRnotif"
+      ],
+      "ownerWalkId": "PR"
+    }
+  ],
+  "screens": [
+    {
+      "walkId": "01",
+      "title": "ホーム（司令塔）",
+      "group": "ホーム",
+      "mockBase": "ihl-01-nav-home",
+      "componentPrefix": "ihl-01-nav-home",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-01-nav-home.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "03",
+      "title": "血統・交配",
+      "group": "血統・論文",
+      "mockBase": "ihl-03-lineage-cross",
+      "componentPrefix": "ihl-03-lineage-cross",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-03-lineage-cross.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "03g",
+      "title": "成長詳細",
+      "group": "血統・論文",
+      "mockBase": "ihl-03-lineage-growth-detail",
+      "componentPrefix": "ihl-03-lineage-growth-detail",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-03-lineage-growth-detail.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "03m",
+      "title": "死亡一覧",
+      "group": "血統・論文",
+      "mockBase": "ihl-03-lineage-mortality-detail",
+      "componentPrefix": "ihl-03-lineage-mortality-detail",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-03-lineage-mortality-detail.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "03met",
+      "title": "率 詳細一覧（指標）",
+      "group": "血統・論文",
+      "mockBase": "ihl-03-lineage-metrics-detail",
+      "componentPrefix": "ihl-03-lineage-metrics-detail",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-03-lineage-metrics-detail.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "05a",
+      "title": "観測 検索グリッド",
+      "group": "観測",
+      "mockBase": "ihl-05-obs-search-grid",
+      "componentPrefix": "ihl-05-obs-search-grid",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-05-obs-search-grid.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "05b",
+      "title": "観測 個体詳細 + 類似",
+      "group": "観測",
+      "mockBase": "ihl-05-obs-detail-similar",
+      "componentPrefix": "ihl-05-obs-detail-similar",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-05-obs-detail-similar.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "05ctx",
+      "title": "観測 対象ナビゲータ + コンテキスト",
+      "group": "観測",
+      "mockBase": "ihl-05-obs-context-picker",
+      "componentPrefix": "ihl-05-obs-context-picker",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-05-obs-context-picker.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "05fork",
+      "title": "テンプレ Fork",
+      "group": "観測",
+      "mockBase": "ihl-05-obs-template-fork",
+      "componentPrefix": "ihl-05-obs-template-fork",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-05-obs-template-fork.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "05i",
+      "title": "観測 計測入力",
+      "group": "観測",
+      "mockBase": "ihl-05-obs-input-row",
+      "componentPrefix": "ihl-05-obs-input-row",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-05-obs-input-row.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "05i-f",
+      "title": "計測入力（雌）",
+      "group": "観測",
+      "mockBase": "ihl-05-obs-input-female",
+      "componentPrefix": "ihl-05-obs-input-female",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-05-obs-input-female.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "05i-m",
+      "title": "計測入力（雄）",
+      "group": "観測",
+      "mockBase": "ihl-05-obs-input-male",
+      "componentPrefix": "ihl-05-obs-input-male",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-05-obs-input-male.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "05iot",
+      "title": "IoT 機器未登録",
+      "group": "観測",
+      "mockBase": "ihl-05-obs-device-link",
+      "componentPrefix": "ihl-05-obs-device-link",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-05-obs-device-link.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "05td",
+      "title": "計測テンプレ 詳細",
+      "group": "観測",
+      "mockBase": "ihl-05-obs-template-detail",
+      "componentPrefix": "ihl-05-obs-template-detail",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-05-obs-template-detail.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "05tl",
+      "title": "計測テンプレ 一覧",
+      "group": "観測",
+      "mockBase": "ihl-05-obs-template-list",
+      "componentPrefix": "ihl-05-obs-template-list",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-05-obs-template-list.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "06a",
+      "title": "マーケット 出品一覧",
+      "group": "マーケット",
+      "mockBase": "ihl-06-market-browse",
+      "componentPrefix": "ihl-06-market-browse",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-06-market-browse.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "06auc",
+      "title": "オークション 入札",
+      "group": "マーケット",
+      "mockBase": "ihl-06-market-auction-bid",
+      "componentPrefix": "ihl-06-market-auction-bid",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-06-market-auction-bid.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "06b",
+      "title": "出品詳細 + プライベートボード（Stage 1）",
+      "group": "マーケット",
+      "mockBase": "ihl-06-market-detail-board",
+      "componentPrefix": "ihl-06-market-detail-board",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-06-market-detail-board.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "06b-s2",
+      "title": "取引 Stage 2（振込・配達確認）",
+      "group": "マーケット",
+      "mockBase": "ihl-06-market-detail-board-stage2",
+      "componentPrefix": "ihl-06-market-detail-board-stage2",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-06-market-detail-board-stage2.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "06b-s3",
+      "title": "取引 Stage 3（評価・8%）",
+      "group": "マーケット",
+      "mockBase": "ihl-06-market-detail-board-stage3",
+      "componentPrefix": "ihl-06-market-detail-board-stage3",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-06-market-detail-board-stage3.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "06list",
+      "title": "新規出品",
+      "group": "マーケット",
+      "mockBase": "ihl-06-market-listing-create",
+      "componentPrefix": "ihl-06-market-listing-create",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-06-market-listing-create.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "06lot-apply",
+      "title": "抽選 応募",
+      "group": "マーケット",
+      "mockBase": "ihl-06-market-lottery-apply",
+      "componentPrefix": "ihl-06-market-lottery-apply",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-06-market-lottery-apply.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "06lot-lose",
+      "title": "抽選結果（落選）",
+      "group": "マーケット",
+      "mockBase": "ihl-06-market-lottery-result-lose",
+      "componentPrefix": "ihl-06-market-lottery-result-lose",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-06-market-lottery-result-lose.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "06lot-result",
+      "title": "抽選結果（当選）",
+      "group": "マーケット",
+      "mockBase": "ihl-06-market-lottery-result",
+      "componentPrefix": "ihl-06-market-lottery-result",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-06-market-lottery-result.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "06lot-tab",
+      "title": "マーケット 抽選タブ",
+      "group": "マーケット",
+      "mockBase": "ihl-06-market-lottery-tab",
+      "componentPrefix": "ihl-06-market-lottery-tab",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-06-market-lottery-tab.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "06pri-lose",
+      "title": "優先順 落選確定",
+      "group": "マーケット",
+      "mockBase": "ihl-06-market-priority-queue-lose",
+      "componentPrefix": "ihl-06-market-priority-queue-lose",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-06-market-priority-queue-lose.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "06pri-queue",
+      "title": "優先順 申込・順位",
+      "group": "マーケット",
+      "mockBase": "ihl-06-market-priority-queue",
+      "componentPrefix": "ihl-06-market-priority-queue",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-06-market-priority-queue.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "06pri-tab",
+      "title": "マーケット 優先順タブ",
+      "group": "マーケット",
+      "mockBase": "ihl-06-market-priority-tab",
+      "componentPrefix": "ihl-06-market-priority-tab",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-06-market-priority-tab.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "06soc",
+      "title": "（移設）マーケット通知 → マイページ",
+      "group": "マーケット",
+      "mockBase": "ihl-06-market-social",
+      "componentPrefix": "ihl-06-market-social",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-06-market-social.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "07a",
+      "title": "掲示板ハブ",
+      "group": "掲示板",
+      "mockBase": "ihl-07-board-hub",
+      "componentPrefix": "ihl-07-board-hub",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-07-board-hub.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "07b",
+      "title": "掲示板 スレッド（改善提案）",
+      "group": "掲示板",
+      "mockBase": "ihl-07-board-thread-post",
+      "componentPrefix": "ihl-07-board-thread-post",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-07-board-thread-post.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "07g",
+      "title": "掲示板 愚痴板",
+      "group": "掲示板",
+      "mockBase": "ihl-07-board-post-愚痴",
+      "componentPrefix": "ihl-07-board-post---",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-07-board-post---.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "07o",
+      "title": "掲示板 その他",
+      "group": "掲示板",
+      "mockBase": "ihl-07-board-thread-post",
+      "componentPrefix": "ihl-07-board-thread-post",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-07-board-thread-post.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "08",
+      "title": "カルマ概要",
+      "group": "その他",
+      "mockBase": "ihl-08-karma-summary",
+      "componentPrefix": "ihl-08-karma-summary",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-08-karma-summary.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "09",
+      "title": "論文 進行中",
+      "group": "血統・論文",
+      "mockBase": "ihl-09-paper-in-progress",
+      "componentPrefix": "ihl-09-paper-in-progress",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-09-paper-in-progress.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "09t",
+      "title": "論文テンプレート",
+      "group": "血統・論文",
+      "mockBase": "ihl-09-paper-template-fill",
+      "componentPrefix": "ihl-09-paper-template-fill",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-09-paper-template-fill.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "10",
+      "title": "好み pairwise",
+      "group": "その他",
+      "mockBase": "ihl-10-preference-pairwise",
+      "componentPrefix": "ihl-10-preference-pairwise",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-10-preference-pairwise.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "11",
+      "title": "争い 二人部屋",
+      "group": "その他",
+      "mockBase": "ihl-11-dispute-tworoom",
+      "componentPrefix": "ihl-11-dispute-tworoom",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-11-dispute-tworoom.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "12hub",
+      "title": "設定ハブ",
+      "group": "設定",
+      "mockBase": "ihl-12-settings-hub",
+      "componentPrefix": "ihl-12-settings-hub",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-12-settings-hub.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "12pii",
+      "title": "設定 PII",
+      "group": "設定",
+      "mockBase": "ihl-12-settings-pii",
+      "componentPrefix": "ihl-12-settings-pii",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-12-settings-pii.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "13",
+      "title": "機器管理",
+      "group": "設定",
+      "mockBase": "ihl-13-device-registry",
+      "componentPrefix": "ihl-13-device-registry",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-13-device-registry.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "14",
+      "title": "貢献度",
+      "group": "その他",
+      "mockBase": "ihl-14-contribution-badge",
+      "componentPrefix": "ihl-14-contribution-badge",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-14-contribution-badge.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "16",
+      "title": "UIビルダー",
+      "group": "Builder",
+      "mockBase": "ihl-16-uibuilder-canvas",
+      "componentPrefix": "ihl-16-uibuilder-canvas",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-16-uibuilder-canvas.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "16e",
+      "title": "この画面を編集",
+      "group": "Builder",
+      "mockBase": "ihl-16-edit-this-screen-entry",
+      "componentPrefix": "ihl-16-edit-this-screen-entry",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-16-edit-this-screen-entry.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "17picker",
+      "title": "UI テンプレ選択",
+      "group": "Builder",
+      "mockBase": "ihl-17-world-template-picker",
+      "componentPrefix": "ihl-17-world-template-picker",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-17-world-template-picker.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "18photo",
+      "title": "写真解析 結果",
+      "group": "観測",
+      "mockBase": "ihl-18-photo-analysis-result",
+      "componentPrefix": "ihl-18-photo-analysis-result",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-18-photo-analysis-result.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "19board",
+      "title": "コンポーネント掲示板",
+      "group": "掲示板",
+      "mockBase": "ihl-19-component-board",
+      "componentPrefix": "ihl-19-component-board",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-19-component-board.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "20vote",
+      "title": "一般投票",
+      "group": "その他",
+      "mockBase": "ihl-20-vote-general",
+      "componentPrefix": "ihl-20-vote-general",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-20-vote-general.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "22",
+      "title": "PT ショップ",
+      "group": "その他",
+      "mockBase": "ihl-22-pt-shop",
+      "componentPrefix": "ihl-22-pt-shop",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-22-pt-shop.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "23",
+      "title": "GMO 振込案内",
+      "group": "マーケット",
+      "mockBase": "ihl-23-gmo-transfer",
+      "componentPrefix": "ihl-23-gmo-transfer",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-23-gmo-transfer.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "O1",
+      "title": "ログイン（マジックリンク）",
+      "group": "オンボーディング",
+      "mockBase": "ihl-00-onboarding-login",
+      "componentPrefix": "ihl-00-onboarding-login",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-00-onboarding-login.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "O2",
+      "title": "新規登録",
+      "group": "オンボーディング",
+      "mockBase": "ihl-00-onboarding-signup",
+      "componentPrefix": "ihl-00-onboarding-signup",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-00-onboarding-signup.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "O3",
+      "title": "利用規約・プライバシー",
+      "group": "オンボーディング",
+      "mockBase": "ihl-00-terms",
+      "componentPrefix": "ihl-00-terms",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-00-terms.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "PR",
+      "title": "プロフィール 3 指標",
+      "group": "その他",
+      "mockBase": "ihl-profile-three-metrics",
+      "componentPrefix": "ihl-profile-three-metrics",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-profile-three-metrics.ts",
+      "status": "done"
+    },
+    {
+      "walkId": "PRnotif",
+      "title": "マイページ 通知",
+      "group": "その他",
+      "mockBase": "ihl-profile-three-metrics",
+      "componentPrefix": "ihl-profile-three-metrics",
+      "overrideFile": "packages/ihl-ui-catalog/src/registry/overrides/ihl-profile-three-metrics.ts",
+      "status": "done"
+    }
+  ]
+}

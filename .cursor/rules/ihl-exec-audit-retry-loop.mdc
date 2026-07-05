@@ -1,0 +1,83 @@
+---
+description: IHL 自律キュー/DOC-REMED — 実行→監査→OK/NG→やり直し必須ループ（[x] 粉飾禁止）
+globs:
+  - 05-運用/queues/**
+  - 05-運用/automation/**
+  - 01-要件/**
+  - 02-設計/**
+  - 03-テスト計画/**
+  - 04-トレーサ/**
+  - docs/planning/**
+alwaysApply: false
+---
+
+# IHL 実行→監査→リトライループ
+
+**優先**: [`ihl-waterfall-v-model-gate.mdc`](./ihl-waterfall-v-model-gate.mdc) · [`ihl-doc-remediation.mdc`](./ihl-doc-remediation.mdc) と併用。矛盾時は **監査 PASS 前の [x] 禁止** が勝つ。
+
+**正本**: [`00-マスター実行順-v1.md`](../05-運用/queues/00-マスター実行順-v1.md) · [`V-MODEL-LAYERS-v1.md`](../docs/reference/V-MODEL-LAYERS-v1.md) · [`.cursor/skills/ihl-doc-remediation/SKILL.md`](../skills/ihl-doc-remediation/SKILL.md)
+
+## 適用トリガー
+
+- Multitask / 自律マスターキュー実行
+- `IHL-DOC-AUDIT` · `IHL-DOC-REMED` · REQ-slim · Wave B/C
+- Auto 担当のバッチ doc 作業（M-032 · M-082 等）
+
+## 必須ループ（[x] 前に毎回）
+
+```text
+EXECUTE → AUDIT → PASS? → [x]
+                 └ FAIL? → REMEDIATE（根本原因）→ re-AUDIT（最大 N 回 · 既定 3）
+```
+
+- **Tier 未指定の監査は無効** — 作業票に A/B/C を明記してから実行
+- **3 回 FAIL** → Tier A（Standard/High）へエスカレーション · マスター §2 を更新
+
+## 監査ティア
+
+| Tier | いつ | 最低ゲート |
+|------|------|-----------|
+| **A doc-slim** | REQ/DET stub・移行 | `ihl-doc-layering-audit.mjs --compare-baseline` · stub § が DET v3 に **1:1 実在** · `depth_ratio` 合格 · **テンプレのみコピー禁止** |
+| **B feature slice** | MICRO/DET v3 執筆 | [`IHL-SLICE-SCORECARD-v1.md`](../05-運用/automation/IHL-SLICE-SCORECARD-v1.md) **≥85 · B≥25 · C≥25** · 該当時 **Best-of-N** + `scorecards/NN/*.json` |
+| **C merge** | Wave merge · IMPL-GO | **5 本**: rtm · parity · layering · oracle · reverse-rtm |
+
+```bash
+# Tier C（5 GATE）
+node scripts/ihl-rtm-coverage-check.mjs --feature NN
+node scripts/ihl-design-impl-parity-check.mjs --feature NN
+node scripts/ihl-doc-layering-audit.mjs --feature NN --compare-baseline
+node scripts/ihl-contract-oracle.mjs --feature NN --check
+node scripts/ihl-reverse-rtm.mjs --feature NN
+```
+
+## NG 例（即 FAIL）
+
+| 事象 | 扱い |
+|------|------|
+| `det_pattern` 減ったが REQ 行数 **>90% 不変** | Tier A FAIL — 実移行なし |
+| stub の `§X.Y` が DET v3 に無い | Tier A FAIL — 参照捏造 |
+| DOC-REMED index を機能別編集なしで貼付 | FAIL — テンプレ流用 |
+| M-033 等がコメントのみで `exit(1)` なし | Tier C FAIL — 機械ゲート未実装 |
+| Tier B 宣言なのに scorecard / Best-of-N 欠落 | Tier B FAIL |
+
+## FAIL 時
+
+1. **根本原因を修正**（誤 § への再 stub 禁止）
+2. **同一 Tier の監査を最初から再実行**
+3. [`00-マスター実行順-v1.md`](../05-運用/queues/00-マスター実行順-v1.md) **§5** に `AUDIT-FAIL → remed → re-AUDIT` を 1 行追記
+
+## 禁止
+
+- **pattern 件数だけ**でマスター §3 の `[x]` を付ける
+- layering audit **のみ**で Tier B/C を PASS 扱い
+- 監査スキップでの Wave 完了報告
+
+## 自己チェック（[x] 直前）
+
+```
+[ ] 適用 Tier（A/B/C）を明示したか
+[ ] 該当ゲートを shell で実行し PASS したか
+[ ] Tier B なら scorecard ≥85（B≥25 C≥25）か
+[ ] REQ slim なら stub § が DET v3 に実在するか
+[ ] FAIL 時は §5 に AUDIT-FAIL 行を残したか
+```

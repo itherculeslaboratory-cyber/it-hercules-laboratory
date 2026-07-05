@@ -1,0 +1,46 @@
+{
+  "screen_id": "12hub",
+  "route": "/settings",
+  "title": "設定ハブ",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "part-0",
+      "component_id": "ihl-12-settings-hub__ContentArea",
+      "region": "ContentArea"
+    },
+    {
+      "id": "part-1",
+      "component_id": "ihl-12-settings-hub__PrimaryAction",
+      "region": "PrimaryAction"
+    },
+    {
+      "id": "part-2",
+      "component_id": "ihl-12-settings-hub__StatePanel",
+      "region": "StatePanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "12pii",
+      "label": "PII・プライバシー"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "13",
+      "label": "機器管理"
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "17picker",
+      "label": "UI テンプレ選択"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: ihl-12-settings-hub.png"
+}

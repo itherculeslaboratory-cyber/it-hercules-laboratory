@@ -1,0 +1,21 @@
+{
+  "slice_id": "05-MICRO-hook-002",
+  "feature_id": "05",
+  "axis": "observation-env",
+  "adr": "ADR-H-30 §2.1 C",
+  "generated": "2026-07-05",
+  "candidates": [
+    {
+      "worker": "auto-1",
+      "A": 28,
+      "B": 25,
+      "C": 27,
+      "D": 12,
+      "total": 92,
+      "gate": "PASS",
+      "notes": "buildEnvironmentSnapshotCommitBody/shouldInclude 実在一致 · Tier B #13 境界 · IMPL-GAP 明示 · SwitchBot サーバ禁止"
+    }
+  ],
+  "adopted": "auto-1",
+  "reason": "acceptance 全項目 · hook-001 後続 · observation-draft.ts 引用のみ · ≥85 B≥25 C≥25"
+}

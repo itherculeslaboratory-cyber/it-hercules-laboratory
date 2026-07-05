@@ -1,0 +1,17 @@
+/* O1 login card overrides on shared form-card */
+.ihl-login-card__title {
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+.ihl-login-card__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.ihl-login-card__sent {
+  margin: 16px 0 0;
+  font-size: 0.8125rem;
+  color: var(--civ-login-btn-bg);
+  text-align: center;
+}

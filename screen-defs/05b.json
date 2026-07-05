@@ -1,0 +1,39 @@
+{
+  "screen_id": "05b",
+  "route": "/observation/:id",
+  "title": "観測 個体詳細 + 類似",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "main",
+      "component_id": "ihl-05-obs-detail-similar__ContentArea",
+      "region": "ContentArea"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "05i",
+      "label": "計測入力"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "05a",
+      "label": "戻る › 検索"
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "03",
+      "label": "この個体の血統を見る",
+      "params": {
+        "organism": "IND-0210"
+      }
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: mockups/ihl-05-obs-detail-similar.png"
+}

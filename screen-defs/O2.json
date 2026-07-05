@@ -1,0 +1,31 @@
+{
+  "screen_id": "O2",
+  "route": "/register",
+  "title": "新規登録",
+  "layout": "auth",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "form",
+      "component_id": "ihl-00-onboarding-signup__SignupOnboardingForm",
+      "region": "ContentArea"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "form.terms_link",
+      "to_screen_id": "O3",
+      "label": "利用規約"
+    },
+    {
+      "from": "form.submit",
+      "to_screen_id": "01",
+      "label": "はじめる"
+    }
+  ],
+  "notes": "W2 auth layout — BrandChrome のみ"
+}

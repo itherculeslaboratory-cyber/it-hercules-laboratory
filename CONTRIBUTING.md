@@ -1,6 +1,6 @@
 # Contributing to IT Hercules Laboratory
 
-> **Outline v1** — 詳細設計・要件の正本は `指示/it-hercules-laboratory/`（civilization-os リポジトリ内）を参照。  
+> **Outline v1** — 詳細設計・要件の正本は本 repo ルートの `01-要件/` · `02-設計/` を参照。  
 > **OSS スコープ**: [ADR-H-21](02-設計/_横断/adr/ADR-H-21-OSS公開スコープ-全機能IHL正本-v1.md)
 
 ---
@@ -9,12 +9,12 @@
 
 ```bash
 git clone https://github.com/itherculeslaboratory-cyber/it-hercules-laboratory.git
-cd 指示/it-hercules-laboratory
+cd it-hercules-laboratory
 pip install -e ".[dev]"
 pytest
 ```
 
-Full 30-minute path: [`指示/it-hercules-laboratory/docs/OSS-CONTRIBUTOR-ONBOARDING-v1.md`](docs/OSS-CONTRIBUTOR-ONBOARDING-v1.md)
+Full 30-minute path: [`docs/OSS-CONTRIBUTOR-ONBOARDING-v1.md`](docs/OSS-CONTRIBUTOR-ONBOARDING-v1.md)
 
 ---
 
@@ -31,11 +31,14 @@ Full 30-minute path: [`指示/it-hercules-laboratory/docs/OSS-CONTRIBUTOR-ONBOAR
 
 | Topic | Path |
 |-------|------|
-| Requirements (01–23) | `指示/it-hercules-laboratory/01-要件/` |
-| UI design | `指示/it-hercules-laboratory/02-設計/_ui-global/` |
-| Component breakdown | `指示/it-hercules-laboratory/02-設計/_横断/component/` |
-| ADRs & completion queue | `指示/it-hercules-laboratory/02-設計/_横断/adr/` · `05-運用/queues/` |
-| OSS gap table | `指示/it-hercules-laboratory/02-設計/_横断/00-OSS機能ギャップ表-v1.md` |
+| Requirements (01–23) | `01-要件/` |
+| Feature design (DET/TRN/UI) | `02-設計/features/NN-*/` |
+| UI design (横断) | `02-設計/_ui-global/` |
+| Component breakdown | `02-設計/_横断/component/` |
+| ADRs & completion queue | `02-設計/_横断/adr/` · `05-運用/queues/` |
+| OSS gap table | `02-設計/_横断/00-OSS機能ギャップ表-v1.md` |
+| V-model layers | `docs/reference/V-MODEL-LAYERS-v1.md` |
+| Folder constitution | `05-運用/queues/00-フォルダ構成-v3-OSS.md` |
 
 ---
 
@@ -58,7 +61,7 @@ See [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) for layer diagram.
 
 - [ ] Maps to a `POST-OSS-NN` queue item or documented gap row
 - [ ] Unit test(s) pass; no new `mock_store` usage for production paths
-- [ ] API matches detailed design in `指示/…/詳細設計`
+- [ ] API matches detailed design in `02-設計/features/NN-*/詳細設計-v3.md`
 - [ ] UI route reachable per transition design (if applicable)
 - [ ] Component or lib `README.md` updated
 - [ ] No secrets in code, logs, or PR description
@@ -89,4 +92,4 @@ Completion bar: [`00-完成定義と実行キュー-v1.md`](05-運用/queues/00-
 
 ---
 
-*Outline v1 · 2026-06-10*
+*Outline v1 · 2026-06-10 · 2026-07-05 単一 repo パス修正*

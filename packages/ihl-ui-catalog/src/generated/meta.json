@@ -1,0 +1,2106 @@
+[
+  {
+    "id": "ihl-00-onboarding-login__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-00-onboarding-login.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-00-onboarding-login__AppShell"
+  },
+  {
+    "id": "ihl-00-onboarding-login__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-00-onboarding-login.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-00-onboarding-login__ContentArea"
+  },
+  {
+    "id": "ihl-00-onboarding-login__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-00-onboarding-login.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-00-onboarding-login__PageHeader"
+  },
+  {
+    "id": "ihl-00-onboarding-login__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-00-onboarding-login.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-00-onboarding-login__PrimaryAction"
+  },
+  {
+    "id": "ihl-00-onboarding-login__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-00-onboarding-login.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-00-onboarding-login__StatePanel"
+  },
+  {
+    "id": "ihl-00-onboarding-signup__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-00-onboarding-signup.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-00-onboarding-signup__AppShell"
+  },
+  {
+    "id": "ihl-00-onboarding-signup__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-00-onboarding-signup.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-00-onboarding-signup__ContentArea"
+  },
+  {
+    "id": "ihl-00-onboarding-signup__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-00-onboarding-signup.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-00-onboarding-signup__PageHeader"
+  },
+  {
+    "id": "ihl-00-onboarding-signup__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-00-onboarding-signup.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-00-onboarding-signup__PrimaryAction"
+  },
+  {
+    "id": "ihl-00-onboarding-signup__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-00-onboarding-signup.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-00-onboarding-signup__StatePanel"
+  },
+  {
+    "id": "ihl-00-terms__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-00-terms.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-00-terms__AppShell"
+  },
+  {
+    "id": "ihl-00-terms__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-00-terms.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-00-terms__ContentArea"
+  },
+  {
+    "id": "ihl-00-terms__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-00-terms.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-00-terms__PageHeader"
+  },
+  {
+    "id": "ihl-00-terms__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-00-terms.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-00-terms__PrimaryAction"
+  },
+  {
+    "id": "ihl-00-terms__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-00-terms.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-00-terms__StatePanel"
+  },
+  {
+    "id": "ihl-01-nav-home__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-01-nav-home.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-01-nav-home__AppShell"
+  },
+  {
+    "id": "ihl-01-nav-home__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-01-nav-home.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-01-nav-home__ContentArea"
+  },
+  {
+    "id": "ihl-01-nav-home__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-01-nav-home.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-01-nav-home__PageHeader"
+  },
+  {
+    "id": "ihl-01-nav-home__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-01-nav-home.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-01-nav-home__PrimaryAction"
+  },
+  {
+    "id": "ihl-01-nav-home__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-01-nav-home.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-01-nav-home__StatePanel"
+  },
+  {
+    "id": "ihl-03-lineage-cross__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-03-lineage-cross.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-03-lineage-cross__AppShell"
+  },
+  {
+    "id": "ihl-03-lineage-cross__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-03-lineage-cross.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-03-lineage-cross__ContentArea"
+  },
+  {
+    "id": "ihl-03-lineage-cross__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-03-lineage-cross.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-03-lineage-cross__PageHeader"
+  },
+  {
+    "id": "ihl-03-lineage-cross__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-03-lineage-cross.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-03-lineage-cross__PrimaryAction"
+  },
+  {
+    "id": "ihl-03-lineage-cross__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-03-lineage-cross.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-03-lineage-cross__StatePanel"
+  },
+  {
+    "id": "ihl-03-lineage-growth-detail__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-03-lineage-growth-detail.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-03-lineage-growth-detail__AppShell"
+  },
+  {
+    "id": "ihl-03-lineage-growth-detail__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-03-lineage-growth-detail.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-03-lineage-growth-detail__ContentArea"
+  },
+  {
+    "id": "ihl-03-lineage-growth-detail__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-03-lineage-growth-detail.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-03-lineage-growth-detail__PageHeader"
+  },
+  {
+    "id": "ihl-03-lineage-growth-detail__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-03-lineage-growth-detail.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-03-lineage-growth-detail__PrimaryAction"
+  },
+  {
+    "id": "ihl-03-lineage-growth-detail__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-03-lineage-growth-detail.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-03-lineage-growth-detail__StatePanel"
+  },
+  {
+    "id": "ihl-03-lineage-metrics-detail__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-03-lineage-metrics-detail.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-03-lineage-metrics-detail__AppShell"
+  },
+  {
+    "id": "ihl-03-lineage-metrics-detail__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-03-lineage-metrics-detail.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-03-lineage-metrics-detail__ContentArea"
+  },
+  {
+    "id": "ihl-03-lineage-metrics-detail__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-03-lineage-metrics-detail.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-03-lineage-metrics-detail__PageHeader"
+  },
+  {
+    "id": "ihl-03-lineage-metrics-detail__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-03-lineage-metrics-detail.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-03-lineage-metrics-detail__PrimaryAction"
+  },
+  {
+    "id": "ihl-03-lineage-metrics-detail__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-03-lineage-metrics-detail.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-03-lineage-metrics-detail__StatePanel"
+  },
+  {
+    "id": "ihl-03-lineage-mortality-detail__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-03-lineage-mortality-detail.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-03-lineage-mortality-detail__AppShell"
+  },
+  {
+    "id": "ihl-03-lineage-mortality-detail__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-03-lineage-mortality-detail.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-03-lineage-mortality-detail__ContentArea"
+  },
+  {
+    "id": "ihl-03-lineage-mortality-detail__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-03-lineage-mortality-detail.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-03-lineage-mortality-detail__PageHeader"
+  },
+  {
+    "id": "ihl-03-lineage-mortality-detail__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-03-lineage-mortality-detail.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-03-lineage-mortality-detail__PrimaryAction"
+  },
+  {
+    "id": "ihl-03-lineage-mortality-detail__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-03-lineage-mortality-detail.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-03-lineage-mortality-detail__StatePanel"
+  },
+  {
+    "id": "ihl-05-obs-context-picker__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-05-obs-context-picker.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-context-picker__AppShell"
+  },
+  {
+    "id": "ihl-05-obs-context-picker__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-05-obs-context-picker.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-05-obs-context-picker__ContentArea"
+  },
+  {
+    "id": "ihl-05-obs-context-picker__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-05-obs-context-picker.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-context-picker__PageHeader"
+  },
+  {
+    "id": "ihl-05-obs-context-picker__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-05-obs-context-picker.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-05-obs-context-picker__PrimaryAction"
+  },
+  {
+    "id": "ihl-05-obs-context-picker__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-05-obs-context-picker.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-context-picker__StatePanel"
+  },
+  {
+    "id": "ihl-05-obs-detail-similar__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-05-obs-detail-similar.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-detail-similar__AppShell"
+  },
+  {
+    "id": "ihl-05-obs-detail-similar__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-05-obs-detail-similar.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-05-obs-detail-similar__ContentArea"
+  },
+  {
+    "id": "ihl-05-obs-detail-similar__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-05-obs-detail-similar.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-detail-similar__PageHeader"
+  },
+  {
+    "id": "ihl-05-obs-detail-similar__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-05-obs-detail-similar.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-05-obs-detail-similar__PrimaryAction"
+  },
+  {
+    "id": "ihl-05-obs-detail-similar__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-05-obs-detail-similar.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-detail-similar__StatePanel"
+  },
+  {
+    "id": "ihl-05-obs-device-link__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-05-obs-device-link.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-device-link__AppShell"
+  },
+  {
+    "id": "ihl-05-obs-device-link__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-05-obs-device-link.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-05-obs-device-link__ContentArea"
+  },
+  {
+    "id": "ihl-05-obs-device-link__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-05-obs-device-link.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-device-link__PageHeader"
+  },
+  {
+    "id": "ihl-05-obs-device-link__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-05-obs-device-link.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-05-obs-device-link__PrimaryAction"
+  },
+  {
+    "id": "ihl-05-obs-device-link__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-05-obs-device-link.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-device-link__StatePanel"
+  },
+  {
+    "id": "ihl-05-obs-input-female__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-05-obs-input-female.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-input-female__AppShell"
+  },
+  {
+    "id": "ihl-05-obs-input-female__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-05-obs-input-female.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-05-obs-input-female__ContentArea"
+  },
+  {
+    "id": "ihl-05-obs-input-female__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-05-obs-input-female.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-input-female__PageHeader"
+  },
+  {
+    "id": "ihl-05-obs-input-female__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-05-obs-input-female.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-05-obs-input-female__PrimaryAction"
+  },
+  {
+    "id": "ihl-05-obs-input-female__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-05-obs-input-female.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-input-female__StatePanel"
+  },
+  {
+    "id": "ihl-05-obs-input-male__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-05-obs-input-male.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-input-male__AppShell"
+  },
+  {
+    "id": "ihl-05-obs-input-male__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-05-obs-input-male.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-05-obs-input-male__ContentArea"
+  },
+  {
+    "id": "ihl-05-obs-input-male__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-05-obs-input-male.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-input-male__PageHeader"
+  },
+  {
+    "id": "ihl-05-obs-input-male__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-05-obs-input-male.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-05-obs-input-male__PrimaryAction"
+  },
+  {
+    "id": "ihl-05-obs-input-male__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-05-obs-input-male.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-input-male__StatePanel"
+  },
+  {
+    "id": "ihl-05-obs-input-row__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-05-obs-input-row.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-input-row__AppShell"
+  },
+  {
+    "id": "ihl-05-obs-input-row__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-05-obs-input-row.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-05-obs-input-row__ContentArea"
+  },
+  {
+    "id": "ihl-05-obs-input-row__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-05-obs-input-row.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-input-row__PageHeader"
+  },
+  {
+    "id": "ihl-05-obs-input-row__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-05-obs-input-row.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-05-obs-input-row__PrimaryAction"
+  },
+  {
+    "id": "ihl-05-obs-input-row__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-05-obs-input-row.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-input-row__StatePanel"
+  },
+  {
+    "id": "ihl-05-obs-search-grid__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-05-obs-search-grid.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-search-grid__AppShell"
+  },
+  {
+    "id": "ihl-05-obs-search-grid__EmptyState",
+    "region": "EmptyState",
+    "mock": "ihl-05-obs-search-grid.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-05-obs-search-grid__EmptyState"
+  },
+  {
+    "id": "ihl-05-obs-search-grid__Pagination",
+    "region": "Pagination",
+    "mock": "ihl-05-obs-search-grid.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-05-obs-search-grid__Pagination"
+  },
+  {
+    "id": "ihl-05-obs-search-grid__ResultGridCard",
+    "region": "ResultGridCard",
+    "mock": "ihl-05-obs-search-grid.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-search-grid__ResultGridCard"
+  },
+  {
+    "id": "ihl-05-obs-search-grid__SearchFilterBar",
+    "region": "SearchFilterBar",
+    "mock": "ihl-05-obs-search-grid.png",
+    "primitive": "input",
+    "reuse": "required",
+    "label": "ihl-05-obs-search-grid__SearchFilterBar"
+  },
+  {
+    "id": "ihl-05-obs-template-detail__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-05-obs-template-detail.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-template-detail__AppShell"
+  },
+  {
+    "id": "ihl-05-obs-template-detail__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-05-obs-template-detail.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-05-obs-template-detail__ContentArea"
+  },
+  {
+    "id": "ihl-05-obs-template-detail__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-05-obs-template-detail.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-template-detail__PageHeader"
+  },
+  {
+    "id": "ihl-05-obs-template-detail__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-05-obs-template-detail.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-05-obs-template-detail__PrimaryAction"
+  },
+  {
+    "id": "ihl-05-obs-template-detail__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-05-obs-template-detail.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-template-detail__StatePanel"
+  },
+  {
+    "id": "ihl-05-obs-template-fork__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-05-obs-template-fork.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-template-fork__AppShell"
+  },
+  {
+    "id": "ihl-05-obs-template-fork__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-05-obs-template-fork.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-05-obs-template-fork__ContentArea"
+  },
+  {
+    "id": "ihl-05-obs-template-fork__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-05-obs-template-fork.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-template-fork__PageHeader"
+  },
+  {
+    "id": "ihl-05-obs-template-fork__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-05-obs-template-fork.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-05-obs-template-fork__PrimaryAction"
+  },
+  {
+    "id": "ihl-05-obs-template-fork__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-05-obs-template-fork.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-template-fork__StatePanel"
+  },
+  {
+    "id": "ihl-05-obs-template-list__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-05-obs-template-list.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-template-list__AppShell"
+  },
+  {
+    "id": "ihl-05-obs-template-list__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-05-obs-template-list.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-05-obs-template-list__ContentArea"
+  },
+  {
+    "id": "ihl-05-obs-template-list__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-05-obs-template-list.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-template-list__PageHeader"
+  },
+  {
+    "id": "ihl-05-obs-template-list__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-05-obs-template-list.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-05-obs-template-list__PrimaryAction"
+  },
+  {
+    "id": "ihl-05-obs-template-list__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-05-obs-template-list.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-05-obs-template-list__StatePanel"
+  },
+  {
+    "id": "ihl-06-market-auction-bid__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-06-market-auction-bid.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-auction-bid__AppShell"
+  },
+  {
+    "id": "ihl-06-market-auction-bid__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-06-market-auction-bid.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-06-market-auction-bid__ContentArea"
+  },
+  {
+    "id": "ihl-06-market-auction-bid__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-06-market-auction-bid.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-auction-bid__PageHeader"
+  },
+  {
+    "id": "ihl-06-market-auction-bid__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-06-market-auction-bid.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-06-market-auction-bid__PrimaryAction"
+  },
+  {
+    "id": "ihl-06-market-auction-bid__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-06-market-auction-bid.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-auction-bid__StatePanel"
+  },
+  {
+    "id": "ihl-06-market-browse__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-06-market-browse.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-browse__AppShell"
+  },
+  {
+    "id": "ihl-06-market-browse__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-06-market-browse.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-06-market-browse__ContentArea"
+  },
+  {
+    "id": "ihl-06-market-browse__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-06-market-browse.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-browse__PageHeader"
+  },
+  {
+    "id": "ihl-06-market-browse__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-06-market-browse.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-06-market-browse__PrimaryAction"
+  },
+  {
+    "id": "ihl-06-market-browse__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-06-market-browse.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-browse__StatePanel"
+  },
+  {
+    "id": "ihl-06-market-detail-board-stage2__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-06-market-detail-board-stage2.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-detail-board-stage2__AppShell"
+  },
+  {
+    "id": "ihl-06-market-detail-board-stage2__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-06-market-detail-board-stage2.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-06-market-detail-board-stage2__ContentArea"
+  },
+  {
+    "id": "ihl-06-market-detail-board-stage2__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-06-market-detail-board-stage2.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-detail-board-stage2__PageHeader"
+  },
+  {
+    "id": "ihl-06-market-detail-board-stage2__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-06-market-detail-board-stage2.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-06-market-detail-board-stage2__PrimaryAction"
+  },
+  {
+    "id": "ihl-06-market-detail-board-stage2__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-06-market-detail-board-stage2.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-detail-board-stage2__StatePanel"
+  },
+  {
+    "id": "ihl-06-market-detail-board-stage3__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-06-market-detail-board-stage3.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-detail-board-stage3__AppShell"
+  },
+  {
+    "id": "ihl-06-market-detail-board-stage3__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-06-market-detail-board-stage3.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-06-market-detail-board-stage3__ContentArea"
+  },
+  {
+    "id": "ihl-06-market-detail-board-stage3__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-06-market-detail-board-stage3.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-detail-board-stage3__PageHeader"
+  },
+  {
+    "id": "ihl-06-market-detail-board-stage3__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-06-market-detail-board-stage3.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-06-market-detail-board-stage3__PrimaryAction"
+  },
+  {
+    "id": "ihl-06-market-detail-board-stage3__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-06-market-detail-board-stage3.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-detail-board-stage3__StatePanel"
+  },
+  {
+    "id": "ihl-06-market-detail-board__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-06-market-detail-board.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-detail-board__AppShell"
+  },
+  {
+    "id": "ihl-06-market-detail-board__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-06-market-detail-board.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-06-market-detail-board__ContentArea"
+  },
+  {
+    "id": "ihl-06-market-detail-board__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-06-market-detail-board.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-detail-board__PageHeader"
+  },
+  {
+    "id": "ihl-06-market-detail-board__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-06-market-detail-board.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-06-market-detail-board__PrimaryAction"
+  },
+  {
+    "id": "ihl-06-market-detail-board__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-06-market-detail-board.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-detail-board__StatePanel"
+  },
+  {
+    "id": "ihl-06-market-listing-create__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-06-market-listing-create.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-listing-create__AppShell"
+  },
+  {
+    "id": "ihl-06-market-listing-create__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-06-market-listing-create.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-06-market-listing-create__ContentArea"
+  },
+  {
+    "id": "ihl-06-market-listing-create__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-06-market-listing-create.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-listing-create__PageHeader"
+  },
+  {
+    "id": "ihl-06-market-listing-create__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-06-market-listing-create.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-06-market-listing-create__PrimaryAction"
+  },
+  {
+    "id": "ihl-06-market-listing-create__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-06-market-listing-create.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-listing-create__StatePanel"
+  },
+  {
+    "id": "ihl-06-market-lottery-apply__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-06-market-lottery-apply.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-lottery-apply__AppShell"
+  },
+  {
+    "id": "ihl-06-market-lottery-apply__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-06-market-lottery-apply.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-06-market-lottery-apply__ContentArea"
+  },
+  {
+    "id": "ihl-06-market-lottery-apply__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-06-market-lottery-apply.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-lottery-apply__PageHeader"
+  },
+  {
+    "id": "ihl-06-market-lottery-apply__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-06-market-lottery-apply.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-06-market-lottery-apply__PrimaryAction"
+  },
+  {
+    "id": "ihl-06-market-lottery-apply__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-06-market-lottery-apply.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-lottery-apply__StatePanel"
+  },
+  {
+    "id": "ihl-06-market-lottery-result-lose__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-06-market-lottery-result-lose.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-lottery-result-lose__AppShell"
+  },
+  {
+    "id": "ihl-06-market-lottery-result-lose__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-06-market-lottery-result-lose.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-06-market-lottery-result-lose__ContentArea"
+  },
+  {
+    "id": "ihl-06-market-lottery-result-lose__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-06-market-lottery-result-lose.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-lottery-result-lose__PageHeader"
+  },
+  {
+    "id": "ihl-06-market-lottery-result-lose__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-06-market-lottery-result-lose.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-06-market-lottery-result-lose__PrimaryAction"
+  },
+  {
+    "id": "ihl-06-market-lottery-result-lose__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-06-market-lottery-result-lose.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-lottery-result-lose__StatePanel"
+  },
+  {
+    "id": "ihl-06-market-lottery-result__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-06-market-lottery-result.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-lottery-result__AppShell"
+  },
+  {
+    "id": "ihl-06-market-lottery-result__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-06-market-lottery-result.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-06-market-lottery-result__ContentArea"
+  },
+  {
+    "id": "ihl-06-market-lottery-result__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-06-market-lottery-result.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-lottery-result__PageHeader"
+  },
+  {
+    "id": "ihl-06-market-lottery-result__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-06-market-lottery-result.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-06-market-lottery-result__PrimaryAction"
+  },
+  {
+    "id": "ihl-06-market-lottery-result__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-06-market-lottery-result.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-lottery-result__StatePanel"
+  },
+  {
+    "id": "ihl-06-market-lottery-tab__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-06-market-lottery-tab.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-lottery-tab__AppShell"
+  },
+  {
+    "id": "ihl-06-market-lottery-tab__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-06-market-lottery-tab.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-06-market-lottery-tab__ContentArea"
+  },
+  {
+    "id": "ihl-06-market-lottery-tab__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-06-market-lottery-tab.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-lottery-tab__PageHeader"
+  },
+  {
+    "id": "ihl-06-market-lottery-tab__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-06-market-lottery-tab.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-06-market-lottery-tab__PrimaryAction"
+  },
+  {
+    "id": "ihl-06-market-lottery-tab__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-06-market-lottery-tab.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-lottery-tab__StatePanel"
+  },
+  {
+    "id": "ihl-06-market-priority-queue-lose__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-06-market-priority-queue-lose.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-priority-queue-lose__AppShell"
+  },
+  {
+    "id": "ihl-06-market-priority-queue-lose__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-06-market-priority-queue-lose.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-06-market-priority-queue-lose__ContentArea"
+  },
+  {
+    "id": "ihl-06-market-priority-queue-lose__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-06-market-priority-queue-lose.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-priority-queue-lose__PageHeader"
+  },
+  {
+    "id": "ihl-06-market-priority-queue-lose__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-06-market-priority-queue-lose.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-06-market-priority-queue-lose__PrimaryAction"
+  },
+  {
+    "id": "ihl-06-market-priority-queue-lose__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-06-market-priority-queue-lose.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-priority-queue-lose__StatePanel"
+  },
+  {
+    "id": "ihl-06-market-priority-queue__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-06-market-priority-queue.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-priority-queue__AppShell"
+  },
+  {
+    "id": "ihl-06-market-priority-queue__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-06-market-priority-queue.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-06-market-priority-queue__ContentArea"
+  },
+  {
+    "id": "ihl-06-market-priority-queue__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-06-market-priority-queue.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-priority-queue__PageHeader"
+  },
+  {
+    "id": "ihl-06-market-priority-queue__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-06-market-priority-queue.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-06-market-priority-queue__PrimaryAction"
+  },
+  {
+    "id": "ihl-06-market-priority-queue__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-06-market-priority-queue.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-priority-queue__StatePanel"
+  },
+  {
+    "id": "ihl-06-market-priority-tab__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-06-market-priority-tab.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-priority-tab__AppShell"
+  },
+  {
+    "id": "ihl-06-market-priority-tab__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-06-market-priority-tab.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-06-market-priority-tab__ContentArea"
+  },
+  {
+    "id": "ihl-06-market-priority-tab__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-06-market-priority-tab.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-priority-tab__PageHeader"
+  },
+  {
+    "id": "ihl-06-market-priority-tab__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-06-market-priority-tab.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-06-market-priority-tab__PrimaryAction"
+  },
+  {
+    "id": "ihl-06-market-priority-tab__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-06-market-priority-tab.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-priority-tab__StatePanel"
+  },
+  {
+    "id": "ihl-06-market-social__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-06-market-social.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-social__AppShell"
+  },
+  {
+    "id": "ihl-06-market-social__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-06-market-social.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-06-market-social__ContentArea"
+  },
+  {
+    "id": "ihl-06-market-social__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-06-market-social.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-social__PageHeader"
+  },
+  {
+    "id": "ihl-06-market-social__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-06-market-social.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-06-market-social__PrimaryAction"
+  },
+  {
+    "id": "ihl-06-market-social__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-06-market-social.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-06-market-social__StatePanel"
+  },
+  {
+    "id": "ihl-07-board-hub__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-07-board-hub.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-07-board-hub__AppShell"
+  },
+  {
+    "id": "ihl-07-board-hub__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-07-board-hub.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-07-board-hub__ContentArea"
+  },
+  {
+    "id": "ihl-07-board-hub__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-07-board-hub.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-07-board-hub__PageHeader"
+  },
+  {
+    "id": "ihl-07-board-hub__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-07-board-hub.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-07-board-hub__PrimaryAction"
+  },
+  {
+    "id": "ihl-07-board-hub__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-07-board-hub.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-07-board-hub__StatePanel"
+  },
+  {
+    "id": "ihl-07-board-post---__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-07-board-post-愚痴.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-07-board-post---__AppShell"
+  },
+  {
+    "id": "ihl-07-board-post---__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-07-board-post-愚痴.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-07-board-post---__ContentArea"
+  },
+  {
+    "id": "ihl-07-board-post---__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-07-board-post-愚痴.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-07-board-post---__PageHeader"
+  },
+  {
+    "id": "ihl-07-board-post---__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-07-board-post-愚痴.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-07-board-post---__PrimaryAction"
+  },
+  {
+    "id": "ihl-07-board-post---__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-07-board-post-愚痴.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-07-board-post---__StatePanel"
+  },
+  {
+    "id": "ihl-07-board-thread-post__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-07-board-thread-post.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-07-board-thread-post__AppShell"
+  },
+  {
+    "id": "ihl-07-board-thread-post__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-07-board-thread-post.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-07-board-thread-post__ContentArea"
+  },
+  {
+    "id": "ihl-07-board-thread-post__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-07-board-thread-post.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-07-board-thread-post__PageHeader"
+  },
+  {
+    "id": "ihl-07-board-thread-post__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-07-board-thread-post.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-07-board-thread-post__PrimaryAction"
+  },
+  {
+    "id": "ihl-07-board-thread-post__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-07-board-thread-post.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-07-board-thread-post__StatePanel"
+  },
+  {
+    "id": "ihl-08-karma-summary__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-08-karma-summary.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-08-karma-summary__AppShell"
+  },
+  {
+    "id": "ihl-08-karma-summary__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-08-karma-summary.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-08-karma-summary__ContentArea"
+  },
+  {
+    "id": "ihl-08-karma-summary__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-08-karma-summary.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-08-karma-summary__PageHeader"
+  },
+  {
+    "id": "ihl-08-karma-summary__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-08-karma-summary.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-08-karma-summary__PrimaryAction"
+  },
+  {
+    "id": "ihl-08-karma-summary__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-08-karma-summary.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-08-karma-summary__StatePanel"
+  },
+  {
+    "id": "ihl-09-paper-in-progress__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-09-paper-in-progress.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-09-paper-in-progress__AppShell"
+  },
+  {
+    "id": "ihl-09-paper-in-progress__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-09-paper-in-progress.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-09-paper-in-progress__ContentArea"
+  },
+  {
+    "id": "ihl-09-paper-in-progress__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-09-paper-in-progress.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-09-paper-in-progress__PageHeader"
+  },
+  {
+    "id": "ihl-09-paper-in-progress__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-09-paper-in-progress.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-09-paper-in-progress__PrimaryAction"
+  },
+  {
+    "id": "ihl-09-paper-in-progress__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-09-paper-in-progress.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-09-paper-in-progress__StatePanel"
+  },
+  {
+    "id": "ihl-09-paper-template-fill__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-09-paper-template-fill.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-09-paper-template-fill__AppShell"
+  },
+  {
+    "id": "ihl-09-paper-template-fill__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-09-paper-template-fill.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-09-paper-template-fill__ContentArea"
+  },
+  {
+    "id": "ihl-09-paper-template-fill__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-09-paper-template-fill.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-09-paper-template-fill__PageHeader"
+  },
+  {
+    "id": "ihl-09-paper-template-fill__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-09-paper-template-fill.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-09-paper-template-fill__PrimaryAction"
+  },
+  {
+    "id": "ihl-09-paper-template-fill__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-09-paper-template-fill.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-09-paper-template-fill__StatePanel"
+  },
+  {
+    "id": "ihl-10-preference-pairwise__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-10-preference-pairwise.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-10-preference-pairwise__AppShell"
+  },
+  {
+    "id": "ihl-10-preference-pairwise__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-10-preference-pairwise.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-10-preference-pairwise__ContentArea"
+  },
+  {
+    "id": "ihl-10-preference-pairwise__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-10-preference-pairwise.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-10-preference-pairwise__PageHeader"
+  },
+  {
+    "id": "ihl-10-preference-pairwise__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-10-preference-pairwise.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-10-preference-pairwise__PrimaryAction"
+  },
+  {
+    "id": "ihl-10-preference-pairwise__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-10-preference-pairwise.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-10-preference-pairwise__StatePanel"
+  },
+  {
+    "id": "ihl-11-dispute-tworoom__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-11-dispute-tworoom.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-11-dispute-tworoom__AppShell"
+  },
+  {
+    "id": "ihl-11-dispute-tworoom__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-11-dispute-tworoom.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-11-dispute-tworoom__ContentArea"
+  },
+  {
+    "id": "ihl-11-dispute-tworoom__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-11-dispute-tworoom.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-11-dispute-tworoom__PageHeader"
+  },
+  {
+    "id": "ihl-11-dispute-tworoom__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-11-dispute-tworoom.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-11-dispute-tworoom__PrimaryAction"
+  },
+  {
+    "id": "ihl-11-dispute-tworoom__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-11-dispute-tworoom.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-11-dispute-tworoom__StatePanel"
+  },
+  {
+    "id": "ihl-12-settings-hub__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-12-settings-hub.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-12-settings-hub__AppShell"
+  },
+  {
+    "id": "ihl-12-settings-hub__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-12-settings-hub.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-12-settings-hub__ContentArea"
+  },
+  {
+    "id": "ihl-12-settings-hub__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-12-settings-hub.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-12-settings-hub__PageHeader"
+  },
+  {
+    "id": "ihl-12-settings-hub__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-12-settings-hub.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-12-settings-hub__PrimaryAction"
+  },
+  {
+    "id": "ihl-12-settings-hub__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-12-settings-hub.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-12-settings-hub__StatePanel"
+  },
+  {
+    "id": "ihl-12-settings-pii__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-12-settings-pii.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-12-settings-pii__AppShell"
+  },
+  {
+    "id": "ihl-12-settings-pii__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-12-settings-pii.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-12-settings-pii__ContentArea"
+  },
+  {
+    "id": "ihl-12-settings-pii__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-12-settings-pii.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-12-settings-pii__PageHeader"
+  },
+  {
+    "id": "ihl-12-settings-pii__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-12-settings-pii.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-12-settings-pii__PrimaryAction"
+  },
+  {
+    "id": "ihl-12-settings-pii__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-12-settings-pii.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-12-settings-pii__StatePanel"
+  },
+  {
+    "id": "ihl-13-device-registry__CollectorSetupBanner",
+    "region": "CollectorSetupBanner",
+    "mock": "ihl-13-device-registry.png",
+    "primitive": "badge",
+    "reuse": "required",
+    "label": "ihl-13-device-registry__CollectorSetupBanner"
+  },
+  {
+    "id": "ihl-13-device-registry__CsvImportBlock",
+    "region": "CsvImportBlock",
+    "mock": "ihl-13-device-registry.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-13-device-registry__CsvImportBlock"
+  },
+  {
+    "id": "ihl-13-device-registry__DeviceListCard",
+    "region": "DeviceListCard",
+    "mock": "ihl-13-device-registry.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-13-device-registry__DeviceListCard"
+  },
+  {
+    "id": "ihl-13-device-registry__ManualRegisterForm",
+    "region": "ManualRegisterForm",
+    "mock": "ihl-13-device-registry.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-13-device-registry__ManualRegisterForm"
+  },
+  {
+    "id": "ihl-14-contribution-badge__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-14-contribution-badge.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-14-contribution-badge__AppShell"
+  },
+  {
+    "id": "ihl-14-contribution-badge__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-14-contribution-badge.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-14-contribution-badge__ContentArea"
+  },
+  {
+    "id": "ihl-14-contribution-badge__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-14-contribution-badge.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-14-contribution-badge__PageHeader"
+  },
+  {
+    "id": "ihl-14-contribution-badge__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-14-contribution-badge.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-14-contribution-badge__PrimaryAction"
+  },
+  {
+    "id": "ihl-14-contribution-badge__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-14-contribution-badge.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-14-contribution-badge__StatePanel"
+  },
+  {
+    "id": "ihl-16-edit-this-screen-entry__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-16-edit-this-screen-entry.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-16-edit-this-screen-entry__AppShell"
+  },
+  {
+    "id": "ihl-16-edit-this-screen-entry__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-16-edit-this-screen-entry.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-16-edit-this-screen-entry__ContentArea"
+  },
+  {
+    "id": "ihl-16-edit-this-screen-entry__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-16-edit-this-screen-entry.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-16-edit-this-screen-entry__PageHeader"
+  },
+  {
+    "id": "ihl-16-edit-this-screen-entry__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-16-edit-this-screen-entry.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-16-edit-this-screen-entry__PrimaryAction"
+  },
+  {
+    "id": "ihl-16-edit-this-screen-entry__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-16-edit-this-screen-entry.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-16-edit-this-screen-entry__StatePanel"
+  },
+  {
+    "id": "ihl-16-uibuilder-canvas__BuilderShell",
+    "region": "BuilderShell",
+    "mock": "ihl-16-uibuilder-canvas.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-16-uibuilder-canvas__BuilderShell"
+  },
+  {
+    "id": "ihl-16-uibuilder-canvas__CanvasDropZone",
+    "region": "CanvasDropZone",
+    "mock": "ihl-16-uibuilder-canvas.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-16-uibuilder-canvas__CanvasDropZone"
+  },
+  {
+    "id": "ihl-16-uibuilder-canvas__LintPanel",
+    "region": "LintPanel",
+    "mock": "ihl-16-uibuilder-canvas.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-16-uibuilder-canvas__LintPanel"
+  },
+  {
+    "id": "ihl-16-uibuilder-canvas__PartsPalette",
+    "region": "PartsPalette",
+    "mock": "ihl-16-uibuilder-canvas.png",
+    "primitive": "tab",
+    "reuse": "required",
+    "label": "ihl-16-uibuilder-canvas__PartsPalette"
+  },
+  {
+    "id": "ihl-16-uibuilder-canvas__SaveBar",
+    "region": "SaveBar",
+    "mock": "ihl-16-uibuilder-canvas.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-16-uibuilder-canvas__SaveBar"
+  },
+  {
+    "id": "ihl-17-world-template-picker__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-17-world-template-picker.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-17-world-template-picker__AppShell"
+  },
+  {
+    "id": "ihl-17-world-template-picker__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-17-world-template-picker.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-17-world-template-picker__ContentArea"
+  },
+  {
+    "id": "ihl-17-world-template-picker__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-17-world-template-picker.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-17-world-template-picker__PageHeader"
+  },
+  {
+    "id": "ihl-17-world-template-picker__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-17-world-template-picker.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-17-world-template-picker__PrimaryAction"
+  },
+  {
+    "id": "ihl-17-world-template-picker__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-17-world-template-picker.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-17-world-template-picker__StatePanel"
+  },
+  {
+    "id": "ihl-18-photo-analysis-result__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-18-photo-analysis-result.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-18-photo-analysis-result__AppShell"
+  },
+  {
+    "id": "ihl-18-photo-analysis-result__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-18-photo-analysis-result.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-18-photo-analysis-result__ContentArea"
+  },
+  {
+    "id": "ihl-18-photo-analysis-result__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-18-photo-analysis-result.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-18-photo-analysis-result__PageHeader"
+  },
+  {
+    "id": "ihl-18-photo-analysis-result__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-18-photo-analysis-result.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-18-photo-analysis-result__PrimaryAction"
+  },
+  {
+    "id": "ihl-18-photo-analysis-result__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-18-photo-analysis-result.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-18-photo-analysis-result__StatePanel"
+  },
+  {
+    "id": "ihl-19-component-board__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-19-component-board.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-19-component-board__AppShell"
+  },
+  {
+    "id": "ihl-19-component-board__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-19-component-board.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-19-component-board__ContentArea"
+  },
+  {
+    "id": "ihl-19-component-board__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-19-component-board.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-19-component-board__PageHeader"
+  },
+  {
+    "id": "ihl-19-component-board__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-19-component-board.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-19-component-board__PrimaryAction"
+  },
+  {
+    "id": "ihl-19-component-board__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-19-component-board.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-19-component-board__StatePanel"
+  },
+  {
+    "id": "ihl-20-vote-general__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-20-vote-general.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-20-vote-general__AppShell"
+  },
+  {
+    "id": "ihl-20-vote-general__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-20-vote-general.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-20-vote-general__ContentArea"
+  },
+  {
+    "id": "ihl-20-vote-general__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-20-vote-general.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-20-vote-general__PageHeader"
+  },
+  {
+    "id": "ihl-20-vote-general__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-20-vote-general.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-20-vote-general__PrimaryAction"
+  },
+  {
+    "id": "ihl-20-vote-general__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-20-vote-general.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-20-vote-general__StatePanel"
+  },
+  {
+    "id": "ihl-22-pt-shop__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-22-pt-shop.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-22-pt-shop__AppShell"
+  },
+  {
+    "id": "ihl-22-pt-shop__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-22-pt-shop.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-22-pt-shop__ContentArea"
+  },
+  {
+    "id": "ihl-22-pt-shop__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-22-pt-shop.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-22-pt-shop__PageHeader"
+  },
+  {
+    "id": "ihl-22-pt-shop__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-22-pt-shop.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-22-pt-shop__PrimaryAction"
+  },
+  {
+    "id": "ihl-22-pt-shop__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-22-pt-shop.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-22-pt-shop__StatePanel"
+  },
+  {
+    "id": "ihl-23-gmo-transfer__FeeBreakdown",
+    "region": "FeeBreakdown",
+    "mock": "ihl-23-gmo-transfer.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-23-gmo-transfer__FeeBreakdown"
+  },
+  {
+    "id": "ihl-23-gmo-transfer__GmoTransferPanel",
+    "region": "GmoTransferPanel",
+    "mock": "ihl-23-gmo-transfer.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-23-gmo-transfer__GmoTransferPanel"
+  },
+  {
+    "id": "ihl-23-gmo-transfer__StatusChip",
+    "region": "StatusChip",
+    "mock": "ihl-23-gmo-transfer.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-23-gmo-transfer__StatusChip"
+  },
+  {
+    "id": "ihl-23-gmo-transfer__TransferCodeDisplay",
+    "region": "TransferCodeDisplay",
+    "mock": "ihl-23-gmo-transfer.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-23-gmo-transfer__TransferCodeDisplay"
+  },
+  {
+    "id": "ihl-profile-three-metrics__AppShell",
+    "region": "AppShell",
+    "mock": "ihl-profile-three-metrics.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-profile-three-metrics__AppShell"
+  },
+  {
+    "id": "ihl-profile-three-metrics__ContentArea",
+    "region": "ContentArea",
+    "mock": "ihl-profile-three-metrics.png",
+    "primitive": "card",
+    "reuse": "optional",
+    "label": "ihl-profile-three-metrics__ContentArea"
+  },
+  {
+    "id": "ihl-profile-three-metrics__PageHeader",
+    "region": "PageHeader",
+    "mock": "ihl-profile-three-metrics.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-profile-three-metrics__PageHeader"
+  },
+  {
+    "id": "ihl-profile-three-metrics__PrimaryAction",
+    "region": "PrimaryAction",
+    "mock": "ihl-profile-three-metrics.png",
+    "primitive": "button",
+    "reuse": "required",
+    "label": "ihl-profile-three-metrics__PrimaryAction"
+  },
+  {
+    "id": "ihl-profile-three-metrics__StatePanel",
+    "region": "StatePanel",
+    "mock": "ihl-profile-three-metrics.png",
+    "primitive": "card",
+    "reuse": "required",
+    "label": "ihl-profile-three-metrics__StatePanel"
+  }
+]

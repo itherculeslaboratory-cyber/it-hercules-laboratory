@@ -1,0 +1,36 @@
+{
+  "screen_id": "03met",
+  "route": "/cross/:id/metrics/:metric",
+  "title": "率 詳細一覧（指標）",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "main",
+      "component_id": "ihl-03-lineage-metrics-detail__MetricsDetailPanel",
+      "region": "MetricsDetailPanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "05b",
+      "label": "観測詳細へ"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "03",
+      "label": "Crossへ"
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "03m",
+      "label": "死亡一覧へ"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: mockups/ihl-03-lineage-metrics-detail.png"
+}

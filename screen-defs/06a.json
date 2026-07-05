@@ -1,0 +1,61 @@
+{
+  "screen_id": "06a",
+  "route": "/market",
+  "title": "マーケット 出品一覧",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "part-0",
+      "component_id": "ihl-06-market-browse__ContentArea",
+      "region": "ContentArea"
+    },
+    {
+      "id": "part-1",
+      "component_id": "ihl-06-market-browse__PrimaryAction",
+      "region": "PrimaryAction"
+    },
+    {
+      "id": "part-2",
+      "component_id": "ihl-06-market-browse__StatePanel",
+      "region": "StatePanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "06list",
+      "label": "〔出品する〕"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "06b",
+      "label": "出品カード → 詳細"
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "06lot-tab",
+      "label": "タブ › 抽選"
+    },
+    {
+      "from": "hotspot.3",
+      "to_screen_id": "06pri-tab",
+      "label": "タブ › 優先順"
+    },
+    {
+      "from": "hotspot.4",
+      "to_screen_id": "06auc",
+      "label": "タブ › オークション"
+    },
+    {
+      "from": "hotspot.5",
+      "to_screen_id": "PRnotif",
+      "label": "通知（マイページ）"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: ihl-06-market-browse.png"
+}

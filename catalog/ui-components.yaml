@@ -1,0 +1,2366 @@
+# UI 部品カタログ — UIbuilder / ScreenDef 正本（W2）
+# AUTO-GENERATED header + manual overrides — run: node scripts/w2-generate.mjs
+version: 1
+
+components:
+  - id: ihl-brand-chrome
+    kind: layout
+    path: packages/ihl-ui-catalog/src/components/BrandChrome.tsx
+    status: w2_pilot
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: 単一ブランドバー
+  - id: ihl-primitive-primary-button
+    kind: action
+    path: packages/ihl-ui-catalog/src/components/PrimaryButton.tsx
+    status: w2_pilot
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: 主 CTA
+  - id: ihl-primitive-form-field
+    kind: input
+    path: packages/ihl-ui-catalog/src/components/FormField.tsx
+    status: w2_pilot
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: フォームフィールド
+  - id: ihl-00-onboarding-login__LoginMagicLinkForm
+    kind: auth
+    path: packages/ihl-ui-catalog/src/components/LoginMagicLinkForm.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ログインカード
+  - id: ihl-00-onboarding-signup__SignupOnboardingForm
+    kind: auth
+    path: packages/ihl-ui-catalog/src/components/SignupOnboardingForm.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: 新規登録カード
+  - id: ihl-00-terms__TermsAgreementForm
+    kind: auth
+    path: packages/ihl-ui-catalog/src/components/TermsAgreementForm.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: 利用規約カード
+  - id: ihl-05-obs-hand-ui
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/observation/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: 観測 11 画面 O2 手実装
+  - id: ihl-06-market-hand-ui
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/market/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: マーケット 15 画面 O2 手実装
+  - id: ihl-01-nav-home__HomeCommandPanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/HomeCommandPanel.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ホーム司令塔
+  - id: ihl-03-lineage-cross__CrossDashboardPanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/LineageCrossPanel.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: 血統・交配 Cross
+  - id: ihl-03-lineage-metrics-detail__MetricsDetailPanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/LineageMetricsPanel.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: 血統メトリクス詳細
+  - id: ihl-03-lineage-mortality-detail__MortalityListPanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/LineageMortalityPanel.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: 死亡一覧
+  - id: ihl-03-lineage-growth-detail__GrowthDetailPanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/LineageGrowthPanel.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: 成長詳細
+  - id: ihl-09-paper-in-progress__PaperProgressPanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/PaperInProgressPanel.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: 論文 進行中
+  - id: ihl-09-paper-template-fill__PaperTemplatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/PaperTemplatePanel.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: 論文テンプレート穴埋め
+  - id: ihl-07-board-hub__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · O2 hand UI
+  - id: ihl-07-board-hub__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · O2 hand UI
+  - id: ihl-07-board-hub__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · O2 hand UI
+  - id: ihl-07-board-thread-post__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · O2 hand UI
+  - id: ihl-07-board-thread-post__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · O2 hand UI
+  - id: ihl-07-board-thread-post__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · O2 hand UI
+  - id: ihl-07-board-post---__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · O2 hand UI
+  - id: ihl-07-board-post---__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · O2 hand UI
+  - id: ihl-07-board-post---__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · O2 hand UI
+  - id: ihl-19-component-board__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · O2 hand UI
+  - id: ihl-19-component-board__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · O2 hand UI
+  - id: ihl-19-component-board__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · O2 hand UI
+  - id: ihl-12-settings-hub__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · O2 hand UI
+  - id: ihl-12-settings-hub__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · O2 hand UI
+  - id: ihl-12-settings-hub__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · O2 hand UI
+  - id: ihl-12-settings-pii__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · O2 hand UI
+  - id: ihl-12-settings-pii__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · O2 hand UI
+  - id: ihl-12-settings-pii__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · O2 hand UI
+  - id: ihl-17-world-template-picker__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · O2 hand UI
+  - id: ihl-17-world-template-picker__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · O2 hand UI
+  - id: ihl-17-world-template-picker__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · O2 hand UI
+  - id: ihl-profile-three-metrics__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · O2 hand UI
+  - id: ihl-profile-three-metrics__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · O2 hand UI
+  - id: ihl-profile-three-metrics__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · O2 hand UI
+  - id: ihl-08-karma-summary__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · O2 hand UI
+  - id: ihl-08-karma-summary__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · O2 hand UI
+  - id: ihl-08-karma-summary__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · O2 hand UI
+  - id: ihl-14-contribution-badge__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · O2 hand UI
+  - id: ihl-14-contribution-badge__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · O2 hand UI
+  - id: ihl-14-contribution-badge__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · O2 hand UI
+  - id: ihl-22-pt-shop__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · O2 hand UI
+  - id: ihl-22-pt-shop__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · O2 hand UI
+  - id: ihl-22-pt-shop__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · O2 hand UI
+  - id: ihl-10-preference-pairwise__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · O2 hand UI
+  - id: ihl-10-preference-pairwise__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · O2 hand UI
+  - id: ihl-10-preference-pairwise__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · O2 hand UI
+  - id: ihl-11-dispute-tworoom__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · O2 hand UI
+  - id: ihl-11-dispute-tworoom__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · O2 hand UI
+  - id: ihl-11-dispute-tworoom__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · O2 hand UI
+  - id: ihl-20-vote-general__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · O2 hand UI
+  - id: ihl-20-vote-general__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · O2 hand UI
+  - id: ihl-20-vote-general__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · O2 hand UI
+  - id: ihl-16-edit-this-screen-entry__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · O2 hand UI
+  - id: ihl-16-edit-this-screen-entry__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · O2 hand UI
+  - id: ihl-16-edit-this-screen-entry__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/hand-components.ts
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · O2 hand UI
+  - id: ihl-13-device-registry__CollectorSetupBanner
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/_shared/DeviceRegistryParts.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: CollectorSetupBanner · 機器管理
+  - id: ihl-13-device-registry__CsvImportBlock
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/_shared/DeviceRegistryParts.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: CsvImportBlock · 機器管理
+  - id: ihl-13-device-registry__DeviceListCard
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/_shared/DeviceRegistryParts.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: DeviceListCard · 機器管理
+  - id: ihl-13-device-registry__ManualRegisterForm
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/_shared/DeviceRegistryParts.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ManualRegisterForm · 機器管理
+  - id: ihl-16-uibuilder-canvas__BuilderShell
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/_shared/BuilderParts.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: BuilderShell · UIビルダー
+  - id: ihl-16-uibuilder-canvas__CanvasDropZone
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/_shared/BuilderParts.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: CanvasDropZone · UIビルダー
+  - id: ihl-16-uibuilder-canvas__LintPanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/_shared/BuilderParts.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: LintPanel · UIビルダー
+  - id: ihl-16-uibuilder-canvas__PartsPalette
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/_shared/BuilderParts.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PartsPalette · UIビルダー
+  - id: ihl-16-uibuilder-canvas__SaveBar
+    kind: feature
+    path: packages/ihl-ui-catalog/src/components/features/_shared/BuilderParts.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: SaveBar · UIビルダー
+  - id: ihl-05-obs-context-picker__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-context-picker__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-context-picker__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-detail-similar__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-detail-similar__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-detail-similar__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-device-link__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-device-link__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-device-link__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-input-female__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-input-female__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-input-female__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-input-male__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-input-male__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-input-male__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-input-row__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-input-row__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-input-row__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-search-grid__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-search-grid__EmptyState
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-search-grid__Pagination
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-search-grid__ResultGridCard
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-search-grid__SearchFilterBar
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-template-detail__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-template-detail__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-template-detail__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-template-fork__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-template-fork__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-template-fork__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-template-list__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-template-list__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-05-obs-template-list__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-auction-bid__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-auction-bid__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-auction-bid__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-browse__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-browse__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-browse__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-detail-board-stage2__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-detail-board-stage2__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-detail-board-stage2__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-detail-board-stage3__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-detail-board-stage3__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-detail-board-stage3__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-detail-board__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-detail-board__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-detail-board__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-listing-create__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-listing-create__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-listing-create__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-lottery-apply__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-lottery-apply__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-lottery-apply__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-lottery-result-lose__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-lottery-result-lose__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-lottery-result-lose__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-lottery-result__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-lottery-result__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-lottery-result__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-lottery-tab__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-lottery-tab__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-lottery-tab__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-priority-queue-lose__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-priority-queue-lose__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-priority-queue-lose__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-priority-queue__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-priority-queue__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-priority-queue__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-priority-tab__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-priority-tab__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-priority-tab__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-social__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-social__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-06-market-social__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-18-photo-analysis-result__ContentArea
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-18-photo-analysis-result__PrimaryAction
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-18-photo-analysis-result__StatePanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-23-gmo-transfer__FeeBreakdown
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-23-gmo-transfer__GmoTransferPanel
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-23-gmo-transfer__StatusChip
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-23-gmo-transfer__TransferCodeDisplay
+    kind: feature
+    path: packages/ihl-ui-catalog/src/registry/overrides/
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: O2 hand override
+  - id: ihl-00-onboarding-login__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-00-onboarding-login__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-00-onboarding-login.png
+  - id: ihl-00-onboarding-login__ContentArea
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-00-onboarding-login__ContentArea.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · ihl-00-onboarding-login.png
+  - id: ihl-00-onboarding-login__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-00-onboarding-login__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-00-onboarding-login.png
+  - id: ihl-00-onboarding-login__PrimaryAction
+    kind: feature
+    primitive: button
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-00-onboarding-login__PrimaryAction.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · ihl-00-onboarding-login.png
+  - id: ihl-00-onboarding-login__StatePanel
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-00-onboarding-login__StatePanel.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · ihl-00-onboarding-login.png
+  - id: ihl-00-onboarding-signup__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-00-onboarding-signup__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-00-onboarding-signup.png
+  - id: ihl-00-onboarding-signup__ContentArea
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-00-onboarding-signup__ContentArea.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · ihl-00-onboarding-signup.png
+  - id: ihl-00-onboarding-signup__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-00-onboarding-signup__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-00-onboarding-signup.png
+  - id: ihl-00-onboarding-signup__PrimaryAction
+    kind: feature
+    primitive: button
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-00-onboarding-signup__PrimaryAction.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · ihl-00-onboarding-signup.png
+  - id: ihl-00-onboarding-signup__StatePanel
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-00-onboarding-signup__StatePanel.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · ihl-00-onboarding-signup.png
+  - id: ihl-00-terms__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-00-terms__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-00-terms.png
+  - id: ihl-00-terms__ContentArea
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-00-terms__ContentArea.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · ihl-00-terms.png
+  - id: ihl-00-terms__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-00-terms__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-00-terms.png
+  - id: ihl-00-terms__PrimaryAction
+    kind: feature
+    primitive: button
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-00-terms__PrimaryAction.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · ihl-00-terms.png
+  - id: ihl-00-terms__StatePanel
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-00-terms__StatePanel.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · ihl-00-terms.png
+  - id: ihl-01-nav-home__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-01-nav-home__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-01-nav-home.png
+  - id: ihl-01-nav-home__ContentArea
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-01-nav-home__ContentArea.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · ihl-01-nav-home.png
+  - id: ihl-01-nav-home__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-01-nav-home__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-01-nav-home.png
+  - id: ihl-01-nav-home__PrimaryAction
+    kind: feature
+    primitive: button
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-01-nav-home__PrimaryAction.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · ihl-01-nav-home.png
+  - id: ihl-01-nav-home__StatePanel
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-01-nav-home__StatePanel.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · ihl-01-nav-home.png
+  - id: ihl-03-lineage-cross__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-cross__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-03-lineage-cross.png
+  - id: ihl-03-lineage-cross__ContentArea
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-cross__ContentArea.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · ihl-03-lineage-cross.png
+  - id: ihl-03-lineage-cross__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-cross__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-03-lineage-cross.png
+  - id: ihl-03-lineage-cross__PrimaryAction
+    kind: feature
+    primitive: button
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-cross__PrimaryAction.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · ihl-03-lineage-cross.png
+  - id: ihl-03-lineage-cross__StatePanel
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-cross__StatePanel.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · ihl-03-lineage-cross.png
+  - id: ihl-03-lineage-growth-detail__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-growth-detail__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-03-lineage-growth-detail.png
+  - id: ihl-03-lineage-growth-detail__ContentArea
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-growth-detail__ContentArea.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · ihl-03-lineage-growth-detail.png
+  - id: ihl-03-lineage-growth-detail__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-growth-detail__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-03-lineage-growth-detail.png
+  - id: ihl-03-lineage-growth-detail__PrimaryAction
+    kind: feature
+    primitive: button
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-growth-detail__PrimaryAction.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · ihl-03-lineage-growth-detail.png
+  - id: ihl-03-lineage-growth-detail__StatePanel
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-growth-detail__StatePanel.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · ihl-03-lineage-growth-detail.png
+  - id: ihl-03-lineage-metrics-detail__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-metrics-detail__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-03-lineage-metrics-detail.png
+  - id: ihl-03-lineage-metrics-detail__ContentArea
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-metrics-detail__ContentArea.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · ihl-03-lineage-metrics-detail.png
+  - id: ihl-03-lineage-metrics-detail__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-metrics-detail__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-03-lineage-metrics-detail.png
+  - id: ihl-03-lineage-metrics-detail__PrimaryAction
+    kind: feature
+    primitive: button
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-metrics-detail__PrimaryAction.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · ihl-03-lineage-metrics-detail.png
+  - id: ihl-03-lineage-metrics-detail__StatePanel
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-metrics-detail__StatePanel.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · ihl-03-lineage-metrics-detail.png
+  - id: ihl-03-lineage-mortality-detail__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-mortality-detail__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-03-lineage-mortality-detail.png
+  - id: ihl-03-lineage-mortality-detail__ContentArea
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-mortality-detail__ContentArea.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · ihl-03-lineage-mortality-detail.png
+  - id: ihl-03-lineage-mortality-detail__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-mortality-detail__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-03-lineage-mortality-detail.png
+  - id: ihl-03-lineage-mortality-detail__PrimaryAction
+    kind: feature
+    primitive: button
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-mortality-detail__PrimaryAction.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · ihl-03-lineage-mortality-detail.png
+  - id: ihl-03-lineage-mortality-detail__StatePanel
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-03-lineage-mortality-detail__StatePanel.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · ihl-03-lineage-mortality-detail.png
+  - id: ihl-05-obs-context-picker__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-context-picker__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-05-obs-context-picker.png
+  - id: ihl-05-obs-context-picker__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-context-picker__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-05-obs-context-picker.png
+  - id: ihl-05-obs-detail-similar__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-detail-similar__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-05-obs-detail-similar.png
+  - id: ihl-05-obs-detail-similar__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-detail-similar__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-05-obs-detail-similar.png
+  - id: ihl-05-obs-device-link__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-device-link__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-05-obs-device-link.png
+  - id: ihl-05-obs-device-link__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-device-link__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-05-obs-device-link.png
+  - id: ihl-05-obs-input-female__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-input-female__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-05-obs-input-female.png
+  - id: ihl-05-obs-input-female__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-input-female__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-05-obs-input-female.png
+  - id: ihl-05-obs-input-male__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-input-male__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-05-obs-input-male.png
+  - id: ihl-05-obs-input-male__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-input-male__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-05-obs-input-male.png
+  - id: ihl-05-obs-input-row__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-input-row__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-05-obs-input-row.png
+  - id: ihl-05-obs-input-row__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-input-row__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-05-obs-input-row.png
+  - id: ihl-05-obs-search-grid__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-search-grid__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-05-obs-search-grid.png
+  - id: ihl-05-obs-template-detail__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-template-detail__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-05-obs-template-detail.png
+  - id: ihl-05-obs-template-detail__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-template-detail__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-05-obs-template-detail.png
+  - id: ihl-05-obs-template-fork__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-template-fork__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-05-obs-template-fork.png
+  - id: ihl-05-obs-template-fork__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-template-fork__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-05-obs-template-fork.png
+  - id: ihl-05-obs-template-list__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-template-list__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-05-obs-template-list.png
+  - id: ihl-05-obs-template-list__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-05-obs-template-list__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-05-obs-template-list.png
+  - id: ihl-06-market-auction-bid__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-auction-bid__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-06-market-auction-bid.png
+  - id: ihl-06-market-auction-bid__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-auction-bid__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-06-market-auction-bid.png
+  - id: ihl-06-market-browse__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-browse__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-06-market-browse.png
+  - id: ihl-06-market-browse__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-browse__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-06-market-browse.png
+  - id: ihl-06-market-detail-board-stage2__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-detail-board-stage2__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-06-market-detail-board-stage2.png
+  - id: ihl-06-market-detail-board-stage2__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-detail-board-stage2__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-06-market-detail-board-stage2.png
+  - id: ihl-06-market-detail-board-stage3__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-detail-board-stage3__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-06-market-detail-board-stage3.png
+  - id: ihl-06-market-detail-board-stage3__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-detail-board-stage3__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-06-market-detail-board-stage3.png
+  - id: ihl-06-market-detail-board__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-detail-board__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-06-market-detail-board.png
+  - id: ihl-06-market-detail-board__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-detail-board__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-06-market-detail-board.png
+  - id: ihl-06-market-listing-create__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-listing-create__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-06-market-listing-create.png
+  - id: ihl-06-market-listing-create__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-listing-create__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-06-market-listing-create.png
+  - id: ihl-06-market-lottery-apply__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-lottery-apply__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-06-market-lottery-apply.png
+  - id: ihl-06-market-lottery-apply__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-lottery-apply__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-06-market-lottery-apply.png
+  - id: ihl-06-market-lottery-result-lose__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-lottery-result-lose__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-06-market-lottery-result-lose.png
+  - id: ihl-06-market-lottery-result-lose__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-lottery-result-lose__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-06-market-lottery-result-lose.png
+  - id: ihl-06-market-lottery-result__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-lottery-result__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-06-market-lottery-result.png
+  - id: ihl-06-market-lottery-result__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-lottery-result__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-06-market-lottery-result.png
+  - id: ihl-06-market-lottery-tab__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-lottery-tab__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-06-market-lottery-tab.png
+  - id: ihl-06-market-lottery-tab__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-lottery-tab__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-06-market-lottery-tab.png
+  - id: ihl-06-market-priority-queue-lose__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-priority-queue-lose__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-06-market-priority-queue-lose.png
+  - id: ihl-06-market-priority-queue-lose__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-priority-queue-lose__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-06-market-priority-queue-lose.png
+  - id: ihl-06-market-priority-queue__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-priority-queue__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-06-market-priority-queue.png
+  - id: ihl-06-market-priority-queue__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-priority-queue__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-06-market-priority-queue.png
+  - id: ihl-06-market-priority-tab__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-priority-tab__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-06-market-priority-tab.png
+  - id: ihl-06-market-priority-tab__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-priority-tab__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-06-market-priority-tab.png
+  - id: ihl-06-market-social__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-social__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-06-market-social.png
+  - id: ihl-06-market-social__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-06-market-social__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-06-market-social.png
+  - id: ihl-07-board-hub__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-07-board-hub__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-07-board-hub.png
+  - id: ihl-07-board-hub__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-07-board-hub__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-07-board-hub.png
+  - id: ihl-07-board-post---__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-07-board-post---__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-07-board-post-愚痴.png
+  - id: ihl-07-board-post---__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-07-board-post---__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-07-board-post-愚痴.png
+  - id: ihl-07-board-thread-post__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-07-board-thread-post__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-07-board-thread-post.png
+  - id: ihl-07-board-thread-post__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-07-board-thread-post__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-07-board-thread-post.png
+  - id: ihl-08-karma-summary__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-08-karma-summary__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-08-karma-summary.png
+  - id: ihl-08-karma-summary__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-08-karma-summary__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-08-karma-summary.png
+  - id: ihl-09-paper-in-progress__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-09-paper-in-progress__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-09-paper-in-progress.png
+  - id: ihl-09-paper-in-progress__ContentArea
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-09-paper-in-progress__ContentArea.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · ihl-09-paper-in-progress.png
+  - id: ihl-09-paper-in-progress__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-09-paper-in-progress__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-09-paper-in-progress.png
+  - id: ihl-09-paper-in-progress__PrimaryAction
+    kind: feature
+    primitive: button
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-09-paper-in-progress__PrimaryAction.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · ihl-09-paper-in-progress.png
+  - id: ihl-09-paper-in-progress__StatePanel
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-09-paper-in-progress__StatePanel.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · ihl-09-paper-in-progress.png
+  - id: ihl-09-paper-template-fill__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-09-paper-template-fill__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-09-paper-template-fill.png
+  - id: ihl-09-paper-template-fill__ContentArea
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-09-paper-template-fill__ContentArea.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: ContentArea · ihl-09-paper-template-fill.png
+  - id: ihl-09-paper-template-fill__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-09-paper-template-fill__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-09-paper-template-fill.png
+  - id: ihl-09-paper-template-fill__PrimaryAction
+    kind: feature
+    primitive: button
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-09-paper-template-fill__PrimaryAction.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PrimaryAction · ihl-09-paper-template-fill.png
+  - id: ihl-09-paper-template-fill__StatePanel
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-09-paper-template-fill__StatePanel.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: StatePanel · ihl-09-paper-template-fill.png
+  - id: ihl-10-preference-pairwise__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-10-preference-pairwise__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-10-preference-pairwise.png
+  - id: ihl-10-preference-pairwise__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-10-preference-pairwise__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-10-preference-pairwise.png
+  - id: ihl-11-dispute-tworoom__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-11-dispute-tworoom__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-11-dispute-tworoom.png
+  - id: ihl-11-dispute-tworoom__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-11-dispute-tworoom__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-11-dispute-tworoom.png
+  - id: ihl-12-settings-hub__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-12-settings-hub__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-12-settings-hub.png
+  - id: ihl-12-settings-hub__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-12-settings-hub__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-12-settings-hub.png
+  - id: ihl-12-settings-pii__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-12-settings-pii__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-12-settings-pii.png
+  - id: ihl-12-settings-pii__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-12-settings-pii__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-12-settings-pii.png
+  - id: ihl-14-contribution-badge__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-14-contribution-badge__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-14-contribution-badge.png
+  - id: ihl-14-contribution-badge__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-14-contribution-badge__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-14-contribution-badge.png
+  - id: ihl-16-edit-this-screen-entry__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-16-edit-this-screen-entry__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-16-edit-this-screen-entry.png
+  - id: ihl-16-edit-this-screen-entry__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-16-edit-this-screen-entry__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-16-edit-this-screen-entry.png
+  - id: ihl-17-world-template-picker__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-17-world-template-picker__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-17-world-template-picker.png
+  - id: ihl-17-world-template-picker__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-17-world-template-picker__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-17-world-template-picker.png
+  - id: ihl-18-photo-analysis-result__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-18-photo-analysis-result__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-18-photo-analysis-result.png
+  - id: ihl-18-photo-analysis-result__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-18-photo-analysis-result__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-18-photo-analysis-result.png
+  - id: ihl-19-component-board__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-19-component-board__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-19-component-board.png
+  - id: ihl-19-component-board__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-19-component-board__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-19-component-board.png
+  - id: ihl-20-vote-general__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-20-vote-general__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-20-vote-general.png
+  - id: ihl-20-vote-general__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-20-vote-general__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-20-vote-general.png
+  - id: ihl-22-pt-shop__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-22-pt-shop__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-22-pt-shop.png
+  - id: ihl-22-pt-shop__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-22-pt-shop__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-22-pt-shop.png
+  - id: ihl-profile-three-metrics__AppShell
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-profile-three-metrics__AppShell.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: AppShell · ihl-profile-three-metrics.png
+  - id: ihl-profile-three-metrics__PageHeader
+    kind: feature
+    primitive: card
+    path: packages/ihl-ui-catalog/src/generated/components/ihl-profile-three-metrics__PageHeader.tsx
+    status: w2_scaffold
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: PageHeader · ihl-profile-three-metrics.png

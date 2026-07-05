@@ -1,0 +1,86 @@
+{
+  "screen_id": "05ctx",
+  "route": "(文脈バー · ボトムシート · ADR-H-16)",
+  "title": "観測 対象ナビゲータ + コンテキスト",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "main",
+      "component_id": "ihl-05-obs-context-picker__ContentArea",
+      "region": "ContentArea"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "05ctx",
+      "label": "① ドメイン › 生物（選択中）"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "05ctx",
+      "label": "① ドメイン › 器物・無機物"
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "05ctx",
+      "label": "① ドメイン › デジタル"
+    },
+    {
+      "from": "hotspot.3",
+      "to_screen_id": "05ctx",
+      "label": "① ドメイン › 環境"
+    },
+    {
+      "from": "hotspot.4",
+      "to_screen_id": "05ctx",
+      "label": "① ドメイン › カスタム"
+    },
+    {
+      "from": "hotspot.5",
+      "to_screen_id": "05ctx",
+      "label": "② タブ › 学名検索"
+    },
+    {
+      "from": "hotspot.6",
+      "to_screen_id": "05ctx",
+      "label": "② タブ › 質問で絞る（アキネーター式）"
+    },
+    {
+      "from": "hotspot.7",
+      "to_screen_id": "05ctx",
+      "label": "② タブ › 分類ツリー（選択中）"
+    },
+    {
+      "from": "hotspot.8",
+      "to_screen_id": "05ctx",
+      "label": "② 亜種 › D. h. hercules（選択）"
+    },
+    {
+      "from": "hotspot.9",
+      "to_screen_id": "05ctx",
+      "label": "亜種未区別（種まで）"
+    },
+    {
+      "from": "hotspot.10",
+      "to_screen_id": "05a",
+      "label": "③ 適用 → 検索（対象プリフィル）"
+    },
+    {
+      "from": "hotspot.11",
+      "to_screen_id": "05i",
+      "label": "適用 → 計測入力（プリフィル）"
+    },
+    {
+      "from": "hotspot.12",
+      "to_screen_id": "05tl",
+      "label": "適用 → テンプレ一覧（target_scope）"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: mockups/ihl-05-obs-context-picker.png"
+}

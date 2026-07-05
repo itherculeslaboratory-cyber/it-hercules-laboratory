@@ -1,0 +1,41 @@
+{
+  "screen_id": "22",
+  "route": "/economy/shop",
+  "title": "PT ショップ",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "part-0",
+      "component_id": "ihl-22-pt-shop__ContentArea",
+      "region": "ContentArea"
+    },
+    {
+      "id": "part-1",
+      "component_id": "ihl-22-pt-shop__PrimaryAction",
+      "region": "PrimaryAction"
+    },
+    {
+      "id": "part-2",
+      "component_id": "ihl-22-pt-shop__StatePanel",
+      "region": "StatePanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "14",
+      "label": "貢献度へ"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "20vote",
+      "label": "一般投票へ"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: ihl-22-pt-shop.png"
+}

@@ -1,0 +1,13 @@
+# IHL CODEOWNERS — v3 §13 骨格
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+/01-要件/ @itherculeslaboratory-cyber/design
+/02-設計/ @itherculeslaboratory-cyber/design
+/03-テスト計画/ @itherculeslaboratory-cyber/design
+/04-トレーサ/ @itherculeslaboratory-cyber/design
+/05-運用/queues/ @itherculeslaboratory-cyber/design
+/apps/ @itherculeslaboratory-cyber/impl
+/libs/ @itherculeslaboratory-cyber/impl
+/components/ @itherculeslaboratory-cyber/impl
+/docs/planning/quantum/shards/ @itherculeslaboratory-cyber/bots
+/packages/**/generated/ @itherculeslaboratory-cyber/bots

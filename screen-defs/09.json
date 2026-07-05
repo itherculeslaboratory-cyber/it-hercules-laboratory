@@ -1,0 +1,26 @@
+{
+  "screen_id": "09",
+  "route": "/board/paper",
+  "title": "論文 進行中",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "main",
+      "component_id": "ihl-09-paper-in-progress__PaperProgressPanel",
+      "region": "PaperProgressPanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "09t",
+      "label": "テンプレ穴埋め"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: mockups/ihl-09-paper-in-progress.png"
+}

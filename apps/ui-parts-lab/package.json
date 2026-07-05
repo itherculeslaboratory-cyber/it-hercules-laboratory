@@ -5,10 +5,10 @@
   "description": "QUANTUM composed-parts preview — isolated from apps/web (port 3100)",
   "type": "module",
   "scripts": {
-    "predev": "node scripts/setup-assets.mjs && node scripts/generate-data.mjs",
+    "predev": "node ../../scripts/w2-generate.mjs && node ../../scripts/w2-merge-overrides.mjs && node scripts/setup-assets.mjs && node scripts/generate-data.mjs",
     "dev": "vite --port 3100 --strictPort",
-    "prebuild": "node scripts/setup-assets.mjs && node scripts/generate-data.mjs",
-    "build": "tsc -b && vite build",
+    "prebuild": "node ../../scripts/w2-generate.mjs && node ../../scripts/w2-merge-overrides.mjs && node scripts/setup-assets.mjs && node scripts/generate-data.mjs",
+    "build": "vite build",
     "preview": "vite preview --port 3100 --strictPort"
   },
   "dependencies": {

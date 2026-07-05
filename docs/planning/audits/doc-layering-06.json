@@ -9,22 +9,22 @@
     "rtm": ".\\04-トレーサ\\features\\06-マーケット\\RTM-v1.csv"
   },
   "lineCounts": {
-    "req": 462,
+    "req": 473,
     "detV2": 226,
-    "detV3": 230,
+    "detV3": 256,
     "testPlans": 204,
     "rtmRows": 21
   },
   "reqDetPatternScore": {
-    "api_paths": 5,
+    "api_paths": 0,
     "data_testid": 0,
     "apps_paths": 0,
     "pytest_refs": 0,
     "impl_sections": 0,
     "schema_fields": 0,
-    "total": 5
+    "total": 0
   },
-  "depthRatio": 0.489,
+  "depthRatio": 0.541,
   "reqIdCount": 39,
   "tcIdCount": 32,
   "rtm": {

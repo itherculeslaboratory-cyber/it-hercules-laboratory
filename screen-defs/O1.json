@@ -1,0 +1,26 @@
+{
+  "screen_id": "O1",
+  "route": "/login",
+  "title": "ログイン（マジックリンク）",
+  "layout": "auth",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "form",
+      "component_id": "ihl-00-onboarding-login__LoginMagicLinkForm",
+      "region": "ContentArea"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "form.submit",
+      "to_screen_id": "O2",
+      "label": "ログインリンク送信後"
+    }
+  ],
+  "notes": "W2 auth layout — BrandChrome のみ"
+}

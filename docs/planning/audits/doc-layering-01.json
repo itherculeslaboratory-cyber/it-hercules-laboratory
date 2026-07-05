@@ -9,24 +9,24 @@
     "rtm": ".\\04-トレーサ\\features\\01-ログイン\\RTM-v1.csv"
   },
   "lineCounts": {
-    "req": 290,
+    "req": 285,
     "detV2": 261,
-    "detV3": 272,
+    "detV3": 302,
     "testPlans": 292,
     "rtmRows": 44
   },
   "reqDetPatternScore": {
-    "api_paths": 13,
-    "data_testid": 2,
+    "api_paths": 0,
+    "data_testid": 0,
     "apps_paths": 0,
     "pytest_refs": 0,
-    "impl_sections": 1,
+    "impl_sections": 0,
     "schema_fields": 0,
-    "total": 16
+    "total": 0
   },
-  "depthRatio": 0.9,
+  "depthRatio": 1.06,
   "reqIdCount": 20,
-  "tcIdCount": 37,
+  "tcIdCount": 38,
   "rtm": {
     "statusDist": {
       "existing": 9,

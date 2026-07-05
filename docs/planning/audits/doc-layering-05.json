@@ -9,23 +9,25 @@
     "rtm": ".\\04-トレーサ\\features\\05-観測\\RTM-v1.csv"
   },
   "lineCounts": {
-    "req": 1286,
-    "detV2": 501,
-    "detV3": 561,
+    "req": 457,
+    "detV2": 8,
+    "detV3": 705,
     "testPlans": 269,
     "rtmRows": 117
   },
   "reqDetPatternScore": {
-    "api_paths": 19,
-    "data_testid": 2,
-    "apps_paths": 2,
-    "pytest_refs": 2,
-    "impl_sections": 1,
+    "api_paths": 0,
+    "data_testid": 0,
+    "apps_paths": 0,
+    "pytest_refs": 0,
+    "impl_sections": 0,
     "schema_fields": 0,
-    "total": 26
+    "total": 0
   },
-  "depthRatio": 0.39,
-  "reqIdCount": 229,
+  "depthRatio": 1.543,
+  "detV2Stub": true,
+  "depthNumerator": 705,
+  "reqIdCount": 162,
   "tcIdCount": 61,
   "rtm": {
     "statusDist": {

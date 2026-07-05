@@ -11,9 +11,9 @@
   "lineCounts": {
     "req": 261,
     "detV2": 173,
-    "detV3": 0,
+    "detV3": 186,
     "testPlans": 74,
-    "rtmRows": 12
+    "rtmRows": 21
   },
   "reqDetPatternScore": {
     "api_paths": 1,
@@ -24,87 +24,19 @@
     "schema_fields": 0,
     "total": 1
   },
-  "depthRatio": 0.663,
+  "depthRatio": 0.713,
   "reqIdCount": 23,
   "tcIdCount": 17,
   "rtm": {
     "statusDist": {
-      "apps/api/main.py shop purchase": 1,
-      "economy_logic karma": 1,
-      "event_store pt_event": 1,
-      "economy/pt_event": 1,
-      "economy_logic": 1,
-      "web shop": 1,
-      "shop": 1,
-      "shop UI": 1,
-      "ihl repo": 1,
-      "civilization/": 1,
-      "pt_event jsonl": 1,
-      "legacy backend": 1
+      "existing": 7,
+      "gap": 7,
+      "partial": 4,
+      "doc": 2,
+      "xref": 1
     },
-    "issueCount": 12,
-    "issues": [
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PTMKT-01",
-        "test_case_id": "詳細設計-v2 §3.2"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PTMKT-02",
-        "test_case_id": "詳細設計-v2 §2.3"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PTMKT-03",
-        "test_case_id": "詳細設計-v2 §2.1"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PTMKT-04",
-        "test_case_id": "詳細設計-v2 §1.3"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PTMKT-05",
-        "test_case_id": "詳細設計-v2 §2.2/§4"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PTMKT-06",
-        "test_case_id": "詳細設計-v2 §3"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PTMKT-07",
-        "test_case_id": "詳細設計-v2 §4"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "FR-PTMKT-08",
-        "test_case_id": "詳細設計-v2 §2.2"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-PTMKT-01",
-        "test_case_id": "詳細設計-v2 §5"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-PTMKT-02",
-        "test_case_id": "詳細設計-v2 §5"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-PTMKT-03",
-        "test_case_id": "詳細設計-v2 §5"
-      },
-      {
-        "type": "tc_not_in_plans",
-        "req_id": "NFR-PTMKT-04",
-        "test_case_id": "詳細設計-v2 §5"
-      }
-    ]
+    "issueCount": 0,
+    "issues": []
   },
-  "priority": "P1"
+  "priority": "P2"
 }

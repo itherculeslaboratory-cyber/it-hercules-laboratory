@@ -24,6 +24,18 @@ description: >-
 
 **着手前に必ず読む**: 本 SKILL.md + LAYERING-RULES + 当該 `DOC-AUDIT-NN.md`（MAD 時は下記狂気モード節も）
 
+### Pre-flight チェックリスト（M-014 · 全 Wave 共通）
+
+着手前に **すべて** 確認する（リンクは repo root 相対 · 存在確認済み正本）:
+
+- [ ] [`05-運用/queues/00-設計書憲法-v1.md`](../../05-運用/queues/00-設計書憲法-v1.md) **v1.1** — 成果物 ID（SCD/CMP/INF 含む）· C1–C6 · §2 深度
+- [ ] [`docs/reference/V-MODEL-LAYERS-v1.md`](../../docs/reference/V-MODEL-LAYERS-v1.md) — 層深度 · §4 移動表 · §5 GATE（M-033 exit 1）
+- [ ] [`05-運用/automation/IHL-DOC-LAYERING-RULES-v1.md`](../../05-運用/automation/IHL-DOC-LAYERING-RULES-v1.md) — 短文化禁止リスト · 執筆深度早見
+- [ ] [`05-運用/queues/00-マスター実行順-v1.md`](../../05-運用/queues/00-マスター実行順-v1.md) §2 ▶ — 現在の先頭タスク
+- [ ] 当該機能 [`02-設計/features/NN-*/README.md`](../../02-設計/features/) IDX — 正本パス
+- [ ] INF 執筆時: [`docs/reference/DOCKER-PROFILES-v1.md`](../../docs/reference/DOCKER-PROFILES-v1.md) · [`02-設計/_横断/adr/ADR-H-30-SwitchBot-秘密非保持-v1-DRAFT.md`](../../02-設計/_横断/adr/ADR-H-30-SwitchBot-秘密非保持-v1-DRAFT.md)
+- [ ] #16 / ScreenDef 執筆時: [`docs/builder-capability-boundary.md`](../../docs/builder-capability-boundary.md) · [`02-設計/features/16-UIbuilder/`](../../02-設計/features/16-UIbuilder/)
+
 ---
 
 ## 狂気モード（`IHL-DOC-REMED MAD`）

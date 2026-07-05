@@ -1,0 +1,7 @@
+docs/planning/quantum/shards/**
+packages/**/src/generated/**
+**/*.tsbuildinfo
+**/node_modules/**
+**/.vite/**
+apps/*/dist/**
+99-アーカイブ/generated/**

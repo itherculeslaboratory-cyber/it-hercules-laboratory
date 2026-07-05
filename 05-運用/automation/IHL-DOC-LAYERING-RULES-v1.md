@@ -1,7 +1,39 @@
 # IHL 文書層分離ルール v1
 
-> **用途**: DOC-REMED 執筆の憲法 · Auto スライスワーカー全員が遵守  
+> **用途**: DOC-REMED 執筆の短文化ルール · Auto スライスワーカー全員が遵守  
+> **執筆深度（人間可読 · 正本）**: [`docs/reference/V-MODEL-LAYERS-v1.md`](../../docs/reference/V-MODEL-LAYERS-v1.md)  
+> **設計書憲法**: [`05-運用/queues/00-設計書憲法-v1.md`](../queues/00-設計書憲法-v1.md) v1.1  
 > **正本**: V-model 文書リメディエーション計画 · `IHL-DOC-AUDIT` / `IHL-DOC-REMED`
+
+---
+
+## 執筆深度（1 ページ要約）
+
+詳細は **[`V-MODEL-LAYERS-v1.md`](../../docs/reference/V-MODEL-LAYERS-v1.md)** を正とする。本節は Automation 向け早見。
+
+| 層 | 執筆単位 | 行数目安 | 禁止の代表 |
+|----|----------|----------|------------|
+| **REQ** | 1 FR = 1 意図 + 受入 | 機能全体 **200–400 行** | `/api/` · `data-testid` · `apps/` パス |
+| **DET v3** | §3 = **1 route** · §2 = **1 フィールド** | REQ × **0.8–2.0 倍** | 新規 FR 捏造 |
+| **TRN** | 1 walkId · 遷移辺 | 中 | API body 全文 |
+| **UI/MOCK** | 1 画面 × 4 状態 | 中 | FR 再定義 |
+| **TEST 4 層** | UT/IT/ST/UAT 各 1 TC 単位 | 層ごと | FR 言い換え |
+| **RTM** | req_id ↔ test_case_id | csv | status 粉飾 |
+| **SCD** | 1 `screen_id` · chunk/binding | JSON | transform ロジック |
+| **CMP** | 7 分類の境界 1 件 | 横断 README | UI 層に ingest |
+| **INF/RUN** | profile / runbook 1 節 | 短 | REQ への compose 手順 |
+
+**REQ に書いてしまったら** → [`V-MODEL-LAYERS-v1.md` §4](../../docs/reference/V-MODEL-LAYERS-v1.md) 移動表 · stub 1 行 · 正本へ追記（削除禁止）。
+
+**GATE 合格線（M-033 · 既定 strict）**: P0 機能で次の **いずれか** なら `ihl-doc-layering-audit.mjs` が **exit 1**
+
+| 条件 | 閾値 |
+|------|------|
+| REQ 設計混入 | `det_pattern_total` **> 15** |
+| DET 薄さ | `depth_ratio`（det_v2/req）**< 0.4** |
+| REQ 肥大 + 混入 | req **> 800 行** かつ pattern **> 0** |
+
+P0 判定: #05 または pattern>80 または depth_ratio<0.4。報告のみ: `--no-strict`。scorecard **B ≥ 25** — 詳細は [`V-MODEL-LAYERS-v1.md` §5](../../docs/reference/V-MODEL-LAYERS-v1.md)。
 
 ---
 

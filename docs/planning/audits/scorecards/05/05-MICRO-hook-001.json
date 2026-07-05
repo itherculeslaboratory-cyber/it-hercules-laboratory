@@ -1,0 +1,21 @@
+{
+  "slice_id": "05-MICRO-hook-001",
+  "feature_id": "05",
+  "axis": "research",
+  "adr": "ADR-H-38 §6.4",
+  "generated": "2026-07-05",
+  "candidates": [
+    {
+      "worker": "auto-1",
+      "A": 29,
+      "B": 25,
+      "C": 28,
+      "D": 12,
+      "total": 94,
+      "gate": "PASS",
+      "notes": "IMPL-GAP 明示 · write_contribution_event/commit handler 実在一致 · IT-05-22 planned"
+    }
+  ],
+  "adopted": "auto-1",
+  "reason": "acceptance 全項目 · 層分離 OK · コード引用は event_store/commit のみ（フック未配線を粉飾なし）· ≥85 B≥25 C≥25"
+}

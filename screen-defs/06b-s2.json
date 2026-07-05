@@ -1,0 +1,51 @@
+{
+  "screen_id": "06b-s2",
+  "route": "/market/:id",
+  "title": "取引 Stage 2（振込・配達確認）",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "part-0",
+      "component_id": "ihl-06-market-detail-board-stage2__ContentArea",
+      "region": "ContentArea"
+    },
+    {
+      "id": "part-1",
+      "component_id": "ihl-06-market-detail-board-stage2__PrimaryAction",
+      "region": "PrimaryAction"
+    },
+    {
+      "id": "part-2",
+      "component_id": "ihl-06-market-detail-board-stage2__StatePanel",
+      "region": "StatePanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "06b-s2",
+      "label": "振込確認（取り消し不可）"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "06b-s3",
+      "label": "配達到着確認（取り消し不可）"
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "06b",
+      "label": "Stage 1へ"
+    },
+    {
+      "from": "hotspot.3",
+      "to_screen_id": "01",
+      "label": "ホーム"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: ihl-06-market-detail-board-stage2.png"
+}

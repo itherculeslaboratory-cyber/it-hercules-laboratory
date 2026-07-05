@@ -15,7 +15,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "allowImportingTsExtensions": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "paths": {
+      "@ihl/ui-catalog/*": ["../../packages/ihl-ui-catalog/src/*"]
+    }
   },
   "include": ["src"]
 }

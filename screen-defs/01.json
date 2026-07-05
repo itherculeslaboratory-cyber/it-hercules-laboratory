@@ -1,0 +1,91 @@
+{
+  "screen_id": "01",
+  "route": "/",
+  "title": "ホーム（司令塔）",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "main",
+      "component_id": "ihl-01-nav-home__HomeCommandPanel",
+      "region": "HomeCommandPanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "05ctx",
+      "label": "ヘッダー › 観測対象ナビゲータ → 対象を選ぶ"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "05i",
+      "label": "観測登録を始める → 計測"
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "05a",
+      "label": "検索グリッド"
+    },
+    {
+      "from": "hotspot.3",
+      "to_screen_id": "09",
+      "label": "左ナビ › 論文"
+    },
+    {
+      "from": "hotspot.4",
+      "to_screen_id": "16",
+      "label": "フッター › Builder"
+    },
+    {
+      "from": "hotspot.5",
+      "to_screen_id": "06a",
+      "label": "左ナビ › マーケット"
+    },
+    {
+      "from": "hotspot.6",
+      "to_screen_id": "07a",
+      "label": "左ナビ › 掲示板"
+    },
+    {
+      "from": "hotspot.7",
+      "to_screen_id": "10",
+      "label": "左ナビ › 好み"
+    },
+    {
+      "from": "hotspot.8",
+      "to_screen_id": "14",
+      "label": "左ナビ › 貢献度"
+    },
+    {
+      "from": "hotspot.9",
+      "to_screen_id": "12hub",
+      "label": "ヘッダー › 設定"
+    },
+    {
+      "from": "hotspot.10",
+      "to_screen_id": "20vote",
+      "label": "左ナビ › 投票"
+    },
+    {
+      "from": "hotspot.11",
+      "to_screen_id": "05a",
+      "label": "左ナビ › 検索"
+    },
+    {
+      "from": "hotspot.12",
+      "to_screen_id": "07g",
+      "label": "フッター › 愚痴"
+    },
+    {
+      "from": "hotspot.13",
+      "to_screen_id": "07b",
+      "label": "フッター › 改善提案"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: mockups/ihl-01-nav-home.png"
+}

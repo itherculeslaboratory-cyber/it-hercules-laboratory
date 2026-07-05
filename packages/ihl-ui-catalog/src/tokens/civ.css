@@ -1,0 +1,47 @@
+/**
+ * IHL design tokens — ADR-H-17 / preferences.md §A
+ * Gold accent #C9A227 · background #0D0D0D
+ */
+:root {
+  --civ-bg: #0d0d0d;
+  --civ-bg-elevated: #121212;
+  --civ-bg-card: #1e1e1e;
+  --civ-bg-input: #141414;
+  --civ-border: #2a2a2a;
+  --civ-border-card: #333333;
+  --civ-border-input: #3a3a3a;
+  --civ-border-input-focus: #4a4a4a;
+  --civ-fg: #ffffff;
+  --civ-fg-muted: #9a9a9a;
+  --civ-fg-placeholder: #6b6b6b;
+  --civ-accent: #c9a227;
+  --civ-success: #5cd68d;
+  --civ-success-fg: #0d0d0d;
+  /* O1 MASTER mint button */
+  --civ-login-btn-bg: #66cc8a;
+  --civ-login-btn-fg: #1a1a1a;
+  --civ-link: #5b9fd4;
+  --civ-radius-card: 12px;
+  --civ-radius-button: 8px;
+  --civ-space-sm: 8px;
+  --civ-space-md: 16px;
+  --civ-space-lg: 24px;
+  --civ-font: "Noto Sans JP", Inter, system-ui, sans-serif;
+}
+
+.ihl-screen {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--civ-bg);
+  font-family: var(--civ-font);
+  color: var(--civ-fg);
+}
+
+.ihl-screen__main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--civ-space-lg);
+}

@@ -1,0 +1,21 @@
+.ihl-primary-button {
+  width: 100%;
+  padding: 14px 20px;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--civ-login-btn-fg);
+  background: var(--civ-login-btn-bg);
+  border: none;
+  border-radius: var(--civ-radius-button);
+  cursor: pointer;
+}
+
+.ihl-primary-button:hover:not(:disabled) {
+  filter: brightness(1.04);
+}
+
+.ihl-primary-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

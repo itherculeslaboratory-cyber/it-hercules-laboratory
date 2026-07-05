@@ -1,0 +1,21 @@
+{
+  "slice_id": "05-MICRO-hook-004",
+  "feature_id": "05",
+  "axis": "research",
+  "adr": "ADR-H-38 §6.4",
+  "generated": "2026-07-05",
+  "candidates": [
+    {
+      "worker": "auto-1",
+      "A": 28,
+      "B": 25,
+      "C": 28,
+      "D": 12,
+      "total": 93,
+      "gate": "PASS",
+      "notes": "_persist_photo_blob:153-172 実在一致 · image_blob_exists 契約 · idempotency capture単位1回 · IT-05-24 planned · photo_conditions≠blob Out · IMPL-GAP 明示"
+    }
+  ],
+  "adopted": "auto-1",
+  "reason": "hook-001 子契約 · observation_with_photo +3 確定 · F05-02 · ≥85 B≥25 C≥25"
+}

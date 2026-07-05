@@ -1,0 +1,41 @@
+{
+  "screen_id": "23",
+  "route": "/market/.../transfer",
+  "title": "GMO 振込案内",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "part-0",
+      "component_id": "ihl-23-gmo-transfer__StatusChip",
+      "region": "StatusChip"
+    },
+    {
+      "id": "part-1",
+      "component_id": "ihl-23-gmo-transfer__FeeBreakdown",
+      "region": "FeeBreakdown"
+    },
+    {
+      "id": "part-2",
+      "component_id": "ihl-23-gmo-transfer__TransferCodeDisplay",
+      "region": "TransferCodeDisplay"
+    },
+    {
+      "id": "part-3",
+      "component_id": "ihl-23-gmo-transfer__GmoTransferPanel",
+      "region": "GmoTransferPanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "06b",
+      "label": "取引へ"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: ihl-23-gmo-transfer.png"
+}

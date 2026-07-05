@@ -1,0 +1,20 @@
+/* ihl-brand-chrome — MASTER: 左上ロゴのみ · 下線なし · 背景一体 */
+.ihl-brand-chrome {
+  flex-shrink: 0;
+  padding: 28px 40px 20px;
+  background: transparent;
+}
+
+.ihl-brand-chrome__link {
+  display: inline-block;
+  line-height: 0;
+  text-decoration: none;
+}
+
+/* 金の横並びロゴのみ（mark / 銀シルエット併記禁止） */
+.ihl-brand-chrome__logo {
+  display: block;
+  height: 88px;
+  width: auto;
+  max-width: min(560px, 90vw);
+}

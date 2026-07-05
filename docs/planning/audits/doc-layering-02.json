@@ -9,24 +9,24 @@
     "rtm": ".\\04-トレーサ\\features\\02-利用規約\\RTM-v1.csv"
   },
   "lineCounts": {
-    "req": 453,
+    "req": 457,
     "detV2": 257,
-    "detV3": 267,
+    "detV3": 295,
     "testPlans": 293,
     "rtmRows": 60
   },
   "reqDetPatternScore": {
-    "api_paths": 10,
-    "data_testid": 1,
+    "api_paths": 0,
+    "data_testid": 0,
     "apps_paths": 0,
     "pytest_refs": 0,
-    "impl_sections": 1,
+    "impl_sections": 0,
     "schema_fields": 0,
-    "total": 12
+    "total": 0
   },
-  "depthRatio": 0.567,
+  "depthRatio": 0.646,
   "reqIdCount": 47,
-  "tcIdCount": 30,
+  "tcIdCount": 31,
   "rtm": {
     "statusDist": {
       "planned": 10,

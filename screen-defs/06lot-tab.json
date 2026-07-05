@@ -1,0 +1,41 @@
+{
+  "screen_id": "06lot-tab",
+  "route": "/market?tab=lottery",
+  "title": "マーケット 抽選タブ",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "part-0",
+      "component_id": "ihl-06-market-lottery-tab__ContentArea",
+      "region": "ContentArea"
+    },
+    {
+      "id": "part-1",
+      "component_id": "ihl-06-market-lottery-tab__PrimaryAction",
+      "region": "PrimaryAction"
+    },
+    {
+      "id": "part-2",
+      "component_id": "ihl-06-market-lottery-tab__StatePanel",
+      "region": "StatePanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "06lot-apply",
+      "label": "抽選出品 → 応募"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "06a",
+      "label": "出品タブ"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: ihl-06-market-lottery-tab.png"
+}

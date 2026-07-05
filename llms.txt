@@ -1,0 +1,26 @@
+# IT Hercules Laboratory — AI index
+
+> 厳選 5–12 リンク。24 DET 全列挙はしない。正本: 05-運用/queues/00-フォルダ構成-v3-OSS.md §1.3
+
+## Start here
+
+- docs/OSS-CONTRIBUTOR-ONBOARDING-v1.md — 30 分 contributor パス
+- docs/ARCHITECTURE.md — レイヤー · 機能→コード
+- 05-運用/queues/00-設計書憲法-v1.md — 成果物 ID · DET v3 · 層分離
+- docs/planning/STATUS.md — 本番状態 · 人間ゲート
+
+## Pick #NN
+
+- 02-設計/features/README.md — 24 機能索引
+- docs/reference/V-MODEL-LAYERS-v1.md — 各設計書の深度 · 移動早見表
+
+## Governance
+
+- 02-設計/_横断/adr/ADR-H-21-OSS公開スコープ-全機能IHL正本-v1.md — OSS スコープ
+- CONTRIBUTING.md — PR チェックリスト
+- 05-運用/queues/00-マスター実行順-v1.md — 実行順 · ブロック索引
+
+## Optional
+
+- docs/planning/README.md — 計画ハブ
+- 05-運用/queues/00-フォルダ構成-v3-OSS.md — フォルダ構成正本

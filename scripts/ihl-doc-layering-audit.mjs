@@ -1,12 +1,19 @@
 #!/usr/bin/env node
 /**
- * IHL doc layering audit — REQ/DET/TC/RTM depth + DET-pattern score in REQ.
+ * M-033 GATE (default strict · V-MODEL-LAYERS-v1 §5.2):
+ *   P0 feature fails (exit 1) when ANY of:
+ *     - req det_pattern_total > 15
+ *     - depth_ratio (det_lines / req_lines) < 0.4
+ *       · det_v2 が stub（≤20 行 · タイトルに stub · 「Archive 移行済」）→ det_v3 行数
+ *       · それ以外 → max(det_v2, det_v3)
+ *     - req_lines > 800 AND det_pattern_total > 0
+ *   P0 priority: feature #05 OR det_pattern>80 OR depth_ratio<0.4
+ *
+ * Non-P0 advisory (no exit): det_pattern ≤40 移行中 · depth_ratio ≥0.5 理想
  *
  * Usage (repo root):
- *   node scripts/ihl-doc-layering-audit.mjs
- *   node scripts/ihl-doc-layering-audit.mjs --feature 05
- *   node scripts/ihl-doc-layering-audit.mjs --write
- *   node scripts/ihl-doc-layering-audit.mjs --feature 05 --compare-baseline
+ *   node scripts/ihl-doc-layering-audit.mjs [--feature NN] [--compare-baseline] [--write]
+ *   node scripts/ihl-doc-layering-audit.mjs --no-strict   # report only · exit 0
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -31,6 +38,23 @@ const argv = process.argv.slice(2);
 const featureFilter = featureIdArg(argv);
 const writeOut = argv.includes('--write');
 const compareBaseline = argv.includes('--compare-baseline');
+const strictGate = !argv.includes('--no-strict');
+
+/** det_v2 が archive stub なら depth_ratio は v3 を使う（v2 8 行で 0.009 誤 FAIL 防止） */
+function isDetV2Stub(detV2Text, detV2Lines) {
+  if (detV2Lines <= 20) return true;
+  if (!detV2Text) return false;
+  const head = detV2Text.slice(0, 800);
+  const titleLine = detV2Text.split('\n').find((l) => l.startsWith('#')) ?? '';
+  return /stub/i.test(titleLine) || /stub/i.test(head) || /Archive 移行済/.test(head);
+}
+
+function detDepthLineCount(paths, detV2Text) {
+  const v2 = lineCount(paths.detV2);
+  const v3 = lineCount(paths.detV3);
+  if (isDetV2Stub(detV2Text, v2)) return v3;
+  return v3 > v2 ? v3 : v2;
+}
 
 function auditFeature(id) {
   const paths = resolveFeaturePaths(id);
@@ -57,7 +81,9 @@ function auditFeature(id) {
   }
 
   const detScore = scoreDetPatterns(reqText);
-  const depthRatio = lineCount(paths.detV2) / Math.max(lineCount(paths.req), 1);
+  const detDenominator = detDepthLineCount(paths, detText);
+  const depthRatio = detDenominator / Math.max(lineCount(paths.req), 1);
+  const detV2Stub = isDetV2Stub(detText, lineCount(paths.detV2));
 
   return {
     id: paths.id,
@@ -78,6 +104,8 @@ function auditFeature(id) {
     },
     reqDetPatternScore: detScore,
     depthRatio: Math.round(depthRatio * 1000) / 1000,
+    detV2Stub,
+    depthNumerator: detDenominator,
     reqIdCount: reqIdsInReq.size,
     tcIdCount: tcIdsInPlans.size,
     rtm: { statusDist, issueCount: rtmIssues.length, issues: rtmIssues.slice(0, 20) },
@@ -118,6 +146,22 @@ function writeArtifacts(results) {
   writeFileSync(join(AUDIT_DIR, 'doc-layering-summary.csv'), `${csvLines.join('\n')}\n`, 'utf8');
 }
 
+/** @returns {string[]} human-readable fail reasons */
+function p0GateFailures(r) {
+  if (r.priority !== 'P0') return [];
+  const fails = [];
+  if (r.reqDetPatternScore.total > 15) {
+    fails.push(`det_pattern=${r.reqDetPatternScore.total}>15`);
+  }
+  if (r.depthRatio < 0.4) {
+    fails.push(`depth_ratio=${r.depthRatio}<0.4`);
+  }
+  if (r.lineCounts.req > 800 && r.reqDetPatternScore.total > 0) {
+    fails.push(`req=${r.lineCounts.req}>800 with pattern=${r.reqDetPatternScore.total}>0`);
+  }
+  return fails;
+}
+
 function compareWithBaseline(results) {
   if (!existsSync(BASELINE_PATH)) {
     console.log('BASELINE=missing — run: node scripts/ihl-doc-remed-baseline.mjs --write');
@@ -142,11 +186,22 @@ function main() {
 
   for (const r of results) {
     console.log(
-      `#${r.id} ${r.name} [${r.priority}] req=${r.lineCounts.req} det_v2=${r.lineCounts.detV2} det_v3=${r.lineCounts.detV3} pattern=${r.reqDetPatternScore.total} rtm_issues=${r.rtm.issueCount}`,
+      `#${r.id} ${r.name} [${r.priority}] req=${r.lineCounts.req} det_v2=${r.lineCounts.detV2} det_v3=${r.lineCounts.detV3} depth=${r.depthRatio}${r.detV2Stub ? '(v3)' : ''} pattern=${r.reqDetPatternScore.total} rtm_issues=${r.rtm.issueCount}`,
     );
   }
   if (compareBaseline) compareWithBaseline(results);
   if (writeOut) console.log(`\nWrote ${results.length} JSON + doc-layering-summary.csv → docs/planning/audits/`);
+
+  if (strictGate) {
+    let gateFailed = false;
+    for (const r of results) {
+      const fails = p0GateFailures(r);
+      if (fails.length === 0) continue;
+      gateFailed = true;
+      console.error(`GATE-FAIL #${r.id} ${r.name} [P0]: ${fails.join(' · ')}`);
+    }
+    if (gateFailed) process.exit(1);
+  }
 }
 
 main();

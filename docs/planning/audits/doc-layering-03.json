@@ -9,22 +9,22 @@
     "rtm": ".\\04-トレーサ\\features\\03-新規登録\\RTM-v1.csv"
   },
   "lineCounts": {
-    "req": 280,
+    "req": 278,
     "detV2": 233,
-    "detV3": 237,
+    "detV3": 269,
     "testPlans": 273,
     "rtmRows": 52
   },
   "reqDetPatternScore": {
-    "api_paths": 11,
-    "data_testid": 1,
+    "api_paths": 0,
+    "data_testid": 0,
     "apps_paths": 0,
     "pytest_refs": 0,
-    "impl_sections": 1,
+    "impl_sections": 0,
     "schema_fields": 0,
-    "total": 13
+    "total": 0
   },
-  "depthRatio": 0.832,
+  "depthRatio": 0.968,
   "reqIdCount": 44,
   "tcIdCount": 37,
   "rtm": {

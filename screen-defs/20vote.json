@@ -1,0 +1,51 @@
+{
+  "screen_id": "20vote",
+  "route": "/vote",
+  "title": "一般投票",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "part-0",
+      "component_id": "ihl-20-vote-general__ContentArea",
+      "region": "ContentArea"
+    },
+    {
+      "id": "part-1",
+      "component_id": "ihl-20-vote-general__PrimaryAction",
+      "region": "PrimaryAction"
+    },
+    {
+      "id": "part-2",
+      "component_id": "ihl-20-vote-general__StatePanel",
+      "region": "StatePanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "20vote",
+      "label": "候補 A を選択"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "20vote",
+      "label": "投票する"
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "22",
+      "label": "免罪符ショップへ"
+    },
+    {
+      "from": "hotspot.3",
+      "to_screen_id": "01",
+      "label": "ホーム"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: ihl-20-vote-general.png"
+}

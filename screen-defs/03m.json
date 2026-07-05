@@ -1,0 +1,31 @@
+{
+  "screen_id": "03m",
+  "route": "/cross/:id/metrics/:metric",
+  "title": "率 詳細一覧",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "main",
+      "component_id": "ihl-03-lineage-mortality-detail__MortalityListPanel",
+      "region": "MortalityListPanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "05b",
+      "label": "観測詳細へ"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "03",
+      "label": "Crossへ"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: mockups/ihl-03-lineage-mortality-detail.png · ?metric= で mortality|completion|eclosion_failure"
+}

@@ -19,6 +19,8 @@ alwaysApply: true
 
 **除外**: civ-os の単発バグ修正・1 ファイル以内の軽微変更（ユーザーが設計フェーズと言っていない限り）。
 
+**品質ループ**: Multitask / DOC-REMED / REQ-slim / Wave 実行時は [`ihl-exec-audit-retry-loop.mdc`](./ihl-exec-audit-retry-loop.mdc)（実行→監査→[x]）を **必須**。
+
 ---
 
 ## 1. モデル振り分け（Task ツール `model` 引数）

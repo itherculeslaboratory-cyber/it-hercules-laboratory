@@ -1,0 +1,345 @@
+{
+  "date": "2026-07-05",
+  "batch": "M-083-batch-21",
+  "pass": 21,
+  "fail": 0,
+  "total": 21,
+  "results": [
+    {
+      "feature": "00",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "62",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "01",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "44",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "02",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "60",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "03",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "52",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "04",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "35",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "07",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "21",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "08",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "32",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "09",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "33",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "10",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "31",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "12",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "30",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "13",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "26",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "14",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "26",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "15",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "26",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "16",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "17",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "17",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "12",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "18",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "32",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "19",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "19",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "20",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "25",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "21",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "31",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "22",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "21",
+      "errors": {},
+      "overall": "PASS"
+    },
+    {
+      "feature": "23",
+      "gates": {
+        "rtm": "PASS",
+        "parity": "PASS",
+        "layering": "PASS",
+        "oracle": "PASS",
+        "reverse-rtm": "PASS"
+      },
+      "depth": null,
+      "pattern": null,
+      "oracleNote": null,
+      "rtmRows": "14",
+      "errors": {},
+      "overall": "PASS"
+    }
+  ]
+}

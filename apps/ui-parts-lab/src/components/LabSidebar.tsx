@@ -35,9 +35,10 @@ export function LabSidebar({
               <Link
                 key={s.id}
                 to={`/s/${s.id}`}
-                className={`nav-link${activeId === s.id ? " active" : ""}`}
+                className={`nav-link${activeId === s.id ? " active" : ""}${["O1", "O2", "O3"].includes(s.id) ? " nav-link--w2" : ""}`}
               >
                 {s.id} {s.title}
+                {s.id === "O1" ? " · W2" : ""}
               </Link>
             ))}
           </div>

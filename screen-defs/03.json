@@ -1,0 +1,50 @@
+{
+  "screen_id": "03",
+  "route": "/cross/:id",
+  "title": "血統・交配",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "main",
+      "component_id": "ihl-03-lineage-cross__CrossDashboardPanel",
+      "region": "CrossDashboardPanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "03m",
+      "label": "死亡率 詳細",
+      "params": {
+        "metric": "mortality"
+      }
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "03m",
+      "label": "完品率 詳細",
+      "params": {
+        "metric": "completion"
+      }
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "03m",
+      "label": "羽化不全率 詳細",
+      "params": {
+        "metric": "eclosion_failure"
+      }
+    },
+    {
+      "from": "hotspot.3",
+      "to_screen_id": "03g",
+      "label": "成長 詳細"
+    }
+  ],
+  "notes": "W2 O2 hand UI — mock: mockups/ihl-03-lineage-cross.png · 03m は metric バリアント共用"
+}

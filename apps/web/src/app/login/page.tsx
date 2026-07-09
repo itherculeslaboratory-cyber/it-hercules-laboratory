@@ -168,7 +168,10 @@ export default function LoginPage() {
           ) : null}
         </Card>
         <p className="text-sm text-civ-muted">
-          初回の方は <Link href="/register">新規登録</Link>
+          初回の方は{" "}
+          <Link href="/register" data-testid="auth-login-register-link">
+            新規登録
+          </Link>
         </p>
       </Stack>
     </PageColumn>

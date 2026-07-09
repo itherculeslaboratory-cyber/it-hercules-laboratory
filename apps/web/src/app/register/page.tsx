@@ -93,7 +93,10 @@ export default function RegisterPage() {
           </form>
         </Card>
         <p className="text-sm text-civ-muted">
-          アカウントをお持ちの方は <Link href="/login">ログイン</Link>
+          アカウントをお持ちの方は{" "}
+          <Link href="/login" data-testid="auth-register-login-link">
+            ログイン
+          </Link>
         </p>
       </Stack>
     </PageColumn>

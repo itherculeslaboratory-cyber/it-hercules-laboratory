@@ -1,0 +1,26 @@
+{
+  "screen_id": "05confirm",
+  "route": "/observation/input/confirm",
+  "title": "登録前確認",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "05confirm",
+      "label": "登録する"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "05i",
+      "label": "編集 → 計測入力"
+    }
+  ],
+  "notes": "W2 standard layout — PageHeader 省略（二重ヘッダー禁止）"
+}

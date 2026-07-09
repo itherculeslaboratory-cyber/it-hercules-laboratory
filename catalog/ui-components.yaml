@@ -67,6 +67,30 @@ components:
       state: ok|loading|empty|error
       className: optional_string
     description: マーケット 15 画面 O2 手実装
+  - id: ihl-06-market-listing-detail__ContentArea
+    kind: feature
+    path: apps/ui-parts-lab-w2/src/w2/MarketListingDetailW2.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: Stage 0 出品詳細 ContentArea
+  - id: ihl-06-market-listing-detail__PrimaryAction
+    kind: feature
+    path: apps/ui-parts-lab-w2/src/w2/MarketListingDetailW2.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: Stage 0 出品詳細 PrimaryAction
+  - id: ihl-06-market-listing-detail__StatePanel
+    kind: feature
+    path: apps/ui-parts-lab-w2/src/w2/MarketListingDetailW2.tsx
+    status: w2_hand
+    props_schema:
+      state: ok|loading|empty|error
+      className: optional_string
+    description: Stage 0 出品詳細 StatePanel
   - id: ihl-01-nav-home__HomeCommandPanel
     kind: feature
     path: packages/ihl-ui-catalog/src/components/HomeCommandPanel.tsx

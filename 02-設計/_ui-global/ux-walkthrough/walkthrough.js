@@ -107,6 +107,7 @@ const SCREENS = {
       { label: "テンプレから", target: "05tl", x: 55, y: 10, w: 14, h: 5 },
       { label: "IoT 未登録バナー", target: "05iot", x: 20, y: 55, w: 55, h: 10 },
       { label: "写真解析結果", target: "18photo", x: 72, y: 10, w: 14, h: 5 },
+      { label: "確認へ → 登録前確認", target: "05confirm", x: 72, y: 88, w: 18, h: 7 },
     ],
   },
   "05i-m": {
@@ -120,6 +121,15 @@ const SCREENS = {
     route: "/observation/input", mock: "mockups/ihl-05-obs-input-female.png",
     breadcrumb: "観測 › 計測入力 › 雌",
     hotspots: [{ label: "雄に切替", target: "05i-m", x: 22, y: 18, w: 8, h: 5 }],
+  },
+  "05confirm": {
+    id: "05confirm", group: "観測", title: "登録前確認",
+    route: "/observation/input/confirm", mock: "mockups/ihl-05-obs-input-confirm.png",
+    breadcrumb: "観測 › 確認",
+    hotspots: [
+      { label: "登録する", target: "05confirm", x: 35, y: 82, w: 30, h: 8 },
+      { label: "編集 → 計測入力", target: "05i", x: 8, y: 88, w: 18, h: 6 },
+    ],
   },
   "05tl": {
     id: "05tl", group: "観測", title: "計測テンプレ 一覧",
@@ -165,7 +175,7 @@ const SCREENS = {
     breadcrumb: "マーケット › 出品",
     hotspots: [
       { label: "〔出品する〕", target: "06list", x: 78, y: 8, w: 14, h: 6 },
-      { label: "出品カード → 詳細", target: "06b", x: 22, y: 35, w: 22, h: 25 },
+      { label: "出品カード → 詳細", target: "06detail", x: 22, y: 35, w: 22, h: 25 },
       { label: "タブ › 抽選", target: "06lot-tab", x: 38, y: 12, w: 10, h: 5 },
       { label: "タブ › 優先順", target: "06pri-tab", x: 50, y: 12, w: 10, h: 5 },
       { label: "タブ › オークション", target: "06auc", x: 26, y: 12, w: 10, h: 5 },
@@ -179,7 +189,7 @@ const SCREENS = {
     hotspots: [
       { label: "観測中の個体を選択", target: "06list", x: 20, y: 28, w: 55, h: 22 },
       { label: "その場で写真追加", target: "06list", x: 20, y: 52, w: 25, h: 8 },
-      { label: "出品する", target: "06b", x: 58, y: 85, w: 18, h: 7 },
+      { label: "出品する", target: "06detail", x: 58, y: 85, w: 18, h: 7 },
       { label: "一覧へ", target: "06a", x: 14, y: 6, w: 10, h: 4 },
       { label: "ホーム", target: "01", x: 2, y: 8, w: 10, h: 5 },
     ],
@@ -208,7 +218,7 @@ const SCREENS = {
     route: "/market/:id", mock: "mockups/ihl-06-market-lottery-result.png",
     breadcrumb: "マーケット › 抽選結果",
     hotspots: [
-      { label: "プライベートボード", target: "06b", x: 32, y: 72, w: 35, h: 8 },
+      { label: "プライベートボード", target: "06b", x: 32, y: 72, w: 35, h: 8, params: { matched: "1" } },
       { label: "落選例を見る", target: "06lot-lose", x: 14, y: 72, w: 16, h: 6 },
       { label: "ホーム", target: "01", x: 2, y: 8, w: 10, h: 5 },
     ],
@@ -237,7 +247,7 @@ const SCREENS = {
     route: "/market/:id", mock: "mockups/ihl-06-market-priority-queue.png",
     breadcrumb: "マーケット › 優先順申込",
     hotspots: [
-      { label: "申し込む", target: "06b", x: 58, y: 78, w: 16, h: 7 },
+      { label: "申し込む", target: "06detail", x: 58, y: 78, w: 16, h: 7 },
       { label: "落選確定例", target: "06pri-lose", x: 38, y: 78, w: 16, h: 6 },
       { label: "一覧へ", target: "06pri-tab", x: 14, y: 6, w: 10, h: 4 },
       { label: "ホーム", target: "01", x: 2, y: 8, w: 10, h: 5 },
@@ -258,13 +268,36 @@ const SCREENS = {
     route: "/market/auction/:id", mock: "mockups/ihl-06-market-auction-bid.png",
     breadcrumb: "マーケット › オークション",
     hotspots: [
-      { label: "入札する（stub: Stage1未配線）", target: "06b", x: 58, y: 68, w: 16, h: 8, stub: true },
+      { label: "入札する", target: "06bid", x: 58, y: 68, w: 16, h: 8 },
       { label: "出品タブ", target: "06a", x: 14, y: 12, w: 10, h: 5 },
       { label: "ホーム", target: "01", x: 2, y: 8, w: 10, h: 5 },
     ],
   },
+  "06bid": {
+    id: "06bid", group: "マーケット", title: "オークション 入札入力",
+    route: "/market/auction/:id/bid", mock: "mockups/ihl-06-market-auction-bid.png",
+    breadcrumb: "マーケット › 入札",
+    hotspots: [
+      { label: "入札を確定", target: "06detail", x: 58, y: 72, w: 16, h: 8 },
+      { label: "出品詳細へ戻る", target: "06detail", x: 40, y: 72, w: 14, h: 8 },
+      { label: "一覧へ", target: "06a", x: 14, y: 6, w: 10, h: 4 },
+      { label: "ホーム", target: "01", x: 2, y: 8, w: 10, h: 5 },
+    ],
+  },
+  "06detail": {
+    id: "06detail", group: "マーケット", title: "出品詳細（Stage 0 · マッチング前）",
+    route: "/market/:id", mock: "mockups/ihl-06-market-detail-board.png",
+    breadcrumb: "マーケット › 出品詳細",
+    hotspots: [
+      { label: "入札する", target: "06bid", x: 58, y: 85, w: 18, h: 7 },
+      { label: "公開 Q&A", target: "06detail", x: 22, y: 55, w: 20, h: 6 },
+      { label: "ほめボード", target: "06detail", x: 44, y: 55, w: 20, h: 6 },
+      { label: "一覧へ", target: "06a", x: 14, y: 6, w: 10, h: 4 },
+      { label: "ホーム", target: "01", x: 2, y: 8, w: 10, h: 5 },
+    ],
+  },
   "06b": {
-    id: "06b", group: "マーケット", title: "出品詳細 + プライベートボード（Stage 1）",
+    id: "06b", group: "マーケット", title: "取引 プライベートボード（Stage 1）",
     route: "/market/:id", mock: "mockups/ihl-06-market-detail-board.png",
     breadcrumb: "マーケット › 取引 › Stage 1",
     hotspots: [
@@ -456,18 +489,23 @@ const SCREENS = {
     hotspots: [{ label: "Crossへ", target: "03", x: 14, y: 6, w: 10, h: 4 }],
   },
   "09": {
-    id: "09", group: "血統・論文", title: "論文 進行中",
+    id: "09", group: "血統・論文", title: "論文（進行中）",
     route: "/board/paper", mock: "mockups/ihl-09-paper-in-progress.png",
-    breadcrumb: "掲示板 › 論文",
+    breadcrumb: "知の広場 › 論文（進行中）",
     hotspots: [
       { label: "テンプレ穴埋め", target: "09t", x: 55, y: 72, w: 22, h: 7 },
+      { label: "同じ条件でデータを追加", target: "05i", x: 55, y: 48, w: 28, h: 8 },
+      { label: "観測キャプチャへ", target: "05ctx", x: 8, y: 88, w: 18, h: 5 },
     ],
   },
   "09t": {
-    id: "09t", group: "血統・論文", title: "論文テンプレート",
+    id: "09t", group: "血統・論文", title: "論文テンプレート（穴埋め）",
     route: "/board/paper/template", mock: "mockups/ihl-09-paper-template-fill.png",
-    breadcrumb: "掲示板 › 論文テンプレ",
-    hotspots: [{ label: "進行中論文", target: "09", x: 14, y: 6, w: 14, h: 4 }],
+    breadcrumb: "知の広場 › 論文 › テンプレート",
+    hotspots: [
+      { label: "進行中論文", target: "09", x: 14, y: 6, w: 14, h: 4 },
+      { label: "観測から差し込む", target: "09t", x: 28, y: 82, w: 22, h: 6 },
+    ],
   },
   "20vote": {
     id: "20vote", group: "その他", title: "一般投票",

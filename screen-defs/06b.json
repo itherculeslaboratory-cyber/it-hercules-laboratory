@@ -1,7 +1,7 @@
 {
   "screen_id": "06b",
   "route": "/market/:id",
-  "title": "出品詳細 + プライベートボード（Stage 1）",
+  "title": "取引 プライベートボード（Stage 1）",
   "layout": "standard",
   "nodes": [
     {

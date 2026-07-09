@@ -1,7 +1,7 @@
 {
   "screen_id": "09",
   "route": "/board/paper",
-  "title": "論文 進行中",
+  "title": "論文（進行中）",
   "layout": "standard",
   "nodes": [
     {
@@ -20,6 +20,16 @@
       "from": "hotspot.0",
       "to_screen_id": "09t",
       "label": "テンプレ穴埋め"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "05i",
+      "label": "同じ条件でデータを追加"
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "05ctx",
+      "label": "観測キャプチャへ"
     }
   ],
   "notes": "W2 O2 hand UI — mock: mockups/ihl-09-paper-in-progress.png"

@@ -45,6 +45,11 @@
       "from": "hotspot.5",
       "to_screen_id": "18photo",
       "label": "写真解析結果"
+    },
+    {
+      "from": "hotspot.6",
+      "to_screen_id": "05confirm",
+      "label": "確認へ → 登録前確認"
     }
   ],
   "notes": "W2 O2 hand UI — mock: mockups/ihl-05-obs-input-row.png"

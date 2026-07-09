@@ -1,7 +1,7 @@
 {
   "screen_id": "09t",
   "route": "/board/paper/template",
-  "title": "論文テンプレート",
+  "title": "論文テンプレート（穴埋め）",
   "layout": "standard",
   "nodes": [
     {
@@ -20,6 +20,11 @@
       "from": "hotspot.0",
       "to_screen_id": "09",
       "label": "進行中論文"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "09t",
+      "label": "観測から差し込む"
     }
   ],
   "notes": "W2 O2 hand UI — mock: mockups/ihl-09-paper-template-fill.png"

@@ -1,0 +1,36 @@
+---
+description: W2 lab 3101 — 自己レビュー採点テンプレート + ユーザーフィードバック後のキャリブレーションログ追記を必須化
+globs:
+  - apps/ui-parts-lab-w2/**
+  - docs/planning/w2-checkpoint/**
+alwaysApply: false
+---
+
+# W2 Lab — Review Scoring（3101）
+
+**正本**: [`docs/planning/w2-checkpoint/W2-LAB-REVIEW-SCORING-SYSTEM-v1.md`](../docs/planning/w2-checkpoint/W2-LAB-REVIEW-SCORING-SYSTEM-v1.md)
+
+## MUST（W2 lab 画面実装完了時）
+
+1. **テンプレート複製** — [`W2-LAB-REVIEW-TEMPLATE-v1.md`](../docs/planning/w2-checkpoint/W2-LAB-REVIEW-TEMPLATE-v1.md) から `sessions/{walkId}-{機能}-score-session-vN.md` を作成し、自己採点・checklist・6 問を記入する。
+2. **自己レビュー要約** — 同ディレクトリに `{walkId}-{機能}-LAB-REVIEW-vN.md` を置き、セッションファイルへリンク（テンプレート全文の二重掲載は不要）。
+3. **3 軸採点** — STRUCTURAL 25% · DESIGN-FULFILLMENT 50% · UX 25% · TOTAL = `0.25×S + 0.50×D + 0.25×U`。
+4. **キャリブレーション引用** — [`W2-SCORE-CALIBRATION-LOG.md`](../docs/planning/w2-checkpoint/W2-SCORE-CALIBRATION-LOG.md) に user feedback 済み行が **≥ 3** ある場合、自己採点前に直近 3 行の delta 要約をセッション §3.1 に引用する（CAL-02）。
+5. **ユーザー採点欄** — セッション §4 USER SCORING は **空欄 or `(pending)`** のまま残す。エージェントがユーザー点を代行しない。
+
+## MUST（ユーザー feedback 受領後）
+
+1. セッション §4–§5（採点 · gap）を更新する。
+2. [`W2-SCORE-CALIBRATION-LOG.md`](../docs/planning/w2-checkpoint/W2-SCORE-CALIBRATION-LOG.md) に **1 行 append**（append-only · CAL-01）。
+3. \|TOTAL delta\| ≥ 10 なら lesson learned + rule added を記載（CAL-03）。
+
+## 禁止
+
+- キャリブレーションログ行の削除・改ざん
+- ユーザーフィードバックなしの TOTAL ≥ 85 を **最終 PASS** と報告
+- rubber-stamp 自己採点（過去 gap taxonomy OS-01 参照）
+
+## 関連
+
+- [`ihl-w2-checkpoint-max-quality.mdc`](./ihl-w2-checkpoint-max-quality.mdc) — Tier B scorecard · browser 必須
+- [`W2-QUALITY-ROOT-CAUSE-AND-FIX-v1.md`](../docs/planning/w2-checkpoint/W2-QUALITY-ROOT-CAUSE-AND-FIX-v1.md) — Tier D · STRUCTURAL/CONTENT 分離

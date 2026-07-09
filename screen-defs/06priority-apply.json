@@ -1,0 +1,54 @@
+{
+  "screen_id": "06priority-apply",
+  "route": "/market/:id/priority-apply",
+  "title": "優先順 申込",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "part-0",
+      "component_id": "ihl-06-market-priority-queue__ContentArea",
+      "region": "ContentArea"
+    },
+    {
+      "id": "part-1",
+      "component_id": "ihl-06-market-priority-queue__PrimaryAction",
+      "region": "PrimaryAction"
+    },
+    {
+      "id": "part-2",
+      "component_id": "ihl-06-market-priority-queue__StatePanel",
+      "region": "StatePanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "06a",
+      "label": "申し込む",
+      "params": { "tab": "priority", "priorityStep": "queue" }
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "06detail",
+      "label": "出品詳細へ戻る",
+      "params": { "mode": "priority" }
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "06a",
+      "label": "一覧へ",
+      "params": { "tab": "priority", "priorityStep": "list" }
+    },
+    {
+      "from": "hotspot.3",
+      "to_screen_id": "01",
+      "label": "ホーム"
+    }
+  ],
+  "notes": "W2 priority apply — MarketPriorityApplyW2 · PT +1 申込 · mock: ihl-06-market-priority-queue.png"
+}

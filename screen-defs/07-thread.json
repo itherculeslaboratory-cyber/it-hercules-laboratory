@@ -1,0 +1,46 @@
+{
+  "screen_id": "07-thread",
+  "route": "/board/:kind/:thread_id",
+  "title": "掲示板 › スレッド本文",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "part-0",
+      "component_id": "ihl-07-board-thread-view__ContentArea",
+      "region": "ContentArea"
+    },
+    {
+      "id": "part-1",
+      "component_id": "ihl-07-board-thread-view__PrimaryAction",
+      "region": "PrimaryAction"
+    },
+    {
+      "id": "part-2",
+      "component_id": "ihl-07-board-thread-view__StatePanel",
+      "region": "StatePanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "11",
+      "label": "指摘"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "07g",
+      "label": "愚痴板へ"
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "07b",
+      "label": "改善板へ"
+    }
+  ],
+  "notes": "W2 BBS — 5ch 型スレ本文 · ?thread=thr_* · mock: ihl-07-board-thread-post.png"
+}

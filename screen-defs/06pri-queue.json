@@ -28,7 +28,7 @@
   "transitions": [
     {
       "from": "hotspot.0",
-      "to_screen_id": "06b",
+      "to_screen_id": "06detail",
       "label": "申し込む"
     },
     {

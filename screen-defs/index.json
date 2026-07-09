@@ -16,6 +16,7 @@
   "05i": "05i.json",
   "05i-m": "05i-m.json",
   "05i-f": "05i-f.json",
+  "05confirm": "05confirm.json",
   "05tl": "05tl.json",
   "05td": "05td.json",
   "05fork": "05fork.json",
@@ -30,6 +31,8 @@
   "06pri-queue": "06pri-queue.json",
   "06pri-lose": "06pri-lose.json",
   "06auc": "06auc.json",
+  "06bid": "06bid.json",
+  "06detail": "06detail.json",
   "06b": "06b.json",
   "06b-s2": "06b-s2.json",
   "06b-s3": "06b-s3.json",
@@ -53,5 +56,6 @@
   "17picker": "17picker.json",
   "18photo": "18photo.json",
   "19board": "19board.json",
-  "16e": "16e.json"
+  "16e": "16e.json",
+  "06priority-apply": "06priority-apply.json"
 }

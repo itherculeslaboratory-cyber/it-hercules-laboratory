@@ -1,0 +1,30 @@
+{
+  "screen_id": "07gh",
+  "route": "/knowledge/github",
+  "title": "GitHub 掲示板",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "part-0",
+      "component_id": "ihl-07-github-board-hub__ContentArea",
+      "region": "ContentArea"
+    },
+    {
+      "id": "part-1",
+      "component_id": "ihl-07-github-board-hub__PrimaryAction",
+      "region": "PrimaryAction"
+    },
+    {
+      "id": "part-2",
+      "component_id": "ihl-07-github-board-hub__StatePanel",
+      "region": "StatePanel"
+    }
+  ],
+  "transitions": [],
+  "notes": "W2 GitHub 柱 — link-out 索引"
+}

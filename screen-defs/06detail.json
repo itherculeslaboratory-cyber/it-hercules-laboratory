@@ -1,0 +1,56 @@
+{
+  "screen_id": "06detail",
+  "route": "/market/:id",
+  "title": "出品詳細（Stage 0 · マッチング前）",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "part-0",
+      "component_id": "ihl-06-market-listing-detail__ContentArea",
+      "region": "ContentArea"
+    },
+    {
+      "id": "part-1",
+      "component_id": "ihl-06-market-listing-detail__PrimaryAction",
+      "region": "PrimaryAction"
+    },
+    {
+      "id": "part-2",
+      "component_id": "ihl-06-market-listing-detail__StatePanel",
+      "region": "StatePanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "06bid",
+      "label": "入札する"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "06detail",
+      "label": "公開 Q&A"
+    },
+    {
+      "from": "hotspot.2",
+      "to_screen_id": "06detail",
+      "label": "ほめボード"
+    },
+    {
+      "from": "hotspot.3",
+      "to_screen_id": "06a",
+      "label": "一覧へ"
+    },
+    {
+      "from": "hotspot.4",
+      "to_screen_id": "01",
+      "label": "ホーム"
+    }
+  ],
+  "notes": "W2 Stage 0 listing detail — MarketListingDetailW2（detail-board と mock 共用 · component 分離）"
+}

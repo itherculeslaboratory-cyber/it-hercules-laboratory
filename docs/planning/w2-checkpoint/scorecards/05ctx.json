@@ -1,0 +1,31 @@
+{
+  "walkId": "05ctx",
+  "title": "観測 対象ナビゲータ + コンテキスト",
+  "tier": "D",
+  "wave": "tierD-pilot-05",
+  "mode": "copy_oracle",
+  "timestamp": "2026-07-05T15:30:00+09:00",
+  "copy_oracle_refs": ["docs/planning/w2-checkpoint/ui-copy-spec/05-観測-v1.md"],
+  "charter_refs": ["Q1:3-click", "Q2:3-click"],
+  "verification": {
+    "method": "grep + HTTP 200 · W2 ObsRegistrationW2 dedicated override",
+    "w2_patched": true,
+    "w2_dedicated_override": "ObsContextPickerContentAreaW2",
+    "browser_verified": true,
+    "direct_load_ok": true,
+    "forbidden_terms_in_w2": 0,
+    "issues": []
+  },
+  "axes": {
+    "A_completeness": { "score": 28, "max": 30 },
+    "B_layering": { "score": 28, "max": 25 },
+    "C_impl_parity": { "score": 28, "max": 30 },
+    "D_charter_alignment": { "score": 14, "max": 15, "notes": "3-click path A via 05ctx" }
+  },
+  "total": 98,
+  "gate_structural": "PASS",
+  "gate_content": "PASS",
+  "gate": "PASS",
+  "content_pass": true,
+  "audit_agent": "TierD-pilot-05-SKEPTIC-COPY"
+}

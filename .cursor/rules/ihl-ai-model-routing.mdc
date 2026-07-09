@@ -26,6 +26,27 @@ alwaysApply: false
 
 ---
 
+## W2 checkpoint 例外
+
+**一般 repo ルール** = **API クォータ節約** · Auto 既定 · Multitask = 1 worker。
+
+**W2 checkpoint スコープ** = **Auto+Composer 最大** · **API 節約** — 詳細は [`.cursor/rules/ihl-w2-checkpoint-max-quality.mdc`](./ihl-w2-checkpoint-max-quality.mdc) §3。
+
+| 層 | 一般 | W2 checkpoint |
+|----|------|---------------|
+| Auto + Composer | 節約 · 必要時のみ並列 | **節約禁止 · max 25 並列 · 細分化 · EXEC/AUDIT 分離** |
+| API（Standard/High/Codex） | 必要時のみ | **人間明示 or BLOCKER のみ** |
+
+**スコープ判定**（いずれか該当で W2 例外適用）:
+
+- ブランチ `feature/ui-parts-lab-w2-checkpoint`
+- パス `apps/ui-parts-lab-w2/**`
+- パス `docs/planning/w2-checkpoint/**`
+
+**競合解決**: W2 スコープ内では **本ルールの節約原則より W2 ルールが優先**（Auto+Composer は最大 · API は節約）。
+
+---
+
 ## 2. サブエージェント委譲
 
 | 種別 | `subagent_type` | モデル | 用途 |

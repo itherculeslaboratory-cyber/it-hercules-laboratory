@@ -18,3 +18,7 @@ dist/
 # Local walkthrough junction (setup-mockups-link.mjs → ../mockups; do not duplicate PNGs)
 02-設計/_ui-global/ux-walkthrough/mockups/
 
+# Scratch/one-off patch scripts and their output (not meant for commit)
+docs/planning/w2-checkpoint/_tmp_*
+docs/planning/w2-checkpoint/_patch_docs.py
+

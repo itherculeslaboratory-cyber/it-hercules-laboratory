@@ -1,0 +1,187 @@
+---
+description: W2 ui-parts-lab checkpoint — 二層クォータ（Auto+Composer最大·API節約）·3101実験のみ書込
+globs:
+  - apps/ui-parts-lab-w2/**
+  - docs/planning/w2-checkpoint/**
+  - 05-運用/queues/00-W2-checkpoint-orchestration-v1.md
+  - screen-defs/**
+  - packages/ihl-ui-catalog/**
+  - catalog/ui-components.yaml
+alwaysApply: false
+---
+
+# W2 Checkpoint — 最大品質 · 二層クォータ
+
+**適用**: `feature/ui-parts-lab-w2-checkpoint` ブランチ上の **W2 checkpoint 作業**（Wave 0–6）。
+
+**優先順位**（矛盾時）:
+
+1. 人間ゲート（§6）
+2. **本ルール**（W2 checkpoint · **Auto+Composer 最大 · API 節約**）
+3. [`ihl-exec-audit-retry-loop.mdc`](./ihl-exec-audit-retry-loop.mdc)
+4. [`ihl-ai-model-routing.mdc`](./ihl-ai-model-routing.mdc)（**W2 スコープでは本ルールが上書き** — §W2 例外参照）
+5. [`ihl-design-agent-orchestration.mdc`](./ihl-design-agent-orchestration.mdc)
+
+**正本**: [`docs/planning/w2-checkpoint/team2-user-ideal-charter.md`](../docs/planning/w2-checkpoint/team2-user-ideal-charter.md) · [`05-運用/queues/00-W2-checkpoint-orchestration-v1.md`](../05-運用/queues/00-W2-checkpoint-orchestration-v1.md)
+
+---
+
+## 1. スコープ
+
+| 層 | パス | 権限 |
+|----|------|------|
+| **実験（書込可）** | `apps/ui-parts-lab-w2/**` | checkpoint の主戦場 · port **3101** |
+| **ベースライン（読取のみ）** | `apps/ui-parts-lab/**` | port **3100** · **ユーザー明示指示まで改変禁止** |
+| **共有（Merge Bot 経由）** | `screen-defs/**` · `packages/ihl-ui-catalog/**` · `catalog/ui-components.yaml` | 1 ファイル = 1 所有者（orchestration §所有権） |
+| **禁止** | `apps/web/**` · SwitchBot 秘密 · civ-os `frontend/` | 触らない |
+
+---
+
+## 2. 品質バー（一般 IHL より厳格）
+
+### 2.1 必須ループ
+
+```text
+EXECUTE → AUDIT → PASS? → [x]
+                 └ FAIL? → REMEDIATE → re-AUDIT（最大 3 回）
+```
+
+- **監査 PASS 前の [x] 禁止** — [`ihl-exec-audit-retry-loop.mdc`](./ihl-exec-audit-retry-loop.mdc) 準拠
+- **Tier 未宣言の監査は無効**
+- 3 回 FAIL → **API エスカレーション**（人間明示 or BLOCKER 記録後のみ）· orchestration §6 に追記
+
+### 2.2 Tier B scorecard（W2 引き上げ）
+
+| 項目 | 一般 IHL | **W2 checkpoint** |
+|------|----------|-------------------|
+| 総合 | ≥ 85 | **≥ 90** |
+| B 軸 | ≥ 25 | **≥ 28** |
+| C 軸 | ≥ 25 | **≥ 28** |
+
+**Tier C 必須（RESTART-2 2026-07-05）**: Team 6 は port **3101** でブラウザ実地検証必須。
+
+- scorecard の `verification.browser_verified: true` が **ない限り PASS 禁止**
+- `browser_verified: false` または未設定 → **gate: FAIL** · `status: pending_browser_audit`
+- ホーム（`01`）から各機能入口まで **≤3 クリック** で到達可能であること（不可の場合は nav 修正 or FAIL 理由を記録）
+- 機械 grep / build PASS / 一括スクリプト更新のみでの PASS は **rubber-stamp として無効**
+
+正本: [`IHL-SLICE-SCORECARD-v1.md`](../05-運用/automation/IHL-SLICE-SCORECARD-v1.md) · 出力: `docs/planning/w2-checkpoint/scorecards/{walkId}.json`
+
+### 2.3 Tier C（Wave 5 合流）
+
+5 GATE すべて shell PASS（rtm · parity · layering · oracle · reverse-rtm）— checkpoint 対象機能に限定可。
+
+### 2.4 W2 機械ゲート G1–G6
+
+Team 10 が Wave 5 で実行 · 結果 `docs/planning/audits/w2-gates-{wave}.json`
+
+---
+
+## 3. クォータ戦略（2026-07-05 ユーザー指示）
+
+**二層クォータ** — API と Auto+Composer は **逆方向** に運用する。
+
+| クォータ種別 | 方針 | 根拠 |
+|--------------|------|------|
+| **Auto + Composer** | **節約禁止 · 最大投入** | 1 エージェントのコンテキスト窓は狭い → **多数の狭いエージェント + 監査チェーン** で品質を担保 |
+| **API**（Standard / High / Opus / Codex） | **節約必須** | ユーザー残量 100% 付近 · on-demand 回避 |
+
+### 3.1 Auto + Composer — 最大投入ルール
+
+- **並列 max 25** — 可能なら **常に上限近く** を目標（Merge Bot 2 + 司令塔 1 を除く）
+- **1 walkId = 1 エージェント** — 55 画面検証は 55 シャード想定
+- **細分化必須** — 1 大エージェントが担う作業を **小コンテキスト単位** に分割し、並列 Auto がカバー
+- **EXEC → AUDIT も別エージェント** — 実行者と監査者を分離（同一エージェントの自己監査禁止）
+- **Multitask = 独立シャード並列可** — 一般ルールの「1 worker」制約は W2 スコープでは **不適用**
+- **Wave 4 実装も Auto 優先** — ユーザーが **`Codex で実装`** と明示しない限り Auto 並列で実装
+
+### 3.2 API — 節約ルール
+
+- **on-demand 起動禁止** — バックグラウンド委譲・Task も **既定（Auto）** を使う
+- **Standard / High / Opus / Codex** は次の **いずれかのみ**:
+  - ユーザーが **明示指定**（例: `高性能で mock` · `Codex で実装`）
+  - Team 5 **BLOCKER** で Auto 3 連続 FAIL 後の **エスカレーション**
+- **Wave 4 も Auto 優先** — `W2 P2 実装 Go` は着手ゲートであり、Codex 自動起動の合図 **ではない**
+
+### 3.3 品質の出し方（コンテキスト制約への対処）
+
+```text
+狭い Auto エージェント（EXEC） → 別 Auto エージェント（AUDIT） → PASS? → [x]
+                                      └ FAIL? → 別 Auto（REMEDIATE） → re-AUDIT
+```
+
+- **量で補う**: 並列数 · シャード細分化 · 監査分離
+- **API は最後の手段**: BLOCKER 解消 · 横断 ADR · 人間明示のみ
+
+---
+
+## 4. モデルティア（W2 スコープ）
+
+| ティア | モデル | W2 用途 | 起動条件 |
+|--------|--------|---------|----------|
+| **Auto** | `composer-2.5-fast` / 既定 | **既定 · 最大並列** — 索引 · grep · build · scorecard · **Wave 4 実装** · EXEC/AUDIT 全般 | **常に優先** |
+| **Standard** | `claude-4.6-sonnet-medium-thinking` / `gpt-5.5-medium` | PASS/FAIL 最終裁定 · 複雑な検証票 | 人間明示 **or** Auto 3× FAIL |
+| **High** | `claude-opus-4-8-thinking-high` | 横断 ADR · P2 統合設計 · 10+ ファイルアーキ | 人間明示 **or** BLOCKER エスカレーション |
+| **Codex** | `gpt-5.3-codex` | 大規模実装バッチ | 人間 **`Codex で実装`** 明示 **+** `W2 P2 実装 Go` |
+
+**並列**: Wave あたり **最大 25 エージェント**（Merge Bot 2 + 司令塔 1 を除く）。同一ファイル同時編集禁止。
+
+---
+
+## 5. 品質 vs クォータ（ユーザー 2026-07-05 改訂）
+
+| 一般ルール | W2 checkpoint |
+|------------|---------------|
+| Auto 既定 · API 節約 | **Auto+Composer 最大 · API 節約**（二層） |
+| Multitask = 1 worker | **独立シャード並列 max 25** |
+| Tier B ≥ 85 | **≥ 90** |
+| Best-of-N 任意 | **Tier B FAIL 時は Auto 並列 Best-of-N 推奨**（API Best-of-N は BLOCKER 時のみ） |
+
+---
+
+## 6. 人間ゲート
+
+| ゲート | 合図 | 状態 | 解禁 |
+|--------|------|------|------|
+| **Ideal Charter** | `W2 Ideal Charter Go` | **GO 2026-07-05** | Wave 2（55 画面検証）以降 |
+| **P2 実装** | `W2 P2 実装 Go` | 待ち | Wave 4 · **Auto 並列（既定）** · Codex は別途明示時のみ |
+| **checkpoint PR** | `W2 checkpoint PR Go` | 待ち | Wave 6 · PR 作成/マージ |
+
+Charter 未 Go · skeptic BLOCKER 未処理 · build 赤 → **Wave 4 禁止**。
+
+---
+
+## 7. 禁止
+
+- `apps/web/**` の変更
+- `SWITCHBOT_*` 秘密の保存・読込・ログ
+- **`apps/ui-parts-lab`（3100）ソース改変**（ユーザー明示まで）
+- 監査スキップでの Wave 完了報告
+- Team 5 BLOCKER を無視した実装
+- ブランド 4 枚以外のロゴ/コイン差し替え（[`ihl-brand-assets.mdc`](./ihl-brand-assets.mdc)）
+
+---
+
+## 8. Skill 起動
+
+| タイミング | Skill |
+|------------|-------|
+| UI/UX 検証 | `02-設計/_ui-global/00-UXレビュー手順書-v1.md`（ui-design-review Skill 未存在時の正本） |
+| POST-OSS / 伴走監査 | [`.cursor/skills/ihl-design-impl-audit/SKILL.md`](../skills/ihl-design-impl-audit/SKILL.md) |
+| DOC 監査 | [`.cursor/skills/ihl-doc-remediation/SKILL.md`](../skills/ihl-doc-remediation/SKILL.md) |
+
+---
+
+## 9. 自己チェック（[x] 直前）
+
+```
+[ ] 3101（w2）のみ書込したか（3100 未改変）
+[ ] Auto+Composer を max 並列で使ったか（API は明示/BLOCKER 以外未使用）
+[ ] EXEC と AUDIT を別エージェントに分けたか
+[ ] 適用 Tier（A/B/C）を明示したか
+[ ] Tier B ≥ 90（B≥28 C≥28）か
+[ ] **browser_verified: true** が scorecard にあるか（Tier C · RESTART-2 必須）
+[ ] EXEC→AUDIT→PASS を shell で確認したか
+[ ] 人間ゲート（§6）を満たしているか
+[ ] apps/web · SwitchBot 違反がないか
+```

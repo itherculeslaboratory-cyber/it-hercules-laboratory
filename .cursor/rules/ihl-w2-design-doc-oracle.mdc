@@ -1,0 +1,37 @@
+---
+description: W2 lab 3101 — 設計 doc 読了・§ 引用表・user gate override を実装前に必須化
+globs:
+  - apps/ui-parts-lab-w2/**
+alwaysApply: false
+---
+
+# W2 Lab — Design Doc Oracle（3101）
+
+**正本**: [`docs/planning/w2-checkpoint/W2-DESIGN-DOC-PROCESSING-v1.md`](../docs/planning/w2-checkpoint/W2-DESIGN-DOC-PROCESSING-v1.md)
+
+## MUST（`apps/ui-parts-lab-w2/**` 編集前）
+
+1. **本書 + 機能 UI doc を読む** — [`W2-DESIGN-DOC-PROCESSING-v1.md`](../docs/planning/w2-checkpoint/W2-DESIGN-DOC-PROCESSING-v1.md) §2.2 の exact files。例: #01 → `02-設計/features/04-ホーム画面/ui/ナビ・ホーム.md` §3。
+2. **design note に § verbatim 引用 + 対照表** — UI 要素 | 設計 § | MUST/SHOULD | **user gate override** 列。未記入なら **コード禁止**。
+3. **Pre-implementation gate 10 項目** — design note に全行記入（processing doc §5）。
+4. **キャリブレーション引用** — user feedback 済み行 ≥ 3 なら直近 3 行を design note / session に引用（CAL-02）。
+
+## MUST（衝突解決）
+
+- §3 #2 草案 4 カード vs §3 #4 例 3 指標 → **§3 #4 + user gate 優先**。4 枚目 invent **禁止**。
+- **User gate overrides draft nav** — 例: 「マイページからで十分」→ ホーム左ナビから当該 item 削除。override を design note と calibration log に記録。
+- **DESIGN-FULFILLMENT**: MUST 行 100% § citation なし → 自己採点 **> 70 禁止**（scoring system §3）。
+
+## 禁止
+
+- design note だけを oracle にして **機能 UI doc §3 未読**で実装（F-01）
+- 設計 § に無い **nav item 追加**（user Go なし）
+- 設計 § に無い **metric / 要約カード invent**（PT · 1240 差替等）
+- core nav（好み学習等）を **fold のみ**に隠す
+- § checklist PASS/FAIL 表なしの **満点自己採点**
+
+## 関連
+
+- [`ihl-w2-lab-review-scoring.mdc`](./ihl-w2-lab-review-scoring.mdc) — セッション · キャリブレーション
+- [`ihl-w2-checkpoint-max-quality.mdc`](./ihl-w2-checkpoint-max-quality.mdc) — Tier B scorecard
+- [`05-観測-LAB-ACCEPTANCE-CHECKLIST-v1.md`](../docs/planning/w2-checkpoint/05-観測-LAB-ACCEPTANCE-CHECKLIST-v1.md) — #05 受入

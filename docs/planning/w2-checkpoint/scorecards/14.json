@@ -1,0 +1,70 @@
+{
+  "walkId": "14",
+  "title": "貢献度",
+  "tier": "B",
+  "wave": 2,
+  "mode": "browser_verification",
+  "timestamp": "2026-07-05T16:00:00+09:00",
+  "charter_refs": [
+    "Q9:C"
+  ],
+  "verification": {
+    "method": "RESTART-2 playwright browser on http://localhost:3101",
+    "sources": [
+      "screen-defs/14.json",
+      "apps/ui-parts-lab-w2/src/w2/W2ScreenRenderer.tsx",
+      "apps/ui-parts-lab-w2/src/data/screens.json"
+    ],
+    "transition_count": 3,
+    "node_count": 4,
+    "has_screen_def": true,
+    "w2_excluded": false,
+    "w2_patched": true,
+    "build_status": "PASS",
+    "w2_build": "PASS",
+    "w2_state_panel": "W2UniversalStatePanel",
+    "w2_q9c": true,
+    "browser_verified": true,
+    "browser_audit_required": true,
+    "revoke_session": "RESTART-2-2026-07-05",
+    "direct_load_ok": true,
+    "nav_from_home_clicks": 1,
+    "issues": [],
+    "nav_from_home_method": "sidebar"
+  },
+  "axes": {
+    "A_completeness": {
+      "score": 28,
+      "max": 30,
+      "notes": "3101 direct load OK"
+    },
+    "B_layering": {
+      "score": 28,
+      "max": 25,
+      "notes": "W2 patch"
+    },
+    "C_impl_parity": {
+      "score": 28,
+      "max": 30,
+      "notes": "browser_verified · nav ≤3 click"
+    },
+    "D_charter_alignment": {
+      "score": 13,
+      "max": 15,
+      "notes": "discoverable from home"
+    }
+  },
+  "total": 97,
+  "w2_threshold": {
+    "total_min": 90,
+    "B_axis_min": 28,
+    "C_axis_min": 28
+  },
+  "gate": "PASS",
+  "fail_reason": null,
+  "audit_agent": "Team-6-RESTART2-AUDIT-baxis",
+  "exec_agent": "RESTART-2-browser-batch1",
+  "prior_gate": "PASS (wave5 — retracted)",
+  "status": "browser_verified",
+  "audit_verdict": "ACCEPTED"
+}

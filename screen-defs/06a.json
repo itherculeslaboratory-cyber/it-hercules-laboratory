@@ -33,7 +33,7 @@
     },
     {
       "from": "hotspot.1",
-      "to_screen_id": "06b",
+      "to_screen_id": "06detail",
       "label": "出品カード → 詳細"
     },
     {

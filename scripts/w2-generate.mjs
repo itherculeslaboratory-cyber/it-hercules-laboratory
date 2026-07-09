@@ -85,6 +85,28 @@ const SCREEN_DEF_PATCHES = {
   "03": {
     notes: "W2 O2 hand UI — mock: mockups/ihl-03-lineage-cross.png · 03m は metric バリアント共用",
   },
+  /** 06detail — Stage 0 出品詳細（mock 共用だが component は listing-detail） */
+  "06detail": {
+    nodes: [
+      { id: "chrome", component_id: "ihl-brand-chrome", region: "AppShell" },
+      { id: "part-0", component_id: "ihl-06-market-listing-detail__ContentArea", region: "ContentArea" },
+      { id: "part-1", component_id: "ihl-06-market-listing-detail__PrimaryAction", region: "PrimaryAction" },
+      { id: "part-2", component_id: "ihl-06-market-listing-detail__StatePanel", region: "StatePanel" },
+    ],
+    notes: "W2 Stage 0 listing detail — MarketListingDetailW2（detail-board と mock 共用 · component 分離）",
+  },
+  /** 06bid — オークション入札（自動入札 · 入札単位検証） */
+  "06bid": {
+    route: "/market/auction/:id/bid",
+    title: "オークション 入札",
+    nodes: [
+      { id: "chrome", component_id: "ihl-brand-chrome", region: "AppShell" },
+      { id: "part-0", component_id: "ihl-06-market-auction-bid__ContentArea", region: "ContentArea" },
+      { id: "part-1", component_id: "ihl-06-market-auction-bid__PrimaryAction", region: "PrimaryAction" },
+      { id: "part-2", component_id: "ihl-06-market-auction-bid__StatePanel", region: "StatePanel" },
+    ],
+    notes: "W2 auction bid entry — MarketBidEntryW2 · sessionStorage mock · Yahoo 入札単位",
+  },
 };
 
 /** 観測 O2 手実装 — ContentArea 単一ノード（walkthrough.js hotspots → transitions） */
@@ -356,6 +378,15 @@ for (const [screenId, screen] of Object.entries(screens)) {
   fs.writeFileSync(path.join(SCREEN_DEFS, slug), JSON.stringify(def, null, 2) + "\n");
   screenDefIndex[screenId] = slug;
 }
+/** walkthrough 未登録 · W2 lab 専用 ScreenDef（手書き JSON を index に残す） */
+const MANUAL_EXTRA_SCREEN_DEFS = {
+  "06priority-apply": "06priority-apply.json",
+};
+for (const [id, slug] of Object.entries(MANUAL_EXTRA_SCREEN_DEFS)) {
+  if (!screenDefIndex[id] && fs.existsSync(path.join(SCREEN_DEFS, slug))) {
+    screenDefIndex[id] = slug;
+  }
+}
 fs.writeFileSync(path.join(SCREEN_DEFS, "index.json"), JSON.stringify(screenDefIndex, null, 2) + "\n");
 
 const manualComponents = [
@@ -367,6 +398,9 @@ const manualComponents = [
   { id: "ihl-00-terms__TermsAgreementForm", kind: "auth", path: "packages/ihl-ui-catalog/src/components/TermsAgreementForm.tsx", status: "w2_hand", description: "利用規約カード" },
   { id: "ihl-05-obs-hand-ui", kind: "feature", path: "packages/ihl-ui-catalog/src/components/features/observation/", status: "w2_hand", description: "観測 11 画面 O2 手実装" },
   { id: "ihl-06-market-hand-ui", kind: "feature", path: "packages/ihl-ui-catalog/src/components/features/market/", status: "w2_hand", description: "マーケット 15 画面 O2 手実装" },
+  { id: "ihl-06-market-listing-detail__ContentArea", kind: "feature", path: "apps/ui-parts-lab-w2/src/w2/MarketListingDetailW2.tsx", status: "w2_hand", description: "Stage 0 出品詳細 ContentArea" },
+  { id: "ihl-06-market-listing-detail__PrimaryAction", kind: "feature", path: "apps/ui-parts-lab-w2/src/w2/MarketListingDetailW2.tsx", status: "w2_hand", description: "Stage 0 出品詳細 PrimaryAction" },
+  { id: "ihl-06-market-listing-detail__StatePanel", kind: "feature", path: "apps/ui-parts-lab-w2/src/w2/MarketListingDetailW2.tsx", status: "w2_hand", description: "Stage 0 出品詳細 StatePanel" },
   { id: "ihl-01-nav-home__HomeCommandPanel", kind: "feature", path: "packages/ihl-ui-catalog/src/components/HomeCommandPanel.tsx", status: "w2_hand", description: "ホーム司令塔" },
   { id: "ihl-03-lineage-cross__CrossDashboardPanel", kind: "feature", path: "packages/ihl-ui-catalog/src/components/LineageCrossPanel.tsx", status: "w2_hand", description: "血統・交配 Cross" },
   { id: "ihl-03-lineage-metrics-detail__MetricsDetailPanel", kind: "feature", path: "packages/ihl-ui-catalog/src/components/LineageMetricsPanel.tsx", status: "w2_hand", description: "血統メトリクス詳細" },

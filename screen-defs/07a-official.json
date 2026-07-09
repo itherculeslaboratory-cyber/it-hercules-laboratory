@@ -1,0 +1,41 @@
+{
+  "screen_id": "07a-official",
+  "route": "/knowledge/board",
+  "title": "知の広場 › 掲示板",
+  "layout": "standard",
+  "nodes": [
+    {
+      "id": "chrome",
+      "component_id": "ihl-brand-chrome",
+      "region": "AppShell"
+    },
+    {
+      "id": "part-0",
+      "component_id": "ihl-07-board-official-hub__ContentArea",
+      "region": "ContentArea"
+    },
+    {
+      "id": "part-1",
+      "component_id": "ihl-07-board-official-hub__PrimaryAction",
+      "region": "PrimaryAction"
+    },
+    {
+      "id": "part-2",
+      "component_id": "ihl-07-board-official-hub__StatePanel",
+      "region": "StatePanel"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "hotspot.0",
+      "to_screen_id": "07b",
+      "label": "改善"
+    },
+    {
+      "from": "hotspot.1",
+      "to_screen_id": "07g",
+      "label": "愚痴"
+    }
+  ],
+  "notes": "W2 — 公式掲示板板選び · 愚痴+改善 2 カード · walkId 07a-official"
+}

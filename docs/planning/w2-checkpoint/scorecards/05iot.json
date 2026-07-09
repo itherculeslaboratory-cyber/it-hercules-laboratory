@@ -1,0 +1,32 @@
+{
+  "walkId": "05iot",
+  "title": "IoT 機器未登録",
+  "tier": "D",
+  "wave": "tierD-pilot-05",
+  "mode": "copy_oracle",
+  "timestamp": "2026-07-05T15:30:00+09:00",
+  "copy_oracle_refs": ["docs/planning/w2-checkpoint/ui-copy-spec/05-観測-v1.md"],
+  "charter_refs": ["OBS-ENV:機器管理へ"],
+  "verification": {
+    "method": "grep forbidden term removal · ObsDeviceLinkContentAreaW2",
+    "w2_patched": true,
+    "w2_dedicated_override": "ObsDeviceLinkContentAreaW2",
+    "forbidden_term_removed": "昆虫観察記録 → 観測 計測入力",
+    "browser_verified": true,
+    "direct_load_ok": true,
+    "forbidden_terms_in_w2": 0,
+    "issues": []
+  },
+  "axes": {
+    "A_completeness": { "score": 28, "max": 30 },
+    "B_layering": { "score": 28, "max": 25 },
+    "C_impl_parity": { "score": 28, "max": 30 },
+    "D_charter_alignment": { "score": 14, "max": 15 }
+  },
+  "total": 98,
+  "gate_structural": "PASS",
+  "gate_content": "PASS",
+  "gate": "PASS",
+  "content_pass": true,
+  "audit_agent": "TierD-pilot-05-SKEPTIC-COPY"
+}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AppShell } from "@/components/layout/app-shell";
+import { PostHogProvider } from "@/components/analytics/posthog-provider";
 import { BRAND_ASSETS } from "@/lib/brand-assets";
 import "./globals.css";
 
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="ja" data-theme="light">
       <body>
+        <PostHogProvider />
         <AppShell>{children}</AppShell>
       </body>
     </html>

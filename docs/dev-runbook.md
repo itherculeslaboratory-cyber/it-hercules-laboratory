@@ -118,6 +118,33 @@ Playwright は **API :8000 + Web :3000** を自動起動する（既存サーバ
 
 ---
 
+## PostHog（dev トライアル）
+
+ローカル開発でのユーザー行動計装のトライアル導入。**既定は完全無効（no-op）**。
+
+| 項目 | 内容 |
+|------|------|
+| 有効化条件 | `apps/web/.env.local` に `NEXT_PUBLIC_POSTHOG_KEY` を設定した場合のみ |
+| env 変数 | `NEXT_PUBLIC_POSTHOG_KEY`（client 用 publishable key）· `NEXT_PUBLIC_POSTHOG_HOST`（省略時 `https://us.i.posthog.com`） |
+| 実装箇所 | [`src/lib/posthog-init.ts`](../apps/web/src/lib/posthog-init.ts)（初期化本体）· [`src/components/analytics/posthog-provider.tsx`](../apps/web/src/components/analytics/posthog-provider.tsx)（`app/layout.tsx` にマウントする client component） |
+| person profile | `person_profiles: 'identified_only'`（匿名 profile を作らずコスト最小） |
+| DNT | `respect_dnt: true` |
+
+**無効化方法**: `apps/web/.env.local` から `NEXT_PUBLIC_POSTHOG_KEY` を削除（またはファイル自体を削除）するだけ。再起動で即座に no-op に戻る。
+
+**no-op が保証される条件**（`initPostHog()` 内のガード。詳細はコード参照）:
+
+1. `NEXT_PUBLIC_POSTHOG_KEY` が未設定 → **フォーク・キー無し環境では外部通信ゼロ**
+2. `navigator.webdriver === true` → Playwright 等の e2e 実行時は送信しない
+
+`apps/web/.env.local` は `.gitignore` 対象（リポジトリにキーはコミットしない）。変数名のプレースホルダは [`apps/web/.env.example`](../apps/web/.env.example) を参照。
+
+> `phc_` キーは PostHog の「client 用 publishable key」であり秘匿情報ではないが、本 repo では env 注入方式（`.env.local` 経由）で管理し、コミット対象ファイルには書かない運用とする。
+
+本番導入（ダッシュボード運用・イベント設計・保持期間など）は本トライアルの対象外。別途人間判断で決定する。
+
+---
+
 ## 停止
 
 - hybrid: `dev-up` 起動ターミナルで **Ctrl+C**（API コンテナも停止）

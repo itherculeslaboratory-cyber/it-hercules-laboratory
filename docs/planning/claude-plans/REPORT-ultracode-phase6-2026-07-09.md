@@ -166,3 +166,75 @@
 - 実行統計: Workflow 5本(Stage R=32 / I1=14+2 / I2=8 / V=24 エージェント、計 **80 エージェント・エラー0**)、サブエージェント総トークン約 520万
 
 *数値・判定はすべて各エージェントの実測報告に準拠。データに無い項目は記載していない。*
+
+---
+
+## ⑧ 残件の自律処理(2026-07-10)
+
+### whitelist 裁定(§6-14)
+
+**結論: デフォルトデナイ(疑わしきは保護)。既存 middleware の境界は要件と概ね一致しており、境界の再分類は不要**。実装差分は open-redirect ガード追加の1点のみ。全44ルートの裁定表は `docs/planning/claude-plans/AUTH-ROUTE-MATRIX-v1.md` を正本とする。
+
+- **`/board`(知の広場)→ PROTECTED**: STATUS で PROVISIONAL・ゲート中のため公開前提にしない。
+- **`/individuals/*/qr` → PROTECTED**: QR 値はアプリスキーム deep link(`ihl://individual/<id>`)であり、匿名がブラウザで開く公開 Web 到達先が存在しない。公開ページ不要のため露出ゼロで要件充足。
+- **ルート `/` → PROTECTED**: H-001「未認証は login」。`/` は全パスの接頭辞のため公開 prefix に含めず fallback 保護。
+- **その他グレー全て → PROTECTED**(default-deny)。公開は要件明示分のみ: `/login` `/register` `/terms` `/language` + 観測 READ(Scope A)。
+- 追加修正: 認証済み `/login?next=…` の open-redirect ガード(`next` は内部絶対パスのみ許可)。`middleware.test.ts` 新設8ケース、`apps/web` vitest 59 passed。
+
+### ver1 裁定(§6-8)
+
+**結論: STALE TEST(現仕様が正・回帰ではない)→ spec 側を更新**。
+
+- 根拠: `01-要件/05-観測.md` L58 で計測行 IoT 必須化は「OBS-INPUT-06/07・ver2 OUT」と明示され、ver1 スコープ外。実装(`page.tsx`)の `method:"manual_entry"` 既定は仕様どおり。
+- `git log --follow` で `page.tsx` の全世代を確認した結果、IoT 既定が存在した実コミットは現行 main 系譜に存在せず、回帰を生んだコミットは無い。ver1 spec が再ルート以前の設計モックに対して書かれたまま更新されていなかった stale テストと判定。
+- 修正は `e2e/ihl-observation-ver1.spec.ts` のみ(手入力値を入力した上で IoT 一括フェッチ経路も検証する形に更新)。プロダクトコード無変更。`npx playwright test ihl-observation-ver1.spec.ts` → 1 passed。
+
+### 再実測の最終数値(§6-12)
+
+| 区分 | 実測値 |
+|---|---|
+| pytest tests/unit tests/integration | **338 passed, 1 skipped** |
+| pytest tools/tests | **8 passed** |
+| npm test(apps/web, vitest) | **10 files / 59 tests passed** |
+| npm run build(apps/web) | **成功**(Compiled successfully, 4/4 static pages, postbuild 完走。前回の EPERM は今回発生せず) |
+| npx playwright test --reporter=line(全spec、repo ルートから実行) | **6 passed**(29.2s) |
+
+### SMTP / verify.cmd / grill-me trial / PostHog(§6-4, 環境監査トップ3, §6-10)
+
+- **SMTP(§6-4)**: `docs/vps-api-deploy.md` に §7「SMTP 通電手順」を新設(env var 一覧・fallback 挙動・Docker Compose 注入手順・systemd `EnvironmentFile=` 併記・test-send 例・ユニットテストの被覆範囲の明記)。**鍵素材投入と実送達確認は人間専任作業**と明記。ゲート状態は未判断のまま変わらず。
+- **`.claude/verify.cmd` 新設**: `pytest tests/unit -q -x --ff` を実行する内容で新設。実測 315 passed(exit 0、約6.4秒)。
+- **grill-me trial**: `~/.claude/skills/grill-me/SKILL.md` と依存の `grilling/SKILL.md` を `mattpocock/skills` から導入(安全性は WebFetch+curl 二重確認)。`D:\notes\log.md` に導入記録1行を追記。
+- **PostHog 判断**: **trial 見送り**。API キー取得が人間作業(サインアップ・組織登録)であり、コード変更なしの指示と整合しない。コスト最小原則(継続的なアカウント管理・データ保持コスト)と、本番導入自体が人間ゲート対象であることから、dev 計装の先行導入は見送り、キー取得後に着手する方針を確定。
+
+### docs-reorg 適用結果(§6-7)
+
+`PROPOSAL-docs-reorg-v1.md` の M1〜M10 のうち **5件(M1・M3・M5・M8・M9)を適用、5件(M2・M4・M6・M7・M10)を見送り**。
+
+- 適用: `ihl-single-folder-migration-plan.md` を `99-アーカイブ/superseded/` へ退避(参照3件を repoint)/ 旧 `ihl-tomorrow-memo` stub 削除 / レガシー `UI設計/` 索引削除(実体は `_ui-global/`、重複は `_legacy-index/` に保持済みと確認済み)/ `w2-checkpoint/` の作業用一時ファイル6件削除(gitignore 済み) / `docs/planning/README.md` のフォルダ構成節を更新。リンク書き換え計5箇所、旧パス残存0件を確認。
+- 見送り: `github-mirror-push.md`(現役参照4件、デプロイ runbook が依存)/ `docs/design/`(`OSS-REPO-LAYOUT-v1.md` への現役参照15件以上、生成スクリプトも依存)/ `_legacy-index/`(実参照2件、うち1件が不可侵の 04-トレーサ 配下)/ `docs/components/*/BOARD.md`(提案どおり現状維持)/ root pre-promotion drafts(提案自身が別途人間確認対象と明記)。
+- 検証: `pytest tests/unit` → 315 passed、回帰なし。
+
+### コミット一覧と push 先
+
+いずれも `feature/ui-parts-lab-w2-checkpoint` ブランチへ push 済み(origin、force 不使用)。
+
+| SHA | コミット |
+|---|---|
+| `ebf08e8` | fix(web): middleware を src/ へ移動し認証ゲートを有効化 |
+| `ffc1a86` | fix(env): csv_import を clock-aligned バケットへ復帰(FR-ENV-11/ADR-H-35 準拠) |
+| `5a81947` | test(identity): magic-link メールのユニットテスト新設 |
+| `aeed64b` | refactor(hygiene): shim import を正パス(libs.ihl.*)へ揃え、旧 ui-parts-lab を削除 |
+| `3623cb9` | feat(knowledge): docs/knowledge サブブレインと ingest/search ツールを追加 |
+| `bd877f5` | docs(planning): Stage R 成果物(PROPOSAL/RTM/science-os)+実行報告書を追加 |
+| `f55a15c` | docs(reorg): 旧 docs メモを整理しplanning系ドキュメントを更新 |
+
+whitelist 裁定(middleware 差分・`AUTH-ROUTE-MATRIX-v1.md` 新設)・ver1 裁定(e2e spec 更新)・.claude/verify.cmd 新設は、本節追記コミットに続く後工程でコミットする(本コミット時点では docs 本文のみ)。
+
+### 残る人間作業
+
+1. SMTP 本番鍵素材の投入と実送達確認(§6-4)
+2. GMO 本番判断(§6-5)
+3. W2 再開判断(§6-3)
+4. 知の広場ゲート(§6-2、PROVISIONAL 継続中)
+5. PostHog API キー取得(取得後に dev 計装トライアルへ着手)
+6. 本番デプロイ(middleware 認証反転を含む、whitelist 監査結果を踏まえた最終承認)

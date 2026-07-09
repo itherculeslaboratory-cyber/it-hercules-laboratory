@@ -3,7 +3,7 @@
 > 実行日: 2026-07-09 〜 2026-07-10(深夜跨ぎ) / 起票: 2026-07-10
 > 前提計画: `PLAN-ultracode-integration.md`
 > 実行様式: ultracode(指揮=Fable 5、実行=Sonnet/Opus エージェント群、検証=批評家エージェント群 ※I2/V はユーザー指示により Opus 4.8)
-> ステータス: **全変更が未コミット**。commit/push は人間ゲート(§6)。
+> ステータス: **全変更コミット・push 済み**(2026-07-10、ユーザー承認による自律処理 §8。ブランチ `feature/ui-parts-lab-w2-checkpoint` → origin)。
 > コア思想の不可侵条項: ①ランニングコスト最小 ②全ユーザーが改善できる(フォーク文化) / Truth は append-only(削除・上書き禁止)。
 
 ---
@@ -228,7 +228,7 @@
 | `bd877f5` | docs(planning): Stage R 成果物(PROPOSAL/RTM/science-os)+実行報告書を追加 |
 | `f55a15c` | docs(reorg): 旧 docs メモを整理しplanning系ドキュメントを更新 |
 
-whitelist 裁定(middleware 差分・`AUTH-ROUTE-MATRIX-v1.md` 新設)・ver1 裁定(e2e spec 更新)・.claude/verify.cmd 新設は、本節追記コミットに続く後工程でコミットする(本コミット時点では docs 本文のみ)。
+訂正(2026-07-10 確認): whitelist 裁定一式(middleware 差分・`AUTH-ROUTE-MATRIX-v1.md`・middleware テスト・ver1 spec 裁定)は `ebf08e8`、`.claude/verify.cmd` は `bd877f5` に**コミット済み**。本節追記(`d076a18`)の時点で未コミットの変更は存在しない。
 
 ### 残る人間作業
 

@@ -1,6 +1,6 @@
 # 単一フォルダ統合 — 移行計画
 
-> **設計正本**: [`docs/ihl-single-folder-migration-plan.md`](../../ihl-single-folder-migration-plan.md)  
+> **全文（アーカイブ）**: [`99-アーカイブ/superseded/ihl-single-folder-migration-plan.md`](../../../99-アーカイブ/superseded/ihl-single-folder-migration-plan.md)  
 > **計画ハブ**: [`../README.md`](../README.md) · [`../STATUS.md`](../STATUS.md)  
 > **ステータス**: Phase 0 未着手（2026-07-03）
 
@@ -39,7 +39,7 @@ split-brain（`it-hercules-laboratory-clean` vs `civilization-os/指示/it-hercu
 
 詳細・NOT TO DO · 完了判定は正本を参照:
 
-**→ [`docs/ihl-single-folder-migration-plan.md`](../../ihl-single-folder-migration-plan.md)**
+**→ [`99-アーカイブ/superseded/ihl-single-folder-migration-plan.md`](../../../99-アーカイブ/superseded/ihl-single-folder-migration-plan.md)**
 
 ---
 
@@ -47,7 +47,7 @@ split-brain（`it-hercules-laboratory-clean` vs `civilization-os/指示/it-hercu
 
 - `docs/planning/STATUS.md` — 運用現実（本番 URL · 直近タスク）
 - `docs/planning/` — バックログ · ver · フェーズの **読みやすい入口**
-- 本ファイル — **リポジトリ統合**の入口（正本は `ihl-single-folder-migration-plan.md`）
+- 本ファイル — **リポジトリ統合**の入口（全文詳細は `99-アーカイブ/superseded/ihl-single-folder-migration-plan.md` を参照）
 
 ---
 

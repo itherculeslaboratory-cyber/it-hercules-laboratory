@@ -67,6 +67,7 @@
 | **未ログイン観測検索 401** | **修正済み** — router 全体 `enforce_auth_when_required` が READ をブロックしていた · WRITE のみ認証 |
 | **API / CORS / nginx** | `api.it-hercules.uk` 直叩き · `test_cors.py` |
 | **検索スコープ A** | 人間ゲート解消 · API/UI はカタログ横断（`test_observation_search_scope_a_returns_all_owners`） |
+| **docs 整理（一部）** | [`PROPOSAL-docs-reorg-v1.md`](./claude-plans/PROPOSAL-docs-reorg-v1.md) 安全な移行のみ適用（2026-07-10・M1/M3/M5/M8/M9）· 旧単一フォルダ計画を `99-アーカイブ/superseded/` へ退避 · commit は後工程 |
 
 ---
 

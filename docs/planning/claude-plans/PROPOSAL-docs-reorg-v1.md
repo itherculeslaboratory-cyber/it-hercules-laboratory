@@ -2,7 +2,35 @@
 
 > **作成日**: 2026-07-09
 > **作成者**: Claude (起草) — 実行は別セッション/サブエージェントへ委譲
-> **ステータス**: DRAFT — 提案のみ、未適用
+> **ステータス**: 一部適用済み(2026-07-10) — 下記「適用済み」節を参照
+
+---
+
+## 適用済み(2026-07-10・適用担当サブエージェント)
+
+安全に適用できる移行のみを実施。git rm を伴う不可逆操作は対象の重複/不要を再確認のうえ実行。**commit は後工程(未 commit で残置)**。
+
+### 適用した M(5件)
+
+| M | 操作 | 内容 | リンク書き換え |
+|---|---|---|---|
+| M1 | `git mv` | `docs/ihl-single-folder-migration-plan.md` → `99-アーカイブ/superseded/` | `docs/planning/migrations/single-folder.md` 3箇所を新パスへ repoint + `docs/planning/README.md` に退避注記1行 |
+| M3 | `git rm` | `docs/ihl-tomorrow-memo-2026-06-27.md`(リダイレクト stub)削除 | `docs/planning/backlog/2026-06-27-tomorrow.md` の「旧パス」行を削除(1件) |
+| M5 | `git rm -r` | `UI設計/`(レガシー索引 stub · 実体は `02-設計/_ui-global/`、内容は `_legacy-index/` に重複保持)削除 | 参照元 0件(書き換え不要) |
+| M8 | `rm` | `docs/planning/w2-checkpoint/` の作業用一時ファイル6件削除(gitignore 済のため git rm 不要・commit に載らない) | 参照元 0件 |
+| M9 | 編集のみ | `docs/planning/README.md` フォルダ構成節に `claude-plans/・science-os/・w2-checkpoint/・audits/・golden/・quantum/` を追記 | 該当節のみ |
+
+**リンク書き換え合計: 5箇所**（single-folder.md 3 + backlog 1 + planning/README.md 追記1）。移行後 grep で旧パス残存 0件を確認(アーカイブ済みファイル自身の本文内 stale リンクは archive-internal として許容)。
+
+### 見送った M(5件)と理由
+
+| M | 判断 | 理由 |
+|---|---|---|
+| M2 (`github-mirror-push.md` アーカイブ) | **見送り** | grep の結果 live 参照が4件(`README.md:138`「新 repo 初回 push」· `docs/ver3-deploy-runbook.md:306` · `docs/vps-api-deploy.md:40,229`)。デプロイ runbook が現役手順として参照しており「stale」前提が弱い。提案自身も M2 を「保留・要 grep 確認後判断」に分類 |
+| M4 (`docs/design/` アーカイブ) | **見送り** | grep の結果 `OSS-REPO-LAYOUT-v1.md` への参照が15件以上(全 `libs/**/README.md` 10件 · `docs/OSS-CONTRIBUTOR-ONBOARDING-v1.md` · `05-運用/queues/00-フォルダ構成-v2/v3-OSS.md` · `02-設計/_横断/README-OSS-REPO-LAYOUT.md` + **生成スクリプト** `scripts/ihl-libs-domain-migrate.py/.mjs`)。提案の「Phase2移行済レガシー stub」前提は実態(全ライブラリの正本レイアウト参照)と矛盾。参照過多で書き換え漏れリスク大 |
+| M6 (`_legacy-index/` アーカイブ) | **見送り** | 提案は「参照元なし想定」だが実際は2件(`04-トレーサ/features/README.md:23` · `00-AI-HANDOFF-BRIEF.md:153`)。片方は不可侵の 04-トレーサ ツリー内。低い実益のために不可侵ツリーへ編集を及ぼすのを回避。`_legacy-index/` は既にアーカイブ相当で放置無害 |
+| M7 (`docs/components/*/BOARD.md`) | **現状維持** | 提案どおり(GitHub Discussions 正本への現役案内・移動の実益なし) |
+| M10 (root pre-promotion drafts アーカイブ) | **見送り** | 提案自身が「要・別途人間確認 / docs 外・スコープ境界上」に分類。加えて **repo CLAUDE.md の「読む順#4」および `docs/planning/README.md`・`STATUS.md` が `00-AI-HANDOFF-BRIEF.md` を現役参照**しており、移動は導線破壊。人間確認案件として保留 |
 
 ---
 

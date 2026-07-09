@@ -38,6 +38,7 @@
 
 ## 完了済み判断(記録)
 
+- docs 整理 [PROPOSAL-docs-reorg-v1.md](PROPOSAL-docs-reorg-v1.md): **2026-07-10 安全な M のみ適用済み(M1/M3/M5/M8/M9)**。M2/M4/M6/M10 は参照過多・不可侵ツリー・人間確認案件のため見送り(理由は PROPOSAL「適用済み」節)。**commit は後工程(未 commit で残置)**。
 - `apps/ui-parts-lab`(旧・計600MB超)の削除: **2026-07-09 ユーザー承認済み・Stage I1 で実行済み**。
   `apps/ui-parts-lab-w2` のみ残存。`apps/ui-parts-lab-w2/scripts/setup-assets.mjs` の `PUBLIC` は
   w2 自身(`apps/ui-parts-lab-w2/public`)を指すよう既に整合。

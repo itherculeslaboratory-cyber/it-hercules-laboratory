@@ -32,8 +32,16 @@ docs/planning/
 ├── backlog/           ← 日次・直近タスク
 ├── versions/          ← ver1-4+ リリース計画索引
 ├── phases/            ← V-model · キュー索引
-└── migrations/        ← リポジトリ統合・移行計画
+├── migrations/        ← リポジトリ統合・移行計画
+├── claude-plans/      ← PLAN / DESIGN 系（PLAN-INDEX · 本整理提案ほか）
+├── science-os/        ← 科学 OS 設計
+├── w2-checkpoint/     ← W2 並行チーム成果物
+├── audits/            ← 機械生成 監査
+├── golden/            ← GOLDEN マニフェスト
+└── quantum/           ← QUANTUM シャード群
 ```
+
+> 旧「単一フォルダ統合」計画の全文は [`99-アーカイブ/superseded/`](../../99-アーカイブ/superseded/ihl-single-folder-migration-plan.md) へ退避済み。入口は [`migrations/single-folder.md`](./migrations/single-folder.md)。
 
 ---
 

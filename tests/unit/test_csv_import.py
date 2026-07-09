@@ -23,17 +23,18 @@ def test_switchbot_hub_export_fixture_parses() -> None:
     assert result.raw_rows == 14
     assert result.range_from == "2026-03-21T20:17:00+09:00"
     assert result.range_to == "2026-03-21T20:30:00+09:00"
-    # 1-min rows aggregate to 5-min buckets (14 rows → 4 buckets)
+    # 1-min rows floor into clock-aligned 5-min buckets: 20:15/20:20/20:25/20:30
     assert len(result.buckets) == 4
     first = result.buckets[0]
-    assert first["temperature_c"] == 20.3  # last row in 20:15 bucket (20:21)
-    assert first["humidity_pct"] == 42.0
-    assert first["light_level"] == 1.0
+    assert first["temperature_c"] == 21.0  # last row in clock bucket 20:15 (20:19)
+    assert first["humidity_pct"] == 43.0
+    assert first["light_level"] == 3.0
+    assert first["captured_at"] == "2026-03-21T20:19:00+09:00"
     assert first["source"] == "switchbot_import"
 
 
 def test_one_minute_rows_aggregate_to_five_minute_bucket() -> None:
-    """Rows 20:17–20:21 share bucket floor(20:15) — last row (20:21) wins."""
+    """Rows split at clock 5-min marks; last row per clock bucket wins."""
     csv_text = """Date,Temperature_Celsius(℃),Relative_Humidity(%),DPT(℃),VPD(kPa),Abs Humidity(g/m³),Light_Value
 2026-03-21 20:17,20.5,41,6.8,1.42,7.30,1
 2026-03-21 20:18,20.6,47,8.9,1.29,8.41,2
@@ -42,14 +43,20 @@ def test_one_minute_rows_aggregate_to_five_minute_bucket() -> None:
 2026-03-21 20:21,20.3,42,7.0,1.38,7.39,1
 """
     result = parse_switchbot_hub_export_csv(csv_text)
-    assert len(result.buckets) == 1
-    bucket = result.buckets[0]
-    assert bucket["temperature_c"] == 20.3
-    assert bucket["humidity_pct"] == 42.0
-    assert bucket["light_level"] == 1.0
-    assert bucket["captured_at"] == "2026-03-21T20:21:00+09:00"
-    ts = int(__import__("datetime").datetime.fromisoformat(bucket["captured_at"]).timestamp())
-    assert ts - (ts % TIER_B_BUCKET_SEC) == bucket["bucket_start_unix"]
+    # 20:15 bucket (20:17-20:19) + 20:20 bucket (20:20-20:21)
+    assert len(result.buckets) == 2
+    b15, b20 = result.buckets
+    assert b15["temperature_c"] == 21.0  # last row in clock bucket 20:15 (20:19)
+    assert b15["captured_at"] == "2026-03-21T20:19:00+09:00"
+    assert b20["temperature_c"] == 20.3  # last row in clock bucket 20:20 (20:21)
+    assert b20["humidity_pct"] == 42.0
+    assert b20["light_level"] == 1.0
+    assert b20["captured_at"] == "2026-03-21T20:21:00+09:00"
+    from datetime import datetime as _dt
+
+    for bucket in result.buckets:
+        ts = int(_dt.fromisoformat(bucket["captured_at"]).timestamp())
+        assert ts - (ts % TIER_B_BUCKET_SEC) == bucket["bucket_start_unix"]
 
 
 def test_light_value_column_maps_to_light_level() -> None:

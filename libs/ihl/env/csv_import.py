@@ -154,52 +154,18 @@ def _row_to_sample(
 
 
 def _aggregate_buckets(samples: list[dict[str, Any]], *, source: str) -> list[dict[str, Any]]:
-    """Tumble raw rows into 5-minute (TIER_B_BUCKET_SEC) buckets; within a
-    bucket the chronologically last row wins (ADR-H-35 §4.1). The first
-    bucket's window opens at the first row's own timestamp (CSV exports
-    rarely start exactly on a clock-aligned mark); every following bucket
-    re-anchors to the 5-minute calendar mark of whichever row opens it, so
-    the schedule settles onto wall-clock-aligned boundaries thereafter.
-    Reported bucket_start_unix values are forced strictly increasing (bumped
-    forward by TIER_B_BUCKET_SEC on collision) so two distinct buckets never
-    share a key — Tier B storage upserts by bucket_start_unix and a collision
-    would silently drop one bucket's data.
+    """Last row per clock-aligned 5-minute bucket wins (ADR-H-35 §4.1).
+
+    Each sample floors to its enclosing clock bucket (bucket_start_unix), so
+    re-imports are idempotent: the natural key (device, bucket_start_unix) is
+    stable regardless of the CSV's start offset (FR-ENV-11), and distinct
+    clock marks never collide.
     """
-    if not samples:
-        return []
-    buckets: list[dict[str, Any]] = []
-    window: list[dict[str, Any]] = []
-    anchor: int | None = None
-    first_bucket = True
-    prev_bucket_start: int | None = None
-
-    def flush() -> None:
-        nonlocal prev_bucket_start
-        last = window[-1]
-        bucket = bucket_start_unix(last["captured_at"])
-        if prev_bucket_start is not None:
-            while bucket <= prev_bucket_start:
-                bucket += TIER_B_BUCKET_SEC
-        prev_bucket_start = bucket
-        buckets.append({**last, "bucket_start_unix": bucket, "source": source})
-
+    by_bucket: dict[int, dict[str, Any]] = {}
     for sample in samples:
-        ts = _epoch_seconds(sample["captured_at"])
-        if anchor is None:
-            anchor = ts if first_bucket else bucket_start_unix(sample["captured_at"])
-            window = [sample]
-            continue
-        if ts - anchor < TIER_B_BUCKET_SEC:
-            window.append(sample)
-        else:
-            flush()
-            first_bucket = False
-            anchor = bucket_start_unix(sample["captured_at"])
-            window = [sample]
-
-    if window:
-        flush()
-    return buckets
+        bucket = bucket_start_unix(sample["captured_at"])
+        by_bucket[bucket] = {**sample, "bucket_start_unix": bucket, "source": source}
+    return [by_bucket[k] for k in sorted(by_bucket)]
 
 
 def parse_device_csv_text(

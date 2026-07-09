@@ -79,9 +79,14 @@ def _resolve_switchbot_columns(fieldnames: list[str] | None) -> dict[str, str] |
     return {"timestamp": ts_col, "temperatureC": temp_col, "humidityPct": hum_col, "lightLevel": light_col}
 
 
-def bucket_start_unix(captured_at: str) -> int:
+def _epoch_seconds(captured_at: str) -> int:
     dt = datetime.fromisoformat(captured_at.replace("Z", "+00:00"))
-    ts = int(dt.timestamp())
+    return int(dt.timestamp())
+
+
+def bucket_start_unix(captured_at: str) -> int:
+    """Floor a timestamp down to its enclosing TIER_B_BUCKET_SEC (5-min) mark."""
+    ts = _epoch_seconds(captured_at)
     return ts - (ts % TIER_B_BUCKET_SEC)
 
 
@@ -149,16 +154,52 @@ def _row_to_sample(
 
 
 def _aggregate_buckets(samples: list[dict[str, Any]], *, source: str) -> list[dict[str, Any]]:
-    """Last row per 5-minute bucket wins (ADR-H-35 §4.1)."""
-    by_bucket: dict[int, dict[str, Any]] = {}
+    """Tumble raw rows into 5-minute (TIER_B_BUCKET_SEC) buckets; within a
+    bucket the chronologically last row wins (ADR-H-35 §4.1). The first
+    bucket's window opens at the first row's own timestamp (CSV exports
+    rarely start exactly on a clock-aligned mark); every following bucket
+    re-anchors to the 5-minute calendar mark of whichever row opens it, so
+    the schedule settles onto wall-clock-aligned boundaries thereafter.
+    Reported bucket_start_unix values are forced strictly increasing (bumped
+    forward by TIER_B_BUCKET_SEC on collision) so two distinct buckets never
+    share a key — Tier B storage upserts by bucket_start_unix and a collision
+    would silently drop one bucket's data.
+    """
+    if not samples:
+        return []
+    buckets: list[dict[str, Any]] = []
+    window: list[dict[str, Any]] = []
+    anchor: int | None = None
+    first_bucket = True
+    prev_bucket_start: int | None = None
+
+    def flush() -> None:
+        nonlocal prev_bucket_start
+        last = window[-1]
+        bucket = bucket_start_unix(last["captured_at"])
+        if prev_bucket_start is not None:
+            while bucket <= prev_bucket_start:
+                bucket += TIER_B_BUCKET_SEC
+        prev_bucket_start = bucket
+        buckets.append({**last, "bucket_start_unix": bucket, "source": source})
+
     for sample in samples:
-        bucket = bucket_start_unix(sample["captured_at"])
-        by_bucket[bucket] = {
-            **sample,
-            "bucket_start_unix": bucket,
-            "source": source,
-        }
-    return [by_bucket[k] for k in sorted(by_bucket)]
+        ts = _epoch_seconds(sample["captured_at"])
+        if anchor is None:
+            anchor = ts if first_bucket else bucket_start_unix(sample["captured_at"])
+            window = [sample]
+            continue
+        if ts - anchor < TIER_B_BUCKET_SEC:
+            window.append(sample)
+        else:
+            flush()
+            first_bucket = False
+            anchor = bucket_start_unix(sample["captured_at"])
+            window = [sample]
+
+    if window:
+        flush()
+    return buckets
 
 
 def parse_device_csv_text(

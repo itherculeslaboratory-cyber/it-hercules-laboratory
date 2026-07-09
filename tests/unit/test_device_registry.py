@@ -10,7 +10,7 @@ from fastapi.testclient import TestClient
 
 from apps.api.main import app
 from apps.api.stores import reset_stores_for_tests
-from libs.auth_session import reset_auth_session_store
+from libs.ihl.identity.auth_session import reset_auth_session_store
 
 
 @pytest.fixture

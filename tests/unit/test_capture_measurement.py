@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from libs.event_store import EventStore
+from libs.ihl.core.event_store import EventStore
 
 
 @pytest.fixture

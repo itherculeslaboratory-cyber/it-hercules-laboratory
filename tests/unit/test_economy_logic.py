@@ -6,8 +6,8 @@ from pathlib import Path
 
 import pytest
 
-from libs.economy_logic import EconomyStore, fib_tier_delta
-from libs.event_store import EventStore
+from libs.ihl.economy.economy_logic import EconomyStore, fib_tier_delta
+from libs.ihl.core.event_store import EventStore
 
 
 @pytest.fixture

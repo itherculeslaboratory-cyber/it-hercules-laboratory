@@ -9,8 +9,8 @@ import numpy as np
 import pytest
 
 from components.embedding_builder.run import run_embedding
-from libs.embedding import DUMMY_DIM
-from libs.r2_io import LocalFilesystemBackend, R2Client
+from libs.ihl.observation.embedding import DUMMY_DIM
+from libs.ihl.core.r2_io import LocalFilesystemBackend, R2Client
 
 
 def test_run_embedding_writes_npy_and_manifest(

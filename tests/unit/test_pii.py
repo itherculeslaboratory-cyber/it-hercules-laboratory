@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from libs.pii import assert_no_plaintext_pii, redact_pii_text
+from libs.ihl.governance.pii import assert_no_plaintext_pii, redact_pii_text
 
 
 def test_redact_email() -> None:

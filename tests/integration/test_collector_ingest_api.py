@@ -14,8 +14,8 @@ from fastapi.testclient import TestClient
 
 from apps.api.main import app
 from apps.api.stores import reset_stores_for_tests
-from libs.collector_ingest import canonical_json
-from libs.env_telemetry import read_telemetry_range
+from libs.ihl.env.collector_ingest import canonical_json
+from libs.ihl.env.env_telemetry import read_telemetry_range
 from tests.contract.env_contract_vectors import COLLECTOR_INGEST_BODY_V1
 
 

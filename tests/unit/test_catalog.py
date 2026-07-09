@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from libs.catalog import load_components, pipeline_order
+from libs.ihl.core.catalog import load_components, pipeline_order
 
 
 def test_load_components_has_phase1_pipeline() -> None:

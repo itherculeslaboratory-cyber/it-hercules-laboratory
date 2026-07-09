@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from libs.query import QueryValidationError, count_captures, search_captures
+from libs.ihl.observation.query import QueryValidationError, count_captures, search_captures
 
 
 def test_search_returns_rows(searchable_parquet: Path) -> None:

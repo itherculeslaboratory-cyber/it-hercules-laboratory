@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from libs.schema_validator import SchemaRegistry, default_schemas_root, validate_instance
+from libs.ihl.core.schema_validator import SchemaRegistry, default_schemas_root, validate_instance
 
 SCHEMAS_ROOT = default_schemas_root()
 

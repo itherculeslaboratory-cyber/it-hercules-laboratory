@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 from apps.api.dispute_service import DisputeService
-from libs.event_store import EventStore
+from libs.ihl.core.event_store import EventStore
 
 
 @pytest.fixture

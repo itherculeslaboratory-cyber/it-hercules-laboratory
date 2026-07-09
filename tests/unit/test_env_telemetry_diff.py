@@ -18,7 +18,7 @@ def test_telemetry_bulk_merge_csv_scale(tmp_path) -> None:
     """Bulk merge handles many buckets in one parquet write (ADR-H-35 §3.4)."""
     from datetime import datetime, timedelta, timezone
 
-    from libs.env_telemetry import merge_telemetry_buckets_bulk, read_telemetry_range
+    from libs.ihl.env.env_telemetry import merge_telemetry_buckets_bulk, read_telemetry_range
 
     device_id = "B0E9FEA65F7E"
     tz = timezone(timedelta(hours=9))
@@ -56,7 +56,7 @@ def test_telemetry_bulk_merge_csv_scale(tmp_path) -> None:
 
 def test_telemetry_skip_unchanged_within_bucket(tmp_path) -> None:
     """ADR-H-19: 値不変かつ当バケット既存 → skipped / env_telemetry_skip_unchanged."""
-    from libs.env_telemetry import TelemetryMergeResult, merge_telemetry_bucket
+    from libs.ihl.env.env_telemetry import TelemetryMergeResult, merge_telemetry_bucket
 
     device_id = "meter-local-1"
     row = {

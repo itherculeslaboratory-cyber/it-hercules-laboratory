@@ -6,7 +6,7 @@ from typing import Any
 
 from fastapi import APIRouter
 
-from libs.i18n_catalog import get_messages, list_locales
+from libs.ihl.i18n.i18n_catalog import get_messages, list_locales
 
 router = APIRouter(prefix="/api/v1/i18n", tags=["i18n"])
 

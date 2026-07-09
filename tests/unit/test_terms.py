@@ -14,7 +14,7 @@ from fastapi.testclient import TestClient
 
 from apps.api.main import app
 from apps.api.stores import reset_stores_for_tests
-from libs.event_store import default_event_root
+from libs.ihl.core.event_store import default_event_root
 
 
 @pytest.fixture

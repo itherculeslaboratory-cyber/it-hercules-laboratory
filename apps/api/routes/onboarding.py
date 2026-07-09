@@ -9,7 +9,7 @@ from typing import Any
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
-from libs.event_store import default_event_root
+from libs.ihl.core.event_store import default_event_root
 
 router = APIRouter(prefix="/api/v1/onboarding", tags=["onboarding"])
 

@@ -9,8 +9,8 @@ from typing import Any
 from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
-from libs.env_telemetry import read_telemetry_range
-from libs.event_store import default_event_root, hash_handle
+from libs.ihl.env.env_telemetry import read_telemetry_range
+from libs.ihl.core.event_store import default_event_root, hash_handle
 
 router = APIRouter(prefix="/api/v1/research", tags=["research"])
 

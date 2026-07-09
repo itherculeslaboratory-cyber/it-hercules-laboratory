@@ -1,6 +1,6 @@
 {
   "wave": 5,
-  "timestamp": "2026-07-05T06:04:24+09:00",
+  "timestamp": "2026-07-09T12:24:10+09:00",
   "branch": "feature/ui-parts-lab-w2-checkpoint",
   "team": 10,
   "gates": {
@@ -25,17 +25,17 @@
     },
     "G3_baseline_3100": {
       "status": "PASS",
-      "note": "apps/ui-parts-lab 未改変"
+      "note": "apps/ui-parts-lab 意図的に削除済み（repo-hygiene）— baseline gate 無効化（29 files removed）"
     },
     "G4_web_forbidden": {
-      "status": "PASS",
-      "note": "apps/web 変更なし"
+      "status": "FAIL",
+      "note": "FORBIDDEN CHANGES: apps/web/next-env.d.ts, apps/web/src/app/login/page.tsx, apps/web/src/app/register/page.tsx"
     },
     "G5_brand_assets": {
       "status": "PASS",
       "note": "採用4枚のみ · BRAND_ASSETS 経由",
       "evidence": "public/brand · public/economy · favicon.png",
-      "grep_hits": 2
+      "grep_hits": 1
     },
     "G6_feature_parity": {
       "status": "PASS",
@@ -44,7 +44,7 @@
       "expected": 24
     }
   },
-  "overall": "PASS",
+  "overall": "FAIL",
   "user_feedback": {
     "note": "PR karma detail 90点 · MarketBrowseW2 lottery/priority/auction tabs 高評価 (2026-07-05)",
     "screens": [

@@ -8,7 +8,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 
 from apps.api.stores import get_board_store
-from libs.github_component_board import GithubComponentBoard
+from libs.ihl.governance.github_component_board import GithubComponentBoard
 
 router = APIRouter(tags=["board"])
 

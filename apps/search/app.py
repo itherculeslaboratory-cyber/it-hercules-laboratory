@@ -12,9 +12,9 @@ from typing import Any
 
 import streamlit as st
 
-from libs.query import ALLOWED_FILTERS, QueryValidationError, count_captures, search_captures
-from libs.r2_io import R2Client, default_local_root
-from libs.scoring import SimilarHit, search_similar
+from libs.ihl.observation.query import ALLOWED_FILTERS, QueryValidationError, count_captures, search_captures
+from libs.ihl.core.r2_io import R2Client, default_local_root
+from libs.ihl.observation.scoring import SimilarHit, search_similar
 
 st.set_page_config(page_title="IHL Search", layout="wide")
 st.title("IT Hercules Laboratory — 観測検索")

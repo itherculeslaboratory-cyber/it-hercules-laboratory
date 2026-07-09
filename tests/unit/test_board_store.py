@@ -6,8 +6,8 @@ from pathlib import Path
 
 import pytest
 
-from libs.board_store import BoardStore
-from libs.event_store import EventStore
+from libs.ihl.governance.board_store import BoardStore
+from libs.ihl.core.event_store import EventStore
 
 
 @pytest.fixture
@@ -27,7 +27,7 @@ def test_thread_create_and_post(board: BoardStore) -> None:
 
 def test_ut_07_02_normalize_board_kind() -> None:
     """UT-07-02 / FR-BBS-14: category→board_kind 正規化。"""
-    from libs.board_store import normalize_board_kind
+    from libs.ihl.governance.board_store import normalize_board_kind
 
     assert normalize_board_kind("paper") == "paper_case"
     assert normalize_board_kind("rant") == "gripe"
@@ -56,7 +56,7 @@ def test_ut_07_04_post_count_increments(board: BoardStore) -> None:
 
 def test_ut_07_05_validate_rejects_unknown_kind() -> None:
     """UT-07-05 / NFR-BBS-01: 未知 event kind は弾く。"""
-    from libs.board_store import validate_board_event
+    from libs.ihl.governance.board_store import validate_board_event
 
     with pytest.raises(ValueError):
         validate_board_event({"kind": "bogus", "board_kind": "other", "thread_id": "t1"})

@@ -9,15 +9,15 @@ from typing import Any
 from fastapi import APIRouter, Header, HTTPException
 from pydantic import BaseModel, Field
 
-from libs.auth_session import get_auth_session_store
+from libs.ihl.identity.auth_session import get_auth_session_store
 from libs.ihl.identity.auth_deps import extract_session_token, resolve_actor_id
 from libs.ihl.identity.magic_link_mail import (
     build_magic_link_login_url,
     is_magic_link_mail_configured,
     send_magic_link_email,
 )
-from libs.event_store import EventStore, default_event_root
-from libs.pii import hash_actor_id
+from libs.ihl.core.event_store import EventStore, default_event_root
+from libs.ihl.governance.pii import hash_actor_id
 
 _log = logging.getLogger("ihl.auth")
 

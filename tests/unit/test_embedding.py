@@ -5,7 +5,7 @@ from __future__ import annotations
 import numpy as np
 from pathlib import Path
 
-from libs.embedding import (
+from libs.ihl.observation.embedding import (
     DUMMY_DIM,
     DummyEmbeddingBackend,
     default_backend,

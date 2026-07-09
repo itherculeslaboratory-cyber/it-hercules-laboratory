@@ -8,8 +8,8 @@ import numpy as np
 import polars as pl
 import pytest
 
-from libs.embedding import DummyEmbeddingBackend, write_embedding_npy
-from libs.scoring import (
+from libs.ihl.observation.embedding import DummyEmbeddingBackend, write_embedding_npy
+from libs.ihl.observation.scoring import (
     W_COLOR,
     W_EMBEDDING,
     W_LINEAGE,

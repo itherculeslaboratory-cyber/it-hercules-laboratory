@@ -11,14 +11,14 @@ import pytest
 from fastapi.testclient import TestClient
 
 from apps.api.main import app
-from libs.gmo_connector import GmoConnectorConfig, GmoConnectorTier
-from libs.gmo_reconciliation_store import (
+from libs.ihl.payments.gmo_connector import GmoConnectorConfig, GmoConnectorTier
+from libs.ihl.payments.gmo_reconciliation_store import (
     append_expected_payment,
     match_pending_expected_from_va_transaction,
     read_gmo_store,
     set_store_path_for_tests,
 )
-from libs.gmo_transfer_code import derive_transfer_code
+from libs.ihl.payments.gmo_transfer_code import derive_transfer_code
 
 client = TestClient(app)
 

@@ -6,8 +6,8 @@ from pathlib import Path
 
 import pytest
 
-from libs.event_store import EventStore
-from libs.market_state import InvalidTransitionError, MarketStateStore
+from libs.ihl.core.event_store import EventStore
+from libs.ihl.economy.market_state import InvalidTransitionError, MarketStateStore
 
 
 @pytest.fixture
@@ -60,7 +60,7 @@ def test_ut_06_06_trade_stage_cannot_regress(market: MarketStateStore) -> None:
 
 def test_ut_06_07_transfer_code_stable(market: MarketStateStore) -> None:
     """UT-06-07 / FR-MKT-07: 振込コードは U- 接頭で userId に対し安定。"""
-    from libs.gmo_transfer_code import derive_transfer_code
+    from libs.ihl.payments.gmo_transfer_code import derive_transfer_code
 
     code = derive_transfer_code("user-demo")
     assert code.startswith("U-")

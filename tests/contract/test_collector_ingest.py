@@ -58,7 +58,7 @@ def test_collector_ed25519_signature_accepted(tmp_path) -> None:
     from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
     from cryptography.hazmat.primitives.serialization import Encoding, PublicFormat
 
-    from libs.collector_ingest import canonical_json, verify_collector_signature
+    from libs.ihl.env.collector_ingest import canonical_json, verify_collector_signature
 
     private_key = Ed25519PrivateKey.generate()
     public_key = private_key.public_key()

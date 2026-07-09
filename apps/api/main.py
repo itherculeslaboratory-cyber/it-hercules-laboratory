@@ -35,10 +35,10 @@ from apps.api.stores import (
     get_theme_store,
     get_vote_poll_catalog,
 )
-from libs.event_store import default_event_root
+from libs.ihl.core.event_store import default_event_root
 from libs.ihl.observation.home_schedule import build_schedule_today_lines, merge_today_lines
-from libs.preferences_store import PreferencesStore
-from libs.query import ALLOWED_FILTERS, count_captures
+from libs.ihl.identity.preferences_store import PreferencesStore
+from libs.ihl.observation.query import ALLOWED_FILTERS, count_captures
 
 app = FastAPI(title="IHL API", version="0.3.0")
 

@@ -7,7 +7,7 @@ from pathlib import Path
 import jsonschema
 import pytest
 
-from libs.schema_validator import SchemaRegistry, ValidationResult, validate_instance
+from libs.ihl.core.schema_validator import SchemaRegistry, ValidationResult, validate_instance
 
 
 def test_validation_result_ok_flag() -> None:

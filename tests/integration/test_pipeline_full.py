@@ -11,9 +11,9 @@ from components.embedding_builder.run import run_embedding
 from components.ingest_normalize.run import run_ingest
 from components.manifest_builder.run import run_manifest
 from components.thumbnail_builder.run import run_thumbnail
-from libs.query import search_captures
-from libs.r2_io import LocalFilesystemBackend, R2Client
-from libs.scoring import search_similar
+from libs.ihl.observation.query import search_captures
+from libs.ihl.core.r2_io import LocalFilesystemBackend, R2Client
+from libs.ihl.observation.scoring import search_similar
 
 
 @pytest.fixture

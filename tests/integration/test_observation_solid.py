@@ -9,7 +9,7 @@ from fastapi.testclient import TestClient
 
 from apps.api.main import app
 from apps.api.stores import get_event_store, reset_stores_for_tests
-from libs.env_telemetry import merge_telemetry_bucket
+from libs.ihl.env.env_telemetry import merge_telemetry_bucket
 
 
 @pytest.fixture
@@ -345,7 +345,7 @@ def test_commit_derives_three_binding_events_on_device_switch(client: TestClient
     assert any(b.get("event") == "device.binding.ended" for b in second_bindings)
     assert any(b.get("event") == "device.binding.started" for b in second_bindings)
 
-    from libs.placement_store import PlacementStore
+    from libs.ihl.env.placement_store import PlacementStore
 
     store = PlacementStore(root=tmp_path / "truth")
     binding_dir = store._binding_dir(actor_id)

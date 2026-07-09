@@ -14,9 +14,9 @@ from fastapi.testclient import TestClient
 
 from apps.api.main import app
 from apps.api.stores import reset_stores_for_tests
-from libs.auth_session import AuthSessionStore, reset_auth_session_store
-from libs.event_store import EventStore, default_event_root
-from libs.pii import hash_actor_id
+from libs.ihl.identity.auth_session import AuthSessionStore, reset_auth_session_store
+from libs.ihl.core.event_store import EventStore, default_event_root
+from libs.ihl.governance.pii import hash_actor_id
 
 
 @pytest.fixture

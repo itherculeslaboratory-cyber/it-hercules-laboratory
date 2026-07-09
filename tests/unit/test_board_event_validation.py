@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from libs.board_store import validate_board_event
+from libs.ihl.governance.board_store import validate_board_event
 
 
 def test_invalid_kind_raises() -> None:

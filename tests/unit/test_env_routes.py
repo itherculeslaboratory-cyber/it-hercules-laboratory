@@ -12,7 +12,7 @@ from fastapi.testclient import TestClient
 
 from apps.api.main import app
 from apps.api.stores import reset_stores_for_tests
-from libs.env_telemetry import merge_telemetry_bucket, read_telemetry_range
+from libs.ihl.env.env_telemetry import merge_telemetry_bucket, read_telemetry_range
 from tests.contract.env_contract_vectors import COLLECTOR_INGEST_BODY_V1
 
 
@@ -54,7 +54,7 @@ def test_qr_create_and_resolve(client: TestClient) -> None:
 
 def test_qr_expired_returns_404(client: TestClient, tmp_path: Path) -> None:
     """UT-13-05 — FR-ENV-05 期限切れ QR は 404."""
-    from libs.placement_store import PlacementStore
+    from libs.ihl.env.placement_store import PlacementStore
 
     actor_id = "u_qr_exp"
     store = PlacementStore(root=tmp_path / "truth")

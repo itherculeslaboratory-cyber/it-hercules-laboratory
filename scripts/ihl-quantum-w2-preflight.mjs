@@ -101,18 +101,8 @@ for (const file of fs.readdirSync(path.join(ROOT, "screen-defs")).filter((f) => 
 if (scaffoldOnlyScreens === 0) ok("no scaffold-only screens without override");
 else warnMsg(`${scaffoldOnlyScreens} screen(s) are scaffold-only — W2 UI not honest until hand/override`);
 
-const labSrc = path.join(ROOT, "apps/ui-parts-lab/src");
-function walk(dir) {
-  for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
-    const p = path.join(dir, ent.name);
-    if (ent.isDirectory()) walk(p);
-    else if (ent.name.endsWith(".tsx") && fs.readFileSync(p, "utf8").includes("mockups/ihl-") && !p.includes("MockOverlay")) {
-      bad(`mock img in body: ${path.relative(ROOT, p)}`);
-    }
-  }
-}
-walk(labSrc);
-if (fail === 0) ok("no mock img in ui-parts-lab coded path");
+// ponytail: apps/ui-parts-lab (port 3100 mock proto) retired — mock-img gate obsolete with it.
+// Successor apps/ui-parts-lab-w2 doesn't embed raw mockups/ihl-* paths, so no replacement gate needed.
 
 console.log(
   `\nW2 summary: hand=${handCount} scaffold=${scaffoldCount} pilot=${pilotCount} overrides=${overrideIds.size} scaffold-only-screens=${scaffoldOnlyScreens} screens=${screenCount} warns=${warn}`,

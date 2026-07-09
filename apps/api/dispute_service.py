@@ -5,8 +5,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
-from libs.event_store import EventStore, _utc_now
-from libs.pii import redact_pii_text
+from libs.ihl.core.event_store import EventStore, _utc_now
+from libs.ihl.governance.pii import redact_pii_text
 
 
 @dataclass

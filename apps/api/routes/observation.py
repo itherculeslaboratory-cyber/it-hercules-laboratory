@@ -16,7 +16,7 @@ from pydantic import BaseModel, Field
 
 from apps.api.data_sources import resolve_data_sources
 from apps.api.stores import get_event_store
-from libs.event_store import _utc_now, default_event_root
+from libs.ihl.core.event_store import _utc_now, default_event_root
 from libs.ihl.observation.content_digest import compute_client_content_digest
 from libs.ihl.observation.detail import (
     build_reanalysis_manifest,
@@ -31,12 +31,12 @@ from libs.ihl.observation.detail import (
     resolve_environment_snapshot,
     resolve_image_path,
 )
-from libs.measurement_template_catalog import get_template as get_measurement_template
-from libs.measurement_template_catalog import list_templates as list_measurement_templates
-from libs.query import ALLOWED_FILTERS, QueryValidationError, count_captures, search_captures
-from libs.r2_io import default_local_root
+from libs.ihl.observation.measurement_template_catalog import get_template as get_measurement_template
+from libs.ihl.observation.measurement_template_catalog import list_templates as list_measurement_templates
+from libs.ihl.observation.query import ALLOWED_FILTERS, QueryValidationError, count_captures, search_captures
+from libs.ihl.core.r2_io import default_local_root
 from libs.ihl.identity.auth_deps import RequiredWhenEnabledAuth
-from libs.scoring import search_similar
+from libs.ihl.observation.scoring import search_similar
 
 router = APIRouter(tags=["observation"])
 

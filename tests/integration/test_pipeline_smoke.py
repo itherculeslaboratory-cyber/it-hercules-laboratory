@@ -8,8 +8,8 @@ from pathlib import Path
 import pytest
 
 from components.ingest_normalize.run import run_ingest
-from libs.query import search_captures
-from libs.r2_io import LocalFilesystemBackend, R2Client
+from libs.ihl.observation.query import search_captures
+from libs.ihl.core.r2_io import LocalFilesystemBackend, R2Client
 
 
 @pytest.fixture

@@ -8,8 +8,8 @@ from pathlib import Path
 import pytest
 
 from components.manifest_builder.run import run_manifest
-from libs.query import count_captures, search_captures
-from libs.r2_io import LocalFilesystemBackend, R2Client
+from libs.ihl.observation.query import count_captures, search_captures
+from libs.ihl.core.r2_io import LocalFilesystemBackend, R2Client
 
 
 @pytest.fixture

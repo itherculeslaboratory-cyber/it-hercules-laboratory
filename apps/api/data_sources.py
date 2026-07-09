@@ -7,7 +7,7 @@ import os
 from pathlib import Path
 from typing import Any
 
-from libs.r2_io import R2Client, default_local_root
+from libs.ihl.core.r2_io import R2Client, default_local_root
 
 
 def load_pointer(pointer_path: Path) -> dict[str, Any]:

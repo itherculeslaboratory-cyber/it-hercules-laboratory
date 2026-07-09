@@ -6,8 +6,8 @@ from pathlib import Path
 
 import pytest
 
-from libs.event_store import EventStore
-from libs.r2_io import R2NoOverwriteError
+from libs.ihl.core.event_store import EventStore
+from libs.ihl.core.r2_io import R2NoOverwriteError
 
 
 @pytest.fixture

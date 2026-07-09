@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from libs.gmo_connector import (
+from libs.ihl.payments.gmo_connector import (
     GmoConnectorConfig,
     GmoConnectorTier,
     GmoStubConfig,

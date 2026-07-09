@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from libs.r2_io import LocalFilesystemBackend, R2Client, R2NoOverwriteError, R2NotFoundError
+from libs.ihl.core.r2_io import LocalFilesystemBackend, R2Client, R2NoOverwriteError, R2NotFoundError
 
 
 def test_write_bytes_collision_same_key(local_r2: R2Client) -> None:

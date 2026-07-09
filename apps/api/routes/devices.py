@@ -7,15 +7,15 @@ from typing import Any
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field
 
-from libs.device_registry import (
+from libs.ihl.env.device_registry import (
     ALLOWED_KINDS,
     DeviceNotFoundError,
     DeviceRegistry,
     format_last_reading_from_telemetry,
 )
-from libs.env_telemetry import read_telemetry_range
-from libs.event_store import default_event_root, hash_handle
-from libs.switchbot_client import (
+from libs.ihl.env.env_telemetry import read_telemetry_range
+from libs.ihl.core.event_store import default_event_root, hash_handle
+from libs.ihl.env.switchbot_client import (
     SwitchBotHttpError,
     SwitchBotRateLimitError,
     extract_meter_readings_from_switchbot_status,

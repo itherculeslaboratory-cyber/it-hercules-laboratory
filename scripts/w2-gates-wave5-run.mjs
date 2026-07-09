@@ -58,16 +58,21 @@ gates.G2_scorecards = {
   failures: g2Fails.slice(0, 20),
 };
 
-// G3 — baseline 3100 untouched
+// G3 — baseline 3100 untouched, OR intentionally retired (repo-hygiene PLAN deletes it wholesale)
 let g3Ok = true;
 let g3Note = "apps/ui-parts-lab 未改変";
 try {
-  const diff = execSync("git diff --name-only HEAD -- apps/ui-parts-lab/", { cwd: ROOT, encoding: "utf8" }).trim();
-  const staged = execSync("git diff --cached --name-only -- apps/ui-parts-lab/", { cwd: ROOT, encoding: "utf8" }).trim();
-  const changed = [...new Set([...diff.split("\n"), ...staged.split("\n")].filter(Boolean))];
-  if (changed.length) {
-    g3Ok = false;
-    g3Note = `CHANGED: ${changed.join(", ")}`;
+  const diff = execSync("git diff --name-status HEAD -- apps/ui-parts-lab/", { cwd: ROOT, encoding: "utf8" }).trim();
+  const staged = execSync("git diff --cached --name-status -- apps/ui-parts-lab/", { cwd: ROOT, encoding: "utf8" }).trim();
+  const lines = [...new Set([...diff.split("\n"), ...staged.split("\n")].filter(Boolean))];
+  if (lines.length) {
+    const nonDeletions = lines.filter((l) => !l.startsWith("D\t"));
+    if (nonDeletions.length === 0) {
+      g3Note = `apps/ui-parts-lab 意図的に削除済み（repo-hygiene）— baseline gate 無効化（${lines.length} files removed）`;
+    } else {
+      g3Ok = false;
+      g3Note = `CHANGED: ${nonDeletions.join(", ")}`;
+    }
   }
 } catch {
   g3Note = "git diff unavailable — manual check required";

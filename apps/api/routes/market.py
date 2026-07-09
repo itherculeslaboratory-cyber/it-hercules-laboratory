@@ -8,7 +8,7 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
 from apps.api.stores import get_market_store
-from libs.market_state import InvalidTransitionError
+from libs.ihl.economy.market_state import InvalidTransitionError
 
 router = APIRouter(tags=["market"])
 
@@ -61,8 +61,8 @@ def market_listing_match(listing_id: str, body: TradeMatchRequest) -> dict[str, 
 
 @router.get("/api/v1/market/transfer/{listing_id}")
 def gmo_transfer(listing_id: str, obligor_user_id: str = "user-demo") -> dict[str, Any]:
-    from libs.gmo_connector import GmoConnectorConfig, assert_stub_tier
-    from libs.gmo_transfer_code import derive_transfer_code
+    from libs.ihl.payments.gmo_connector import GmoConnectorConfig, assert_stub_tier
+    from libs.ihl.payments.gmo_transfer_code import derive_transfer_code
 
     cfg = GmoConnectorConfig.from_env()
     assert_stub_tier(cfg)

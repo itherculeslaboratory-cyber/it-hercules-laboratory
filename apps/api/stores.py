@@ -6,13 +6,13 @@ import os
 from functools import lru_cache
 from pathlib import Path
 
-from libs.board_store import BoardStore
-from libs.domain_catalog import LineageCatalog, MatchCatalog, VotePollCatalog
-from libs.economy_logic import EconomyStore
-from libs.event_store import EventStore, default_event_root
-from libs.market_state import MarketStateStore
-from libs.pii import TradePiiSession
-from libs.theme_pack import ThemePackStore
+from libs.ihl.governance.board_store import BoardStore
+from libs.ihl.core.domain_catalog import LineageCatalog, MatchCatalog, VotePollCatalog
+from libs.ihl.economy.economy_logic import EconomyStore
+from libs.ihl.core.event_store import EventStore, default_event_root
+from libs.ihl.economy.market_state import MarketStateStore
+from libs.ihl.governance.pii import TradePiiSession
+from libs.ihl.theme.theme_pack import ThemePackStore
 
 
 @lru_cache(maxsize=1)
@@ -66,7 +66,7 @@ def get_vote_poll_catalog() -> VotePollCatalog:
 
 def reset_stores_for_tests() -> None:
     """Clear lru_cache between isolated test runs."""
-    from libs.auth_session import reset_auth_session_store
+    from libs.ihl.identity.auth_session import reset_auth_session_store
 
     get_event_store.cache_clear()
     get_market_store.cache_clear()

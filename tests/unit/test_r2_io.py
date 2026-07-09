@@ -6,7 +6,7 @@ import json
 
 import pytest
 
-from libs.r2_io import LocalFilesystemBackend, R2Client, R2NoOverwriteError, r2_configured
+from libs.ihl.core.r2_io import LocalFilesystemBackend, R2Client, R2NoOverwriteError, r2_configured
 
 
 def test_local_write_and_read(local_r2: R2Client) -> None:

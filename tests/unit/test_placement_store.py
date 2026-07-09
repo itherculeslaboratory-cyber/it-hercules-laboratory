@@ -6,7 +6,7 @@ import pytest
 
 def test_placement_crud_insert_only(tmp_path) -> None:
     """Placement 作成は append のみ — UPDATE/DELETE 禁止 (Tier A)."""
-    from libs.placement_store import PlacementStore
+    from libs.ihl.env.placement_store import PlacementStore
 
     store = PlacementStore(root=tmp_path / "truth")
     created = store.create_placement(actor_id="u_test", label="棚A")
@@ -19,7 +19,7 @@ def test_placement_crud_insert_only(tmp_path) -> None:
 
 def test_duplicate_open_occupancy_returns_409(tmp_path) -> None:
     """civ-os envShelfRoutes: 連続 occupancy/start は 409."""
-    from libs.placement_store import DuplicateOpenOccupancyError, PlacementStore
+    from libs.ihl.env.placement_store import DuplicateOpenOccupancyError, PlacementStore
 
     store = PlacementStore(root=tmp_path / "truth")
     placement_id = store.create_placement(actor_id="u_occ", label="棚B")["placement_id"]
@@ -29,7 +29,7 @@ def test_duplicate_open_occupancy_returns_409(tmp_path) -> None:
     assert exc.value.http_status == 409
 def test_occupancy_end_clears_open(tmp_path) -> None:
     """IT-13-01 store: start then end yields no open occupancy."""
-    from libs.placement_store import PlacementStore
+    from libs.ihl.env.placement_store import PlacementStore
 
     store = PlacementStore(root=tmp_path / "truth")
     placement_id = store.create_placement(actor_id="u_occ_chain", label="占有棚")["placement_id"]
@@ -40,7 +40,7 @@ def test_occupancy_end_clears_open(tmp_path) -> None:
 
 
 def test_device_binding_start_end_and_open(tmp_path) -> None:
-    from libs.placement_store import PlacementStore
+    from libs.ihl.env.placement_store import PlacementStore
 
     store = PlacementStore(root=tmp_path / "truth")
     actor = "u_bind"

@@ -8,7 +8,7 @@ from pathlib import Path
 import pytest
 
 from components.ingest_normalize.run import run_ingest
-from libs.r2_io import LocalFilesystemBackend, R2Client, R2NoOverwriteError
+from libs.ihl.core.r2_io import LocalFilesystemBackend, R2Client, R2NoOverwriteError
 
 
 @pytest.fixture

@@ -7,8 +7,8 @@ from typing import Any
 from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
-from libs.event_store import default_event_root
-from libs.preferences_store import PreferencesStore
+from libs.ihl.core.event_store import default_event_root
+from libs.ihl.identity.preferences_store import PreferencesStore
 
 router = APIRouter(prefix="/api/v1/me", tags=["me"])
 

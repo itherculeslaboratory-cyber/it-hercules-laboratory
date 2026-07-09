@@ -9,7 +9,7 @@ import pytest
 
 from components.ingest_normalize.run import run_ingest
 from components.thumbnail_builder.run import run_thumbnail
-from libs.r2_io import LocalFilesystemBackend, R2Client
+from libs.ihl.core.r2_io import LocalFilesystemBackend, R2Client
 
 
 @pytest.fixture

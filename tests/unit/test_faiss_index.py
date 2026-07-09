@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from libs.faiss_index import VectorIndex, backend_name
+from libs.ihl.observation.faiss_index import VectorIndex, backend_name
 
 
 def test_vector_index_search() -> None:

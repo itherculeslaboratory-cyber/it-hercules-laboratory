@@ -7,7 +7,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from libs.image import DEFAULT_LONG_EDGE, resize_long_edge, stub_png, thumbnail_png_bytes
+from libs.ihl.observation.image import DEFAULT_LONG_EDGE, resize_long_edge, stub_png, thumbnail_png_bytes
 
 
 def _write_test_image(path: Path, size: tuple[int, int]) -> None:

@@ -12,18 +12,18 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 
 from apps.api.stores import get_event_store
-from libs.device_registry import DeviceNotFoundError
-from libs.event_store import default_event_root
+from libs.ihl.env.device_registry import DeviceNotFoundError
+from libs.ihl.core.event_store import default_event_root
 from libs.ihl.observation.content_digest import compute_client_content_digest
 from libs.ihl.observation.derive_bindings import (
     derive_bindings_from_observation,
     normalize_devices_from_commit,
     write_observation_schedule,
 )
-from libs.placement_store import PlacementStore
-from libs.r2_io import R2Client, R2NoOverwriteError
+from libs.ihl.env.placement_store import PlacementStore
+from libs.ihl.core.r2_io import R2Client, R2NoOverwriteError
 from libs.ihl.identity.auth_deps import enforce_auth_when_required
-from libs.solid_commit import (
+from libs.ihl.observation.solid_commit import (
     resolve_device_telemetry,
     solid_commit_capture,
     write_iot_switchbot_measurements,

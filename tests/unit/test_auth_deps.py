@@ -9,7 +9,7 @@ from libs.ihl.identity.auth_deps import (
     extract_session_token,
     resolve_actor_id,
 )
-from libs.pii import hash_actor_id
+from libs.ihl.governance.pii import hash_actor_id
 
 
 def test_extract_session_token_prefers_header() -> None:
@@ -41,7 +41,7 @@ def test_auth_bypass_overrides_required(monkeypatch: pytest.MonkeyPatch) -> None
 
 
 def test_resolve_actor_id_from_store() -> None:
-    from libs.auth_session import get_auth_session_store
+    from libs.ihl.identity.auth_session import get_auth_session_store
 
     store = get_auth_session_store()
     token = store.issue_magic_link("u@example.com")["token"]

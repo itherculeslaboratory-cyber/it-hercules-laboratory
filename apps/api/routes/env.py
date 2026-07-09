@@ -10,16 +10,16 @@ from typing import Any
 from fastapi import APIRouter, File, Form, Header, HTTPException, Query, UploadFile
 from pydantic import BaseModel, Field
 
-from libs.collector_ingest import (
+from libs.ihl.env.collector_ingest import (
     ingest_body_to_telemetry_rows,
     validate_ingest_body,
     verify_collector_signature,
 )
-from libs.device_registry import DeviceRegistry
+from libs.ihl.env.device_registry import DeviceRegistry
 from libs.ihl.env.csv_import import GENERIC_V1, SWITCHBOT_HUB_EXPORT_V1, parse_device_csv_text
-from libs.env_telemetry import merge_telemetry_bucket, merge_telemetry_buckets_bulk, read_telemetry_range
-from libs.event_store import default_event_root, hash_handle
-from libs.placement_store import (
+from libs.ihl.env.env_telemetry import merge_telemetry_bucket, merge_telemetry_buckets_bulk, read_telemetry_range
+from libs.ihl.core.event_store import default_event_root, hash_handle
+from libs.ihl.env.placement_store import (
     DuplicateOpenOccupancyError,
     PlacementNotFoundError,
     PlacementStore,

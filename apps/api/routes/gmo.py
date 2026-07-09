@@ -9,16 +9,16 @@ from typing import Any
 from fastapi import APIRouter, HTTPException, Query, Request
 from pydantic import BaseModel, Field
 
-from libs.gmo_connector import GmoConnectorConfig, GmoConnectorTier, assert_stub_tier
-from libs.gmo_reconciliation_store import (
+from libs.ihl.payments.gmo_connector import GmoConnectorConfig, GmoConnectorTier, assert_stub_tier
+from libs.ihl.payments.gmo_reconciliation_store import (
     append_expected_payment,
     gmo_reconciliation_meta,
     read_gmo_store,
     receive_webhook_and_match,
 )
-from libs.gmo_transfer_code import derive_transfer_code
-from libs.gmo_webhook_client import gmo_fetch_unsent_va_deposits, gmo_subscribe_va_deposit
-from libs.gmo_webhook_security import verify_gmo_webhook_request
+from libs.ihl.payments.gmo_transfer_code import derive_transfer_code
+from libs.ihl.payments.gmo_webhook_client import gmo_fetch_unsent_va_deposits, gmo_subscribe_va_deposit
+from libs.ihl.payments.gmo_webhook_security import verify_gmo_webhook_request
 
 router = APIRouter(tags=["gmo"])
 

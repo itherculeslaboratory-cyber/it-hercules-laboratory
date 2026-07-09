@@ -38,7 +38,7 @@ note: "GPU 並列 5 レーン完走 · WorkOrder-QUANTUM-shards.json · QUANTUM-
 - [x] ADR-H-36 · ADR-H-37
 - [x] preflight PASS
 
-**W2 UI 再開（一時停止 2026-07-03）** — P0/P1 完了 · 次: P2（[`apps/ui-parts-lab/README.md`](../../apps/ui-parts-lab/README.md) · [`W2-TRANSITION-AUDIT.md`](../../docs/planning/quantum/W2-TRANSITION-AUDIT.md) §5）
+**W2 UI 再開（一時停止 2026-07-03）** — P0/P1 完了 · 次: P2（旧 `apps/ui-parts-lab` は退役済み → [`apps/ui-parts-lab-w2/README.md`](../../apps/ui-parts-lab-w2/README.md) · [`W2-TRANSITION-AUDIT.md`](../../docs/planning/quantum/W2-TRANSITION-AUDIT.md) §5）
 
 ---
 

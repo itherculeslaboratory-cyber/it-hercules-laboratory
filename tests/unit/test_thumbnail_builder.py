@@ -8,8 +8,8 @@ from pathlib import Path
 import pytest
 
 from components.thumbnail_builder.run import run_thumbnail
-from libs.image import DEFAULT_LONG_EDGE_PX
-from libs.r2_io import LocalFilesystemBackend, R2Client
+from libs.ihl.observation.image import DEFAULT_LONG_EDGE_PX
+from libs.ihl.core.r2_io import LocalFilesystemBackend, R2Client
 
 
 def test_run_thumbnail_writes_manifest_and_r2(

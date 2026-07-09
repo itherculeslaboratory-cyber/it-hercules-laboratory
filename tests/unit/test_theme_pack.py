@@ -9,8 +9,8 @@ from fastapi.testclient import TestClient
 
 from apps.api.main import app
 from apps.api.stores import reset_stores_for_tests
-from libs.r2_io import R2NoOverwriteError
-from libs.theme_pack import ThemePackStore
+from libs.ihl.core.r2_io import R2NoOverwriteError
+from libs.ihl.theme.theme_pack import ThemePackStore
 
 
 @pytest.fixture

@@ -8,7 +8,7 @@ import { execSync } from "child_process";
 import { fileURLToPath } from "url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
-const PUBLIC = path.join(ROOT, "apps/ui-parts-lab/public");
+const PUBLIC = path.join(ROOT, "apps/ui-parts-lab-w2/public");
 const MOCK_SRC = path.join(ROOT, "02-設計/_ui-global/mockups");
 const MOCK_LINK = path.join(PUBLIC, "mockups");
 

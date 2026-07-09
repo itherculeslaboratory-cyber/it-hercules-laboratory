@@ -33,9 +33,14 @@
 
 ## 人間の判断待ち(未着手の理由つき)
 
-- `apps/ui-parts-lab`(旧)と `ui-parts-lab-w2` の二重化整理(計600MB超)— 旧 lab の削除可否
 - PLAN K3 の着手 Go / 実用テキスト埋め込みバックエンドの選定
 - 知の広場 PROVISIONAL ゲートの解除判断(K4 の前提)
+
+## 完了済み判断(記録)
+
+- `apps/ui-parts-lab`(旧・計600MB超)の削除: **2026-07-09 ユーザー承認済み・Stage I1 で実行済み**。
+  `apps/ui-parts-lab-w2` のみ残存。`apps/ui-parts-lab-w2/scripts/setup-assets.mjs` の `PUBLIC` は
+  w2 自身(`apps/ui-parts-lab-w2/public`)を指すよう既に整合。
 
 ## 粒度校正メモ(PLAN-fix-csv-import 試験実行 2026-07-09 より)
 

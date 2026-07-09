@@ -8,6 +8,7 @@
 2. [`docs/planning/STATUS.md`](docs/planning/STATUS.md) — 本番状態・直近タスク・人間ゲート
 3. 作業対象の [`01-要件/`](01-要件/)（例: `#05` 観測 → `01-要件/05-観測.md`）
 4. 厚い引き継ぎ: [`00-AI-HANDOFF-BRIEF.md`](00-AI-HANDOFF-BRIEF.md)
+5. ドメイン知識 Wiki（サブブレイン）: [`docs/knowledge/index.md`](docs/knowledge/index.md) — 蒸留済みトピックの 1 行カタログ
 
 ## 禁止事項
 

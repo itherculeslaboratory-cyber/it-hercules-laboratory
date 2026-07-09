@@ -14,6 +14,16 @@ dist/
 .ihl-local-r2/
 **/.ihl-local-r2/
 
+# knowledge_search.py --semantic のベクトルインデックス(再生成可能な派生物)
+**/.vector-index/
+
+# Playwright e2e 実行時の生成物(再生成可能・機材依存)
+test-results/
+**/test-results/
+
+# Claude Code ローカル権限設定(マシン固有パス。settings.json 本体はコミット対象)
+.claude/settings.local.json
+
 # Env legacy archive (must never commit secrets)
 # Local walkthrough junction (setup-mockups-link.mjs → ../mockups; do not duplicate PNGs)
 02-設計/_ui-global/ux-walkthrough/mockups/

@@ -33,6 +33,8 @@ class EmbeddingBackend(Protocol):
 
     def embed_image(self, image_path: Path) -> np.ndarray: ...
 
+    def embed_text(self, text: str) -> np.ndarray: ...
+
 
 class DummyEmbeddingBackend:
     """Deterministic L2-normalized vectors for CI and local dev (no torch)."""
@@ -57,6 +59,11 @@ class DummyEmbeddingBackend:
             raise FileNotFoundError(f"Image not found: {image_path}")
         digest = hashlib.sha256(image_path.read_bytes()).digest()
         return self._vector_from_seed(int.from_bytes(digest[:8], "big"))
+
+    def embed_text(self, text: str) -> np.ndarray:
+        """Deterministic L2-normalized text vector (sha256 seed). CI-safe; not semantic."""
+        seed = int.from_bytes(hashlib.sha256(text.encode("utf-8")).digest()[:8], "big")
+        return self._vector_from_seed(seed)
 
     def embed(self, *, input_hash: str, capture_id: str) -> list[float]:
         """Hash-based deterministic vector (``embedding_builder_dinov2``)."""
@@ -126,6 +133,10 @@ class Dinov2EmbeddingBackend:
         if norm > 0:
             vec = vec / norm
         return vec
+
+    def embed_text(self, text: str) -> np.ndarray:  # pragma: no cover - needs .[ml]
+        # ponytail: keeps dinov2 structurally an EmbeddingBackend; real text model TBD (human choice).
+        raise NotImplementedError("dinov2 backend has no text embedding; choose a text model")
 
 
 def default_backend() -> EmbeddingBackend:

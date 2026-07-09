@@ -8,8 +8,26 @@ import polars as pl
 import pytest
 from PIL import Image
 
-from libs.r2_io import LocalFilesystemBackend, R2Client
-from libs.schema_validator import default_schemas_root
+from libs.ihl.core.r2_io import LocalFilesystemBackend, R2Client
+from libs.ihl.core.schema_validator import default_schemas_root
+
+
+@pytest.fixture(autouse=True)
+def _isolated_ihl_roots(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """Default-isolate every test from the developer's real ``.ihl-local-r2`` store.
+
+    Without this, ``get_event_store()``/``R2Client()`` fall back to the real local
+    Truth store on disk (dev data, e2e residue, ...) whenever a test doesn't set its
+    own ``IHL_EVENT_ROOT``/``IHL_R2_LOCAL_ROOT``. Tests that set these themselves
+    (directly or via their own ``client``-style fixture) still win: autouse fixtures
+    run before explicitly-requested ones, so their ``monkeypatch.setenv`` calls
+    execute afterwards and simply overwrite these defaults.
+    """
+    from apps.api.stores import reset_stores_for_tests
+
+    monkeypatch.setenv("IHL_EVENT_ROOT", str(tmp_path / "truth"))
+    monkeypatch.setenv("IHL_R2_LOCAL_ROOT", str(tmp_path / "r2"))
+    reset_stores_for_tests()
 
 
 @pytest.fixture(scope="session")

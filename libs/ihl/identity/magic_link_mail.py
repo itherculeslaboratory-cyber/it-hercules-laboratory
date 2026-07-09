@@ -7,6 +7,7 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from html import escape
+from urllib.parse import quote
 
 
 def is_magic_link_mail_configured() -> bool:
@@ -24,7 +25,7 @@ def build_magic_link_login_url(token: str) -> str:
         or os.environ.get("PUBLIC_APP_URL", "").strip()
         or "http://localhost:3000"
     ).rstrip("/")
-    return f"{base}/login?token={token}"
+    return f"{base}/login?token={quote(token, safe='')}"
 
 
 def send_magic_link_email(to: str, login_url: str) -> None:

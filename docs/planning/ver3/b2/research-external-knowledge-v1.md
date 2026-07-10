@@ -4,7 +4,7 @@ title: 外部知見回収 — anthropics/life-sciences と Chase AI(@Chase-H-AI)
 date: 2026-07-10
 status: draft
 decision: anthropics/life-sciences の marketplace + Skill/MCP 構造を「科学OS」の設計テンプレとして採用参照し、Chase AI の Agentic OS 三層(ドメイン→タスク→スキル)+ Karpathy raw/wiki/output ボールト構造を Claude HQ(V3-AIP-97)の思想的参照とする。ただし Chase AI 側に公開 repo は存在せず(有料コミュニティ限定)、転用はパターン抽出に限る。
-sources_count: 7
+sources_count: 12
 revalidate_before_impl: true
 ---
 
@@ -108,3 +108,58 @@ Chase AI 公式ブログ「How to Build a Claude Code Agentic OS (3 Steps)」は
 - Chase AI の観測性ダッシュボード(スキル=クリックボタン化)を ver3 の朝レビューかんばん(V3-AIP-96)にどう写像するか — 本 repo は GitHub 一本化(AIP-37)方針だが、ダッシュボードは別レイヤーとして要るか。
 - 夜間 multi-agent 運転の「1夜あたりコスト上限」の具体数値(15倍トークンを踏まえた円/夜)は誰がどう決めるか(人間ゲート案件)。
 - scientific-problem-selection の Fischbach & Walsh 方法論は昆虫観測ドメインに転用可能か、それとも独自の「問い選定」フレームが要るか。
+
+---
+
+## 追補(2026-07-10 第3回裁定 Q1 対応): anthropics org コンテンツ生成資産の調査
+
+調査日: 2026-07-10。対象: ユーザー指定3リポジトリ + anthropics org 全体スイープ。V3-VID 系(動画・台本・記事、特に V3-VID-01/07/28 とツイン二体発信 V3-VID-10)および V3-AIP 系への転用可否を判定。
+
+### 追-1. anthropics/life-sciences(既調査の差分)
+
+差分なし。org 一覧(2026-07-10 時点)でも説明は「Repo for Claude Code Marketplace, hosts marketplace.json」のままで、コンテンツ生成(台本・記事・動画)に関わる新資産は確認されない。本文根拠1〜3の評価(marketplace 分離構造・Skill/MCP テンプレとして科学OS に参照)を維持。
+出典: https://github.com/anthropics/life-sciences / https://github.com/orgs/anthropics/repositories (アクセス 2026-07-10)
+
+### 追-2. anthropics/knowledge-work-plugins — 実在。台本・記事側の最有力参照
+
+実在(公式、22.5k stars)。「Plugins that turn Claude into a specialist for your role, team, and company. Built for Claude Cowork, also compatible with Claude Code」。役割別プラグイン約19本(marketing / product-management / customer-support / design / engineering / legal / finance / sales / bio-research / small-business 等)。各プラグインは `plugin.json` + `.mcp.json`(コネクタ)+ `commands/`(明示発火のスラッシュコマンド)+ `skills/`(自動発火のドメイン知識)という4点構造で、**コードなし・Markdown+JSON のみ・ビルド不要**。
+
+最重要は **marketing プラグイン**。skills は `content-creation`(チャネル別ライティング作法・SEO・見出し公式・CTA)/ `brand-voice`(ボイス属性・トーン適応・スタイルガイド強制・用語管理)/ `campaign-planning` / `competitive-analysis` / `performance-analytics` の5本、commands は `/draft-content`(ブログ・SNS・メール・LP・プレスリリース・ケーススタディの下書き)/ `/brand-review`(ブランドボイス照合レビュー)/ `/campaign-plan` / `/seo-audit` / `/email-sequence` 等。
+→ **V3-VID-01(台本)/ V3-VID-07(記事)への直接転用**: `content-creation` の「コンテンツ種別テンプレ+チャネル別作法」を SKILL.md として写経し、チャネルを YouTube 台本/note 記事/X スレッドに置換すれば ver3 のコンテンツ生成スキルの雛形になる。**V3-VID-10(ツイン二体)へは `brand-voice` が効く**: 二体それぞれの「ボイス属性・トーン・用語集」を brand-voice 型 SKILL.md 2枚として定義し、`/brand-review` 相当で人格ブレを機械チェックする方式が、ユーザー裁定「方式は AI 委任」の下での最小実装候補。動画そのものの生成資産は**なし**(正直な限界)。
+出典: https://github.com/anthropics/knowledge-work-plugins (アクセス 2026-07-10)
+
+### 追-3. anthropics/financial-services — 実在。ドメインは使えないが「編成」の実装参照として最重要
+
+実在(公式、33.3k stars)。金融ワークフロー向けの reference agents + skills + データコネクタ。ドメインスキル群(comps/DCF/LBO/CIM/earnings note 等 50本超)は**昆虫観測・動画には使えない**。ただし構造が3点転用できる:
+1. **`plugins/agent-plugins/`(名前付きワークフローagent)と `plugins/vertical-plugins/`(スキル束)の二層分離** — 「agent = 完結ワークフロー」「vertical = スキル+コネクタ束」の分け方は、ver3 で「夜間台本生成 agent」(V3-AIP-96)と「コンテンツスキル束」(V3-VID 系)を分離する設計テンプレ。
+2. **`managed-agent-cookbooks/` の agent.yaml + `callable_agents`(leaf-worker subagent、preview)+ `scripts/orchestrate.py`(handoff_request イベントを agent 間ルーティングするイベントループ)** — Anthropic 公式の**マルチエージェント編成の実装コード実例**。本文根拠7(multi-agent 記事)は思想のみだったが、こちらは配線の実物。V3-AIP 系(司令塔+批評家)の実装時に逐語参照する価値がある。
+3. **`pptx-author` / `xlsx-author`(Managed Agent モードの headless 文書生成)** — 「人が見やすい成果物を headless で吐く」パターンで、記事・資料の自動生成(V3-VID-07/28)の配線と同型。
+出典: https://github.com/anthropics/financial-services (アクセス 2026-07-10)
+
+### 追-4. anthropics org スイープ — その他の転用候補と「動画は無い」という結論
+
+org 公開リポジトリ(約30本、2026-07-10 時点)から関連を抽出:
+
+| repo | 内容 | ver3 転用判定 |
+|------|------|--------------|
+| **anthropics/skills**(160k stars) | 公式 Agent Skills 集。`docx`/`pptx`/`xlsx`/`pdf`(本番文書生成の source-available 実装)、`brand-guidelines`、`doc-coauthoring`、`internal-comms`、`theme-factory`、`canvas-design`、`web-artifacts-builder`、`slack-gif-creator`、`skill-creator`、`frontend-design`、`algorithmic-art`、`mcp-builder`、`webapp-testing` + `spec/`(Skill 仕様)+ `template/` | **採用参照**。`skill-creator` と `template/` は ver3 独自スキル(台本・記事)を書く際の公式雛形。`brand-guidelines` はツイン人格定義(V3-VID-10)の第2参照。`doc-coauthoring`/`internal-comms` は記事生成(V3-VID-07)の文章作法参照。`pptx`/`docx` は資料生成(V3-VID-28)の本番級実装 |
+| claude-plugins-official(31.9k stars) | 公式プラグイン目録(`/plugins` + `/external_plugins`)。今回の fetch ではカタログ全容は取得できず | 目録として存在確認のみ。実装時に `/plugin > Discover` で content 系を再探索(再検証条項) |
+| launch-your-agent(768 stars) | 「アイデア→本番 Claude Managed Agent」までの founder 向けスキル集 | V3-AIP 系の Managed Agent 化を検討する場合の入門参照。優先度低 |
+| claude-agent-sdk-demos / claude-cookbooks | SDK デモ・レシピ集 | 汎用。V3-AIP 実装時の逆引き用 |
+| claude-for-legal / defending-code 等 | 法務・セキュリティ特化 | **使えない**(ドメイン不一致) |
+
+**正直な結論**: anthropics org には**動画生成そのものの資産は存在しない**(音声・映像合成の repo・Skill はゼロ。最も近いのは `slack-gif-creator` 程度)。org 資産がカバーするのは (a) 台本・記事・資料などテキスト/文書側のスキルテンプレ(knowledge-work-plugins marketing + skills repo)、(b) マルチエージェント編成の実装配線(financial-services)、(c) Skill の書き方仕様(skills/spec + skill-creator)の3点。**V3-VID の映像・音声レイヤーは外部ツール(動画生成・TTS 等)を別途選定する必要があり、本追補の範囲外**として次段の調査課題に残す。
+
+### 追-5. V3 要件マッピング(追補分)
+
+| 資産 | 効く V3 要件 | 効き方 |
+|------|-------------|--------|
+| marketing/content-creation + commands | V3-VID-01 / V3-VID-07 | 台本・記事スキルの SKILL.md 雛形(チャネル置換で写経) |
+| marketing/brand-voice + skills/brand-guidelines | V3-VID-10(ツイン二体) | 二体分の人格 SKILL.md + /brand-review 型の人格ブレ機械チェック |
+| skills/pptx・docx・doc-coauthoring | V3-VID-28 / V3-VID-07 | 資料・記事の本番級文書生成実装 |
+| financial-services agent-plugins/vertical 二層 + agent.yaml + orchestrate.py | V3-AIP 系(司令塔+批評家)/ V3-AIP-96 | マルチエージェント編成・handoff の公式実装参照(本文根拠7 の実物版) |
+| skills/skill-creator + template/ + spec/ | V3-AIP 系全般 | ver3 独自スキル作成の公式仕様・雛形 |
+
+**再検証条項(追補分)**: (1) 実装着手時に knowledge-work-plugins の `marketing/skills/*/SKILL.md` と anthropics/skills の `brand-guidelines`・`skill-creator` を clone して逐語確認(本追補は WebFetch 要約に基づく)。(2) claude-plugins-official のカタログ全容を Claude Code の `/plugin > Discover` で再探索。(3) skills repo の docx/pptx は source-available ライセンス(OSS ではない)のため、商用発信物への利用条件を実装前に原文確認。
+
+出典(追補): https://github.com/anthropics/knowledge-work-plugins / https://github.com/anthropics/financial-services / https://github.com/anthropics/skills / https://github.com/anthropics/claude-plugins-official / https://github.com/orgs/anthropics/repositories (すべてアクセス 2026-07-10)

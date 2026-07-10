@@ -1,0 +1,168 @@
+rtm_doc,rtm_item,rtm_status,type,v3_ids,note
+00-プロダクト方針・MVP・拡張安全枠-v1-DRAFT.md,FR-MVP-01/02/03 観測収集・写真登録・詳細ビュー（観測MVPコア）,実装済み,absorbed,V3-OBS-22;V3-OBS-23;V3-OBS-24,MVP観測コア(収集・写真・詳細)はV3観測MVPスコープに吸収
+00-プロダクト方針・MVP・拡張安全枠-v1-DRAFT.md,FR-MVP-04 親個体連携（individual_id/sire_id/dam_id）,実装済み,absorbed,V3-IND-01,親個体連携(sire/dam)はV3-IND-01に吸収
+00-プロダクト方針・MVP・拡張安全枠-v1-DRAFT.md,FR-MVP-05 QRコード発行・スキャン・観測再開,部分実装,absorbed,V3-OBS-20,QR発行/スキャン/観測再開はV3-OBS-20に吸収
+00-プロダクト方針・MVP・拡張安全枠-v1-DRAFT.md,§1.6 ver2延期スコープ（アキネーター OBS-TGT-03 / SwitchBot OBS-ENV-02〜06 / タグ洗練 OBS-TAG-01）,人間ゲート,absorbed,V3-OBS-02;V3-OBS-28;V3-OBS-63,アキネーター/SwitchBot/タグ洗練はver2延期概念ごとV3観測に吸収済み
+00-プロダクト方針・MVP・拡張安全枠-v1-DRAFT.md,§1.1 MVP v1除外（#06マーケット/#10マチアプ/#11裁判）,対象外,absorbed,V3-FND-30,#06/#10/#11のv1 OUTスコープ判断はV3-FND-30に明記
+00-プロダクト方針・MVP・拡張安全枠-v1-DRAFT.md,FR-CONTENT-NAV-01〜07 知の広場ハブ（/knowledge 3タブ）,人間ゲート,absorbed,V3-BBS-01;V3-WIK-16;V3-UIX-52,知の広場ハブ/knowledgeはV3-BBS-01(3柱)+記事CMS+論文filterに吸収
+00-プロダクト方針・MVP・拡張安全枠-v1-DRAFT.md,D-MVP-05 Personal Sandbox Realm（サンドボックス環境）,未実装,absorbed,V3-FND-31,Personal Sandbox RealmはV3-FND-31/UIX-48に吸収
+00-土台-MiniKernel-C-USB-コンポーネント.md,FOUND-S01〜S10 MiniScreenKernel/C-USB構造（World→FeatureNode→Kernel→Component）,対象外,absorbed,V3-FND-13;V3-FND-14,World→FeatureNode→Kernel→Component/C-USB階層はV3-FND-13/14に思想吸収(RTMは対象外扱いだがV3は概念採用)
+00-土台-MiniKernel-C-USB-コンポーネント.md,FOUND-D02/D05/D06 R2 INSERT ONLY・no-overwrite・常駐DB禁止（IHL側思想共有）,実装済み,absorbed,V3-FND-01,R2 INSERT ONLY/no-overwriteはV3-FND-01に吸収
+00-土台-MiniKernel-C-USB-コンポーネント.md,FOUND-D07/D08 run_id・schema_version・provenance・value_origin付与,部分実装,absorbed,V3-FND-15;V3-PPR-09;V3-OBS-06,run_id/schema_version/provenance/value_originはV3-FND-15+PPR-09+OBS-06に吸収
+00-土台-MiniKernel-C-USB-コンポーネント.md,FOUND-N01〜N08 非機能（RAG検索性・OSS薄ラップ・類似検索等）,部分実装,absorbed,V3-FND-03;V3-AIP-46;V3-OBS-10,RAG検索性/OSS薄ラップ/類似検索はV3-FND-03+AIP-46+OBS-10に吸収
+00-土台-MiniKernel-C-USB-コンポーネント.md,FOUND-M05 Phase0受入（R2実接続・raw登録・no-overwrite証跡）,人間ゲート,absorbed,V3-FND-01;V3-AIP-49,Phase0受入(R2実接続/no-overwrite証跡)はno-overwrite原則+テスト文化に吸収(受入マイルストーン自体はプロセス)
+01-ログイン.md,FR-LOGIN-01〜03 マジックリンク発行・dev_token・register連携,実装済み,absorbed,V3-AUT-01;V3-AUT-05;V3-AUT-09,マジックリンク発行/dev_token/register連携はV3-AUT-01/05/09に吸収
+01-ログイン.md,FR-LOGIN-04/05 検証(verify)・セッション発行・遷移,実装済み,absorbed,V3-AUT-02;V3-AUT-03,verify(ワンタイム)/セッション発行はV3-AUT-02/03に吸収
+01-ログイン.md,FR-LOGIN-06/08 セッション解決(session)・resolve_actor_id,実装済み,absorbed,V3-AUT-17;V3-AUT-19,session解決/resolve_actor_idはV3-AUT-17/19に吸収
+01-ログイン.md,FR-LOGIN-07 観測READ公開（Scope A・未ログイン可）,実装済み,absorbed,V3-AUT-15;V3-AUT-16;V3-OBS-39,観測READ公開Scope AはV3-AUT-15/16+OBS-39に吸収
+01-ログイン.md,FR-LOGIN-09 401後の再ログイン導線・retrofit（v2 §7 P4）,人間ゲート,absorbed,V3-AUT-12;V3-UIX-31,401後の再ログイン導線はV3-AUT-12(307誘導)+UIX-31(行き止まり導線)に吸収
+01-ログイン.md,NFR-LOGIN-01 PIIハッシュ化（メールをハッシュ保存・平文非保持）,実装済み,absorbed,V3-SEC-07,PIIハッシュ化(メール平文非保持)はV3-SEC-07に吸収
+01-ログイン.md,NFR-LOGIN-06 本番メール送信（magic link SMTP）,人間ゲート,absorbed,V3-AUT-04,本番SMTP鍵投入(人間ゲート)はV3-AUT-04に吸収
+02-利用規約.md,FR-10/FR-UX-03 規約閲覧API（未認証可・草案版メタ）,実装済み,absorbed,V3-SEC-20;V3-AUT-13,規約閲覧API(未認証可)はV3-SEC-20+AUT-13に吸収
+02-利用規約.md,FR-13/21 同意イベント記録（/api/v1/legal/agree）,実装済み,absorbed,V3-SEC-20;V3-SEC-23,同意イベント記録/再同意はV3-SEC-20/23に吸収
+02-利用規約.md,FR-14/NFR-05 append-only同意記録（INSERT ONLY・複数同意=別ファイル）,実装済み,absorbed,V3-FND-01,append-only同意記録はV3-FND-01+SEC-55に吸収
+02-利用規約.md,FR-LEGAL-03 草案条項フラグ（is_draft・legal_gate=HUMAN-02-LEGAL）,人間ゲート,absorbed,V3-UIX-01;V3-SEC-24,草案条項フラグ(is_draft)+法務文言人間ゲートはV3-UIX-01+SEC-24に吸収
+02-利用規約.md,FR-EASY-01〜03/FR-VIDEO-01〜03/FR-RESOLVER-01〜04（やさしい版・動画二層・resolver）,未実装,absorbed,V3-SEC-21;V3-SEC-22,やさしい版/動画二層/resolverはV3-SEC-21/22+AUT-21に吸収
+02-利用規約.md,NFR-04 トレーサ（条項マトリクス・RTM整合）,実装済み,absorbed,V3-AIP-07,トレーサ(条項マトリクス/RTM整合)はV3-AIP-07に吸収
+03-新規登録.md,FR-REG-05/12/15 登録ステータス遷移（pending→complete）,実装済み,absorbed,V3-AUT-10;V3-AUT-09,登録ステータス遷移(pending→complete)はV3-AUT-10(オンボーディング)+AUT-09に吸収
+03-新規登録.md,FR-REG-07 handle検証（形式・必須エラー）,実装済み,absorbed,V3-AUT-08,handle検証(形式)はV3-AUT-08に吸収
+03-新規登録.md,FR-REG-13 冪等409（重複登録防止）,実装済み,absorbed,V3-AUT-09,冪等409(重複登録防止)はオープン登録V3-AUT-09に吸収(409冪等の明記は薄いが登録機構内)
+03-新規登録.md,FR-REG-19/21 規約同意必須（register時agree_terms必須）,実装済み,absorbed,V3-AUT-06;V3-SEC-20,規約同意必須(register時)はV3-AUT-06+SEC-20に吸収
+03-新規登録.md,FR-REG-06a/UT-03-08/11 locale必須・language記録,実装済み,absorbed,V3-I18-02;V3-AUT-35,locale必須/language記録はV3-I18-02+AUT-35に吸収
+03-新規登録.md,FR-REG-08/16 handle重複チェックAPI（check-handle）,未実装,absorbed,V3-AUT-07,handle重複チェックAPI(check-handle)はV3-AUT-07に吸収
+03-新規登録.md,FR-REG-10/11/23/27 twin tour・別メール再登録・未完ログイン継続・genesis特例,人間ゲート,absorbed,V3-AUT-24;V3-AUT-29;V3-AUT-10,genesis特例/別メール再登録/未完ログイン継続はV3-AUT-24/29/10に吸収(twin tourはUIX-73系)
+04-ホーム画面.md,H-010〜H-014・H-020: ヒーロー/CTA/アカウント要約/Action Cards「今日の要約」,実装済み,absorbed,V3-UIX-25;V3-UIX-29,ホームのヒーロー/CTA/Action CardsはV3-UIX-25(司令塔)+UIX-29(リンク密度)に吸収(5カードラベル差は実装差)
+04-ホーム画面.md,H-030〜H-033: 文明ミニマップ（観測ペース・Twin信頼度・テンプレ成長 3指標・フォールバック・ローディング）,部分実装,absorbed,V3-UIX-26,文明ミニマップ3指標はV3-UIX-26に吸収
+04-ホーム画面.md,H-040〜H-044: 司法インボックスプレビュー・環境IoT due通知,対象外,absorbed,V3-GOV-11,司法インボックスプレビュー/環境IoT dueはV3-GOV-11に吸収(RTMは対象外だがV3は採用)
+04-ホーム画面.md,H-045: 次回観測 upcoming/overdue（today_lines統合）,部分実装,absorbed,V3-UIX-27;V3-OBS-21,次回観測upcoming/overdue(today_lines)はV3-UIX-27+OBS-21に吸収
+04-ホーム画面.md,H-060/H-061: 初回Twinツアー,対象外,dropped,V3-UIX-65,初回TwinツアーはV3-UIX-65でTwinペルソナをIHL UIに不採用と明示決定→ver3対象外
+04-ホーム画面.md,H-070〜H-072・NF-H-01〜09: REQ-024 IA整合・非機能要件全般,人間ゲート,absorbed,V3-UIX-02;V3-UIX-03;V3-UIX-38,IA整合/a11y/レスポンシブ非機能はV3-UIX-02/03/38に吸収
+05-観測.md,4.1 固体観測commit（OBS-SOL-01〜08）,実装済み,absorbed,V3-OBS-05;V3-OBS-57;V3-OBS-40,固体観測commitはV3-OBS-05(append)+OBS-57(写真解析)+OBS-40(commit契約)に吸収
+05-観測.md,4.2 環境IoT（SwitchBot/Placement/DeviceBinding/collector）,実装済み,absorbed,V3-OBS-28;V3-FND-18;V3-OBS-17,環境IoT(SwitchBot/Placement/DeviceBinding/collector)はV3-OBS-28+FND-18+OBS-17に吸収
+05-観測.md,4.4 R2 append-only（OBS-R2-01〜05）,部分実装,absorbed,V3-OBS-05;V3-FND-01,R2 append-onlyはV3-OBS-05+FND-01に吸収
+05-観測.md,4.5 taxonomy候補/確定分離（OBS-TAX-01〜07）,部分実装,absorbed,V3-OBS-04;V3-OBS-03,taxonomy候補/確定分離はV3-OBS-04+OBS-03に吸収
+05-観測.md,4.9〜4.9.1 計測テンプレ・入力UI（OBS-TPL/OBS-INPUT/OBS-PHOTO）,実装済み,absorbed,V3-OBS-18;V3-OBS-26;V3-OBS-23,計測テンプレ/入力UI/写真はV3-OBS-18/26/23に吸収
+05-観測.md,4.15〜4.17 観測追記・デバイス宣言・次回観測スケジュール（OBS-FUP/OBS-RX-*）,部分実装,absorbed,V3-OBS-17;V3-OBS-21,観測追記/デバイス宣言/次回観測はV3-OBS-17+OBS-21に吸収
+05-観測.md,"4.8 写真解析・embedding（IHL image lake, OBS-IMG）",未実装,absorbed,V3-OBS-08;V3-OBS-09;V3-OBS-56,写真解析/embedding(image lake)はV3-OBS-08/09/56に吸収
+05-観測.md,§補遺 観測公開READ・認証分離（OBS-GAP-01〜03）,実装済み,absorbed,V3-OBS-39;V3-OBS-37;V3-AUT-14,観測公開READ/認証分離はV3-OBS-39+OBS-37+AUT-14に吸収
+06-マーケット.md,FR-MKT-01〜03: 三チャネル分離・Listing状態機械,実装済み,absorbed,V3-MKT-01;V3-MKT-02,三チャネル分離/Listing状態機械はV3-MKT-01/02に吸収
+06-マーケット.md,FR-MKT-04/14/15: オークション・抽選(TX-LOTTERY)・プラチナコイン順(TX-PLATINUM-PRIORITY),人間ゲート,absorbed,V3-MKT-05;V3-MKT-07;V3-MKT-08,オークション/抽選/プラチナ優先はV3-MKT-05/07/08に吸収
+06-マーケット.md,FR-MKT-07/13・§11.0.1 取引成立・8%システム維持費税,部分実装,absorbed,V3-MKT-10;V3-MKT-04,取引成立/8%システム維持費税はV3-MKT-10+MKT-04に吸収
+06-マーケット.md,FR-MKT-09: GMOあおぞら連携（webhook/照合/issueCoin）,人間ゲート,absorbed,V3-MKT-14;V3-MKT-15,GMOあおぞら連携はV3-MKT-14(webhook)+MKT-15(人間ゲート)に吸収
+06-マーケット.md,FR-MKT-05/06/08/11/12: Engagement・非エスクロー・住所非保持・公開ログ・UI,部分実装,absorbed,V3-MKT-26;V3-MKT-01;V3-MKT-20;V3-BBS-28,Engagement/非エスクロー/住所非保持/公開ログ/UIはV3-MKT-26/01/20+BBS-28に吸収
+06-マーケット.md,NFR-MKT-03/06: listing-registry無認証ギャップ・認可制御,未実装,absorbed,V3-MKT-41;V3-SEC-56,listing-registry無認証ギャップはV3-MKT-41+SEC-56に既知ギャップとして吸収
+07-掲示板.md,FR-BBS-05/06/14: 製品BBS主入口4つ（愚痴/改善/論文/その他）,実装済み,absorbed,V3-BBS-02;V3-BBS-14,製品BBS主入口4つはV3-BBS-02+BBS-14に吸収
+07-掲示板.md,FR-BBS-01〜04・08・09: file-board linkage（1正本MD=1スレ・registry同期）,対象外,changed,V3-AIP-37;V3-AIP-93;V3-BBS-26,file-board linkage(civ-os C-Sync)はV3でGitHub一本化(AIP-37 C-Sync全面不採用)へ変更、linkage概念はAIP-93に残存
+07-掲示板.md,FR-BBS-07: 投稿rescue（raw error非表示・再試行・保存境界）,未実装,absorbed,V3-BBS-35,掲示板投稿rescue(失敗時のドラフト保全・再試行・保存境界)に対応するV3エントリが無い。V3-UIX-03はエラー表示原則のみで投稿本文の保全機構を規定せず、V3-OBS-41(観測ドラフト保全)の掲示板版が欠落 【正規化: 新規エントリ V3-BBS-35 を補填し absorbed 化】
+07-掲示板.md,FR-BBS-10〜13: component-board連携・争い入口（指摘→二人部屋 board_pointer）,部分実装,absorbed,V3-BBS-16;V3-GOV-02,component-board連携/争い入口(board_pointer)はV3-BBS-16+GOV-02に吸収
+07-掲示板.md,FR-BBS-15/16: 論文板case分類(paper_case)・caseフィルタUI,部分実装,absorbed,V3-BBS-02;V3-WIK-16,論文板case分類/caseフィルタはV3-BBS-02+WIK-16(content_type=paper)に吸収
+07-掲示板.md,NFR-BBS-01〜05: INSERT ONLY・GitHub+R2正本・CI負荷・空状態・FeatureNode整合,部分実装,absorbed,V3-BBS-05;V3-AIP-37;V3-UIX-03,INSERT ONLY/GitHub+R2正本/空状態はV3-BBS-05+AIP-37+UIX-03に吸収
+08-カルマシステム.md,"FR-KRM-01〜03: 二層モデル基盤(登録時0/レンジ[-100,100]/count増加でFib(n)減点)",部分実装,absorbed,V3-KRM-01;V3-KRM-02,カルマ二層モデル基盤(登録時0/Fib減点)はV3-KRM-01/02に吸収
+08-カルマシステム.md,FR-KRM-04/05: 毎月25日 count-1・count=0月のみ+10,未実装,absorbed,V3-KRM-03,毎月25日count-1/count=0月+10はV3-KRM-03に吸収
+08-カルマシステム.md,FR-KRM-06: カルマ値-100で永久BAN(ログイン拒否),未実装,absorbed,V3-KRM-04,カルマ値-100で永久BANはV3-KRM-04に吸収
+08-カルマシステム.md,FR-KRM-07: 免罪符購入→count-1(Fib価格),部分実装,absorbed,V3-KRM-05;V3-MKT-33,免罪符購入→count-1(Fib価格)はV3-KRM-05+MKT-33に吸収
+08-カルマシステム.md,FR-KRM-08: fee_unpaid由来のΔcount(月次Fibonacci),実装済み,absorbed,V3-MKT-10;V3-KRM-02,fee_unpaid由来Δcount(月次Fib)はV3-MKT-10+KRM-02に吸収
+08-カルマシステム.md,FR-KRM-09: 全ミューテーションR2 INSERT ONLY,実装済み,absorbed,V3-KRM-19;V3-FND-01,全ミューテーションR2 INSERT ONLYはV3-KRM-19+FND-01に吸収
+08-カルマシステム.md,FR-KRM-10 表示・NFR群・設計ゲート4点,人間ゲート,absorbed,V3-KRM-21;V3-AUT-41,カルマ表示/NFR群はV3-KRM-21(3指標分離表示)+AUT-41に吸収
+09-論文.md,FR-PPR-01〜03: 条件P⇔観測JSONマッチ(missingKeys/violatedKeys),対象外,absorbed,V3-PPR-01;V3-PPR-02,条件P⇔観測JSONマッチ(missing/violatedKeys)はV3-PPR-01/02に吸収(RTMは対象外/civ-osだがV3は採用)
+09-論文.md,FR-PPR-04/05/07/08: 固体ブリッジ・自動実行・LLM拡張・下書きCRUD,対象外,absorbed,V3-PPR-04;V3-PPR-05,固体ブリッジ/自動実行/LLM拡張/下書きはV3-PPR-04(in_progress一級市民)+PPR-05に吸収
+09-論文.md,FR-PPR-11: E2E到達(研究論文一覧到達),実装済み,absorbed,V3-PPR-24;V3-UIX-52,研究論文一覧到達はV3-PPR-24(research nodes)+UIX-52に吸収
+09-論文.md,FR-PAPER-01〜12: BBS引用・タグ・テンプレ・環境節・embedding gap 等拡張構想,人間ゲート,absorbed,V3-PPR-08;V3-PPR-06;V3-PPR-03,BBS引用/タグ/テンプレ/embedding gapはV3-PPR-08/06/03に吸収
+10-マチアプ.md,FR-MCH-01〜09: ValueCheck(採用済み経路),対象外,absorbed,V3-MKT-53;V3-IND-07;V3-SEC-41,ValueCheck採用経路はV3-MKT-53+IND-07+SEC-41に吸収
+10-マチアプ.md,FR-MCH-PAIR-01〜04 / H-02確定(pairwise・preference_event・PII配慮),実装済み,absorbed,V3-UIX-22;V3-UIX-23;V3-KRM-26,pairwise/preference_event/PII配慮はV3-UIX-22/23+KRM-26に吸収
+10-マチアプ.md,FR-MCH-PAIR-05 / FR-MCH-UX-07: Nラウンド収束(既定N=10)・neither集計表示,未実装,absorbed,V3-UIX-79,pairwiseのNラウンド収束(既定N=10)・ラウンド上限・neither集計表示に対応するV3エントリが無い。V3-UIX-22/23はpairwise入力UIを規定するが収束/終了条件とneither集計可視化は欠落 【正規化: 新規エントリ V3-UIX-79 を補填し absorbed 化】
+10-マチアプ.md,FR-MCH-REC-01〜07: ①おすすめ個体一覧(post-v1),人間ゲート,absorbed,V3-IND-09;V3-MKT-57,おすすめ個体一覧(①)はV3-IND-09+MKT-57(2段階フロー)に吸収
+10-マチアプ.md,FR-MCH-10〜16: MatchApp kernel pilot・タグ収束・IHLタグイベント,対象外,absorbed,V3-OBS-63;V3-IND-08,MatchApp kernel pilot/タグ収束/IHLタグイベントはV3-OBS-63+IND-08に吸収
+11-裁判.md,FR-DSP-03/04: 指摘成立→二人部屋生成・第三者閲覧可/当事者のみ投稿,部分実装,absorbed,V3-GOV-03;V3-GOV-04,指摘成立→二人部屋/第三者閲覧はV3-GOV-03/04に吸収
+11-裁判.md,FR-DSP-01/02/05/06: 通報UI排除・タグ+理由必須・重複指摘禁止・ネスト無制限,未実装,absorbed,V3-GOV-03;V3-BBS-06;V3-BBS-07,通報UI排除/タグ+理由必須/重複禁止/ネスト無制限はV3-GOV-03+BBS-06/07に吸収
+11-裁判.md,FR-DSP-07/08/09: 合意表示切替・1ヶ月強制クローズ・未解決5の倍数でΔcount+1,未実装,absorbed,V3-GOV-05;V3-GOV-06;V3-KRM-09,合意表示切替/1ヶ月強制クローズ/未解決5倍数ΔcountはV3-GOV-05/06+KRM-09に吸収
+11-裁判.md,FR-DSP-10: 指摘30回ごとプラチナ1枚消費,未実装,absorbed,V3-GOV-10,指摘30回ごとプラチナ1枚消費はV3-GOV-10に吸収
+11-裁判.md,FR-DSP-14/18: R2 append-only記録・証拠PII redact,実装済み,absorbed,V3-GOV-05;V3-SEC-12;V3-SEC-13,R2 append-only記録/証拠PII redactはV3-GOV-05+SEC-12/13に吸収
+11-裁判.md,FR-DSP-20: 行政指示時の不使用フラグ・Δcount+10,人間ゲート,absorbed,V3-GOV-09,行政指示時の不使用フラグ/Δcount+10はV3-GOV-09に吸収
+11-裁判.md,設計ゲート4点(要件/詳細/遷移/UI)全体,人間ゲート,absorbed,V3-AIP-05,設計ゲート4点はV3-AIP-05(V-model5点ゲート)に吸収
+12-設定.md,FR-SET-01/05/06/07/08/10 認証ガード・IA分離・Capability表示・no-WIP表示,部分実装,absorbed,V3-UIX-43;V3-AUT-22;V3-UIX-01,認証ガード/IA分離/Capability表示/no-WIPはV3-UIX-43+AUT-22+UIX-01に吸収
+12-設定.md,FR-SET-02/03/04 論文LLM・固体観測LLM・dev導線トグル,未実装,absorbed,V3-SEC-05;V3-AUT-37;V3-UIX-43,論文LLM/固体観測LLM独立/dev導線トグルはV3-SEC-05+AUT-37+UIX-43に吸収
+12-設定.md,FR-SET-09/11/13/14/15 preferences PATCH・locale変更・独立性,実装済み,absorbed,V3-I18-03;V3-UIX-43;V3-UIX-44,preferences PATCH/locale変更/独立性はV3-I18-03+UIX-43/44に吸収
+12-設定.md,FR-SET-16/17/18 局留め・配送先・銀行振込口座（取引前PII設定）,未実装,absorbed,V3-MKT-28;V3-SEC-12;V3-MKT-20,局留め/配送先/銀行振込口座(取引前PII設定)はV3-MKT-28+SEC-12+MKT-20に吸収
+12-設定.md,FR-SET-19 取引前設定の完了促し,人間ゲート,absorbed,V3-UIX-80,取引前設定(局留め/配送先/口座)の完了促し(取引フロー内の残項目提示・設定導線)に対応するV3エントリが無い。V3-MKT-28/SEC-12は事前設定の存在を規定するが完了ナッジ/未完誘導は欠落 【正規化: 新規エントリ V3-UIX-80 を補填し absorbed 化】
+12-設定.md,NFR-SET-01 API Key非返却,実装済み,absorbed,V3-SEC-05,API Key非返却(存在フラグのみ)はV3-SEC-05に吸収
+13-データ取得元管理.md,FR-ENV-01/03/05 Placement/Occupancy/QRトークン INSERT ONLY,実装済み,absorbed,V3-FND-18;V3-OBS-33;V3-SEC-44,Placement/Occupancy/QRトークン INSERT ONLYはV3-FND-18+OBS-33+SEC-44に吸収
+13-データ取得元管理.md,FR-ENV-02 DeviceBinding終了イベント・409重複,未実装,absorbed,V3-OBS-17;V3-FND-18,DeviceBinding終了イベント/409重複はV3-OBS-17+FND-18に吸収
+13-データ取得元管理.md,FR-ENV-04 TelemetryIngest未解決行の事後紐づけ,未実装,absorbed,V3-OBS-34;V3-FND-18,TelemetryIngest未解決行の事後紐づけはV3-OBS-34(Occupancy join)+FND-18に吸収
+13-データ取得元管理.md,FR-ENV-06/07/08 環境二重POST禁止・collector Ed25519署名・秘密値非露出,実装済み,absorbed,V3-OBS-17;V3-SEC-02;V3-OBS-29,環境二重POST禁止/collector Ed25519署名/秘密値非露出はV3-OBS-17+SEC-02+OBS-29に吸収
+13-データ取得元管理.md,FR-ENV-09 履歴API期間フィルタ・件数上限,部分実装,absorbed,V3-FND-22;V3-MKT-52,履歴API期間フィルタ/件数上限はV3-FND-22(決定論的ページング)+MKT-52(cursorページ)に吸収
+13-データ取得元管理.md,FR-ENV-11 汎用デバイスCSV取り込み（column_map・5分バケット集約）,実装済み,absorbed,V3-OBS-32;V3-OBS-33,汎用デバイスCSV取り込み(column_map/5分バケット)はV3-OBS-32/33に吸収
+13-データ取得元管理.md,NFR-ENV-02/03 collectorキューappend-only・秘密値隔離,人間ゲート,absorbed,V3-SEC-02;V3-OBS-29,collectorキューappend-only/秘密値隔離はV3-SEC-02+OBS-29に吸収
+14-貢献度.md,FR-CONTRIB-01/02/10 スコア非負蓄積・イベント記録・API応答,実装済み,absorbed,V3-KRM-10,貢献度スコア非負蓄積/イベント記録/API応答はV3-KRM-10に吸収
+14-貢献度.md,FR-CONTRIB-03/04/05/06/07/08 上流10%分配・依存グラフ・プラチナmint,未実装,absorbed,V3-KRM-11,上流10%分配/依存グラフ/プラチナmintはV3-KRM-11+MKT-37に吸収
+14-貢献度.md,FR-CONTRIB-09 ユーザー総貢献のプロフィール反映,部分実装,absorbed,V3-KRM-21;V3-AUT-41,ユーザー総貢献のプロフィール反映はV3-KRM-21+AUT-41に吸収
+14-貢献度.md,FR-CONTRIB-GH-01〜06 GitHub開発者貢献度マッピング（webhook/日次バッチ）,未実装,absorbed,V3-KRM-13;V3-AUT-38,GitHub開発者貢献度マッピング(webhook/日次)はV3-KRM-13+AUT-38に吸収
+14-貢献度.md,NFR-CONTRIB-01 append-only記録,実装済み,absorbed,V3-KRM-19;V3-FND-01,append-only記録はV3-KRM-19+FND-01に吸収
+14-貢献度.md,ADR-H-38 貢献度3軸モデル（研究/資本/開発軸）,人間ゲート,absorbed,V3-KRM-12,貢献度3軸モデル(研究/資本/開発)はV3-KRM-12に吸収
+15-データ設計.md,"FR-DATA-01/02/08 CoreEntityBase/C-USB (core+rag必須, kind区別)",実装済み,absorbed,V3-FND-14;V3-FND-15,CoreEntityBase/C-USB(core+rag)はV3-FND-14+FND-15に吸収
+15-データ設計.md,FR-DATA-03/04/06 R2 INSERT ONLY・replay再構築・系譜ハッシュ,部分実装,absorbed,V3-FND-01;V3-FND-05;V3-FND-15,R2 INSERT ONLY/replay再構築/系譜ハッシュはV3-FND-01/05/15に吸収
+15-データ設計.md,FR-DATA-09〜12 IHLファイル契約（R2のみ・input/output manifest・run_id等・Phase1 schema）,実装済み,absorbed,V3-FND-02;V3-AIP-46;V3-PPR-09,IHLファイル契約(R2のみ/manifest/run_id/Phase1 schema)はV3-FND-02+AIP-46+PPR-09に吸収
+15-データ設計.md,FR-DATA-13 latest pointer方式（方式B）,未実装,absorbed,V3-FND-06,latest pointer方式はV3-FND-06(latest.json pointer更新)に吸収
+15-データ設計.md,FR-DATA-15 append-only tag event + aggregateビュー,実装済み,absorbed,V3-OBS-63;V3-BBS-13,append-only tag event+aggregateビューはV3-OBS-63+BBS-13に吸収
+15-データ設計.md,横断単一データカタログMDの完全整備（fb_00096コンポーネント検索設計含む）,対象外,dropped,,横断単一データカタログMDの完全整備はRTMで明示スコープ外(fb_00096はoral未昇格)。V3も単一カタログMD整備を要件化しておらず(V3-FND-03はparquet manifest検索)、ver3対象外
+16-UIbuilder.md,要件層 FR-16-REFRAME採用（ADR-H-01 = B）,人間ゲート,absorbed,V3-UIX-07;V3-UIX-08,FR-16-REFRAME採用(ADR-H-01=B)はV3-UIX-07/08に吸収
+16-UIbuilder.md,FR-16-REFRAME-01 builder/canvas（配置・D&D）,実装済み,absorbed,V3-UIX-07;V3-UIX-11,builder/canvas(配置D&D)はV3-UIX-07+UIX-11に吸収
+16-UIbuilder.md,FR-16-REFRAME-02/03/06 catalog選択のみ・invent禁止・lint,未実装,absorbed,V3-UIX-08;V3-UIX-46,catalog選択のみ/invent禁止/lintはV3-UIX-08+UIX-46に吸収
+16-UIbuilder.md,FR-DTH-01 ThemePack（デザイントークン）,実装済み,absorbed,V3-UIX-16,ThemePack(デザイントークン)はV3-UIX-16に吸収
+16-UIbuilder.md,FR-16-REFRAME-04 L1-L4権限出し分け,部分実装,absorbed,V3-UIX-67;V3-UIX-09,L1-L4権限出し分けはV3-UIX-67(4レイヤーbuilder)+UIX-09に吸収
+16-UIbuilder.md,FR-16-REFRAME-08 Phase8切り離し（platform docとして維持）,未実装,absorbed,V3-UIX-07,Phase8切り離しはV3-UIX-07(§④Phase8整合vs§12.7 REFRAME窄化の緊張として明記)に吸収
+16-UIbuilder.md,NFR-16-01 R2 INSERT ONLY遵守（Builder fork系）,部分実装,absorbed,V3-FND-01;V3-BBS-29,R2 INSERT ONLY遵守(Builder fork系)はV3-FND-01+BBS-29に吸収
+17-UI選択画面改善,FR-17-01/03 World テンプレート選択・レベル(default/recommended/custom),未実装,absorbed,V3-UIX-45;V3-UIX-47,Worldテンプレート選択/レベルはV3-UIX-45+UIX-47に吸収
+17-UI選択画面改善,FR-17-06 一般ユーザー向けUI/テーマ選択入口（settings経由・3クリック以内）,部分実装,absorbed,V3-UIX-47;V3-UIX-44,一般ユーザー向けUI/テーマ選択入口(3クリック)はV3-UIX-47+UIX-44に吸収
+17-UI選択画面改善,FR-17-04 LayerSelector（L0-L3表示レイヤー切替）／FR-17-05 投票との接続,未実装,absorbed,V3-UIX-45;V3-UIX-64;V3-GOV-22,LayerSelector(L0-L3)/投票接続はV3-UIX-45/64+GOV-22に吸収
+18-写真解析,FR-18-01〜03 civ-os固体観測 画像解析・種候補提案・taxonomy確定,実装済み,absorbed,V3-OBS-57;V3-OBS-47;V3-OBS-04,画像解析/種候補提案/taxonomy確定はV3-OBS-57/47/04に吸収
+18-写真解析,FR-18-06 thumbnail生成（IHL契約・長辺512pxJPEG）,実装済み,absorbed,V3-OBS-23;V3-OBS-08,thumbnail生成(長辺512px)はV3-OBS-23+OBS-08に吸収
+18-写真解析,"FR-18-07 embedding生成（dummy/dinov2, L2正規化, append-only）",実装済み,absorbed,V3-OBS-09,embedding生成(dinov2/L2正規化/append-only)はV3-OBS-09に吸収
+18-写真解析,FR-18-08 QC(blur/exposure/scale等)・FR-18-09 searchable capture set manifest join,部分実装,absorbed,V3-OBS-58;V3-OBS-56,QC/searchable capture set manifest joinはV3-OBS-58+OBS-56に吸収
+18-写真解析,FR-18-10 類似検索（cosine + size_similarity）,部分実装,absorbed,V3-OBS-10;V3-OBS-11,類似検索(cosine+size_similarity)はV3-OBS-10+OBS-11(rerank重み)に吸収
+19-コンポーネント掲示板,FR-19-01/02 file-board linkage（1正本1スレ・レジストリCSV）,人間ゲート,changed,V3-AIP-93;V3-AIP-37;V3-BBS-26,file-board linkage(1正本1スレ)はV3でGitHub component board(AIP-37 C-Sync不採用)へ変更、linkage概念はAIP-93に残存
+19-コンポーネント掲示板,IHL版: GitHub component BBS（05-GitHub運用-コンポーネント掲示板.md §6）,実装済み,absorbed,V3-BBS-26;V3-AIP-37,GitHub component BBSはV3-BBS-26(Discussions/Issues柱)+AIP-37に吸収
+19-コンポーネント掲示板,製品掲示板（開発者/一般ユーザー投稿スレ・カテゴリ）,実装済み,absorbed,V3-BBS-02;V3-BBS-25,製品掲示板(開発者/一般投稿スレ)はV3-BBS-02+BBS-25に吸収
+19-コンポーネント掲示板,FR-19-07 コンポーネントUUID/fork単位の議論スレUI・graph editorとの役割分担,人間ゲート,absorbed,V3-BBS-16;V3-BBS-29;V3-UIX-12,コンポーネントUUID/fork単位の議論スレUIはV3-BBS-16+BBS-29+UIX-12に吸収
+20-投票-プラチナコイン-自然淘汰,FR-20-01 投票対象範囲（レイヤー0-3、レイヤー4除外）,実装済み,absorbed,V3-MKT-35;V3-GOV-22,投票対象範囲(レイヤー0-3/4除外)はV3-MKT-35+GOV-22に吸収
+20-投票-プラチナコイン-自然淘汰,FR-20-02 プラチナ投票UI（EconomyVotePage相当）,実装済み,absorbed,V3-MKT-35;V3-KRM-25,プラチナ投票UIはV3-MKT-35+KRM-25に吸収
+20-投票-プラチナコイン-自然淘汰,FR-20-04 貢献度→プラチナ換算・上流10%配分（依存グラフ祖先分配）,未実装,absorbed,V3-KRM-11;V3-KRM-10,貢献度→プラチナ換算/上流10%配分はV3-KRM-11+KRM-10に吸収
+20-投票-プラチナコイン-自然淘汰,FR-20-05 自然淘汰（使用率・投票・いいね等の総合指標）,未実装,absorbed,V3-KRM-20;V3-GOV-23,自然淘汰(総合指標)はV3-KRM-20+GOV-23に吸収
+20-投票-プラチナコイン-自然淘汰,FR-20-09 免罪符（プラチナマーケット・カルマ-1・Fib価格）,実装済み,absorbed,V3-MKT-33;V3-KRM-05,免罪符(プラチナマーケット/カルマ-1/Fib)はV3-MKT-33+KRM-05に吸収
+20-投票-プラチナコイン-自然淘汰,FR-20-06 商用マーク3%還元・FR-20-08 改善案テンプレ自動選択,未実装,absorbed,V3-MKT-36;V3-KRM-24,商用マーク3%還元/改善案テンプレ自動選択はV3-MKT-36+KRM-24に吸収
+20-投票-プラチナコイン-自然淘汰,GMO本番入金（REQ-007）,人間ゲート,absorbed,V3-MKT-15,GMO本番入金(REQ-007)はV3-MKT-15(人間ゲート)に吸収
+21-翻訳-言語,FR-I18N-SET-01/02 設定画面での言語変更・PATCH /me/preferences,実装済み,absorbed,V3-I18-03;V3-I18-01,設定画面での言語変更/PATCHはV3-I18-03+I18-01に吸収
+21-翻訳-言語,FR-I18N-UI-02 未対応locale時フォールバックチェーン,実装済み,absorbed,V3-I18-10;V3-I18-08,未対応locale時フォールバックチェーンはV3-I18-10+I18-08に吸収
+21-翻訳-言語,FR-I18N-REG-01〜04 オンボーディング時locale必須選択,部分実装,absorbed,V3-I18-02;V3-I18-04,オンボーディング時locale必須選択はV3-I18-02+I18-04に吸収
+21-翻訳-言語,FR-I18N-UGC-01〜05 掲示板/二人部屋UGCのクライアント側翻訳表示,人間ゲート,absorbed,V3-I18-06;V3-I18-07,UGCクライアント側翻訳表示はV3-I18-06/07に吸収
+21-翻訳-言語,NFR-I18N-03 クライアント翻訳の第三者SaaS送信最小化・同意,人間ゲート,absorbed,V3-I18-06;V3-SEC-39,クライアント翻訳の第三者SaaS送信最小化/同意はV3-I18-06+SEC-39に吸収
+22-プラチナコインマーケット.md,FR-PTMKT-01/02/03: 認証購入・免罪符カルマ-1・R2 INSERT ONLY,実装済み,absorbed,V3-MKT-32;V3-MKT-33;V3-KRM-05,認証購入/免罪符カルマ-1/INSERT ONLYはV3-MKT-32/33+KRM-05に吸収
+22-プラチナコインマーケット.md,FR-PTMKT-04: PT単一台帳（投票・指摘課金と残高共有）,部分実装,absorbed,V3-MKT-32,PT単一台帳(投票/指摘/shop残高共有)はV3-MKT-32に吸収
+22-プラチナコインマーケット.md,FR-PTMKT-05/07/08: Fibonacci段階価格モデル・上限なし・価格段階nの表示,人間ゲート,absorbed,V3-MKT-33,Fibonacci段階価格/上限なし/段階n表示はV3-MKT-33に吸収
+22-プラチナコインマーケット.md,§5.5 GMO入金→PT発行（deriveTransferCode 共有・issueCoin）,人間ゲート,absorbed,V3-MKT-12;V3-MKT-14,GMO入金→PT発行(deriveTransferCode共有/issueCoin)はV3-MKT-12+MKT-14に吸収
+22-プラチナコインマーケット.md,設計ゲート4点（要件/詳細/遷移/UI）人間確定,未実装,absorbed,V3-AIP-05,設計ゲート4点はV3-AIP-05に吸収
+23-GMO銀行振込判定.md,FR-GMO-01/05: Webhook受信・署名検証・deriveTransferCode(userId)生成,実装済み,absorbed,V3-MKT-14;V3-MKT-12,Webhook受信/署名検証/deriveTransferCodeはV3-MKT-14+MKT-12に吸収
+23-GMO銀行振込判定.md,FR-GMO-02: 振込コード+金額+日時FIFOによる複数pending照合（U-GMO-06）,部分実装,absorbed,V3-MKT-14;V3-MKT-12,振込コード+金額+日時FIFO複数pending照合はV3-MKT-14(冪等match_pending)+MKT-12に吸収
+23-GMO銀行振込判定.md,FR-GMO-03: 取引成立後の8%期待入金登録・fee_unpaid停止,人間ゲート,absorbed,V3-MKT-10,取引成立後8%期待入金登録/fee_unpaid停止はV3-MKT-10に吸収
+23-GMO銀行振込判定.md,FR-GMO-08/09/10: 部分入金・過入金クレジット・返金不可,人間ゲート,absorbed,V3-MKT-13,部分入金/過入金クレジット/返金不可はV3-MKT-13に吸収
+23-GMO銀行振込判定.md,FR-GMO-07: 本番鍵・実入金証跡,人間ゲート,absorbed,V3-MKT-15,本番鍵/実入金証跡はV3-MKT-15(恒久的人間ゲート)に吸収
+23-GMO銀行振込判定.md,NFR-GMO-01: Webhook署名不一致401,実装済み,absorbed,V3-MKT-14;V3-AUT-19,Webhook署名不一致401はV3-MKT-14+AUT-19に吸収
+24-記事・ブログ-v1-DRAFT.md,知の広場ハブ `/knowledge`（掲示板・記事・ブログ3タブ）,人間ゲート,absorbed,V3-BBS-01;V3-WIK-16;V3-UIX-52,知の広場ハブ/knowledge(3タブ)はV3-BBS-01+WIK-16+UIX-52に吸収
+24-記事・ブログ-v1-DRAFT.md,FR-ART-01〜04: コンテンツ共通スキーマ・R2 INSERT ONLY・下書き/公開・XSSフィルタ,未実装,absorbed,V3-WIK-16;V3-AUT-39;V3-SEC-39,コンテンツ共通スキーマ/INSERT ONLY/下書き公開/XSSはV3-WIK-16+AUT-39+SEC-39に吸収
+24-記事・ブログ-v1-DRAFT.md,FR-ART-05〜08: 記事の論文/観測引用・一覧・推薦,未実装,absorbed,V3-WIK-16;V3-PPR-08;V3-WIK-35,記事の論文/観測引用/一覧/推薦はV3-WIK-16+PPR-08+WIK-35に吸収
+24-記事・ブログ-v1-DRAFT.md,FR-BLOG-01〜03: ブログの個体/観測紐付け,未実装,absorbed,V3-WIK-16;V3-PPR-08,ブログの個体/観測紐付けはV3-WIK-16+PPR-08に吸収
+25-AI要約-GitHub改善掲示板-v1-DRAFT.md,FR-AISUM-01〜05: GitHub Issues収集バッチ・LLM要約・R2保存,未実装,absorbed,V3-AIP-67,GitHub Issues収集バッチ/LLM要約/R2保存はV3-AIP-67に吸収
+25-AI要約-GitHub改善掲示板-v1-DRAFT.md,FR-AISUM-06〜09: 掲示板表示・sourceフィルタ・コメント,未実装,absorbed,V3-AIP-67;V3-BBS-26,掲示板表示/sourceフィルタ/コメントはV3-AIP-67+BBS-26に吸収
+25-AI要約-GitHub改善掲示板-v1-DRAFT.md,FR-AISUM-10/11: 設定ファイル管理・admin手動sync,未実装,absorbed,V3-AIP-67;V3-GOV-17,設定ファイル管理/admin手動syncはV3-AIP-67+GOV-17に吸収
+26-サンドボックス環境-v1-DRAFT.md,FR-SBX-30〜34: Personal Sandbox Realm（fork・R2 sandbox/名前空間・削除）,未実装,absorbed,V3-FND-31;V3-SEC-10,Personal Sandbox Realm(fork/R2 namespace/削除)はV3-FND-31+UIX-48+SEC-10に吸収
+26-サンドボックス環境-v1-DRAFT.md,FR-SBX-40〜44: 改善テンプレート（.sbx.jsonエクスポート・コミュニティ共有・diffプレビュー）,未実装,absorbed,V3-FND-31;V3-WIK-32,改善テンプレート(.sbx.jsonエクスポート/共有/diff)はV3-UIX-48+WIK-32+FND-31に吸収
+26-サンドボックス環境-v1-DRAFT.md,FR-SBX-50〜55: Promoteパイプライン（micro-waterfall Gate・投票・admin Merge）,未実装,absorbed,V3-AIP-68;V3-FND-31;V3-AIP-52,Promoteパイプライン(micro-waterfall/投票/admin Merge)はV3-AIP-68+UIX-48+AIP-52に吸収
+26-サンドボックス環境-v1-DRAFT.md,FR-SBX-60〜73: UI/UX要件（amberストリップ・3クリック・アクセス制御）,未実装,absorbed,V3-UIX-49,サンドボックスUI/UX(amberストリップ/3クリック/アクセス制御)はV3-UIX-49に吸収
+27-ランニングコスト透明性-v1-DRAFT.md,FR-COST-01〜03: Sakura VPS費用手動入力・設定ファイル既定値,未実装,absorbed,V3-CST-02;V3-CST-04,Sakura VPS費用手動入力/設定既定値はV3-CST-02+CST-04に吸収
+27-ランニングコスト透明性-v1-DRAFT.md,FR-COST-04〜07: Cloudflare R2使用量API取得・費用自動計算,未実装,absorbed,V3-CST-02;V3-MKT-49,Cloudflare R2使用量API取得/費用自動計算はV3-CST-02+MKT-49に吸収
+27-ランニングコスト透明性-v1-DRAFT.md,FR-COST-08〜11: `/costs`ダッシュボード（全認証ユーザー閲覧・推移グラフ）,未実装,absorbed,V3-CST-02,/costsダッシュボード(全認証ユーザー閲覧/推移)はV3-CST-02に吸収
+27-ランニングコスト透明性-v1-DRAFT.md,FR-COST-12/13: `/admin/costs` 管理画面（admin限定入力）,未実装,absorbed,V3-CST-02;V3-GOV-17,/admin/costs管理画面(admin限定入力)はV3-CST-02+GOV-17に吸収
+28-個体命名・ブランドテンプレート-v1-DRAFT.md,IND-NAME-01〜04: display_name表示・命名イベント追記・改名履歴,実装済み,absorbed,V3-IND-03;V3-IND-04,display_name表示/命名イベント追記/改名履歴はV3-IND-03+IND-04に吸収
+28-個体命名・ブランドテンプレート-v1-DRAFT.md,IND-NAME-05〜08: brand_templateの作成・選択・更新・論理削除,実装済み,absorbed,V3-IND-03;V3-IND-04,brand_template作成/選択/更新/論理削除はV3-IND-03+IND-04に吸収
+28-個体命名・ブランドテンプレート-v1-DRAFT.md,IND-NAME-09〜12: 血統表示（♂/♀+display_name）・玉→王昇格イベント,部分実装,absorbed,V3-IND-05;V3-IND-06,血統表示(♂♀+display_name)/玉→王昇格はV3-IND-05+IND-06に吸収
+28-個体命名・ブランドテンプレート-v1-DRAFT.md,IND-NFR-02: 同一ユーザー×同一series内の現行display_name重複防止,実装済み,absorbed,V3-IND-03;V3-IND-04,同一ユーザー×series内display_name重複防止はV3-IND-03+IND-04に吸収

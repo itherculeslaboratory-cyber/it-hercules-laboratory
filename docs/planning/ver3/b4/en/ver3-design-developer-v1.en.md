@@ -344,6 +344,17 @@ All parameters use the policy_key + timestamp latest-row scheme identical in sha
 - Collection: the GMO reconciliation of §4 (shared transfer code — codes are not split between the 8% and PT, `:316`). Partial-deposit residual debt and excess-deposit credits ride on the §4.4 event types. "PT deposits" here are the PT-market-related yen deposit category (V3-MKT-12), not monetary purchase of medal platinum itself (the purchase path is structurally prohibited by the §5.3 negative TCs).
 - The 8% fee rate is an ethical declaration (always lower than Yahoo Auctions' 8.8–10% — V3-MKT-11). For the other 2 layers of the three-layer economy (commercial 3% / trade 8% / fork 10%), see V3-MKT-36.
 
+### 5.5 Complaint and Moderation Implementation Guide (V3-GOV-31/34/35/07)【DESIGN — round-4 adjudication reflected, wave 2】
+
+> Target requirements: V3-GOV-31 (judicial-module design principle, wave 1), V3-GOV-34/35 (functional requirements, wave 2, newly numbered), V3-GOV-07 (PT voting), V3-GOV-08 (complaint karma Δcount). Adjudication canonical source: `ver3-ユーザー裁定-2026-07-10-第4回.md`. **The canonical source for the state machine and event type names is the AI design document §6.5 `listing-moderation.yaml`**.
+
+- **Design principle (V3-GOV-31)**: identity disclosure upon accusation is symmetric. Never build a structure where only one of the complainant and the seller can hide. The guarantee mechanism: "when a complaint is established, a room for the 2 parties is created, and either party can publish it externally at any time" (V3-GOV-34). No upfront word filtering of inappropriate listings is adopted (loopholes are countless — original text of the round-4 adjudication).
+- **Truth holds events only; counts are projections**: complaint_filed / complaint_resolved / listing_hidden / listing_unhidden / seller_suspended / room_created / room_published (§2.2 envelope, R2 INSERT ONLY). "The number of currently active complaints against the same item" and "the seller's current hidden-listing count" are derived as Σ by projection reducers; **Truth holds no counter column** (same shape as the §2.1 invariant).
+- **The two-tier thresholds (V3-GOV-35) are named constants**: hold `moderation.listing_hide_threshold` (recommended 5) / `moderation.seller_suspend_threshold` (recommended 5) in the same policy_key + timestamp latest-row scheme as §5.3 (same shape as V3-MKT-39); hardcoding into code is prohibited. The boundary value (adjudication original text "not displayed unless the count drops to 5 or fewer" vs the trigger threshold >=5) has been interpreted as "**re-displayed at fewer than 5**", but **final confirmation with the user happens during detailed design** (round-4 adjudication note).
+- **Karma connection (V3-GOV-08)**: an established complaint takes the same path as the existing complaint karma Δcount — emit `ihl.karma.count_increased.v1` (the karma row of §5.1) with complaint_filed as reason_event_id. This is an event reference, not a balance reference (same shape as the exception rule of the three-axis separation in §5.1). A moderation reducer taking a karma balance as input is prohibited.
+- **PT vote weight (V3-GOV-07)**: external voting after room publication is PT holders only, **1 vote = 1 PT consumed** (`ihl.ledger.platinum_consumed.v1` purpose: vote — §5.3). No zero-cost voting path is created ("1 platinum-coin vote outweighs 100 zero-cost votes". PT is compensation for contribution, a right, and a prerogative — round-4 adjudication ruling_note).
+- **Negative TCs (at wave-2 implementation)**: listing_hidden emitted below the threshold → fail / room_published by a non-party → validate fail / vote by a non-PT-holder accepted → fail / replay fails to reproduce visibility or suspension state → fail (AI edition §12 #33/34).
+
 ---
 
 ## 6. Folders and Development Flow
@@ -493,6 +504,7 @@ Canonical: `D:\claude\yt-transcripts\summary-claude-ux-refs-2026-07-10.md:93-100
 | `docs/planning/ver3/b3/ver3-新repoフォルダ設計-v1.md` (tree §2 · DAG §7 · initialization §8) | §1.2 · §6 |
 | `docs/planning/ver3/b3/ver3-ワークスペース設計-v1.md` §4 (dashboard/night-tasks) | §9.2 · §9.3 |
 | `docs/planning/ver3/ver3-ユーザー裁定-2026-07-10-第2回.md` (Rulings 2/3/4/5) | §1.3 · §4 · §5.3 |
+| `docs/planning/ver3/ver3-ユーザー裁定-2026-07-10-第4回.md` (V3-GOV-31 confirmed · V3-GOV-34/35 new · V3-GOV-07 reinforced) | §5.5 |
 | `01-要件/23-GMO銀行振込判定.md` (§2.2 `:57-96` · §2.5.2 `:136-156` · §2.5.3 `:158-183` · §3.1 `:247-265` · FR-GMO `:296-309`) | §4 |
 | `libs/ihl/payments/gmo_transfer_code.py:20-29` / `libs/ihl/payments/gmo_reconciliation_store.py:171-200, 250-271, 280` | §4.3–4.5 (basis for design gaps in the current implementation) |
 | `D:\claude\yt-transcripts\summary-claude-ux-refs-2026-07-10.md:93-100` | §9.3 |
@@ -501,3 +513,5 @@ Canonical: `D:\claude\yt-transcripts\summary-claude-ux-refs-2026-07-10.md:93-100
 ---
 
 *This document is a Phase B4 deliverable (developer edition). Revisions are made by appending or issuing a new version; rewriting existing body text is limited to typo fixes. Before starting implementation, always work through the `revalidate_before_impl` clauses of each B2 report first.*
+
+*v1.1: 2026-07-10, round-4 adjudication reflected — added §5.5 Complaint and Moderation Implementation Guide (V3-GOV-31/34/35/07) and the round-4 adjudication row to §11. The Japanese edition is canonical.*

@@ -390,6 +390,42 @@ matching:                    # frozen transcription of requirements §2.5.3 (inc
 
 Negative TC kinds: fail if a pending row with created_at > remittance_datetime remains in C' (detects mis-matching of too-early transfers). Fail if automatic numbering is used after 3 slice collisions. Fail if any path exists that feeds the webhook payload to the reconciliation engine without going through the normalized event (architecture test).
 
+### 6.5 Listing Moderation State Machine (Complaint System — wave 2; this document defines the contract only)
+
+Sources: V3-GOV-31 (judicial-module design principle = symmetry of identity disclosure upon accusation, wave 1), V3-GOV-34/35 (functional requirements, wave 2, newly numbered), V3-GOV-07 (PT voting — reinforcing source text "compensation, right, and prerogative"), V3-GOV-08 (complaint karma Δcount — connects to §6.2). Adjudication canonical source: `ver3-ユーザー裁定-2026-07-10-第4回.md`. No upfront word filtering of inappropriate listings is adopted (loopholes are countless — original text of the same adjudication). The line of defense is the user complaint system (the "aristocracy system" concept).
+
+```yaml
+# schemas/state-machines/listing-moderation.yaml — a visibility overlay orthogonal to the §6.1 listing state machine (applies only to listed_* items)
+listing_visibility:
+  states: [visible, hidden]        # initial value: visible
+  transitions:                     # permitted edges only. Transitions are emitted as events when the projection detects the counter threshold being reached
+    - visible -> hidden            # active_complaint_count >= 5 → ihl.gov.listing_hidden.v1
+    - hidden -> visible            # on resolution, active_complaint_count < 5 → ihl.gov.listing_unhidden.v1
+  counter: "active_complaint_count = Σ complaint_filed − Σ complaint_resolved (per listing_id. A projected value — Truth holds no counter column, §3)"
+  boundary: "⏳HG The adjudication's original text says 'not displayed unless the count drops to 5 or fewer'. Interpreted as 're-displayed at fewer than 5' for consistency with the trigger threshold (>=5) (round-4 adjudication note; recorded in the registry ambiguity field). Final confirmation of the boundary value with the user during detailed design"
+seller_listing_right:              # second tier of V3-GOV-35
+  states: [active, suspended]      # initial value: active
+  transitions:
+    - active -> suspended          # hidden_listing_count >= 5 → ihl.gov.seller_suspended.v1. New listing POST while suspended is 409 (same shape as the §5 transition rules)
+    - suspended -> active          # recovery at hidden_listing_count < 5. No dedicated un-suspension event type is defined because none exists in the round-4 adjudication — the state is projection-derived (necessity is detailed-design TBD)
+  counter: "hidden_listing_count = the seller's number of listings currently in the hidden state (a projected value, derived from listing_hidden / listing_unhidden)"
+complaint_room:                    # complaint room = the guarantee mechanism of V3-GOV-31 (identity-disclosure symmetry) (V3-GOV-34)
+  actors: "fixed at the 2 parties [complainant_id, seller_id]. No third party may speak"
+  visibility: { initial: private, publish: "either party may publish externally at any time (symmetry: neither side can hide alone)" }
+  publish_representation: "the substance of the publish flag is an append of ihl.gov.room_published.v1 (not an UPDATE of a flag column). No unpublish event is defined because none exists in the round-4 adjudication"
+  external_vote: "third-party voting after publication is PT holders only, 1 vote = 1 PT consumed (V3-GOV-07. §7.2 platinum_consumed purpose: vote). No zero-cost voting path is created"
+events:                            # all ride on the §1 envelope, append-only (CL-01/02 compliant)
+  - ihl.gov.complaint_filed.v1     # data: {complaint_id, listing_id, complainant_id, reason}. On establishment, room_created is emitted in the same batch. Karma connection: V3-GOV-08 — this event's id goes into reason_event_id of §6.2 karma.count_increased
+  - ihl.gov.complaint_resolved.v1  # data: {complaint_id, resolution}
+  - ihl.gov.listing_hidden.v1      # data: {listing_id, complaint_count_at_transition}
+  - ihl.gov.listing_unhidden.v1    # data: {listing_id, complaint_count_at_transition}
+  - ihl.gov.seller_suspended.v1    # data: {seller_id, hidden_listing_count_at_transition}
+  - ihl.gov.room_created.v1        # data: {room_id, complaint_id, actors: [complainant_id, seller_id]}
+  - ihl.gov.room_published.v1      # data: {room_id, published_by}   # published_by must be one of the actors; anything else fails validation
+```
+
+Negative TC kinds: listing_hidden emitted below the threshold (4 complaints) → fail. Replay of the complaint_filed/resolved sequence fails to reproduce visibility/suspension state → fail. room_published put by an actor outside actors → validate fail. External vote accepted with a PT balance of 0 → fail (V3-GOV-07).
+
 ---
 
 ## 7. Medal (Platinum) Issuance Model — Accounting Event Design
@@ -685,6 +721,8 @@ Convention: 1 schema = at least 1 negative TC that "fails when broken" (generati
 | 30 | consent records | attempt to overwrite a consent file succeeds → fail | CL-05 |
 | 31 | individual/QR | reference breakage of an existing individual_id or an issued QR token → fail | CL-06/10 |
 | 32 | collector | environment POST with a tampered signature is accepted → fail | CL-09 |
+| 33 | listing-moderation | listing_hidden emitted below the threshold (4 complaints) / replay fails to reproduce visibility or suspension state → fail | — |
+| 34 | complaint room | room_published put by a non-party → validate fail / vote on a published room by a non-PT-holder accepted → fail | — |
 
 ---
 
@@ -696,3 +734,5 @@ Convention: 1 schema = at least 1 negative TC that "fails when broken" (generati
 4. ScreenDef inherits the format backward-compatible with the 3 mandatory keys of the existing 63 JSONs (screen_id/nodes/transitions) + lineage/primary_cta extensions (§8).
 
 *Revisions are made by appending or by new-version files. Rewriting existing body text is limited to typo corrections.*
+
+*v1.1: 2026-07-10, round-4 adjudication reflected — added §6.5 Listing Moderation State Machine (V3-GOV-31/34/35/07, V3-GOV-08 connection) and rows #33/34 to §12. Source: `ver3-ユーザー裁定-2026-07-10-第4回.md`. The Japanese edition is canonical.*

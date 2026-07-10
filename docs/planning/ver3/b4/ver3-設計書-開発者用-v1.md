@@ -338,6 +338,17 @@ pool:unissued（未発行枠） ──mint──▶ user:<id>（ユーザー残�
 - 回収: §4 の GMO 照合（振込コード共用 — 8% と PT でコードを分けない、`:316`）。部分入金残債・過入金クレジットは §4.4 のイベント型に載る。ここでの「PT 入金」は PT マーケット関連の円建て入金区分（V3-MKT-12）であり、勲章プラチナ本体の金銭購入ではない（購入経路は §5.3 negative TC で構造禁止）。
 - 手数料率 8% は倫理宣言（ヤフオク 8.8〜10% より常に低く — V3-MKT-11）。三層経済（商用 3% / 取引 8% / フォーク 10%）の他 2 層は V3-MKT-36 参照。
 
+### 5.5 指摘・モデレーション実装ガイド（V3-GOV-31/34/35/07）【設計 — 第4回裁定反映・第2波】
+
+> 対象要件: V3-GOV-31（司法モジュール設計原則・第1波）、V3-GOV-34/35（機能要件・第2波・新規採番）、V3-GOV-07（PT 投票）、V3-GOV-08（指摘カルマΔcount）。裁定正本: `ver3-ユーザー裁定-2026-07-10-第4回.md`。**状態機械・イベント型名の正本は AI 用設計書 §6.5 `listing-moderation.yaml`**。
+
+- **設計原則（V3-GOV-31）**: 告発時の身元開示は対称。指摘者と出品者のどちらか一方だけが隠れられる構造を作らない。担保機構は「指摘成立時に当事者2人ルームを作成し、当事者がいつでも外部公開できる」（V3-GOV-34）。不適切出品への事前ワードフィルタは採用しない（抜け道が無数 — 第4回裁定原文）。
+- **Truth はイベントのみ・カウントは投影**: complaint_filed / complaint_resolved / listing_hidden / listing_unhidden / seller_suspended / room_created / room_published（§2.2 エンベロープ・R2 INSERT ONLY）。「同一商品への現在有効な指摘件数」「出品者の現在非表示件数」は投影 reducer が Σ で導出し、**Truth にカウンタ列を持たない**（§2.1 の不変条件と同型）。
+- **二段閾値（V3-GOV-35）は named constant**: `moderation.listing_hide_threshold`（推奨 5）/ `moderation.seller_suspend_threshold`（推奨 5）を §5.3 と同じ policy_key + timestamp 最新行方式（V3-MKT-39 同型）で持ち、コードへのハードコード禁止。境界値（裁定原文「5件以下にならない限り表示されません」vs 発動閾値 >=5）は「**5件未満で再表示**」と解釈済みだが、**最終確定は詳細設計で本人確認**（第4回裁定 注記）。
+- **カルマ接続（V3-GOV-08）**: 指摘成立は既存の指摘カルマΔcount と同じ経路 — complaint_filed を reason_event_id として `ihl.karma.count_increased.v1`（§5.1 カルマ行）を発行する。イベント参照であり残高参照ではない（三軸分離 §5.1 の例外規約と同型）。モデレーション reducer がカルマ残高を入力に取ることは禁止。
+- **PT 投票の重み（V3-GOV-07）**: ルーム公開後の外部投票は PT 保有者のみ・**1票 = 1PT 消費**（`ihl.ledger.platinum_consumed.v1` purpose: vote — §5.3）。コスト 0 の投票経路は作らない（「100件のコスト0の投票より、1件のプラチナコインの投票のほうが重い」。PT は貢献に対する対価・権利・権能 — 第4回裁定 ruling_note）。
+- **negative TC（第2波実装時）**: 閾値未満で listing_hidden 発行 → fail / 当事者以外の room_published → validate fail / PT 非保有者の投票受理 → fail / replay で可視性・停止状態の再現不一致 → fail（AI 用 §12 #33/34）。
+
 ---
 
 ## 6. フォルダ・開発フロー
@@ -487,6 +498,7 @@ route 単位 strangler（57 route 表を切替順序に流用）。書込系 rou
 | `docs/planning/ver3/b3/ver3-新repoフォルダ設計-v1.md`（ツリー §2・DAG §7・初期化 §8） | §1.2・§6 |
 | `docs/planning/ver3/b3/ver3-ワークスペース設計-v1.md` §4（dashboard/night-tasks） | §9.2・§9.3 |
 | `docs/planning/ver3/ver3-ユーザー裁定-2026-07-10-第2回.md`（裁定 2/3/4/5） | §1.3・§4・§5.3 |
+| `docs/planning/ver3/ver3-ユーザー裁定-2026-07-10-第4回.md`（V3-GOV-31 確定・V3-GOV-34/35 新規・V3-GOV-07 補強） | §5.5 |
 | `01-要件/23-GMO銀行振込判定.md`（§2.2 `:57-96`・§2.5.2 `:136-156`・§2.5.3 `:158-183`・§3.1 `:247-265`・FR-GMO `:296-309`） | §4 |
 | `libs/ihl/payments/gmo_transfer_code.py:20-29` / `libs/ihl/payments/gmo_reconciliation_store.py:171-200, 250-271, 280` | §4.3〜4.5（現行実装の設計ギャップ根拠） |
 | `D:\claude\yt-transcripts\summary-claude-ux-refs-2026-07-10.md:93-100` | §9.3 |
@@ -495,3 +507,5 @@ route 単位 strangler（57 route 表を切替順序に流用）。書込系 rou
 ---
 
 *本書は Phase B4 成果物（開発者用）。改訂は append 追記または新版で行い、既存本文の書き換えは誤記修正に限る。実装着手時は各 B2 レポートの `revalidate_before_impl` 条項を必ず先に消化すること。*
+
+*v1.1: 2026-07-10 第4回裁定反映 — §5.5 指摘・モデレーション実装ガイド（V3-GOV-31/34/35/07）を追加、§11 に裁定第4回を追記。*

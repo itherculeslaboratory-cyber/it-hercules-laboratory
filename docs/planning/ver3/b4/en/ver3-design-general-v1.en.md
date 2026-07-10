@@ -125,6 +125,10 @@ When a trade completes on the market, **8%** of the sale is paid by the seller a
 
 > **An honest caveat:** Detailed numbers such as "how many may be issued per month" and "what percentage disappears" are **not yet decided**, because the source materials disagree with each other. The design team will draft a recommendation, and the final decision will be made by a human (the operator). Until it is decided, we will not write "it is decided."
 
+### 4-4. What happens when something goes wrong — complaints and the "room for two"
+
+If you find a suspicious listing on the market, you can flag it by saying "this looks wrong." When a complaint is established, a **room for just two people** — the person who complained and the person who listed the item — is created, and either of the two can open that room's conversation to everyone at any time. In other words, neither the accuser nor the accused can hide while the other stays exposed. When 5 complaints pile up on the same item it temporarily disappears from view (it comes back once resolutions bring the count below 5), and a seller whose hidden items pile up to 5 cannot list anything new until that number goes down. Voting on a published room is open only to people who hold a platinum coin (the medal from 4-3) — each vote costs one coin, so there is no such thing as a careless vote.
+
 ---
 
 ## 5. How Bank Transfers Work
@@ -237,9 +241,11 @@ Each chapter of this document is based on the following official documents. The 
 | 1. What is this? | Final requirements Ch. 1 (Philosophy A "Observation Civilization"), V3-OBS-43 (observation = center), V3-OBS-01 (5 domains), V3-FND-01 (append-only), §5.3 ADR-V3-LAYER-01 (Truth/projection layer separation) |
 | 2. The 5 promises | Final requirements §1.2 (5 invariant clauses) |
 | 3. What you can do | V3-OBS-22 (first minimal set), §1.3 3-tier scope (Wave 1: 339 / Wave 2: 216 / Experimental: 21), Ch. 4 experimental track (V3-VID-10 on hold, V3-OTH-19, V3-AIP-42, V3-WIK-33), b3 development plan §2–3 |
-| 4. Money | V3-MKT-10/11 (8%, Yahoo! Auctions comparison), V3-MKT-36 (three-tier economy 3%/8%/10%), V3-MKT-01 (non-escrow), V3-KRM-01/06 (two-layer karma, balance of trust), V3-MKT-38/V3-KRM-33 (medal philosophy, numbers awaiting human ruling), user ruling round 2 §4 |
+| 4. Money | V3-MKT-10/11 (8%, Yahoo! Auctions comparison), V3-MKT-36 (three-tier economy 3%/8%/10%), V3-MKT-01 (non-escrow), V3-KRM-01/06 (two-layer karma, balance of trust), V3-MKT-38/V3-KRM-33 (medal philosophy, numbers awaiting human ruling), user ruling round 2 §4, V3-GOV-31/34/35 (complaints and the room for two, the 5-complaint rule), V3-GOV-07 (platinum-coin voting), user ruling round 4 |
 | 5. Bank transfers | V3-MKT-12 (U-XXXX code), CL-11 (frozen derivation formula), b2 GMO research report (sunabar, deposit statement inquiry, human gate), V3-MKT-15 (production behind a human gate) |
 | 6. Relationship with AI | V3-AIP-96 (night-shift operation, morning review), V3-AIP-78/31 (one-click full automation forbidden, the ambiguous 10% goes to humans), V3-OBS-03 (species identification confirmed by humans), visualization reference notes (design cues such as the 3-column kanban) |
 | 7. Data handling | V3-AUT-43 (consent checkboxes), R-6 (withdrawal of unattended fetching), V3-MKT-20 (no address retention), V3-SEC-07 (PII masking first), V3-GOV-09 (do-not-use flag), V3-KRM-23 (personal data never shared) |
 
 *This document is a Phase B4 deliverable (the general-audience one of the 3 design documents). The canonical design document is the AI-oriented one; this document restates its content for general readers. If the contents conflict, the AI-oriented design document and the final requirements take precedence.*
+
+*v1.1: 2026-07-10, round-4 adjudication reflected — added 4-4 "What happens when something goes wrong." The Japanese edition is canonical.*

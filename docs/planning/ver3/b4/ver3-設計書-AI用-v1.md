@@ -383,6 +383,42 @@ matching:                    # 要件 §2.5.3 を凍結転記（設計ギャッ�
 
 negative TC 種: created_at > remittance_datetime の pending が C' に残ったら fail（早すぎる振込の誤マッチ検知）。slice 衝突 3 回で自動採番したら fail。webhook payload を正規化イベントを経ずに照合エンジンへ渡す経路が存在したら fail（アーキテクチャテスト）。
 
+### 6.5 出品モデレーション状態機械（指摘システム — 第2波・契約のみ本書で定義）
+
+出典: V3-GOV-31（司法モジュール設計原則 = 告発時の身元開示対称性・第1波）、V3-GOV-34/35（機能要件・第2波・新規採番）、V3-GOV-07（PT 投票 — 補強原典「対価・権利・権能」）、V3-GOV-08（指摘カルマΔcount — §6.2 と接続）。裁定正本: `ver3-ユーザー裁定-2026-07-10-第4回.md`。不適切出品への事前ワードフィルタは採用しない（抜け道が無数 — 同裁定原文）。防衛線はユーザーの指摘システム（「貴族のシステム」概念）。
+
+```yaml
+# schemas/state-machines/listing-moderation.yaml — §6.1 listing 状態機械と直交する可視性 overlay（listed_* の商品にのみ適用）
+listing_visibility:
+  states: [visible, hidden]        # 初期値 visible
+  transitions:                     # 許可辺のみ。遷移は投影がカウンタ閾値到達を検知してイベントを発行
+    - visible -> hidden            # active_complaint_count >= 5 → ihl.gov.listing_hidden.v1
+    - hidden -> visible            # 解決で active_complaint_count < 5 → ihl.gov.listing_unhidden.v1
+  counter: "active_complaint_count = Σ complaint_filed − Σ complaint_resolved（同一 listing_id。投影値 — Truth にカウンタ列を持たない §3）"
+  boundary: "⏳HG 裁定原文は「5件以下にならない限り表示されません」。発動閾値(>=5)と整合させ『5件未満で再表示』と解釈（第4回裁定 注記・レジストリ ambiguity 記録済み）。境界値の最終確定は詳細設計で本人確認"
+seller_listing_right:              # V3-GOV-35 二段目
+  states: [active, suspended]      # 初期値 active
+  transitions:
+    - active -> suspended          # hidden_listing_count >= 5 → ihl.gov.seller_suspended.v1。suspended 中の新規出品 POST は 409（§5 遷移規約と同型）
+    - suspended -> active          # hidden_listing_count < 5 で復帰。専用解除イベント型は第4回裁定に存在しないため定義しない — 状態は投影導出（要否は詳細設計 TBD）
+  counter: "hidden_listing_count = 出品者の現在 hidden 状態の listing 数（投影値。listing_hidden / listing_unhidden から導出）"
+complaint_room:                    # 指摘ルーム = V3-GOV-31（身元開示対称性）の担保機構（V3-GOV-34）
+  actors: "当事者2名固定 [complainant_id, seller_id]。第三者の発言権なし"
+  visibility: { initial: private, publish: "当事者のどちらでも・いつでも外部公開可（対称性: どちらか一方だけが隠れることはできない）" }
+  publish_representation: "公開フラグの実体は ihl.gov.room_published.v1 の append（フラグ列の UPDATE ではない）。非公開へ戻すイベントは第4回裁定に存在しないため定義しない"
+  external_vote: "公開後の第三者投票は PT 保有者のみ・1票 = 1PT 消費（V3-GOV-07。§7.2 platinum_consumed purpose: vote）。コスト0の投票経路は作らない"
+events:                            # すべて §1 エンベロープ・append-only（CL-01/02 準拠）
+  - ihl.gov.complaint_filed.v1     # data: {complaint_id, listing_id, complainant_id, reason}。成立時に room_created を同一バッチで発行。カルマ接続: V3-GOV-08 — §6.2 karma.count_increased の reason_event_id に本イベント id
+  - ihl.gov.complaint_resolved.v1  # data: {complaint_id, resolution}
+  - ihl.gov.listing_hidden.v1      # data: {listing_id, complaint_count_at_transition}
+  - ihl.gov.listing_unhidden.v1    # data: {listing_id, complaint_count_at_transition}
+  - ihl.gov.seller_suspended.v1    # data: {seller_id, hidden_listing_count_at_transition}
+  - ihl.gov.room_created.v1        # data: {room_id, complaint_id, actors: [complainant_id, seller_id]}
+  - ihl.gov.room_published.v1      # data: {room_id, published_by}   # published_by は actors のいずれか。それ以外は validate fail
+```
+
+negative TC 種: 閾値未満（指摘4件）で listing_hidden 発行 → fail。complaint_filed/resolved 列の replay で可視性・停止状態の再現不一致 → fail。actors 外の actor による room_published put → validate fail。PT 残高 0 の外部投票受理 → fail（V3-GOV-07）。
+
 ---
 
 ## 7. 勲章（プラチナ）発行モデル — 会計イベント設計
@@ -678,6 +714,8 @@ negative TC 種: dim≠384 のベクトル投入が検索対象から遮断さ�
 | 30 | 同意記録 | 同意ファイル上書き試行が成功 → fail | CL-05 |
 | 31 | 個体/QR | 既存 individual_id・発行済み QR トークンの参照断絶 → fail | CL-06/10 |
 | 32 | collector | 改竄署名の環境 POST が受理 → fail | CL-09 |
+| 33 | listing-moderation | 閾値未満（指摘4件）で listing_hidden 発行 / replay で可視性・停止状態の再現不一致 → fail | — |
+| 34 | complaint room | 当事者以外の room_published put → validate fail / PT 非保有者の公開ルーム投票受理 → fail | — |
 
 ---
 
@@ -689,3 +727,5 @@ negative TC 種: dim≠384 のベクトル投入が検索対象から遮断さ�
 4. ScreenDef は既存 63 JSON の必須 3 キー（screen_id/nodes/transitions）と後方互換の形式継承 + lineage/primary_cta 拡張（§8）。
 
 *改訂は append 追記または新版ファイルで行う。既存本文の書き換えは誤記修正に限る。*
+
+*v1.1: 2026-07-10 第4回裁定反映 — §6.5 出品モデレーション状態機械（V3-GOV-31/34/35/07・V3-GOV-08 接続）を追加、§12 に #33/34 を追記。出典: `ver3-ユーザー裁定-2026-07-10-第4回.md`。*

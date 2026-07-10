@@ -395,7 +395,7 @@ listing_visibility:
     - visible -> hidden            # active_complaint_count >= 5 → ihl.gov.listing_hidden.v1
     - hidden -> visible            # 解決で active_complaint_count < 5 → ihl.gov.listing_unhidden.v1
   counter: "active_complaint_count = Σ complaint_filed − Σ complaint_resolved（同一 listing_id。投影値 — Truth にカウンタ列を持たない §3）"
-  boundary: "⏳HG 裁定原文は「5件以下にならない限り表示されません」。発動閾値(>=5)と整合させ『5件未満で再表示』と解釈（第4回裁定 注記・レジストリ ambiguity 記録済み）。境界値の最終確定は詳細設計で本人確認"
+  boundary: "確定（2026-07-10 本人追記裁定）: 5件以上で非表示・4件以下（<5）で再表示"
 seller_listing_right:              # V3-GOV-35 二段目
   states: [active, suspended]      # 初期値 active
   transitions:

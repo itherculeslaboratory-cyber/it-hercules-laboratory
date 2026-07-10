@@ -402,7 +402,7 @@ listing_visibility:
     - visible -> hidden            # active_complaint_count >= 5 → ihl.gov.listing_hidden.v1
     - hidden -> visible            # on resolution, active_complaint_count < 5 → ihl.gov.listing_unhidden.v1
   counter: "active_complaint_count = Σ complaint_filed − Σ complaint_resolved (per listing_id. A projected value — Truth holds no counter column, §3)"
-  boundary: "⏳HG The adjudication's original text says 'not displayed unless the count drops to 5 or fewer'. Interpreted as 're-displayed at fewer than 5' for consistency with the trigger threshold (>=5) (round-4 adjudication note; recorded in the registry ambiguity field). Final confirmation of the boundary value with the user during detailed design"
+  boundary: "Confirmed (user follow-up adjudication, 2026-07-10): hidden at >=5 complaints, re-displayed at <=4"
 seller_listing_right:              # second tier of V3-GOV-35
   states: [active, suspended]      # initial value: active
   transitions:

@@ -56,7 +56,7 @@
 
 ```
 ultracode +1500k. docs/planning/ver3/HANDOFF-ver3-phase-b2.md を全部読み、Phase B2〜B4 を実行してください。
-起動フォルダはこのまま（D:\Programs\it-hercules-laboratory-clean）。
+起動フォルダは D:\claude\systems\ihl-ver2（2026-07-10 に D:\Programs\it-hercules-laboratory-clean から移設済み）。
 
 B2: deep-research 技術選定（web検索・deep-research 使用可、各選定に根拠5件以上）
  - 最優先: 埋め込み次元 ADR（384 vs 768）

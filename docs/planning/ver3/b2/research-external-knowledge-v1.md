@@ -163,3 +163,21 @@ org 公開リポジトリ(約30本、2026-07-10 時点)から関連を抽出:
 **再検証条項(追補分)**: (1) 実装着手時に knowledge-work-plugins の `marketing/skills/*/SKILL.md` と anthropics/skills の `brand-guidelines`・`skill-creator` を clone して逐語確認(本追補は WebFetch 要約に基づく)。(2) claude-plugins-official のカタログ全容を Claude Code の `/plugin > Discover` で再探索。(3) skills repo の docx/pptx は source-available ライセンス(OSS ではない)のため、商用発信物への利用条件を実装前に原文確認。
 
 出典(追補): https://github.com/anthropics/knowledge-work-plugins / https://github.com/anthropics/financial-services / https://github.com/anthropics/skills / https://github.com/anthropics/claude-plugins-official / https://github.com/orgs/anthropics/repositories (すべてアクセス 2026-07-10)
+---
+
+## C0 再検証追記(2026-07-10)
+
+> Phase C0(開発計画 §3.1 C0-④)による revalidate_before_impl の一括実施。元調査と同日のため軽量確認。
+
+| # | 再検証項目 | 結果 | 根拠(URL/確認方法) |
+|---|---|---|---|
+| 1 | `anthropics/life-sciences` の marketplace.json 構造・pubmed/biorxiv/scientific-problem-selection の存在 | 維持。521 stars・73 commits で現存、README は変わらず「marketplace.json を長期ホスト、MCP実体は外部」を明言。pubmed(無認証)・biorxiv・scientific-problem-selection スキルとも存在確認 | WebFetch https://github.com/anthropics/life-sciences |
+| 2 | scientific-problem-selection SKILL.md 逐語(写経可否) | C0 対象外(逐語読み込みは実装着手時タスクとして本文チェックリスト項目2に既存。今回は存在確認のみ、内容差分なし) | 同上(WebFetch 結果に skill plugin として列挙) |
+| 3 | Chase AI(@Chase-H-AI)公開 Agentic OS repo の有無(有料化解除の可能性) | 維持。依然として公開 Agentic OS repo は確認できず。`chaseai.io/workshop` にワークショップページが新設されているが実装 repo リンクはなし。`chaseingai` の公開 repo もフォーク中心のまま | WebSearch "Chase AI Chase-H-AI Agentic OS public GitHub repo 2026" |
+| 4 | multi-agent トークン15倍・+90.2%(Anthropic内部評価値) | C0 対象外(Anthropic 社内計測値であり外部で再検証不能。本文既記載どおり「夜間運転PoCで自前計測」を要件化済みのため今回は再検証せず現状記述を維持) | — |
+| 5 | `anthropics/knowledge-work-plugins` marketing プラグイン(content-creation/brand-voice)の存在・ライセンス | 維持。22.5k stars・Apache-2.0・active。marketing プラグインは「Draft content, plan campaigns, enforce brand voice...」として現存 | WebFetch https://github.com/anthropics/knowledge-work-plugins |
+| 6 | `anthropics/financial-services` の agent-plugins/vertical-plugins 二層構造・orchestrate.py | C0 対象外(今回未再フェッチ。本文根拠は同日調査で内容変動のリスクは低いと判断し、実装着手時の再 clone 確認[本文再検証チェックリスト項目]に委ねる) | — |
+| 7 | `anthropics/skills` の docx/pptx/xlsx 存在・ライセンス(source-available)・skill-creator/brand-guidelines | ほぼ維持。docx/pptx/xlsx は現存し「source-available, NOT open source」を明記(本文記述と一致)。ただし今回の WebFetch では brand-guidelines/skill-creator の明示言及が確認できず(README トップサマリのみ取得のため軽微差分、実在自体は否定されていない) | WebFetch https://github.com/anthropics/skills |
+| 8 | `anthropics/claude-plugins-official` カタログ全容 | C0 対象外(本文が既に「実装時に `/plugin > Discover` で再探索」と明記した保留事項。今回未実施) | — |
+
+**判定**: 選定前提は維持(unchanged)。項目1・3・5・7 の軽量確認でトップライン事実(repo実在・ライセンス・構造)に崩れなし。項目2・4・6・8 は元レポートが既に「実装着手前チェックリスト」または「Anthropic内部値のため自前計測要」として明示的に先送りしている C0 対象外(人間ゲート/実装時再確認)項目であり、今回の軽量確認スコープでは扱わず現状の記述を維持する。

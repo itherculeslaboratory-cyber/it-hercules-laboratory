@@ -144,3 +144,22 @@ BAAI/bge-m3 は 100+ 言語・8192 トークン・dense/sparse/multi-vector の 
 3. ruri-v3-70m の Windows CPU での実測スループット(バッチ埋め込みの所要時間)は未計測。月次一括再イン デックスが現実的か、着手時にベンチが要る。
 4. V3-WIK-35(初心者向け層)の蒸留プロンプト設計(用語の読み・買う場所などの実務情報をどの sources から採るか)は本レポートの範囲外。
 5. D:\notes 側にも同じ埋め込みインデックスを張るか(個人ノート横断検索)は境界規約上は可能だが、要望として未登録。
+
+---
+
+## C0 再検証追記(2026-07-10)
+
+> Phase C0(開発計画 §3.1 C0-④)による revalidate_before_impl の一括実施。元調査と同日のため軽量確認。
+
+| # | 再検証項目 | 結果 | 根拠(URL/確認方法) |
+|---|---|---|---|
+| 1 | ruri-v3-70m 本体: 384次元・Apache-2.0・JMTEB 75.48・公開継続 | 維持。モデルカード記載値に変化なし、月間DL 63,094件で継続利用中 | https://huggingface.co/cl-nagoya/ruri-v3-70m (WebFetch 確認) |
+| 1 | 非公式 ONNX 変換(sirasagi62/ruri-v3-70m-ONNX)の公開継続 | 維持。2025-10-09 更新版が引き続き公開、Apache-2.0、feature-extraction/Transformers.js 対応 | https://huggingface.co/sirasagi62/ruri-v3-70m-ONNX (WebFetch 確認) |
+| 2 | ruri-v3 プレフィックス規約(検索クエリ:/検索文書:)の要否 | C0 対象外(実装着手時の Protocol テスト項目として運用担保する設計事項であり、外部事実確認の対象ではない) | — |
+| 3 | JMTEB リーダーボード最新値での ruri-v3 系優位の継続 | 軽微差分あり(選定不変)。JMTEB v2.0(2026-03)以降、公式リーダーボードは JMTEB リポジトリ単独運用から **MTEB Leaderboard の日本語部門に統合**された。リポジトリのコード例は依然 ruri-v3 系(30m)を標準例として使用しており優位性の否定材料なし。ただしスコア参照先の移動は事実として把握しておく必要あり | https://github.com/sbintuitions/JMTEB (WebFetch 確認) |
+| 4 | タグ集計クラスタリングの閾値 N=3 の妥当性 | C0 対象外(sources/ 実データ 0 件のため運用開始後にしか測れない旨、元レポート§6-2で既に明記済みの設計事項) | — |
+| 5 | lychee の存続・Windows バイナリ配布・Markdown 対応 | 維持。v0.24.2(2026-05-01)まで継続リリース、Winget/Scoop/Chocolatey/Docker配布、Markdown対応明記 | https://github.com/lycheeverse/lychee (WebFetch 確認) |
+| 6 | karpathy「LLM Wiki」原典 gist の存続とパターン内容 | 維持。gist は引き続きアクセス可能、raw/wiki/schema 3層+ingest/query/lint の3操作という原典内容に変化なし | https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f (WebFetch 確認) |
+| 7 | 埋め込み実用化の人間ゲート後判断という前提 | C0 対象外(人間ゲート — 本人裁定待ちの運用条項であり外部事実確認の対象ではない) | — |
+
+**判定**: 選定前提は維持(unchanged)。ruri-v3-70m 本体・ONNX 変換・lychee・karpathy 原典はいずれも本日時点で公開継続・内容一致を確認。唯一の差分は JMTEB のリーダーボード運用元が JMTEB 単独から MTEB Leaderboard 統合へ移行した点(2026-03 の v2.0 更新、選定日 2026-07-10 より前の変更のため元調査時点でも既に該当していた可能性が高く、選定結果自体への影響なし)。実装着手時は算入先を JMTEB リポジトリ直接ではなく MTEB Leaderboard 日本語部門で確認すること。項目2/4/7 は運用設計事項・人間ゲート事項のため C0 の Web 再検証対象外と分類した。

@@ -122,3 +122,18 @@ ver3 の画像埋め込み次元は **384(DINOv2 ViT-S/14 系、L2 正規化 flo
 - https://huggingface.co/blog/matryoshka
 - https://arxiv.org/abs/2510.12474
 - repo: `libs/ihl/observation/embedding.py:83-85` / `libs/ihl/observation/scoring.py:44` / `docs/knowledge/topics/shooting-chamber.md:43-46`
+---
+
+## C0 再検証追記(2026-07-10)
+
+> Phase C0(開発計画 §3.1 C0-④)による revalidate_before_impl の一括実施。元調査と同日のため軽量確認。
+
+| # | 再検証項目 | 結果 | 根拠(URL/確認方法) |
+|---|---|---|---|
+| 1 | Xenova/dinov2-small ONNX 配布継続・ファイルサイズ / transformers.js の dinov2(with registers)対応 | 維持。リポジトリ存続確認、fp32 88.5MB / q8(model_quantized) 24.5MB / q4f16 12.9MB は本文記載と一致。加えて transformers.js は DINOv2-with-registers 対応済み(PR #1110)で、small 系統の選択肢がむしろ拡張。 | https://huggingface.co/Xenova/dinov2-small/tree/main/onnx(WebFetch)、https://github.com/huggingface/transformers.js/pull/1110(WebSearch) |
+| 2 | onnxruntime-web WebGPU EP の対応ブラウザシェア(特にモバイル Safari)/ 量子化品質実測 | 維持。Chrome/Edge(Win/macOS/Android/ChromeOS)は正式サポート、Firefox はフラグ付き、Safari は Technology Preview のみで本番 iOS/iPadOS Safari は依然未確定 — ADR 想定の「モバイル Safari 未成熟」前提と一致。量子化品質の実測は未実施(実装時対応の記載どおり、C0 時点で対象外)。 | https://onnxruntime.ai/docs/tutorials/web/ep-webgpu.html(WebFetch) |
+| 3 | 本番 R2 の既存埋め込み件数(ローカル未同期で未確認) | C0 対象外(人間ゲート/実データアクセス前提)。Web調査では確認不能。 | — |
+| 4 | rerank 重み(0.50/0.20/0.20/0.10)の実データでの top-k 精度 | C0 対象外(人間ゲート/実データ評価前提)。Web調査では確認不能。 | — |
+| 5 | DINOv2 後継(v3 等)や Matryoshka 訓練済み視覚埋め込みの登場 | 差分あり(選定は不変)。DINOv3 が既に公開済み(facebookresearch/dinov3)。最小構成 ViT-S/16 は 384 次元を維持しており、ADR が定めた「後継が 384 系を提供するなら乗換え優先」の条件に合致する候補が実在する。ただし現行選定(384 一本化・768 非採用)自体への影響はなく、実装着手時に DINOv3-S/16 への乗換え検討を追記候補とすべき事項。 | https://github.com/facebookresearch/dinov3(WebSearch)、GitHub Issue https://github.com/facebookresearch/dinov3/issues/11(embedding dimension 確認) |
+
+**判定**: 選定前提は維持。項目1・2は数値・仕様とも本文記載と一致し崩れなし。項目3・4はデータ/人間ゲート前提でC0対象外(未実施を明記)。項目5でDINOv3公開という新事実を確認したが、ADRが既に想定した「384系後継への乗換え優先」条件に合致するのみで、384一本化・768非採用という結論自体への影響はない(実装時に後継モデル調査を追加検討する事項として記録)。

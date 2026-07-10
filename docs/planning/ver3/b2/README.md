@@ -28,3 +28,6 @@ report_ref: REPORT-ver3-phase-b-2026-07-10
 - **メール経路**: #3 が「VPS=SMTP 薄常駐を選択肢に降格」、#7 が「Resend(HTTPS API)第一候補」— 相互に整合。ver4 の VPS 薄常駐前提の最終再裁定は人間ゲートに付議。
 - **symlink 注意**: #6 は AGENTS.md=CLAUDE.md symlink を挙げるが、新 repo フォルダ設計(b3)は Windows 環境を踏まえ **複製+CI 同期検査**を採用。フォルダ設計側を正とする。
 - **鍵の扱い**: #2/#7 とも実鍵(GMO 本番キー・SMTP/Resend キー)の投入は人間ゲート。**キーのコミットは絶対禁止**。
+
+
+> C0 再検証(2026-07-10)実施済み — 各レポート末尾の追記参照。判定: unchanged 5 / partially-changed 3 / changed 0

@@ -1,7 +1,7 @@
 # IHL 計画ハブ（planning）
 
-> **正本ワークスペース**: `it-hercules-laboratory-clean`（GitHub `main`）  
-> **更新**: 2026-07-03
+> **正本ワークスペース**: `D:\claude\systems\ihl-ver2`（GitHub `main`。旧パス `D:\Programs\it-hercules-laboratory-clean` は 2026-07-10 移設済み）  
+> **更新**: 2026-07-10
 
 運用・バックログ・フェーズ計画・バージョン計画を **1 フォルダ**に集約した入口です。  
 元の正本（`05-運用/queues/` · `02-設計/`）は **削除せず**、本ハブからリンクします。

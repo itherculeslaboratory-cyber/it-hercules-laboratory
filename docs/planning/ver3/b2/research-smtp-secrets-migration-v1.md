@@ -119,3 +119,20 @@ revalidate_before_impl: true
 3. 公開登録（V3-AUT-42）が解禁された場合の月間送信量見込みと、無料枠 100 通/日で足りるかの試算。
 4. `.env.platform.example` の Cloudflare アカウント ID 実値の扱い — プレースホルダ化を段階 (a) の同コミットに含めるか、別コミットか。
 5. Resend アカウントのオーナーメール・2FA 設定をどの人間ゲート記録に登記するか（アカウント自体が新たなシークレット面になる）。
+
+---
+
+## C0 再検証追記(2026-07-10)
+
+> Phase C0(開発計画 §3.1 C0-④)による revalidate_before_impl の一括実施。元調査と同日のため軽量確認。
+
+| # | 再検証項目 | 結果 | 根拠(URL/確認方法) |
+|---|---|---|---|
+| 1 | Resend 無料枠(3,000/月・100/日・独自ドメイン数)の改悪有無 | 維持。3,000通/月・100通/日・独自ドメイン1・自動化10,000回/月は元調査時点と同一。有料 Pro は $20/月〜(50,000通)で変化なし | https://resend.com/pricing (WebFetch 確認) |
+| 2 | Resend SMTP インターフェースの仕様(ホスト/ポート/認証方式) | 維持。`smtp.resend.com`、username固定 `resend`、password=APIキー。ポートは25/465/587/2465/2587(元調査記載の465/587を包含し変更なし) | https://resend.com/docs/send-with-smtp (WebFetch 確認) |
+| 3 | Cloudflare Email Service(送信)の GA 状況 | **軽微差分あり(選定は不変)**。2026-04-16に private beta → public beta へ昇格(元調査記載の"Beta"から一段進行)。ただし依然 Workers Paid プラン限定で GA 未到達 — 「2026-07時点でBetaに載せるのは不適」という元調査の結論は維持 | https://developers.cloudflare.com/changelog/post/2026-04-16-email-sending-public-beta/ (WebSearch 確認) |
+| 4 | SendGrid 無料枠廃止・SES 無料枠縮小の事実 | 維持。SendGrid Free Plan は2025-07-26に完全停止(告知2025-05-27)、既存の事実確認と一致。SES側の追加変化なし | https://www.twilio.com/en-us/changelog/sendgrid-free-plan (WebSearch 確認) |
+| 5 | Gmail 宛到達性要件(SPF/DKIM/DMARC)の強化有無 | 維持+補強情報。2024-02からのバルク送信者(5,000通/日超)向けSPF+DKIM+DMARC必須は継続。2025-11以降は非準拠メールが550(恒久拒否)に厳格化(元調査は421の一時保留段階の記述のみ)。本件は1ユーザー運用でバルク閾値未達のため p=none 開始の方針は影響なし | https://support.google.com/a/answer/81126 (WebSearch 確認) |
+| 6 | 単一プロバイダ依存・dev_token フォールバック / VPS再構築時期ずれ / 日本からの到達性 | C0対象外(人間ゲート/実装時 e2e 確認事項のため、web再検証の対象外) | — |
+
+**判定**: 選定前提は維持(partially-changed = Cloudflare Email Service が private beta→public beta へ一段進行し、Gmail 到達性要件の執行が421→550へ厳格化した点で情報の鮮度更新はあるが、いずれも Resend 選定という結論には影響しない軽微差分)。改訂が必要な箇所なし。

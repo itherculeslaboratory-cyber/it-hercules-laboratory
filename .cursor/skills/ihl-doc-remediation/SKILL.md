@@ -78,7 +78,7 @@ node scripts/ihl-reverse-rtm.mjs --feature NN               # 孤立TC 0
 ## Phase 0 — 準備（監査の前に必須）
 
 ```bash
-# repo root: it-hercules-laboratory-clean
+# repo root: D:\claude\systems\ihl-ver2（it-hercules-laboratory-clean を移設）
 node scripts/ihl-doc-layering-audit.mjs --write
 node scripts/ihl-impl-gap-inventory.mjs --all --write
 node scripts/ihl-doc-remed-baseline.mjs --write

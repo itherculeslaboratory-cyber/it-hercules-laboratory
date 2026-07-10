@@ -115,3 +115,20 @@ ver3 の新 repo（`it-hercules-laboratory_ver3`）は、次の 7 点セット�
 3. **Windows 環境での symlink**: 新 repo は Windows 開発が主。`CLAUDE.md` symlink が git/Windows でどう振る舞うか（`core.symlinks`）。実ファイル複製 + CI 同期チェックが現実解かもしれない。
 4. **llms.txt を repo 自体にも置くか**: 仕様はウェブサイト向けだが、GitHub リポジトリ直下に置く事例も出ている。効果不明のため Phase C で実測判断。
 5. **既存 ver2 データの遡及適用**: 本 repo（ver2）の既存イベントに ULID・エンベロープを遡及付与するか、移行境界で「v0 イベント」として封印するか。移行戦略（互換必須 13 レイヤー）の一部として B3 で裁定する。
+
+---
+
+## C0 再検証追記(2026-07-10)
+
+> Phase C0(開発計画 §3.1 C0-④)による revalidate_before_impl の一括実施。元調査と同日のため軽量確認。
+
+| # | 再検証項目 | 結果 | 根拠(URL/確認方法) |
+|---|---|---|---|
+| 1 | llms.txt の標準化動向 | 維持。IETF/W3C 標準化はまだ実現せず(2026-04 時点で未確定)。Google Search は依然「不要」と明言(2026-05-15 の AI 最適化ガイドで再確認)。一方 Chrome Lighthouse 13.3(2026-05)が Agentic Browsing 監査項目に llms.txt 有無チェックを追加、Anthropic/OpenAI がエージェント文脈で推奨継続。ver3 の「エージェント用と割り切る」判断はむしろ補強された。 | WebSearch: presenc.ai state-of-llms-txt-2026, groundingpage.com/facts/llms-txt |
+| 2 | AGENTS.md の仕様固定度 | 維持(むしろ強化)。AAIF は 2026-04 時点で会員 170+ 団体に急拡大(CNCF の同時期の2倍超)、常任 Executive Director(Mazin Gilbert)も就任し組織として安定化。採用 60,000+ リポジトリの数値も一致。仕様の破壊的変更の報告なし。 | WebSearch: linuxfoundation.org press release, aaif.io/projects/agents-md |
+| 3 | CloudEvents のバージョン | 維持。specversion は依然 "1.0" のみ。v2 系スペックのリリースは確認されず(Python SDK の "2.0.0" はSDKバージョンでありspecversionではない点に注意)。 | WebSearch: github.com/cloudevents/spec releases, pypi.org/project/cloudevents |
+| 4 | DuckDB API(`parquet_kv_metadata()`) | 維持。関数は現行ドキュメント(duckdb.org/docs/lts/data/parquet/metadata)に存在し、file_name/key/value を返す仕様も報告書の想定と一致。破壊的変更なし。 | WebSearch + duckdb.org 公式ドキュメント該当ページ |
+| 5 | チャンキング知見の流動性 | 維持(報告書内の注記どおり分野は流動的)。2026-02 Vecta ベンチマークで recursive 512トークン分割がsemantic分割を上回る(69% vs 54%)結果を確認。H2見出し境界規約(執筆時投資)自体への影響はなく、検索基盤側の分割戦略は別途ベンチが必要という報告書の結論と整合。 | WebSearch: firecrawl.dev, vecta 2026-02 ベンチマーク記事 |
+| 6 | ULID vs UUIDv7 | 軽微差分あり(選定は維持可だが根拠のアップデートが必要)。RFC 9562(UUIDv7)のエコシステム対応が進行: PostgreSQL 18(2025-09 リリース)がuuidv7()をネイティブサポート、Python 3.14(2025-10)は標準ライブラリに`uuid.uuid7()`を追加。ULID は非IETF標準のままでDB/言語のネイティブ型統合は引き続き無し。ver3はファイル名grep可能性(Base32・26文字)を重視するためULID優位の結論自体は崩れないが、「DBネイティブ対応が進めばUUIDv7有利」という報告書の予測が現実化しつつある点は明記が要る。 | WebSearch: authgear.com time-sortable-identifiers, freedevtool.org UUID guide(RFC 9562) |
+
+**判定**: 選定前提は維持(6項目中5項目は変化なし、1項目(ULID vs UUIDv7)はUUIDv7のDB/言語ネイティブ対応進展という軽微な差分ありだが、ver3のgrep可能性重視という選定理由自体は崩れていないためULID採用の結論は維持)。要改訂箇所: なし(§6のULID vs UUIDv7項に「PG18/Python 3.14でUUIDv7ネイティブ対応が進行中」という一文追記を推奨するが、Phase C実装判断への影響はない)。

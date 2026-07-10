@@ -180,3 +180,21 @@ Workers の Web Crypto は Ed25519 を（標準の Secure Curves 版に加え le
 - `docs/ver4-infra-agreement.md:12-16`（合意 5 項目）・`:130-141`（ver4 チェックリスト）
 - `docs/registry/INFRA-ROUTE-MATRIX-v1.csv:3-14`（57 route × wave）
 - `docs/planning/ver3/ver3-最終要件定義書-v1.md:1311-1327`（互換必須 13 レイヤー表）
+
+---
+
+## C0 再検証追記(2026-07-10)
+
+> Phase C0(開発計画 §3.1 C0-④)による revalidate_before_impl の一括実施。元調査と同日のため軽量確認。
+
+| # | 再検証項目 | 結果 | 根拠(URL/確認方法) |
+|---|---|---|---|
+| R1 | R2 put-if-absent の正確な書き方(`onlyIf.etagMatches:'*'` vs Headers `If-None-Match:*`) | 変化なし。公式リファレンスは`R2Conditional`(`etagMatches`/`etagDoesNotMatch`/`uploadedBefore`/`uploadedAfter`)とHTTP条件付きヘッダー(`If-None-Match`等)を引き続き記載するが、put-if-absent の具体例・ベストプラクティスは今日時点も未掲載。実機検証必須の結論は不変 | https://developers.cloudflare.com/r2/api/workers/workers-api-reference/ (WebFetch, 2026-07-10) |
+| R2 | Workers Free/Paid・R2 Free 枠の改定有無 | 改定なし。Free: 10万req/日・10ms CPU/req。Paid: 月1,000万req込み+超過$0.30/百万、CPU 3,000万ms込み+超過$0.02/百万ms。R2 Free: 10GB-month・Class A 100万/月・Class B 1,000万/月、全て元調査記載値と一致 | https://developers.cloudflare.com/workers/platform/pricing/ (WebFetch, 2026-07-10) |
+| R3 | メール経路3択の比較・Cloudflare Email Service の正式料金($0.35/1,000通は元調査時点で第三者報道値) | 差分小。Email Service は2026-04にpublic beta開始と判明(元調査は単に"beta"表記)、依然GA未到達。料金$0.35/1,000通(Workers Paid込み3,000通/月)はCloudflare公式pricingページで確認でき、第三者報道値ではなく**公式確定値**に格上げされていた(選定結論への影響なし、脚注根拠がむしろ強化) | https://developers.cloudflare.com/email-service/platform/pricing/, HN #47793414 (WebSearch, 2026-07-10) |
+| R4 | CL-07 サムネイル生成のWorkers実装経路と既存契約とのバイト級互換 | 実装時ステップ(実バイト比較テスト)であり、本日時点のトップライン事実に崩れなし。追加のweb裏取り対象なし(未解決の問い#2のまま実装着手時に検証) | 元調査記載の実装計画を確認、追加ソース不要 |
+| R5 | Python Workers の GA化(beta卒業)有無 | 卒業していない。公式ドキュメントに"Python Workers are in beta"と明記、`python_workers` compatibility flag必須の注記も継続 | https://developers.cloudflare.com/workers/languages/python/ (WebFetch, 2026-07-10) |
+| R6 | Hono / `@hono/zod-openapi` のメジャー更新・保守状況 | 活発に保守中。`@hono/zod-openapi` 最新は v1.4.0(2ヶ月前公開)、破壊的なメジャー更新(v2化等)や非推奨化の兆候なし | https://www.npmjs.com/package/@hono/zod-openapi (WebSearch, 2026-07-10) |
+| R7 | Workers `connect()` の port 587/465 ポリシー変更有無 | 変化なし。公式TCP Socketsドキュメントは引き続き「port 25のみアウトバウンドブロック」と明記し、587/465への言及なし(=禁止の追記なし) | https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/ (WebFetch, 2026-07-10) |
+
+**判定**: 選定前提は維持。R3(Cloudflare Email Serviceの2026-04 public beta開始・$0.35/1,000通が公式確定値と判明)は軽微な事実補強であり、Workers+Hono(TS)一本化・VPS条項降格という結論への影響はなし。人間ゲート対象(メール経路最終裁定・ADR-H-33修正の正式裁定)はC0対象外のまま。

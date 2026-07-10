@@ -58,6 +58,7 @@
 
 | 項目 | 内容 |
 |------|------|
+| **ver3 Phase C0**（2026-07-10） | ワークスペース移行（正本作業パス → `D:\claude\systems\ihl-ver2`・M0-M4+記憶引っ越し）· 新 repo `ihl-ver3` 初期化（`9229c57`）· sunabar sandbox 疎通実証（3 API × 200）· B2 再検証8本追記 — **完了**（[`ver3/REPORT-ver3-phase-c0-2026-07-10.md`](./ver3/REPORT-ver3-phase-c0-2026-07-10.md)）· 次=**C1** |
 | **計画ハブ** | `docs/planning/` 新設（`44304f3`） |
 | **Claude / OSS 監査** | `CLAUDE.md` · `DESIGN-IMPL-AUDIT.md` · `OSS-READINESS.md` · drift-inventory |
 | **AppShell 認証導線** | 未認証: ログイン/新規登録 Link · 認証済み: actor 表示 + ログアウト · `useAuthSession` |

@@ -54036,5 +54036,62 @@
   "wave": "対象外",
   "wave_why": "tier_v2=C・status_in_ver2=未実装/不明→対象外(desire台帳未掲載・実績/根拠薄)",
   "hold": false
+ },
+ {
+  "id": "V3-AIP-97",
+  "group": "g09-AIプロセス",
+  "category": "AI運用/開発プロセス",
+  "kind": "機能要件",
+  "statement": "D:\\claude を Claude の本拠地（HQ）とするワークスペース階層を設計・構築する。横断の正本（運用規約・裁定ログ・ダッシュボード・夜間タスク定義）を HQ に置き、開発システム（ihl-ver3 / ihl-ver2 / civilization-os 等）は systems/ 配下に1システム=1フォルダで従属させ、知識資産（yt-transcripts / notes / 投入口）は knowledge/ に集約する。視覚的にも直感的にも分かる階層とし、移行は「パス参照の更新 + Claude Code プロジェクト記憶の引っ越し」チェックリストに従い B3 設計確定後に実施する。",
+  "scores": {
+   "bv": {
+    "v": 4,
+    "why": "属人化ゼロ・文明の図書館思想のフォルダ実装。全システム運用の土台"
+   },
+   "ui": {
+    "v": 4,
+    "why": "運営者の日常の起点が1箇所に集約される"
+   },
+   "dep": {
+    "v": 4,
+    "why": "新repo配置・夜間運転・ダッシュボード・記憶運用の前提"
+   },
+   "diff": {
+    "v": 2,
+    "why": "構造自体は簡単。難所は記憶引っ越しとパス参照の移行(参考値)"
+   }
+  },
+  "ds": 5,
+  "ds_why": "ユーザー直筆の明示要求(2026-07-10)+テーマ3(記憶OS/文明の図書館)・テーマ12(AI開発体制)の合流点",
+  "score_v2": 80,
+  "tier_v2": "S",
+  "philosophy": [
+   "10年コスト最小",
+   "その他思想"
+  ],
+  "trust": "高",
+  "human_confirm": false,
+  "novelty": "ver3新規",
+  "status_in_ver2": "未着手",
+  "req_status": "確定",
+  "wave": "第1波",
+  "wave_why": "B3 でワークスペース全体設計として起案し、Phase C 開始時(新repo誕生と同時)に移行実施",
+  "sources": [
+   {
+    "src_file": "ユーザー指示(本セッション)",
+    "evidence": "D:\\claude とかを…Claudの本拠地にして、それにver3とかが開発システム単位で従属しているフォルダで階層構造で綺麗に視覚的にも直感的にもわかりやすい感じにしたい",
+    "trust": "高",
+    "date": "2026-07-10"
+   },
+   {
+    "src_file": "extract/beta/keep-b17.json ほか(テーマ3)",
+    "evidence": "GitHub(技術の歴史)掲示板(文化の歴史)仕様書(意図の歴史)…ひとつの文明として連続",
+    "trust": "中",
+    "date": "2026-03-24"
+   }
+  ],
+  "superseded": null,
+  "conflict": null,
+  "ambiguity": null
  }
 ]
